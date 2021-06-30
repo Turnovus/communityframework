@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="HatMakeableBase" Name="CowboyHat">
+		<defName>Apparel_CowbodwayHat</defName>
+		<label>test hat</label>
+		<description>Stylish yet rugged, this hat keeps the sun and rain off - and it gives anyone who wears it a bit of extra charm. It is the most important part of traditional western attire.</description>
+		<recipeMaker>
+			<researchPrerequisite>ComplexClothing</researchPrerequisite>
+		</recipeMaker>
+		<graphicData>
+			<texPath>Things/Pawn/Humanlike/Apparel/CowboyHat/CowboyHat</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9, 0.9)</drawSize>
+		</graphicData>
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>80</MaxHitPoints>
+			<WorkToMake>1800</WorkToMake>
+			<Mass>0.14</Mass>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.10</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.50</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>0.8</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<CarryingCapacity>100</CarryingCapacity>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Things/Pawn/Humanlike/Apparel/CowboyHat/CowboyHat</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>Western</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>10</weight>
+					<only>(0.9,0.54,0.15,1)</only>
+				</li>
+				<li>
+					<weight>15</weight>
+					<only>(0.9,0.6,0.18,1)</only>
+				</li>
+				<li>
+					<weight>20</weight>
+					<only>(0.9,0.42,0.23,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+	<ThingDef ParentName="TrapIEDBase">
+		<defName>TrapIED_Smoktee</defName>
+		<label>IEDTESTSmoke trap</label>
+		<description>A pair of smoke shells connected to a trigger which detonates on touch or bullet impact. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+		<graphicData>
+			<texPath>Things/Building/Security/IEDSmoke</texPath>
+		</graphicData>
+		<costList>
+			<Shell_Smoke>2</Shell_Smoke>
+		</costList>
+		<statBases>
+			<TrapSpringChance>0</TrapSpringChance>
+		</statBases>
+		<designationHotKey>Misc10</designationHotKey>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>8.6</explosiveRadius>
+				<explosiveDamageType>Smoke</explosiveDamageType>
+				<startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+				<postExplosionSpawnThingDef>Gas_Smoke</postExplosionSpawnThingDef>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+				<wickTicks>15</wickTicks>
+				<startWickOnDamageTaken>
+					<li>Bullet</li>
+					<li>Arrow</li>
+					<li>ArrowHighVelocity</li>
+				</startWickOnDamageTaken>
+			</li>
+			<li Class="CF.CompProperties_RemoteTrigger">
+				<labelKey>RH_Claymore_Detonate</labelKey>
+				<descKey>RH_Claymore_Detonate_Desc</descKey>
+				<activateSound>RN_DetonatorPhone</activateSound>
+				<iconPath>UI/NOKIA_Detonator</iconPath>
+			</li>
+		</comps>
+		<specialDisplayRadius>8.6</specialDisplayRadius>
+	</ThingDef>
+</Defs>

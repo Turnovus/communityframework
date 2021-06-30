@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompProperties_RemoteTrigger.cs" />
+    <Compile Include="CompRemoteTrigger.cs" />
+    <Compile Include="Harmony patches\Capacity.cs" />
     <Compile Include="Harmony patches\Hatch.cs" />
     <Compile Include="Harmony patches\Notify_NewLink.cs" />
     <Compile Include="CompProperties_UnlocksRecipe.cs" />
