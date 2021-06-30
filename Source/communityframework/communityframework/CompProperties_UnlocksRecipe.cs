@@ -15,7 +15,7 @@ namespace CF
             this.compClass = typeof(CompUnlocksRecipe);
         }
 
-        public ThingDef targetFacility; // Which facility should be targeted
+        public List<LinkableFacilities> linkableFacilities; // Which facilities should be targeted
 
         public List<RecipeDef> recipes; // Which recipes should be added
     }

@@ -58,6 +58,7 @@
     <Compile Include="CompProperties_UnlocksRecipe.cs" />
     <Compile Include="CompUnlocksRecipe.cs" />
     <Compile Include="Harmony patches\PatchRunner.cs" />
+    <Compile Include="LinkableFacilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Harmony patches\Notify_LinkRemoved.cs" />
   </ItemGroup>

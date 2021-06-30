@@ -18,48 +18,7 @@ namespace CF
     {
         public static void Postfix(Thing facility, CompAffectedByFacilities __instance)
         {
-            int facilityCount = 0; // Count of similarly connected facilities
-            bool alreadyContainsRecipe = false; // If the target workbench already contains a recipe from the recipe list that should be added on the link creation.
-
-            if (__instance.parent.GetComp<CompUnlocksRecipe>() != null)
-            {
-                CompUnlocksRecipe compUnlocksRecipe = __instance.parent.GetComp<CompUnlocksRecipe>();
-                CompProperties_UnlocksRecipe props = compUnlocksRecipe.Props;
-
-                CompAffectedByFacilities compAffectedByFacilities = __instance.parent.GetComp<CompAffectedByFacilities>();
-
-                List<Thing> connectedFacilities = compAffectedByFacilities.LinkedFacilitiesListForReading;
-
-                if (connectedFacilities != null)
-                {
-                    foreach (Thing singleFacility in connectedFacilities)
-                    {
-                        if (props.targetFacility.defName == singleFacility.def.defName) // If the defName of the facility is equal to the defName of the target defName from the XML, add 1.
-                        {
-                            facilityCount++;
-                        }
-                    }
-
-                    if (facilityCount == 1) // This makes sure the code below is only executed on the first facility of the same type.
-                    {
-                        foreach (RecipeDef recipe in props.recipes) // Check if any of the recipes already exist.
-                        {
-                            if (__instance.parent.def.AllRecipes.Contains(recipe))
-                            {
-                                alreadyContainsRecipe = true;
-                            }
-                        }
-                        if (alreadyContainsRecipe == false)
-                        {
-                            __instance.parent.def.AllRecipes.AddRange(props.recipes);
-                        }
-                        else
-                        {
-                            Log.Error("One of the recipes added through CompProperties_UnlockRecipe already exists. Cancelling patch...");
-                        }
-                    }
-                }
-            }
+            CompUnlocksRecipe.AddRecipe(facility, __instance);
         }
     }
 }
