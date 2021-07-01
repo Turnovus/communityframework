@@ -15,10 +15,7 @@ namespace CF
             this.compClass = typeof(CompRemoteTrigger);
         }
 
-        public string labelKey, descKey, iconPath;
+        public string texPath;
 
-        public KeyBindingDef keyBinding;
-
-        public SoundDef activateSound;
     }
 }

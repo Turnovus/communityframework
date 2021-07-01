@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using RimWorld;
 using Verse;
+using Verse.Sound;
+using UnityEngine;
 
 namespace CF
 {
@@ -20,17 +22,24 @@ namespace CF
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            Command_Action comp = GizmoManager.remoteTriggerGizmos[base.parent.def];
-            comp.action = delegate
+            // Check if graphicPath returns an actual texture.
+            if (!ContentFinder<Texture2D>.Get(Props.texPath))
             {
-                Thing toDetonate = base.parent;
-                CompProjectileSprayer proj = toDetonate.TryGetComp<CompProjectileSprayer>();
-                if (!(proj?.fired ?? true)) proj?.Fire();
-                CompExplosive expl = toDetonate.TryGetComp<CompExplosive>();
-                if (!(expl?.wickStarted ?? true)) expl.StartWick();
-            };
-            yield return comp;
-        }
+                Log.Error("No Gizmo texture found");
+            }
 
+            return base.CompGetGizmosExtra().Append(new Command_Action
+            {
+                defaultLabel = "Trigger",
+                defaultDesc = $"Trigger {this.parent.def.defName}",
+                icon = ContentFinder<Texture2D>.Get(Props.texPath),
+                action = delegate
+                {
+                    Thing toDetonate = base.parent;
+                    CompExplosive cE = toDetonate.TryGetComp<CompExplosive>();
+                    if (!(cE?.wickStarted ?? true)) cE.StartWick();
+                }
+            });          
+        }
     }
 }
