@@ -57,17 +57,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompProperties_RemoteTrigger.cs" />
-    <Compile Include="CompRemoteTrigger.cs" />
+    <Compile Include="Harmony patches\ShouldHaveNeed.cs" />
+    <Compile Include="IgnoreNeed.cs" />
+    <Compile Include="RemoteTrigger\CompProperties_RemoteTrigger.cs" />
+    <Compile Include="RemoteTrigger\CompRemoteTrigger.cs" />
     <Compile Include="Harmony patches\Capacity.cs" />
     <Compile Include="Harmony patches\Hatch.cs" />
     <Compile Include="Harmony patches\Notify_NewLink.cs" />
-    <Compile Include="CompProperties_UnlocksRecipe.cs" />
-    <Compile Include="CompUnlocksRecipe.cs" />
+    <Compile Include="UnlocksRecipe\CompProperties_UnlocksRecipe.cs" />
+    <Compile Include="UnlocksRecipe\CompUnlocksRecipe.cs" />
     <Compile Include="Harmony patches\PatchRunner.cs" />
-    <Compile Include="LinkableFacilities.cs" />
+    <Compile Include="UnlocksRecipe\LinkableFacilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Harmony patches\Notify_LinkRemoved.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

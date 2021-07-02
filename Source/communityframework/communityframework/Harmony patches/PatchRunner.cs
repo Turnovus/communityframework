@@ -24,6 +24,7 @@ namespace CF
         {
             //Start patching all harmony patches.
             var harmony = new Harmony("com.communityframework.harmonypatches");
+            Log.Message("Community Framework patching started.");
             harmony.PatchAll();
         }
 
