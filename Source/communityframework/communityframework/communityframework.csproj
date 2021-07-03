@@ -57,20 +57,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Harmony patches\ShouldHaveNeed.cs" />
-    <Compile Include="IgnoreNeed.cs" />
-    <Compile Include="RemoteTrigger\CompProperties_RemoteTrigger.cs" />
-    <Compile Include="RemoteTrigger\CompRemoteTrigger.cs" />
-    <Compile Include="Harmony patches\Capacity.cs" />
-    <Compile Include="Harmony patches\Hatch.cs" />
-    <Compile Include="Harmony patches\Notify_NewLink.cs" />
-    <Compile Include="UnlocksRecipe\CompProperties_UnlocksRecipe.cs" />
-    <Compile Include="UnlocksRecipe\CompUnlocksRecipe.cs" />
+    <Compile Include="Comps\RestrictMedicine\CompProperties_RestrictMedicine.cs" />
+    <Compile Include="Comps\RestrictMedicine\CompRestrictMedicine.cs" />
+    <Compile Include="Harmony patches\HealthAIUtility\FindBestMedicine.cs" />
+    <Compile Include="Harmony patches\Pawn_PathFollower\CostToMoveIntoCell.cs" />
+    <Compile Include="Harmony patches\Pawn_NeedsTracker\ShouldHaveNeed.cs" />
+    <Compile Include="DefModExtensions\IgnoreNeed.cs" />
+    <Compile Include="Comps\HediffComp_IgnorePathCost.cs" />
+    <Compile Include="Comps\RemoteTrigger\CompProperties_RemoteTrigger.cs" />
+    <Compile Include="Comps\RemoteTrigger\CompRemoteTrigger.cs" />
+    <Compile Include="Harmony patches\MassUtility\Capacity.cs" />
+    <Compile Include="Harmony patches\CompHatcher\Hatch.cs" />
+    <Compile Include="Harmony patches\CompAffectedByFacilities\Notify_NewLink.cs" />
+    <Compile Include="Comps\UnlocksRecipe\CompProperties_UnlocksRecipe.cs" />
+    <Compile Include="Comps\UnlocksRecipe\CompUnlocksRecipe.cs" />
     <Compile Include="Harmony patches\PatchRunner.cs" />
-    <Compile Include="UnlocksRecipe\LinkableFacilities.cs" />
+    <Compile Include="Comps\UnlocksRecipe\LinkableFacilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Harmony patches\Notify_LinkRemoved.cs" />
+    <Compile Include="Harmony patches\CompAffectedByFacilities\Notify_LinkRemoved.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
