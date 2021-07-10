@@ -57,9 +57,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comps\RestrictMedicine\CompProperties_RestrictMedicine.cs" />
-    <Compile Include="Comps\RestrictMedicine\CompRestrictMedicine.cs" />
-    <Compile Include="Harmony patches\HealthAIUtility\FindBestMedicine.cs" />
     <Compile Include="Harmony patches\Pawn_PathFollower\CostToMoveIntoCell.cs" />
     <Compile Include="Harmony patches\Pawn_NeedsTracker\ShouldHaveNeed.cs" />
     <Compile Include="DefModExtensions\IgnoreNeed.cs" />
