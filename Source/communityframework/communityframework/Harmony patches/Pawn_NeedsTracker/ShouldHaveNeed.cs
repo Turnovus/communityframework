@@ -15,13 +15,17 @@ namespace CF
     [HarmonyPatch(typeof(Pawn_NeedsTracker), "ShouldHaveNeed")]
     class ShouldHaveNeed
     {
-        public static bool Postfix(ref bool __result, NeedDef _needDef, Pawn _pawn)
+        public static void Postfix(
+            ref bool __result,
+            NeedDef nd,
+            Pawn ___pawn)
         {
-            if (_pawn.GetModExtension<IgnoreNeed>().needs.Contains(_needDef))
+            //Ensure that the pawn has the ModExtension before trying to access
+            IgnoreNeed ignore = ___pawn.GetModExtension<IgnoreNeed>();
+            if (ignore != null && ignore.needs.Contains(nd))
             {
-                return false;
+                __result = false;
             }
-            return __result;
         }
     }
 }

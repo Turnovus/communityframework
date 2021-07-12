@@ -57,6 +57,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurableRegenUtility.cs" />
+    <Compile Include="Comps\HealPermanentWoundsConfigurable\HediffCompProperties_HealPermanentWoundsConfigurable.cs" />
+    <Compile Include="Comps\HealPermanentWoundsConfigurable\HediffComp_HealPermanentWoundsConfigurable.cs" />
+    <Compile Include="Comps\ShouldRemove\HediffComp_ShouldRemove.cs" />
+    <Compile Include="Enumerations\InjuryRegenListMode.cs" />
+    <Compile Include="Harmony patches\Hediff_MissingPart\ShouldRemove.cs" />
     <Compile Include="Harmony patches\Pawn_PathFollower\CostToMoveIntoCell.cs" />
     <Compile Include="Harmony patches\Pawn_NeedsTracker\ShouldHaveNeed.cs" />
     <Compile Include="DefModExtensions\IgnoreNeed.cs" />
@@ -72,6 +78,7 @@
     <Compile Include="Comps\UnlocksRecipe\LinkableFacilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Harmony patches\CompAffectedByFacilities\Notify_LinkRemoved.cs" />
+    <Compile Include="RegenSideEffect.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup />
