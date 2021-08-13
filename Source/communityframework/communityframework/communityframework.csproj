@@ -61,8 +61,10 @@
     <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffCompProperties_HealPermanentWoundsConfigurable.cs" />
     <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffComp_HealPermanentWoundsConfigurable.cs" />
     <Compile Include="Comps\HediffComps\ShouldRemove\HediffComp_ShouldRemove.cs" />
+    <Compile Include="DefModExtensions\TraitRandomDiseasePool.cs" />
     <Compile Include="Enumerations\InjuryRegenListMode.cs" />
     <Compile Include="Harmony patches\Hediff_MissingPart\ShouldRemove.cs" />
+    <Compile Include="Harmony patches\Pawn_HealthTracker\HealthTick.cs" />
     <Compile Include="Harmony patches\Pawn_PathFollower\CostToMoveIntoCell.cs" />
     <Compile Include="Harmony patches\Pawn_NeedsTracker\ShouldHaveNeed.cs" />
     <Compile Include="DefModExtensions\IgnoreNeed.cs" />
