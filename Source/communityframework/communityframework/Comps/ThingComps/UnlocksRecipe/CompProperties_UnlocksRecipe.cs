@@ -10,6 +10,13 @@ namespace CF
 {
     public class CompProperties_UnlocksRecipe : CompProperties
     {
+        public class LinkableFacilities
+        {
+            public ThingDef targetFacility;
+
+            public QualityCategory minQuality;
+        }
+
         public CompProperties_UnlocksRecipe()
         {
             this.compClass = typeof(CompUnlocksRecipe);

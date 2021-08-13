@@ -58,27 +58,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurableRegenUtility.cs" />
-    <Compile Include="Comps\HealPermanentWoundsConfigurable\HediffCompProperties_HealPermanentWoundsConfigurable.cs" />
-    <Compile Include="Comps\HealPermanentWoundsConfigurable\HediffComp_HealPermanentWoundsConfigurable.cs" />
-    <Compile Include="Comps\ShouldRemove\HediffComp_ShouldRemove.cs" />
+    <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffCompProperties_HealPermanentWoundsConfigurable.cs" />
+    <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffComp_HealPermanentWoundsConfigurable.cs" />
+    <Compile Include="Comps\HediffComps\ShouldRemove\HediffComp_ShouldRemove.cs" />
     <Compile Include="Enumerations\InjuryRegenListMode.cs" />
     <Compile Include="Harmony patches\Hediff_MissingPart\ShouldRemove.cs" />
     <Compile Include="Harmony patches\Pawn_PathFollower\CostToMoveIntoCell.cs" />
     <Compile Include="Harmony patches\Pawn_NeedsTracker\ShouldHaveNeed.cs" />
     <Compile Include="DefModExtensions\IgnoreNeed.cs" />
-    <Compile Include="Comps\HediffComp_IgnorePathCost.cs" />
-    <Compile Include="Comps\RemoteTrigger\CompProperties_RemoteTrigger.cs" />
-    <Compile Include="Comps\RemoteTrigger\CompRemoteTrigger.cs" />
+    <Compile Include="Comps\HediffComps\HediffComp_IgnorePathCost.cs" />
+    <Compile Include="Comps\ThingComps\RemoteTrigger\CompProperties_RemoteTrigger.cs" />
+    <Compile Include="Comps\ThingComps\RemoteTrigger\CompRemoteTrigger.cs" />
     <Compile Include="Harmony patches\MassUtility\Capacity.cs" />
     <Compile Include="Harmony patches\CompHatcher\Hatch.cs" />
     <Compile Include="Harmony patches\CompAffectedByFacilities\Notify_NewLink.cs" />
-    <Compile Include="Comps\UnlocksRecipe\CompProperties_UnlocksRecipe.cs" />
-    <Compile Include="Comps\UnlocksRecipe\CompUnlocksRecipe.cs" />
+    <Compile Include="Comps\ThingComps\UnlocksRecipe\CompProperties_UnlocksRecipe.cs" />
+    <Compile Include="Comps\ThingComps\UnlocksRecipe\CompUnlocksRecipe.cs" />
     <Compile Include="Harmony patches\PatchRunner.cs" />
-    <Compile Include="Comps\UnlocksRecipe\LinkableFacilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Harmony patches\CompAffectedByFacilities\Notify_LinkRemoved.cs" />
-    <Compile Include="RegenSideEffect.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup />

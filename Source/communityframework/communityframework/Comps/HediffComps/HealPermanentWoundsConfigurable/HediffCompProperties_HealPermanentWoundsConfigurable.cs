@@ -27,7 +27,7 @@ namespace CF
         /// A <c>List</c> of <c>RegenSideEffect</c>s that will be applied to
         /// the <c>Pawn</c> whenever a <c>Hediff</c> is removed.
         /// </summary>
-        public List<RegenSideEffect> regenHediffs = null;
+        public List<ConfigurableRegenUtility.RegenSideEffect> regenHediffs = null;
         /// <summary>
         /// If <c>true</c>, parts that are fully destroyed will still have
         /// their <c>Hediff</c>s cured.
