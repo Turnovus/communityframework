@@ -21,7 +21,7 @@ namespace CF
             Pawn ___pawn)
         {
             //Ensure that the pawn has the ModExtension before trying to access
-            IgnoreNeed ignore = ___pawn.GetModExtension<IgnoreNeed>();
+            IgnoreNeed ignore = ___pawn.kindDef.GetModExtension<IgnoreNeed>();
             if (ignore != null && ignore.needs.Contains(nd))
             {
                 __result = false;
