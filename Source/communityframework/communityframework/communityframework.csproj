@@ -57,13 +57,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurableRegenUtility.cs" />
+    <Compile Include="Comps\HediffComps\CraftedQualityOffset\HediffCompProperties_CraftedQualityOffset.cs" />
+    <Compile Include="Comps\HediffComps\CraftedQualityOffset\HediffComp_CraftedQualityOffset.cs" />
+    <Compile Include="Comps\HediffComps\HediffComp_OnHediffAdded.cs" />
+    <Compile Include="Comps\HediffComps\MultiplyOtherHediff\HediffCompProperties_MultiplyOtherHediff.cs" />
+    <Compile Include="Comps\HediffComps\MultiplyOtherHediff\HediffComp_MultiplyOtherHediffDuration.cs" />
+    <Compile Include="Comps\HediffComps\MultiplyOtherHediff\HediffComp_MultiplyOtherHediffSeverity.cs" />
+    <Compile Include="Comps\HediffComps\SeverityFromPain\HediffCompProperties_SeverityFromPain.cs" />
+    <Compile Include="Comps\HediffComps\SeverityFromPain\HediffComp_SeverityFromPain.cs" />
+    <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffCompProperties_SeverityFromSkill.cs" />
+    <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffComp_SeverityFromSkill.cs" />
+    <Compile Include="CommunityHealthUtility.cs" />
     <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffCompProperties_HealPermanentWoundsConfigurable.cs" />
     <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffComp_HealPermanentWoundsConfigurable.cs" />
     <Compile Include="Comps\HediffComps\ShouldRemove\HediffComp_ShouldRemove.cs" />
     <Compile Include="DefModExtensions\TraitRandomDiseasePool.cs" />
     <Compile Include="Enumerations\InjuryRegenListMode.cs" />
     <Compile Include="Harmony patches\Hediff_MissingPart\ShouldRemove.cs" />
+    <Compile Include="Harmony patches\Pawn_HealthTracker\AddHediff.cs" />
     <Compile Include="Harmony patches\Pawn_HealthTracker\HealthTick.cs" />
     <Compile Include="Harmony patches\Pawn_PathFollower\CostToMoveIntoCell.cs" />
     <Compile Include="Harmony patches\Pawn_NeedsTracker\ShouldHaveNeed.cs" />
@@ -77,9 +88,10 @@
     <Compile Include="Comps\ThingComps\UnlocksRecipe\CompProperties_UnlocksRecipe.cs" />
     <Compile Include="Comps\ThingComps\UnlocksRecipe\CompUnlocksRecipe.cs" />
     <Compile Include="Harmony patches\PatchRunner.cs" />
+    <Compile Include="Harmony patches\QualityUtility\GenerateQualityCreatedByPawn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Harmony patches\CompAffectedByFacilities\Notify_LinkRemoved.cs" />
-    <Compile Include="Utility.cs" />
+    <Compile Include="RecipeWorker\Recipe_InstallOrReplaceImplant.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

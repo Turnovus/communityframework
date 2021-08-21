@@ -42,13 +42,13 @@ namespace CF
 
         /// <summary>
         /// Method run after the internal timer runs out, simply invokes
-        /// <c>ConfigurableRegenUtility.TryHealRandomPermanentWoundFor</c>
+        /// <c>CommunityHealthUtility.TryHealRandomPermanentWoundFor</c>
         /// using values defined by
         /// <c>HediffCompProperties_HealPermanentWoundsConfigurable</c>.
         /// </summary>
         private void TryHealPermanentWound()
         {
-            ConfigurableRegenUtility.TryHealRandomPermanentWoundFor(
+            CommunityHealthUtility.TryHealRandomPermanentWoundFor(
                 Pawn,
                 parent,
                 Props.blacklist,

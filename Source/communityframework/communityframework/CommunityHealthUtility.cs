@@ -9,13 +9,13 @@ namespace CF
     /// <summary>
     /// A static helper utility for handling the health of <c>Pawns</c>.
     /// </summary>
-    public static class ConfigurableRegenUtility
+    public static class CommunityHealthUtility
     {
         /// <summary>
         /// Represents a side-effect that can be applied upon regeneration,
-        /// including the <c>Hediff</c> to apply, the frequency at which it occurs,
-        /// how its severity should be calculated, and whether it should be applied
-        /// to the target part or whole body.
+        /// including the <c>Hediff</c> to apply, the frequency at which it 
+        /// occurs, how its severity should be calculated, and whether it
+        /// should be applied to the target part or whole body.
         /// </summary>
         public class RegenSideEffect
         {
@@ -33,10 +33,10 @@ namespace CF
             /// </summary>
             public FloatRange severity = new FloatRange(0f, 1f);
             /// /// <summary>
-            /// If <c>true</c>, the <c>Hediff</c>'s severity will be multiplied by
-            /// the cured <c>Hediff</c>'s severity. If it is an injury, it will be
-            /// multiplied by the <c>Hediff</c>'s severity as a percent of the base
-            /// health.
+            /// If <c>true</c>, the <c>Hediff</c>'s severity will be multiplied
+            /// by the cured <c>Hediff</c>'s severity. If it is an injury, it
+            /// will be multiplied by the <c>Hediff</c>'s severity as a percent
+            /// of the base health.
             /// </summary>
             public bool useInjurySeverityMult = false;
             /// <summary>
@@ -503,6 +503,45 @@ namespace CF
                 HediffIsInjury(hediff))
                 return false;
             return true;
+        }
+
+        /// <summary>
+        /// Calculates the amount of pain that a given <c>Pawn</c> is
+        /// experiencing right now, with or without health-induced multipliers.
+        /// </summary>
+        /// <param name="pawn">
+        /// The <c>Pawn</c> whose pain is being checked
+        /// </param>
+        /// <param name="usePainFactor">
+        /// If <c>true</c>, the final value will account for <c>Hediff</c>s
+        /// that multiply the <c>Pawn</c>'s total pain level. Set to
+        /// <c>false</c> for the "raw" value.
+        /// </param>
+        /// <param name="careIfMech">
+        /// If this value is <c>true</c>, and the given <c>Pawn</c> is not made
+        /// of flesh (for example, if it is a mechanoid), then this method will
+        /// always return 0 because robots have no feelings.
+        /// </param>
+        /// <returns
+        /// >A <c>float</c> representing the current amount of pain that the
+        /// given <c>Pawn</c> should be in. Does not include a maximum value.
+        /// </returns>
+        public static float CalculatePawnIntendedPain(
+            Pawn pawn,
+            bool usePainFactor=true,
+            bool careIfMech=true)
+        {
+            if ((!pawn.RaceProps.IsFlesh && careIfMech) || pawn.Dead)
+                return 0.0f;
+            float num = 0.0f;
+            foreach (Hediff h in pawn.health.hediffSet.hediffs)
+                num += h.PainOffset;
+            if (usePainFactor)
+            {
+                foreach (Hediff h in pawn.health.hediffSet.hediffs)
+                    num *= h.PainFactor;
+            }
+            return num;
         }
     }
 }

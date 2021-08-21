@@ -14,7 +14,8 @@ namespace CF
 		{
 			get
 			{
-				return "Terrain path cost is ignored";
+				//English: "Terrain path cost is ignored"
+				return "CF_IgnorePathCost_StringExtra".Translate();
 			}
 		}
 	}
