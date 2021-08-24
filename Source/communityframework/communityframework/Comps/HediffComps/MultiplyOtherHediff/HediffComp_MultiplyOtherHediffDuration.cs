@@ -40,7 +40,7 @@ namespace CF
                     HediffComp_Disappears comp =
                         withComps.TryGetComp<HediffComp_Disappears>();
                     if (comp != null)
-                        comp.ticksToDisappear *= (int)Props.multiplier;
+                        comp.ticksToDisappear = (int)Math.Ceiling(comp.ticksToDisappear * Props.multiplier);
                 }
         }
     }

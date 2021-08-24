@@ -35,7 +35,7 @@ namespace CF
             if (hediff == parent)
                 return;
             if (Props.affectedHediffs.Contains(hediff.def))
-                hediff.Severity *= Props.multiplier;
+                hediff.Severity = (int)Math.Ceiling(hediff.Severity * Props.multiplier);
         }
     }
 }
