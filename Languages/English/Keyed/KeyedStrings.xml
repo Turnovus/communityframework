@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Mod Settings -->
+	<CFSettings_Category>D9 Framework</CFSettings_Category>
+	<CFSettings_Debug>Debug</CFSettings_Debug>
+	<CFSettings_DebugTooltip>Enable debug logging, especially on load. You generally don't need to enable this unless asked to.</CFSettings_DebugTooltip>
+	<CFSettings_PPM>Print patched methods</CFSettings_PPM>
+	<CFSettings_PPMTooltip>Whether to print all the Harmony patches which are successfully applied.</CFSettings_PPMTooltip>
+	<CFSettings_ApplyAtOwnRisk>Disabling any patches may result in unpredictable behavior and features breaking. Only disable them if you know what you're doing!</CFSettings_ApplyAtOwnRisk>
+	<CFSettings_DebugModeRequired>If debug mode is disabled, all patches will be applied.</CFSettings_DebugModeRequired>
+	<CFSettings_RestartToApply>You must restart the game for patch settings to apply.</CFSettings_RestartToApply>
+	<CFSettings_ApplyCFS>Apply CompFromStuff patch</CFSettings_ApplyCFS>
+	<CFSettings_ApplyCFSTooltip>Whether to apply the CompFromStuff patch, which allows materials to add additional properties to things made therefrom.</CFSettings_ApplyCFSTooltip>
+	<CFSettings_ApplyOTH>Apply Orbital Trade Hook patch</CFSettings_ApplyOTH>
+	<CFSettings_ApplyOTHTooltip>Whether to apply the Orbital Trade Hook patch, which allows modders to create custom trade beacons.</CFSettings_ApplyOTHTooltip>
+	<CFSettings_ApplyDRF>Apply Deconstruct Return Fix patch</CFSettings_ApplyDRF>
+	<CFSettings_ApplyDRFTooltip>Whether to apply the Deconstruct Return Fix patch, which fixes a vanilla bug which prevents buildings from returning all their items when deconstructed.</CFSettings_ApplyDRFTooltip>
+	<CFSettings_ApplyCMF>Apply Carry Mass Framework patches</CFSettings_ApplyCMF>
+	<CFSettings_ApplyCMFTooltip>Whether to apply the patches for the Carry Mass Framework, which allows mod authors to modify the way carry mass works in game.</CFSettings_ApplyCMFTooltip>
+	<CFSettings_ApplyNFP>Apply Negative Fertility Patch</CFSettings_ApplyNFP>
+	<CFSettings_ApplyNFPTooltip>Whether to apply the Negative Fertility Patch, which allows specific plants to grow faster in less fertile soil.</CFSettings_ApplyNFPTooltip>
+	<CFSettings_ApplyFRF>Apply Facility Requires Fuel patch</CFSettings_ApplyFRF>
+	<CFSettings_ApplyFRFTooltip>Whether to apply the Facility Requires Fuel patch, which allows modders to create facilities which require fuel to operate.</CFSettings_ApplyFRFTooltip>
+	<CFSettings_ApplyCBR>Apply Calculate Bleed Rate patch</CFSettings_ApplyCBR>
+	<CFSettings_ApplyCBRTooltip>Whether to apply the Calculate Bleed Rate patch, which allows modders to apply bleed rate modifiers on pawns using a stat.</CFSettings_ApplyCBRTooltip>
+	<CFSettings_ApplyHRP>Apply Healing Rate Patch</CFSettings_ApplyHRP>
+	<CFSettings_ApplyHRPTooltip>Whether to apply the Healing Rate Patch, which allows modders to apply healing rate modifiers on pawns using a stat.</CFSettings_ApplyHRPTooltip>
+	<!-- AJO PlaceWorkers -->
+	<CF_Roofed_NeedsRoof>{0} needs to be placed under a roof</CF_Roofed_NeedsRoof>
+	<CF_Chandelier_TooTall>{0} is too tall to place a {1} here</CF_Chandelier_TooTall>
+	<CF_MustBePlacedOnWall>{0} must be placed on a wall</CF_MustBePlacedOnWall>	
+	<!-- IngredientValueGetter_Mass -->
+	<CF_BillRequiresMass>Requires {0}kg of {1}</CF_BillRequiresMass>
+</LanguageData>

@@ -16,7 +16,7 @@ namespace CF
         {
             if (!map.roofGrid.Roofed(loc))
             {
-                return new AcceptanceReport("D9F_Roofed_NeedsRoof".Translate(checkingDef.label));
+                return new AcceptanceReport("CF_Roofed_NeedsRoof".Translate(checkingDef.label));
             }
             return true;
         }
@@ -36,7 +36,7 @@ namespace CF
                 {
                     if (c.GetEdifice(map).def.blockWind == true || c.GetEdifice(map).def.holdsRoof == true)
                     {
-                        return new AcceptanceReport("D9F_Chandelier_TooTall".Translate(c.GetEdifice(map).LabelCap, checkingDef.LabelCap));
+                        return new AcceptanceReport("CF_Chandelier_TooTall".Translate(c.GetEdifice(map).LabelCap, checkingDef.LabelCap));
                     }
                 }
                 IEnumerable<Thing> things = c.GetThingList(map);

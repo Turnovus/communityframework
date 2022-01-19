@@ -18,7 +18,7 @@ namespace CF
         {
             PlainName = plainName;
             SaveKey = saveKey;
-            LabelKey = "D9FSettingsApply" + saveKey;
+            LabelKey = "CFSettings_Apply" + saveKey;
             DescKey = LabelKey + "Tooltip";
         }
 

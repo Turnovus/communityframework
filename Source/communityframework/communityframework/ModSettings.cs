@@ -15,10 +15,6 @@ namespace CF
         public static bool PrintPatchedMethods => DEBUG && printPatchedMethods;
         public static bool printPatchedMethods = false;
 
-        // I don't want to touch CMF because it has custom patching, so retain old settings setup.
-        public static bool ApplyCarryMassFramework => !DEBUG || applyCMF;
-        public static bool applyCMF = true;
-
         // despite being public, please don't fuck with these. Access patch application settings with ShouldPatch.
         // They're only public so I can use them in the mod settings screen.
         public static Dictionary<string, PatchInfo> Patches = new Dictionary<string, PatchInfo>();
@@ -66,7 +62,6 @@ namespace CF
             {
                 DeserializePatches(savePatches);
             }
-            Scribe_Values.Look(ref applyCMF, "ApplyCarryMassFramework", true);
             Scribe_Values.Look(ref DEBUG, "debug", false);
             Scribe_Values.Look(ref printPatchedMethods, "printPatchedMethods");
         }
@@ -132,7 +127,6 @@ namespace CF
                     listing.CheckboxLabeled(pi.labelKey.Translate(), ref pi.apply, pi.descKey.Translate());
                 }
                 CommunityFrameworkModSettings.DeserializePatches(patches);
-                listing.CheckboxLabeled("D9FSettingsApplyCMF".Translate(), ref CommunityFrameworkModSettings.applyCMF, "D9FSettingsApplyCMFTooltip".Translate());
             }
             listing.End();
             base.DoSettingsWindowContents(inRect);

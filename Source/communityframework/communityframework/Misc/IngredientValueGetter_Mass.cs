@@ -14,7 +14,7 @@ namespace CF
         }
         public override string BillRequirementsDescription(RecipeDef r, IngredientCount ing)
         {
-            return "D9F_BillRequiresMass".Translate(ing.GetBaseCount(), ing.filter.Summary);
+            return "CF_BillRequiresMass".Translate(ing.GetBaseCount(), ing.filter.Summary);
         }
     }
 }
