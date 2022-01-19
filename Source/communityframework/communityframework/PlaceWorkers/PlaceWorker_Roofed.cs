@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
-    /// <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed under a roof. <seealso cref="D9Framework.CompValidator"/>
+    /// <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed under a roof. <seealso cref="CF.CompValidator"/>
     /// </summary>
     /// <remarks>Originally by CuproPanda, for Additional Joy Objects.</remarks>
     public class PlaceWorker_Roofed : PlaceWorker
@@ -22,7 +22,7 @@ namespace D9Framework
         }
     }
     /// <summary>
-    /// <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed under a roof and not over another <c>Thing</c> which is too tall. <seealso cref="D9Framework.CompValidator"/>
+    /// <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed under a roof and not over another <c>Thing</c> which is too tall. <seealso cref="CF.CompValidator"/>
     /// </summary>
     /// <remarks>Originally by CuproPanda, for Additional Joy Objects.</remarks>
     public class PlaceWorker_RoofHanger : PlaceWorker_Roofed

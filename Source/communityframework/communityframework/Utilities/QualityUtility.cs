@@ -7,7 +7,7 @@ using System.Reflection;
 using Verse;
 using RimWorld;
 
-namespace D9Framework
+namespace CF
 {
     [StaticConstructorOnStartup]
     public static class QualityUtility

@@ -6,7 +6,7 @@ using System.Reflection;
 using Verse;
 using HarmonyLib;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
     /// Loads included Harmony patches only if they're enabled in the mod settings.
@@ -23,30 +23,25 @@ namespace D9Framework
                 ClassWithPatchesAttribute attr;
                 if ((attr = type.TryGetAttribute<ClassWithPatchesAttribute>()) != null)
                 {
-                    if (!D9FModSettings.Patches.ContainsKey(attr.SaveKey))
+                    if (!CommunityFrameworkModSettings.Patches.ContainsKey(attr.SaveKey))
                     {
-                        D9FModSettings.Patches[attr.SaveKey] = new D9FModSettings.PatchInfo(attr.SaveKey, true, attr.LabelKey, attr.DescKey);                        
+                        CommunityFrameworkModSettings.Patches[attr.SaveKey] = new CommunityFrameworkModSettings.PatchInfo(attr.SaveKey, true, attr.LabelKey, attr.DescKey);                        
                     }
                     else
                     {
-                        D9FModSettings.Patches[attr.SaveKey].apply = D9FModSettings.ShouldPatch(attr.SaveKey);
+                        CommunityFrameworkModSettings.Patches[attr.SaveKey].apply = CommunityFrameworkModSettings.ShouldPatch(attr.SaveKey);
                     }
-                    if (D9FModSettings.ShouldPatch(attr.SaveKey))
+                    if (CommunityFrameworkModSettings.ShouldPatch(attr.SaveKey))
                     {
                         PatchAll(harmony, type);
                         ULog.DebugMessage("\t" + attr.PlainName + " enabled.", false);
                     }                    
                 }
             }
-            if (D9FModSettings.ApplyCarryMassFramework)
+            if (CommunityFrameworkModSettings.PrintPatchedMethods)
             {
-                CMFHarmonyPatch.DoPatch(harmony);
-                ULog.DebugMessage("\tCarry Mass Framework enabled.", false);
-            }
-            if (D9FModSettings.PrintPatchedMethods)
-            {
-                Log.Message("The following methods were successfully patched:", false);
-                foreach (MethodBase mb in harmony.GetPatchedMethods()) Log.Message("\t" + mb.DeclaringType.Name + "." + mb.Name, false);
+                ULog.Message("The following methods were successfully patched:");
+                foreach (MethodBase mb in harmony.GetPatchedMethods()) Log.Message("\t" + mb.DeclaringType.Name + "." + mb.Name);
             }
         }
         // thanks to lbmaian

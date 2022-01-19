@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
     /// Used to make adding new Harmony patches internally easier. Not intended for other mods' use.

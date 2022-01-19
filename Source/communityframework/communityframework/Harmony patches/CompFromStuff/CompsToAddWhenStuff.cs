@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
-    /// <c>DefModExtension</c> for use with <see cref="D9Framework.CompFromStuff"/>. Specifies the <c>ThingComps</c>, by their <c>CompProperties</c>, 
+    /// <c>DefModExtension</c> for use with <see cref="CF.CompFromStuff"/>. Specifies the <c>ThingComps</c>, by their <c>CompProperties</c>, 
     /// which should be added to newly-generated items made from the specified Stuff.
     /// </summary>
     class CompsToAddWhenStuff : DefModExtension

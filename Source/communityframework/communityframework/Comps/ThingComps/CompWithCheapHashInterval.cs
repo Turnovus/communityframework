@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
     /// A <c>ThingComp</c> which implements tick distribution to reduce lag spikes and microstuttering when a large number of instances exist.

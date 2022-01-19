@@ -7,7 +7,7 @@ using Verse;
 using RimWorld;
 using System.Xml;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
     /// <c>PatchOperation</c> which applies <c>match</c> if Royalty is owned by the player, or <c>nomatch</c> otherwise.

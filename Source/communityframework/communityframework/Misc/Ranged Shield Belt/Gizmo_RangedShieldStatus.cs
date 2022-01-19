@@ -6,10 +6,10 @@ using UnityEngine;
 using Verse;
 using RimWorld;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
-    /// <c>Gizmo</c> which displays the current energy state of the <see cref="D9Framework.RangedShieldBelt"/>. Identical to the vanilla one, except references the aforementioned class since it's no longer a subclass.
+    /// <c>Gizmo</c> which displays the current energy state of the <see cref="CF.RangedShieldBelt"/>. Identical to the vanilla one, except references the aforementioned class since it's no longer a subclass.
     /// </summary>
     [StaticConstructorOnStartup]
     class Gizmo_RangedShieldStatus : Gizmo

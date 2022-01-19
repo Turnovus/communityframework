@@ -3,13 +3,13 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
-    /// <c>ModSettings</c> class for D9 Framework. Mainly handles which Harmony patches should be applied and saves all specified settings.
+    /// <c>ModSettings</c> class for Community Framework. Mainly handles which Harmony patches should be applied and saves all specified settings.
     /// </summary>
     /// <remarks>Static for convenience.</remarks>
-    public class D9FModSettings : ModSettings
+    public class CommunityFrameworkModSettings : ModSettings
     {        
         public static bool DEBUG = false; //for release set false by default
         public static bool PrintPatchedMethods => DEBUG && printPatchedMethods;
@@ -108,10 +108,10 @@ namespace D9Framework
     /// </summary>
     public class D9FrameworkMod : Mod
     {
-        D9FModSettings settings;
+        CommunityFrameworkModSettings settings;
         public D9FrameworkMod(ModContentPack con) : base(con)
         {
-            this.settings = GetSettings<D9FModSettings>();
+            this.settings = GetSettings<CommunityFrameworkModSettings>();
             new HarmonyLoader();
         }
 
@@ -119,20 +119,20 @@ namespace D9Framework
         {
             Listing_Standard listing = new Listing_Standard();
             listing.Begin(inRect);
-            listing.CheckboxLabeled("D9FSettingsDebug".Translate(), ref D9FModSettings.DEBUG, "D9FSettingsDebugTooltip".Translate());
-            if (D9FModSettings.DEBUG)
+            listing.CheckboxLabeled("D9FSettingsDebug".Translate(), ref CommunityFrameworkModSettings.DEBUG, "D9FSettingsDebugTooltip".Translate());
+            if (CommunityFrameworkModSettings.DEBUG)
             {
-                listing.CheckboxLabeled("D9FSettingsPPM".Translate(), ref D9FModSettings.printPatchedMethods, "D9FSettingsPPMTooltip".Translate());
+                listing.CheckboxLabeled("D9FSettingsPPM".Translate(), ref CommunityFrameworkModSettings.printPatchedMethods, "D9FSettingsPPMTooltip".Translate());
                 listing.Label("D9FSettingsApplyAtOwnRisk".Translate());
                 listing.Label("D9FSettingsRestartToApply".Translate());
                 listing.Label("D9FSettingsDebugModeRequired".Translate());
-                List<D9FModSettings.PatchInfo> patches = D9FModSettings.SerializePatches();
-                foreach(D9FModSettings.PatchInfo pi in patches)
+                List<CommunityFrameworkModSettings.PatchInfo> patches = CommunityFrameworkModSettings.SerializePatches();
+                foreach(CommunityFrameworkModSettings.PatchInfo pi in patches)
                 {
                     listing.CheckboxLabeled(pi.labelKey.Translate(), ref pi.apply, pi.descKey.Translate());
                 }
-                D9FModSettings.DeserializePatches(patches);
-                listing.CheckboxLabeled("D9FSettingsApplyCMF".Translate(), ref D9FModSettings.applyCMF, "D9FSettingsApplyCMFTooltip".Translate());
+                CommunityFrameworkModSettings.DeserializePatches(patches);
+                listing.CheckboxLabeled("D9FSettingsApplyCMF".Translate(), ref CommunityFrameworkModSettings.applyCMF, "D9FSettingsApplyCMFTooltip".Translate());
             }
             listing.End();
             base.DoSettingsWindowContents(inRect);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace D9Framework
+namespace CF
 {
     class IngredientValueGetter_Mass : IngredientValueGetter
     {

@@ -7,7 +7,7 @@ using Verse;
 using UnityEngine;
 using Verse.Sound;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
     /// <c>ThingClass</c> which acts like the vanilla <c>ShieldBelt</c> class but allows the user to fire ranged weapons while worn.

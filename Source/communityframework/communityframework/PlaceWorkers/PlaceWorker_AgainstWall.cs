@@ -3,10 +3,10 @@ using UnityEngine;
 using Verse;
 using RimWorld;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
-    /// <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed on a cell adjacent to but facing away from a wall. <seealso cref="D9Framework.CompValidator"/>
+    /// <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed on a cell adjacent to but facing away from a wall. <seealso cref="CF.CompValidator"/>
     /// <remarks>
     /// Originally by CuproPanda, for Additional Joy Objects.
     /// </remarks>
@@ -24,7 +24,7 @@ namespace D9Framework
         }
     }
     /// <summary>
-    /// <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed on a wall but not overlapping the same <c>Thing</c> in the same rotation. <seealso cref="D9Framework.CompValidator"/>
+    /// <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed on a wall but not overlapping the same <c>Thing</c> in the same rotation. <seealso cref="CF.CompValidator"/>
     /// </summary> 
     public class PlaceWorker_OnWall : PlaceWorker
     {

@@ -7,7 +7,7 @@ using Verse;
 using RimWorld;
 using System.Xml;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
     /// <c>PatchOperation</c> which applies <c>match</c> if a mod matching one of the target <c>packageIds</c> is enabled in the current load order, or otherwise applies <c>nomatch</c>.

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Verse;
 using RimWorld;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
     /// Standard RimWorld <c>DefOf</c> class for use in various location within the mod. Not intended for external use, but can be used by others.

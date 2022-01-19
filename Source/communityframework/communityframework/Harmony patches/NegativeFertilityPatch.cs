@@ -8,10 +8,10 @@ using HarmonyLib;
 using Verse;
 using RimWorld;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
-    /// Allows modders to use the <see cref="D9Framework.UseNegativeFertility"/> <c>DefModExtension</c> to create plants which grow faster in poorer soil.
+    /// Allows modders to use the <see cref="CF.UseNegativeFertility"/> <c>DefModExtension</c> to create plants which grow faster in poorer soil.
     /// </summary>
     /// <remarks>
     /// Generally mod-compatible and performant because of how it caches <c>MaxNaturalFertility</c>, but probably contributes to longer start-up times.
@@ -72,7 +72,7 @@ namespace D9Framework
     /// <c>DefModExtension</c> which flags the parent plant <c>ThingDef</c> as using negative fertility. Specifies minimum and maximum fertility values within which the final fertility is clamped.
     /// </summary>
     /// <remarks>
-    /// See <see cref="D9Framework.NegativeFertilityPatch"/> for implementation details.
+    /// See <see cref="CF.NegativeFertilityPatch"/> for implementation details.
     /// </remarks>
     public class UseNegativeFertility : DefModExtension
     {

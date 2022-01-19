@@ -5,10 +5,10 @@ using System.Text;
 using Verse;
 using RimWorld;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
-    /// Automatically repairs a specified (non-pawn) item. Example implementation of <see cref="D9Framework.CompWithCheapHashInterval"/> and designed for use with <see cref="D9Framework.CompFromStuff"/>.
+    /// Automatically repairs a specified (non-pawn) item. Example implementation of <see cref="CF.CompWithCheapHashInterval"/> and designed for use with <see cref="CF.CompFromStuff"/>.
     /// </summary>
     public class CompSelfRepair : CompWithCheapHashInterval
     {        
@@ -26,7 +26,7 @@ namespace D9Framework
         }
     }
     /// <summary>
-    /// <c>CompProperties</c> for use with <see cref="D9Framework.CompSelfRepair"/>. Allows specifying the tick interval in XML, and auto-assigns the appropriate class.
+    /// <c>CompProperties</c> for use with <see cref="CF.CompSelfRepair"/>. Allows specifying the tick interval in XML, and auto-assigns the appropriate class.
     /// </summary>
     class CompProperties_SelfRepair : CompProperties
     {

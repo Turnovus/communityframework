@@ -8,7 +8,7 @@ using HarmonyLib;
 using Verse;
 using RimWorld;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
     /// Patches <see cref="RimWorld.CompFacility"/> to be inactive if the parent <c>Thing</c> has a <c>CompRefuelable</c> which is unfueled.

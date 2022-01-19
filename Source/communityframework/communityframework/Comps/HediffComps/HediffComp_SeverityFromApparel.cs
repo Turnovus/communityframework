@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using Verse;
 using RimWorld;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
     /// Sets the parent hediff's severity based on worn apparel.
     /// </summary>
     /// <remarks>
     /// If wornSeverity is unset, uses the hediff's initial severity.
-    /// If apparelDefs is unset, checks if any worn apparel have a matching <see cref="D9Framework.CompApplyHediffWhenWorn"/>.
+    /// If apparelDefs is unset, checks if any worn apparel have a matching <see cref="CF.CompApplyHediffWhenWorn"/>.
     /// </remarks>
     class HediffComp_SeverityFromApparel : HediffComp
     {
@@ -51,6 +51,9 @@ namespace D9Framework
         }
         #endregion cheap tick interval stuff
     }
+    /// <summary>
+    /// <c>CompProperties</c> for <see cref="HediffComp_SeverityFromApparel"/>.
+    /// </summary>
     class HediffCompProps_SeverityFromApparel : HediffCompProperties
     {
 #pragma warning disable CS0649

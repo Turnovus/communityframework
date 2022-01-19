@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Verse;
 using RimWorld;
 
-namespace D9Framework
+namespace CF
 {
     /// <summary>
     /// Applies a specified hediff at a specified interval when the parent, which must be <c>Apparel</c>, is worn.

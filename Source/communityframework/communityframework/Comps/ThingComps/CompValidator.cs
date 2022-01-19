@@ -6,7 +6,7 @@ using Verse;
 using Verse.Sound;
 using RimWorld;
 
-namespace D9Framework {
+namespace CF {
     /// <summary>
     /// Minifies or destroys the parent <c>Thing</c> if it wouldn't be allowed to be placed at its current location. Must be used with one or more <c>PlaceWorker</c>s.
     /// </summary>
@@ -57,7 +57,7 @@ namespace D9Framework {
         }
     }
     /// <summary>
-    /// <c>CompProperties</c> for use with <see cref="D9Framework.CompValidator"/>. Allows specifying the tick interval in XML, auto-assigns the appropriate class, and disables the comp if misconfigured.
+    /// <c>CompProperties</c> for use with <see cref="CF.CompValidator"/>. Allows specifying the tick interval in XML, auto-assigns the appropriate class, and disables the comp if misconfigured.
     /// </summary>
     public class CompProperties_Validator : CompProperties
     {
