@@ -13,7 +13,7 @@ namespace CF
     /// <summary>
     /// Allows modder to add comps to any items created with a certain Stuff using the <c>CompsToAddWhenStuff</c> <c>ModExtension</c>.
     /// </summary>
-    [ClassWithPatches("Comp From Stuff", "ApplyCompFromStuffPatch", "allows materials to add additional properties to things made from them.")]
+    [ClassWithPatches("ApplyCompFromStuffPatch")]
     static class CompFromStuffPatch
     {
         [HarmonyPatch(typeof(ThingMaker), nameof(ThingMaker.MakeThing), new Type[] { typeof(ThingDef), typeof(ThingDef) })]

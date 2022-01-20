@@ -12,7 +12,7 @@ namespace CF
     /// <summary>
     /// This patches the Hatch method so when no parent can be found (which is the case when a pawn is spawned from a crafted item), it is set so the player faction. 
     /// </summary>
-    [ClassWithPatches("ApplyHatchPatch", "allows pawns to be born into your faction from items.")]
+    [ClassWithPatches("ApplyHatchPatch")]
     static class HatchPatch
     {
         [HarmonyPatch(typeof(CompHatcher))]

@@ -13,7 +13,7 @@ namespace CF
     /// <summary>
     /// Patches <see cref="RimWorld.CompFacility"/> to be inactive if the parent <c>Thing</c> has a <c>CompRefuelable</c> which is unfueled.
     /// </summary>
-    [ClassWithPatches("Facility Require Fuel Patch", "ApplyFacilityRequireFuelPatch", "allows modders to create facilities which require fuel to operate.")]
+    [ClassWithPatches("ApplyFacilityRequireFuelPatch")]
     static class FacilityRequireFuelPatch
     {
         [HarmonyPatch(typeof(CompFacility), nameof(CompFacility.CanBeActive), MethodType.Getter)]

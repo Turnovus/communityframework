@@ -19,7 +19,7 @@ namespace CF
             Building edifice = c.GetEdifice(map);                           // Determine if the tile is an edifice            
             if (!c.InBounds(map) || !loc.InBounds(map)) return false;       // Don't place outside of the map
             if (!PlaceWorkerUtility.IsWall(edifice))// || (edifice.Faction != null || edifice.Faction != Faction.OfPlayer))    // Only allow placing on walls, and not if another faction owns the wall
-                return new AcceptanceReport("D9F_MustBePlacedOnWall".Translate(checkingDef.LabelCap));
+                return new AcceptanceReport("CF_MustBePlacedOnWall".Translate(checkingDef.LabelCap));
             return true;                                                    // Otherwise, accept placing
         }
     }
@@ -32,7 +32,7 @@ namespace CF
         {
             Building buil = loc.GetEdifice(map);
             if (!loc.InBounds(map)) return false;
-            if (!PlaceWorkerUtility.IsWall(buil) || buil.Faction != Faction.OfPlayer) return new AcceptanceReport("D9F_MustBePlacedOnWall".Translate(checkingDef.LabelCap));
+            if (!PlaceWorkerUtility.IsWall(buil) || buil.Faction != Faction.OfPlayer) return new AcceptanceReport("CF_MustBePlacedOnWall".Translate(checkingDef.LabelCap));
             if (PlaceWorkerUtility.ConflictingThing(checkingDef, loc, rot, map)) return new AcceptanceReport("IdenticalThingExists".Translate());
             return true;
         }

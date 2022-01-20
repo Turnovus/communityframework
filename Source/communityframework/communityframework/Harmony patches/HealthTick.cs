@@ -13,7 +13,7 @@ namespace CF
     /// Patches applied to <c>Pawn_HealthTracker.HealthTick</c>, allowing us to
     /// read and write a pawn's health on a per-tick basis.
     /// </summary>
-    [ClassWithPatches("Health Tick Patch", "ApplyHealthTickPatch", "allows certain hediffs to apply effects when each pawn performs its health tick.")]
+    [ClassWithPatches("ApplyHealthTickPatch")]
     static class HealthTickPatch
     {
         [HarmonyPatch(typeof(Pawn_HealthTracker))]

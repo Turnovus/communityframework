@@ -13,7 +13,7 @@ namespace CF
     /// Patch of <c>QualityUtility.QualityCreatedByPawn</c>. Add to this patch
     /// if you want to add conditions that affect the quality of crafted items.
     /// </summary>
-    [ClassWithPatches("Quality Utility Patch", "ApplyQualityUtilityPatch", "allows modders to add conditions which affect the quality of crafted items.")]
+    [ClassWithPatches("ApplyQualityUtilityPatch")]
     static class QualityUtilityPatch
     {
         [HarmonyPatch(typeof(QualityUtility))]

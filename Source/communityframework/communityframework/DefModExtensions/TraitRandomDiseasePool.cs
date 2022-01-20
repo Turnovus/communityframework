@@ -30,7 +30,9 @@ namespace CF
             /// A dictionary consisting of hediff-causing incidents as keys,
             /// and their randomness weight as values.
             /// </summary>
+#pragma warning disable CS0649
             public Dictionary<IncidentDef, int> diseases;
+#pragma warning restore CS0649
             /// <summary>
             /// The required trait degree for this incident pool to be used.
             /// </summary>
@@ -98,6 +100,8 @@ namespace CF
         /// Contains all of the <c>TraitMtbDiseasePool</c>s specified for each
         /// trait degree.
         /// </summary>
+#pragma warning disable CS0649
         public List<DiseasePool> pools;
+#pragma warning restore CS0649
     }
 }

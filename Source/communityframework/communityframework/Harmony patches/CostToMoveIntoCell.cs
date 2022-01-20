@@ -13,7 +13,7 @@ namespace CF
     /// <summary>
     /// This patches the method CostToMoveIntoCell from the Pawn_PathFollower class so when a hediff has the related comp, it can move unrestricted through any terrain.
     /// </summary>
-    [ClassWithPatches("Ignore Path Cost", "ApplyIgnorePathCostPatch", "allows modders to make pawns ignore pathing costs.")]
+    [ClassWithPatches("ApplyIgnorePathCostPatch")]
     static class IgnorePathCostPatch
     {
         [HarmonyPatch(typeof(Pawn_PathFollower))]

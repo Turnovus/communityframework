@@ -37,6 +37,8 @@ namespace CF
     class CompProperties_RemoteTrigger : CompProperties
     {
         public CompProperties_RemoteTrigger() => this.compClass = typeof(CompRemoteTrigger);
+#pragma warning disable CS0649
         public string texPath;
+#pragma warning restore CS0649
     }
 }

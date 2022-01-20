@@ -17,7 +17,7 @@ namespace CF
     /// Generally mod-compatible and performant because of how it caches <c>MaxNaturalFertility</c>, but probably contributes to longer start-up times.
     /// </remarks>
     [StaticConstructorOnStartup]
-    [ClassWithPatches("Negative Fertility Patch", "ApplyNegativeFertilityPatch", "allows specific plants to grow faster in less fertile soil.")]
+    [ClassWithPatches("ApplyNegativeFertilityPatch")]
     static class NegativeFertilityPatch
     {
         public static float MaxNaturalFertility;

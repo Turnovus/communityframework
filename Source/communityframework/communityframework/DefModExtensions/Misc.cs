@@ -13,7 +13,9 @@ namespace CF
     /// </summary>
     class IgnoreNeed : DefModExtension
     {
+#pragma warning disable CS0649
         public List<NeedDef> needs;
+#pragma warning restore CS0649
     }
     /// <summary>
     /// <c>DefModExtension</c> which flags the parent plant <c>ThingDef</c> as using negative fertility. 
