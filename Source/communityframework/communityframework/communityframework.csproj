@@ -87,7 +87,6 @@
     <Compile Include="DefModExtensions\TraitRandomDiseasePool.cs" />
     <Compile Include="Enumerations\InjuryRegenListMode.cs" />
     <Compile Include="Harmony patches\CompFromStuffPatch.cs" />
-    <Compile Include="DefModExtensions\CompsToAddWhenStuff.cs" />
     <Compile Include="Harmony patches\FacilityRequireFuelPatch.cs" />
     <Compile Include="HarmonyLoader.cs" />
     <Compile Include="Harmony patches\ShouldRemove.cs" />
@@ -118,7 +117,6 @@
     <Compile Include="RecipeWorker\Recipe_InstallOrReplaceImplant.cs" />
     <Compile Include="Ulog.cs" />
     <Compile Include="Utilities\ClassWithPatchesAttribute.cs" />
-    <Compile Include="Utilities\D9FrameworkDefOf.cs" />
     <Compile Include="Utilities\QualityUtility.cs" />
   </ItemGroup>
   <ItemGroup>
