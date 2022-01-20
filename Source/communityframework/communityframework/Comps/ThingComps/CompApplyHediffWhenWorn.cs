@@ -20,14 +20,12 @@ namespace CF
     /// </remarks>
     class CompApplyHediffWhenWorn : CompWithCheapHashInterval
     {
-        public Apparel Apparel => base.parent as Apparel;
-        public CompProperties_ApplyHediffWhenWorn Props => (CompProperties_ApplyHediffWhenWorn)base.props;
-
+        public Apparel Apparel => parent as Apparel;
+        public CompProperties_ApplyHediffWhenWorn Props => (CompProperties_ApplyHediffWhenWorn)props;
         public void ApplyHediffs()
         {
             foreach(HediffDef hd in Props.hediffsToApply) Apparel.Wearer.health.AddHediff(hd, null, null, null);
         }
-
         public override void CompTick()
         {
             base.CompTick();
@@ -46,11 +44,7 @@ namespace CF
         public List<HediffDef> hediffsToApply;
 #pragma warning restore CS0649
 
-        public CompProperties_ApplyHediffWhenWorn()
-        {
-            base.compClass = typeof(CompApplyHediffWhenWorn);
-        }
-
+        public CompProperties_ApplyHediffWhenWorn() => compClass = typeof(CompApplyHediffWhenWorn);
         public override IEnumerable<string> ConfigErrors(ThingDef parentDef)
         {
             foreach (string str in base.ConfigErrors(parentDef)) yield return str;

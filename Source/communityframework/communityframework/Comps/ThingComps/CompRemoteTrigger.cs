@@ -11,14 +11,7 @@ namespace CF
 {
     class CompRemoteTrigger : ThingComp
     {
-        public CompProperties_RemoteTrigger Props
-        {
-            get
-            {
-                return (CompProperties_RemoteTrigger)this.props;
-            }
-        }
-
+        public CompProperties_RemoteTrigger Props => (CompProperties_RemoteTrigger)props;
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             // Check if graphicPath returns an actual texture.
@@ -40,5 +33,10 @@ namespace CF
                 }
             });          
         }
+    }
+    class CompProperties_RemoteTrigger : CompProperties
+    {
+        public CompProperties_RemoteTrigger() => this.compClass = typeof(CompRemoteTrigger);
+        public string texPath;
     }
 }

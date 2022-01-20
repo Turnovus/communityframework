@@ -34,10 +34,7 @@ namespace CF
         public int tickInterval = 250;
 #pragma warning restore CS0649
 
-        public CompProperties_SelfRepair()
-        {
-            base.compClass = typeof(CompSelfRepair);
-        }
+        public CompProperties_SelfRepair() => compClass = typeof(CompSelfRepair);
 
         public override IEnumerable<string> ConfigErrors(ThingDef parentDef)
         {

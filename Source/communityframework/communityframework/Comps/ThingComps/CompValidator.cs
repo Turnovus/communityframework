@@ -13,15 +13,14 @@ namespace CF {
     public class CompValidator : CompWithCheapHashInterval
     {
         CompProperties_Validator Props => (CompProperties_Validator)base.props;
-
         public override void CompTick()
         {
             base.CompTick();   
             if (Props.ShouldUse && IsCheapIntervalTick(Props.tickInterval))
             {
-                foreach(PlaceWorker pw in base.parent.def.PlaceWorkers)
+                foreach(PlaceWorker pw in parent.def.PlaceWorkers)
                 {
-                    if (!pw.AllowsPlacing(base.parent.def, base.parent.Position, base.parent.Rotation, base.parent.Map).Accepted)
+                    if (!pw.AllowsPlacing(parent.def, parent.Position, parent.Rotation, parent.Map).Accepted)
                     {
                         MinifyOrDestroy();
                         break;
@@ -35,15 +34,15 @@ namespace CF {
             string ret = base.CompInspectStringExtra();
             if (Prefs.DevMode)
             {
-                ret += "PlaceWorkers: (count = " + base.parent.def.PlaceWorkers.Count + "):";
-                for (int i = 0; i < Math.Min(3, base.parent.def.PlaceWorkers.Count); i++) ret += "\n\t" + base.parent.def.PlaceWorkers.ElementAt(i).ToString();
+                ret += "PlaceWorkers: (count = " + parent.def.PlaceWorkers.Count + "):";
+                for (int i = 0; i < Math.Min(3, parent.def.PlaceWorkers.Count); i++) ret += "\n\t" + parent.def.PlaceWorkers.ElementAt(i).ToString();
             }
             return ret;
         }
 
         public virtual void MinifyOrDestroy()
         {
-            if (base.parent.def.Minifiable)
+            if (parent.def.Minifiable)
             {
                 Map map = parent.Map;
                 MinifiedThing package = MinifyUtility.MakeMinified(parent);
@@ -52,7 +51,7 @@ namespace CF {
             }
             else
             {
-                base.parent.Destroy(DestroyMode.KillFinalize);
+                parent.Destroy(DestroyMode.KillFinalize);
             }
         }
     }
@@ -61,18 +60,12 @@ namespace CF {
     /// </summary>
     public class CompProperties_Validator : CompProperties
     {
-        public int tickInterval = 250;
-        
+        public int tickInterval = 250;        
         /// <value>
         /// Whether the validator should run its checks in-game. True by default, unless it's misconfigured, in which case checks will not run.
         /// </value>
         public bool ShouldUse { get; private set; }
-
-        public CompProperties_Validator()
-        {
-            compClass = typeof(CompValidator);
-        }
-
+        public CompProperties_Validator() => compClass = typeof(CompValidator);
         public override IEnumerable<string> ConfigErrors(ThingDef parentDef)
         {
             if (parentDef.placeWorkers == null || parentDef.placeWorkers.Count < 1)
