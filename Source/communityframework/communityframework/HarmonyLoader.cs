@@ -16,7 +16,7 @@ namespace CF
         static HarmonyLoader()
         {
             ULog.Message("Applying Harmony patches...");
-            var harmony = new Harmony("com.dninemfive.D9Framework");
+            var harmony = new Harmony("com.communityframework.harmonypatches");
             // https://stackoverflow.com/questions/2639418/use-reflection-to-get-a-list-of-static-classes
             foreach(Type type in typeof(HarmonyLoader).Assembly.GetTypes().Where(t => t.IsClass && t.IsSealed && t.IsAbstract))
             {
@@ -25,7 +25,7 @@ namespace CF
                 {
                     if (!CommunityFrameworkModSettings.Patches.ContainsKey(attr.SaveKey))
                     {
-                        CommunityFrameworkModSettings.Patches[attr.SaveKey] = new CommunityFrameworkModSettings.PatchInfo(attr.SaveKey, true, attr.LabelKey, attr.DescKey);                        
+                        CommunityFrameworkModSettings.Patches[attr.SaveKey] = new CommunityFrameworkModSettings.PatchSave(attr.SaveKey, true);                        
                     }
                     else
                     {

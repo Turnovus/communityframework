@@ -8,7 +8,7 @@ using RimWorld;
 namespace CF
 {
     /// <summary>
-    /// Automatically repairs a specified (non-pawn) item. Example implementation of <see cref="CF.CompWithCheapHashInterval"/> and designed for use with <see cref="CF.CompFromStuff"/>.
+    /// Automatically repairs a specified (non-pawn) item. Example implementation of <see cref="CF.CompWithCheapHashInterval"/> and designed for use with <see cref="CF.CompFromStuffPatch"/>.
     /// </summary>
     public class CompSelfRepair : CompWithCheapHashInterval
     {        

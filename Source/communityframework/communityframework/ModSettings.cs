@@ -17,22 +17,20 @@ namespace CF
 
         // despite being public, please don't fuck with these. Access patch application settings with ShouldPatch.
         // They're only public so I can use them in the mod settings screen.
-        public static Dictionary<string, PatchInfo> Patches = new Dictionary<string, PatchInfo>();
+        public static Dictionary<string, PatchSave> Patches = new Dictionary<string, PatchSave>();
 
-        public class PatchInfo : IExposable
+        public class PatchSave : IExposable
         {
             public bool apply;
-            public string saveKey, labelKey, descKey;
+            public string saveKey, plainName, description;
 
             // The game requires a no-arg constructor
-            public PatchInfo() { }
+            public PatchSave() { }
 
-            public PatchInfo(string s, bool a, string l, string d)
+            public PatchSave(string s, bool a)
             {
                 saveKey = s;
                 apply = a;
-                labelKey = l;
-                descKey = d;
             }
 
             public override string ToString()
@@ -44,15 +42,13 @@ namespace CF
             {
                 Scribe_Values.Look(ref saveKey, "saveKey");
                 Scribe_Values.Look(ref apply, "apply");
-                Scribe_Values.Look(ref labelKey, "labelKey");
-                Scribe_Values.Look(ref descKey, "descKey");
             }
         } 
 
         public override void ExposeData()
         {
             base.ExposeData();
-            List<PatchInfo> savePatches = new List<PatchInfo>();
+            List<PatchSave> savePatches = new List<PatchSave>();
             if (Scribe.mode == LoadSaveMode.Saving)
             {
                 savePatches = SerializePatches();     
@@ -77,22 +73,19 @@ namespace CF
             return Patches[patchkey].apply;
         }
 
-        public static List<PatchInfo> SerializePatches()
+        public static List<PatchSave> SerializePatches()
         {
-            List<PatchInfo> ret = new List<PatchInfo>();
+            List<PatchSave> ret = new List<PatchSave>();
             foreach (string key in Patches.Keys.ToList())
             {
-                ret.Add(new PatchInfo(key,
-                    Patches[key].apply,
-                    Patches[key].labelKey,
-                    Patches[key].descKey));
+                ret.Add(new PatchSave(key, Patches[key].apply));
             }
             return ret;
         }
 
-        public static void DeserializePatches(List<PatchInfo> list)
+        public static void DeserializePatches(List<PatchSave> list)
         {
-            foreach (PatchInfo pi in list)
+            foreach (PatchSave pi in list)
             {
                 Patches[pi.saveKey] = pi;
             }
@@ -114,17 +107,19 @@ namespace CF
         {
             Listing_Standard listing = new Listing_Standard();
             listing.Begin(inRect);
-            listing.CheckboxLabeled("D9FSettingsDebug".Translate(), ref CommunityFrameworkModSettings.DEBUG, "D9FSettingsDebugTooltip".Translate());
+            listing.CheckboxLabeled("CFSettings_Debug".Translate(), ref CommunityFrameworkModSettings.DEBUG, "CFSettings_DebugTooltip".Translate());
             if (CommunityFrameworkModSettings.DEBUG)
             {
-                listing.CheckboxLabeled("D9FSettingsPPM".Translate(), ref CommunityFrameworkModSettings.printPatchedMethods, "D9FSettingsPPMTooltip".Translate());
-                listing.Label("D9FSettingsApplyAtOwnRisk".Translate());
-                listing.Label("D9FSettingsRestartToApply".Translate());
-                listing.Label("D9FSettingsDebugModeRequired".Translate());
-                List<CommunityFrameworkModSettings.PatchInfo> patches = CommunityFrameworkModSettings.SerializePatches();
-                foreach(CommunityFrameworkModSettings.PatchInfo pi in patches)
+                listing.CheckboxLabeled("CFSettings_PPM".Translate(), ref CommunityFrameworkModSettings.printPatchedMethods, "CFSettings_PPMTooltip".Translate());
+                listing.Label("CFSettings_ApplyAtOwnRisk".Translate());
+                listing.Label("CFSettings_RestartToApply".Translate());
+                listing.Label("CFSettings_DebugModeRequired".Translate());
+                List<CommunityFrameworkModSettings.PatchSave> patches = CommunityFrameworkModSettings.SerializePatches();
+                foreach(CommunityFrameworkModSettings.PatchSave pi in patches)
                 {
-                    listing.CheckboxLabeled(pi.labelKey.Translate(), ref pi.apply, pi.descKey.Translate());
+                    listing.CheckboxLabeled("CFSettingsApplyPatch".Translate(pi.plainName),
+                                            ref pi.apply,
+                                            "CFSettingsApplyPatchTooltip".Translate(pi.plainName, pi.description));
                 }
                 CommunityFrameworkModSettings.DeserializePatches(patches);
             }
@@ -134,7 +129,7 @@ namespace CF
 
         public override string SettingsCategory()
         {
-            return "D9FSettingsCategory".Translate();
+            return "CFSettings_Category".Translate();
         }
     }
 }

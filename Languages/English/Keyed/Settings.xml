@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Mod Settings -->
+	<CFSettings_Category>Community Framework</CFSettings_Category>
+	<CFSettings_Debug>Debug</CFSettings_Debug>
+	<CFSettings_DebugTooltip>Enable debug logging, especially on load. You generally don't need to enable this unless asked to.</CFSettings_DebugTooltip>
+	<CFSettings_PPM>Print patched methods</CFSettings_PPM>
+	<CFSettings_PPMTooltip>Whether to print all the Harmony patches which are successfully applied.</CFSettings_PPMTooltip>
+	<CFSettings_ApplyAtOwnRisk>Disabling any patches may result in unpredictable behavior and features breaking. Only disable them if you know what you're doing!</CFSettings_ApplyAtOwnRisk>
+	<CFSettings_DebugModeRequired>If debug mode is disabled, all patches will be applied.</CFSettings_DebugModeRequired>
+	<CFSettings_RestartToApply>You must restart the game for patch settings to apply.</CFSettings_RestartToApply>	
+	<!-- Where {0} is the PlainName attribute and {1} is the Description attribute -->
+	<CFSettings_ApplyPatch>Apply {0} patch</CFSettings_ApplyPatch>
+	<CFSettings_ApplyPatchTooltip>Whether to apply the {0} patch, which {1}</CFSettings_ApplyPatchTooltip>
+</LanguageData>

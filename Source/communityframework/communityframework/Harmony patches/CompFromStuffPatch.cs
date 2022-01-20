@@ -13,8 +13,8 @@ namespace CF
     /// <summary>
     /// Allows modder to add comps to any items created with a certain Stuff using the <c>CompsToAddWhenStuff</c> <c>ModExtension</c>.
     /// </summary>
-    [ClassWithPatches("Comp From Stuff", "ApplyCompFromStuff", "D9FSettingsApplyCFS")]
-    static class CompFromStuff
+    [ClassWithPatches("Comp From Stuff", "ApplyCompFromStuffPatch", "allows materials to add additional properties to things made from them.")]
+    static class CompFromStuffPatch
     {
         [HarmonyPatch(typeof(ThingMaker), nameof(ThingMaker.MakeThing), new Type[] { typeof(ThingDef), typeof(ThingDef) })]
         class AddCompPostfix

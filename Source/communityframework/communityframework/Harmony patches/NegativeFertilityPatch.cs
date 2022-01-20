@@ -17,7 +17,7 @@ namespace CF
     /// Generally mod-compatible and performant because of how it caches <c>MaxNaturalFertility</c>, but probably contributes to longer start-up times.
     /// </remarks>
     [StaticConstructorOnStartup]
-    [ClassWithPatches("Negative Fertility Patch", "ApplyNegativeFertilityPatch", "D9FSettingsApplyNFP")]
+    [ClassWithPatches("Negative Fertility Patch", "ApplyNegativeFertilityPatch", "allows specific plants to grow faster in less fertile soil.")]
     static class NegativeFertilityPatch
     {
         public static float MaxNaturalFertility;
@@ -68,14 +68,5 @@ namespace CF
             }
         }
     }
-    /// <summary>
-    /// <c>DefModExtension</c> which flags the parent plant <c>ThingDef</c> as using negative fertility. Specifies minimum and maximum fertility values within which the final fertility is clamped.
-    /// </summary>
-    /// <remarks>
-    /// See <see cref="CF.NegativeFertilityPatch"/> for implementation details.
-    /// </remarks>
-    public class UseNegativeFertility : DefModExtension
-    {
-        public float minFertility = 0.05f, maxFertility = 1.4f;
-    }
+    
 }
