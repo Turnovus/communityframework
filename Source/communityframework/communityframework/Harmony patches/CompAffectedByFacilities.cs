@@ -9,7 +9,7 @@ using HarmonyLib;
 
 namespace CF
 {
-    [ClassWithPatches("Facility Recipe Unlock", "ApplyCompAffectedByFacilitiesPatch", "allows facilities to unlock recipes when attached to workbenches.")]
+    [ClassWithPatches("ApplyCompAffectedByFacilitiesPatch")]
     static class CompAffectedByFacilitiesPatch
     {
         /// <summary>

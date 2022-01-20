@@ -11,7 +11,7 @@ namespace CF
     /// </summary>
     class ULog
     {
-        public static bool DEBUG => CommunityFrameworkModSettings.DEBUG;
+        public static bool DEBUG => CFSettings.DEBUG;
         public static string modid = "Community Framework";
         public static string Prefix => "[" + modid + "] ";
 

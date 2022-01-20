@@ -9,7 +9,7 @@ namespace CF
     /// even though <c>Hediff_MissingComp</c> overrides the method normally
     /// used to detect it.
     /// </summary>
-    [ClassWithPatches("ShouldRemove Patch", "ApplyShouldRemovePatch", "allows hediffs to be removed by certain effects.")]
+    [ClassWithPatches("ApplyShouldRemovePatch")]
     static class ShouldRemovePatch
     {
         [HarmonyPatch(typeof(Hediff_MissingPart))]

@@ -12,13 +12,12 @@ namespace CF
     [AttributeUsage(AttributeTargets.Class)]
     internal class ClassWithPatchesAttribute : Attribute
     {
-        public string PlainName, SaveKey, Description;
-
-        public ClassWithPatchesAttribute(string plainName, string saveKey, string description)
+        public string NameKey, SaveKey, DescKey;
+        public ClassWithPatchesAttribute(string saveKey)
         {
-            PlainName = plainName;
             SaveKey = saveKey;
-            Description = description;
+            NameKey = $"{CFSettings.KeyPrefix}{saveKey}_Name";
+            DescKey = $"{CFSettings.KeyPrefix}{saveKey}_Desc";
         }
     }
 }

@@ -13,7 +13,7 @@ namespace CF
     /// This patches the method Capacity from the MassUtility class so when CarryingCapacity is added as an equippedStatOffset, its weight is also added when setting up caravans.
     /// This is currently not the case in vanilla. 
     /// </summary>
-    [ClassWithPatches("Capacity Patch", "ApplyCapacityPatch", "counts CarryingCapacity offsets from apparel toward caravan carry weight.")]
+    [ClassWithPatches("ApplyCapacityPatch")]
     static class CapacityPatch
     {
         [HarmonyPatch(typeof(MassUtility))]

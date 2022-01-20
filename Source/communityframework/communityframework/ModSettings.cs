@@ -9,8 +9,9 @@ namespace CF
     /// <c>ModSettings</c> class for Community Framework. Mainly handles which Harmony patches should be applied and saves all specified settings.
     /// </summary>
     /// <remarks>Static for convenience.</remarks>
-    public class CommunityFrameworkModSettings : ModSettings
-    {        
+    public class CFSettings : ModSettings
+    {
+        public static readonly string KeyPrefix = "CFSettings_";
         public static bool DEBUG = false; //for release set false by default
         public static bool PrintPatchedMethods => DEBUG && printPatchedMethods;
         public static bool printPatchedMethods = false;
@@ -96,10 +97,10 @@ namespace CF
     /// </summary>
     public class D9FrameworkMod : Mod
     {
-        CommunityFrameworkModSettings settings;
+        CFSettings settings;
         public D9FrameworkMod(ModContentPack con) : base(con)
         {
-            this.settings = GetSettings<CommunityFrameworkModSettings>();
+            this.settings = GetSettings<CFSettings>();
             new HarmonyLoader();
         }
 
@@ -107,21 +108,24 @@ namespace CF
         {
             Listing_Standard listing = new Listing_Standard();
             listing.Begin(inRect);
-            listing.CheckboxLabeled("CFSettings_Debug".Translate(), ref CommunityFrameworkModSettings.DEBUG, "CFSettings_DebugTooltip".Translate());
-            if (CommunityFrameworkModSettings.DEBUG)
+            listing.CheckboxLabeled($"{CFSettings.KeyPrefix}Debug".Translate(), 
+                                   ref CFSettings.DEBUG,
+                                   $"{CFSettings.KeyPrefix}DebugTooltip".Translate());
+            if (CFSettings.DEBUG)
             {
-                listing.CheckboxLabeled("CFSettings_PPM".Translate(), ref CommunityFrameworkModSettings.printPatchedMethods, "CFSettings_PPMTooltip".Translate());
-                listing.Label("CFSettings_ApplyAtOwnRisk".Translate());
-                listing.Label("CFSettings_RestartToApply".Translate());
-                listing.Label("CFSettings_DebugModeRequired".Translate());
-                List<CommunityFrameworkModSettings.PatchSave> patches = CommunityFrameworkModSettings.SerializePatches();
-                foreach(CommunityFrameworkModSettings.PatchSave pi in patches)
+                listing.CheckboxLabeled($"{CFSettings.KeyPrefix}PPM".Translate(), ref CFSettings.printPatchedMethods, 
+                                        $"{CFSettings.KeyPrefix}PPMTooltip".Translate());
+                listing.Label($"{CFSettings.KeyPrefix}ApplyAtOwnRisk".Translate());
+                listing.Label($"{CFSettings.KeyPrefix}RestartToApply".Translate());
+                listing.Label($"{CFSettings.KeyPrefix}DebugModeRequired".Translate());
+                List<CFSettings.PatchSave> patches = CFSettings.SerializePatches();
+                foreach(CFSettings.PatchSave pi in patches)
                 {
-                    listing.CheckboxLabeled("CFSettingsApplyPatch".Translate(pi.plainName),
+                    listing.CheckboxLabeled($"{CFSettings.KeyPrefix}ApplyPatch".Translate(pi.plainName),
                                             ref pi.apply,
-                                            "CFSettingsApplyPatchTooltip".Translate(pi.plainName, pi.description));
+                                            $"{CFSettings.KeyPrefix}ApplyPatchTooltip".Translate(pi.plainName, pi.description));
                 }
-                CommunityFrameworkModSettings.DeserializePatches(patches);
+                CFSettings.DeserializePatches(patches);
             }
             listing.End();
             base.DoSettingsWindowContents(inRect);

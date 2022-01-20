@@ -9,7 +9,7 @@ using HarmonyLib;
 
 namespace CF
 {
-    [ClassWithPatches("On Hediff Added", "ApplyOnHediffAddedPatch", "allows certain hediffs to apply effects as soon as they're added to a pawn.")]
+    [ClassWithPatches("ApplyOnHediffAddedPatch")]
     static class OnHediffAddedPatch
     {
         [HarmonyPatch(typeof(Pawn_HealthTracker))]

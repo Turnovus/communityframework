@@ -23,22 +23,22 @@ namespace CF
                 ClassWithPatchesAttribute attr;
                 if ((attr = type.TryGetAttribute<ClassWithPatchesAttribute>()) != null)
                 {
-                    if (!CommunityFrameworkModSettings.Patches.ContainsKey(attr.SaveKey))
+                    if (!CFSettings.Patches.ContainsKey(attr.SaveKey))
                     {
-                        CommunityFrameworkModSettings.Patches[attr.SaveKey] = new CommunityFrameworkModSettings.PatchSave(attr.SaveKey, true);                        
+                        CFSettings.Patches[attr.SaveKey] = new CFSettings.PatchSave(attr.SaveKey, true);                        
                     }
                     else
                     {
-                        CommunityFrameworkModSettings.Patches[attr.SaveKey].apply = CommunityFrameworkModSettings.ShouldPatch(attr.SaveKey);
+                        CFSettings.Patches[attr.SaveKey].apply = CFSettings.ShouldPatch(attr.SaveKey);
                     }
-                    if (CommunityFrameworkModSettings.ShouldPatch(attr.SaveKey))
+                    if (CFSettings.ShouldPatch(attr.SaveKey))
                     {
                         PatchAll(harmony, type);
-                        ULog.DebugMessage("\t" + attr.PlainName + " enabled.", false);
+                        ULog.DebugMessage("\t" + attr.NameKey + " enabled.", false);
                     }                    
                 }
             }
-            if (CommunityFrameworkModSettings.PrintPatchedMethods)
+            if (CFSettings.PrintPatchedMethods)
             {
                 ULog.Message("The following methods were successfully patched:");
                 foreach (MethodBase mb in harmony.GetPatchedMethods()) Log.Message("\t" + mb.DeclaringType.Name + "." + mb.Name);

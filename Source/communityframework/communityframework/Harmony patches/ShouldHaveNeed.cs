@@ -13,7 +13,7 @@ namespace CF
     /// This patches the method ShouldHaveNeed so it checks if a pawn has the IgnoreNeed <c>DefModExtension</c>. 
     /// If this <c>DefModExtension</c> contains the need in its list, ignore it.
     /// </summary>
-    [ClassWithPatches("Ignore Need Patch", "ApplyShouldHaveNeedPatch", "allows modders to make pawns ignore certain needs.")]
+    [ClassWithPatches("ApplyShouldHaveNeedPatch")]
     static class ShouldHaveNeedPatch
     {
         [HarmonyPatch(typeof(Pawn_NeedsTracker), "ShouldHaveNeed")]
