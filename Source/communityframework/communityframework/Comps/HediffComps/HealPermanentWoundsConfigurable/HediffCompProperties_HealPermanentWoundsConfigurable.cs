@@ -38,8 +38,8 @@ namespace CF
         /// class should automatically be treated as whitelisted or
         /// blacklisted, if at all.
         /// </summary>
-        public InjuryRegenListMode injuryRegenListMode =
-            InjuryRegenListMode.None;
+        public CommunityHealthUtility.InjuryRegenListMode injuryRegenListMode =
+            CommunityHealthUtility.InjuryRegenListMode.None;
 
         /// <summary>
         /// Shortest and longest times between regeneration attempts. Values

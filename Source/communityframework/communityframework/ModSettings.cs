@@ -93,12 +93,12 @@ namespace CF
         }
     }
     /// <summary>
-    /// <c>Mod</c> class for D9 Framework. Mainly handles the settings screen.
+    /// <c>Mod</c> class for Community Framework. Mainly handles the settings screen.
     /// </summary>
-    public class D9FrameworkMod : Mod
+    public class CFMod : Mod
     {
         CFSettings settings;
-        public D9FrameworkMod(ModContentPack con) : base(con)
+        public CFMod(ModContentPack con) : base(con)
         {
             this.settings = GetSettings<CFSettings>();
             new HarmonyLoader();

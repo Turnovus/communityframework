@@ -85,7 +85,6 @@
     <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffComp_HealPermanentWoundsConfigurable.cs" />
     <Compile Include="Comps\HediffComps\HediffComp_ShouldRemove.cs" />
     <Compile Include="DefModExtensions\TraitRandomDiseasePool.cs" />
-    <Compile Include="Enumerations\InjuryRegenListMode.cs" />
     <Compile Include="Harmony patches\CompFromStuffPatch.cs" />
     <Compile Include="Harmony patches\FacilityRequireFuelPatch.cs" />
     <Compile Include="HarmonyLoader.cs" />
