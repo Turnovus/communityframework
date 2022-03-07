@@ -31,7 +31,7 @@ namespace CF
                     if (h is HediffWithComps withComps)
                         foreach (HediffComp c in withComps.comps)
                         {
-                            if (c is HediffComp_OnHediffAdded n)
+                            if (c is IHediffComp_OnHediffAdded n)
                                 n.OnHediffAdded(ref hediff);
                         }
                 }

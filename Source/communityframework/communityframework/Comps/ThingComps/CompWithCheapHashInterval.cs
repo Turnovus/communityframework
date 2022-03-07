@@ -18,6 +18,8 @@ namespace CF
     {       
         // Offset applied to individual instances of a Thing, used to ensure
         // that each instance isn't running code in the exact same tick.
+        // Caching this means we don't have to grab the parent's hash offset
+        // every tick.
         private int hashOffset = 0;
 
         /// <summary>
@@ -38,7 +40,9 @@ namespace CF
         /// Method run whenever the parent <c>ThingWithComps</c> is spawned in.
         /// Sets the hash offset to match the parent's <c>thingIDNumber</c>, so
         /// that seperate instances of the same parent <c>ThingWithComps</c>
-        /// won't all run their methods at the exact same tick.
+        /// won't all run their methods at the exact same tick.  Since 
+        /// <c>hashOffset</c> is cached, this allows the comp to run faster
+        /// than if it were to call <c>.hashOffset()</c> every tick.
         /// </summary>
         /// <param name="respawningAfterLoad">
         /// Unused in this context.

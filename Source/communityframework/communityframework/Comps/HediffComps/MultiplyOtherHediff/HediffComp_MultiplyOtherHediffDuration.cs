@@ -14,7 +14,8 @@ namespace CF
     /// amount. Can be used to artificially increase or decrease the lengths of
     /// certain <c>Hediff</c>s.
     /// </summary>
-    class HediffComp_MultiplyOtherHediffDuration : HediffComp_OnHediffAdded
+    class HediffComp_MultiplyOtherHediffDuration :
+        HediffComp, IHediffComp_OnHediffAdded
     {
         /// <summary>
         /// Pre-cast reference to this comp's corresponding properties,
@@ -30,7 +31,7 @@ namespace CF
         /// <c>Props.affectedHediffs</c>.
         /// </summary>
         /// <param name="hediff">The <c>Hediff</c> being added.</param>
-        public override void OnHediffAdded(ref Hediff hediff)
+        public void OnHediffAdded(ref Hediff hediff)
         {
             if (hediff == parent)
                 return;

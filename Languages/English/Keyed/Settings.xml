@@ -14,7 +14,7 @@
 	<CFSettings_ApplyPatchTooltip>Whether to apply the {0}, which {1}</CFSettings_ApplyPatchTooltip>
 	<!-- Settings/Description pairs for each patch, so they can be translated -->
 	<CFSettings_ApplyOnHediffAddedPatch_Name>On Hediff Added Patch</CFSettings_ApplyOnHediffAddedPatch_Name>
-	<CFSettings_ApplyOnHediffAddedPatch_Desc>allows certain hediffs to apply effects as soon as they're added to a pawn.</CFSettings_ApplyOnHediffAddedPatch_Desc>
+	<CFSettings_ApplyOnHediffAddedPatch_Desc>allows certain hediffs to apply effects whenever another hediff is applied to the same pawn.</CFSettings_ApplyOnHediffAddedPatch_Desc>
 	
 	<CFSettings_ApplyCapacityPatch_Name>Capacity Patch</CFSettings_ApplyCapacityPatch_Name>
 	<CFSettings_ApplyCapacityPatch_Desc>counts CarryingCapacity offsets from apparel toward caravan carry weight.</CFSettings_ApplyCapacityPatch_Desc>
@@ -35,7 +35,7 @@
 	<CFSettings_ApplyQualityUtilityPatch_Desc>allows modders to add conditions which affect the quality of crafted items.</CFSettings_ApplyQualityUtilityPatch_Desc>
 	
 	<CFSettings_ApplyHatchPatch_Name>Hatch Patch</CFSettings_ApplyHatchPatch_Name>
-	<CFSettings_ApplyHatchPatch_Desc>allows pawns to be born into your faction from items.></CFSettings_ApplyHatchPatch_Desc>
+	<CFSettings_ApplyHatchPatch_Desc>allows pawns to be born into your faction from items.</CFSettings_ApplyHatchPatch_Desc>
 	
 	<CFSettings_ApplyHealthTickPatch_Name>Health Tick Patch</CFSettings_ApplyHealthTickPatch_Name>
 	<CFSettings_ApplyHealthTickPatch_Desc>allows certain hediffs to apply effects when each pawn performs its health tick.</CFSettings_ApplyHealthTickPatch_Desc>

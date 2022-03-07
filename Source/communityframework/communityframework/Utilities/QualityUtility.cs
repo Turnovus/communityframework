@@ -16,10 +16,13 @@ namespace CF
 
         static QualityUtility()
         {
-            QualityInt = typeof(CompQuality).GetField("qualityInt", BindingFlags.NonPublic | BindingFlags.Instance);
+            QualityInt = typeof(CompQuality).GetField(
+                "qualityInt", BindingFlags.NonPublic | BindingFlags.Instance);
         }
 
-        public static void SetQualitySilent(this CompQuality comp, QualityCategory quality)
+        public static void SetQualitySilent(
+            this CompQuality comp,
+            QualityCategory quality)
         {
             QualityInt.SetValue(comp, quality);
         }

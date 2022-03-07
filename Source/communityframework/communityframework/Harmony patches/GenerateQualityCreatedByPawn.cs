@@ -40,16 +40,15 @@ namespace CF
                 foreach (Hediff h in pawn.health.hediffSet.hediffs)
                 {
                     c = h.TryGetComp<HediffComp_CraftedQualityOffset>();
-                    if (c != null)
-                    {
-                        //If the random chance for a quality offset is rolled, then
-                        //offset the quality.
-                        Random random = new Random();
-                        if (random.Next(100) <= c.PercentChance * 100)
-                            //Based on QualityUtility.AddLevels
-                            __result = (QualityCategory)
-                                Math.Min((int)__result + c.QualityOffset, 6);
-                    }
+                    if (c is null) continue;
+
+                    //If the random chance for a quality offset is rolled, then
+                    //offset the quality.
+                    Random random = new Random();
+                    if (random.Next(100) <= c.PercentChance * 100)
+                        //Based on QualityUtility.AddLevels
+                        __result = (QualityCategory)
+                            Math.Min((int)__result + c.QualityOffset, 6);
                 }
             }
         }

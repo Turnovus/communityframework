@@ -66,13 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comps\HediffComps\HediffComp_SeverityFromApparel.cs" />
-    <Compile Include="Comps\ThingComps\CompApplyHediffWhenWorn.cs" />
     <Compile Include="Comps\ThingComps\CompSelfRepair.cs" />
     <Compile Include="Comps\ThingComps\CompValidator.cs" />
     <Compile Include="Comps\ThingComps\CompWithCheapHashInterval.cs" />
     <Compile Include="Comps\HediffComps\CraftedQualityOffset\HediffCompProperties_CraftedQualityOffset.cs" />
     <Compile Include="Comps\HediffComps\CraftedQualityOffset\HediffComp_CraftedQualityOffset.cs" />
-    <Compile Include="Comps\HediffComps\HediffComp_OnHediffAdded.cs" />
+    <Compile Include="Comps\HediffComps\IHediffComp_OnHediffAdded.cs" />
     <Compile Include="Comps\HediffComps\MultiplyOtherHediff\HediffCompProperties_MultiplyOtherHediff.cs" />
     <Compile Include="Comps\HediffComps\MultiplyOtherHediff\HediffComp_MultiplyOtherHediffDuration.cs" />
     <Compile Include="Comps\HediffComps\MultiplyOtherHediff\HediffComp_MultiplyOtherHediffSeverity.cs" />

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace CF
 {
     /// <summary>
-    /// Used to make adding new Harmony patches internally easier. Not intended for other mods' use.
+    /// Used to make adding new Harmony patches internally easier. Not intended
+    /// for other mods' use.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     internal class ClassWithPatchesAttribute : Attribute
