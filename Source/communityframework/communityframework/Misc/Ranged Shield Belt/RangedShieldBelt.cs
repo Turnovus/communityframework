@@ -24,6 +24,9 @@ namespace CF
     public class RangedShieldBelt : Apparel
     {
         #region fields
+#pragma warning disable CS0649 // "will always be null" from visible code (managed by reflected code)
+#pragma warning disable CS0169 // "never used" from visible code (managed by reflected code)
+#pragma warning disable CS0414 // "assigned to but never used" from visible code (managed by reflected code)
         private float energy;
         private int ticksToReset = -1;
         private int lastKeepDisplayTick = -9999;
@@ -65,45 +68,15 @@ namespace CF
         public override bool AllowVerbCast(Verb v) => true;
 
         // All of the following are marked as throwing NotImplementedExceptions because they should:tm: be overridden by loading the methods by reflection in ReflectionEntrypoint.
-        public override void ExposeData()
-        {
-            throw new NotImplementedException();
-        }
-        public override IEnumerable<Gizmo> GetWornGizmos()
-        {
-            throw new NotImplementedException();
-        }
-        public override float GetSpecialApparelScoreOffset()
-        {
-            throw new NotImplementedException();
-        }
-        public override void Tick()
-        {
-            throw new NotImplementedException();
-        }
-        public override bool CheckPreAbsorbDamage(DamageInfo dinfo)
-        {
-            throw new NotImplementedException();
-        }
-        public void KeepDisplaying()
-        {
-            throw new NotImplementedException();
-        }
-        private void AbsorbedDamage(DamageInfo dinfo)
-        {
-            throw new NotImplementedException();
-        }
-        private void Break()
-        {
-            throw new NotImplementedException();
-        }
-        private void Reset()
-        {
-            throw new NotImplementedException();
-        }
-        public override void DrawWornExtras()
-        {
-            throw new NotImplementedException();
-        }        
+        public override void ExposeData() => ShieldBeltStubs.ExposeData(this);
+        public override IEnumerable<Gizmo> GetWornGizmos() => ShieldBeltStubs.GetWornGizmos(this);
+        public override float GetSpecialApparelScoreOffset() => ShieldBeltStubs.GetSpecialApparelScoreOffset(this);
+        public override void Tick() => ShieldBeltStubs.Tick(this);
+        public override bool CheckPreAbsorbDamage(DamageInfo dinfo) => ShieldBeltStubs.CheckPreAbsorbDamage(this, dinfo);
+        public void KeepDisplaying() => ShieldBeltStubs.KeepDisplaying(this);
+        private void AbsorbedDamage(DamageInfo dinfo) => ShieldBeltStubs.AbsorbedDamage(this, dinfo);
+        private void Break() => ShieldBeltStubs.Break(this);
+        private void Reset() => ShieldBeltStubs.Reset(this);
+        public override void DrawWornExtras() => ShieldBeltStubs.DrawWornExtras(this);
     }
 }
