@@ -67,7 +67,6 @@ namespace CF
         /// <returns>True.</returns>
         public override bool AllowVerbCast(Verb v) => true;
 
-        // All of the following are marked as throwing NotImplementedExceptions because they should:tm: be overridden by loading the methods by reflection in ReflectionEntrypoint.
         public override void ExposeData() => ShieldBeltStubs.ExposeData(this);
         public override IEnumerable<Gizmo> GetWornGizmos() => ShieldBeltStubs.GetWornGizmos(this);
         public override float GetSpecialApparelScoreOffset() => ShieldBeltStubs.GetSpecialApparelScoreOffset(this);
