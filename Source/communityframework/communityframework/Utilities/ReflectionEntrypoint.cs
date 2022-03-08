@@ -20,17 +20,11 @@ namespace CF
         {
             Type shieldBeltType = typeof(ShieldBelt);
             Type rangedShieldBeltType = typeof(RangedShieldBelt);
-            foreach(FieldInfo originalFi in shieldBeltType.GetFields().Where(x => x.DeclaringType == shieldBeltType))
-            {
-                Log.Message($"Field: {originalFi.Name} {originalFi.DeclaringType}");
-            }
-            foreach(PropertyInfo originalPi in shieldBeltType.GetProperties().Where(x => x.DeclaringType == shieldBeltType))
-            {
-                Log.Message($"Property: {originalPi.Name} {originalPi.DeclaringType}");
-            }
             foreach(MethodInfo originalMi in shieldBeltType.GetMethods().Where(x => x.DeclaringType == shieldBeltType))
             {
-                Log.Message($"Method: {originalMi.Name} {originalMi.DeclaringType}");
+                Log.Message($"Method:\n\tOriginal: {originalMi.Name} {originalMi.DeclaringType}");
+                MethodInfo newMi = rangedShieldBeltType.GetMethod(originalMi.Name);
+                Log.Message($"\tNew     : {newMi.Name} {newMi.DeclaringType}");
             }
         }
     }
