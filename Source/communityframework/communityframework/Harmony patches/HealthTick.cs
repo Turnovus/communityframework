@@ -21,13 +21,13 @@ namespace CF
         class HealthTick
         {
             /// <summary>
-            /// Postfix applied to <c>Pawn_HealthTracker.HealthTick</c>, allowing
-            /// additional code to be run after the base method.
+            /// Postfix applied to <c>Pawn_HealthTracker.HealthTick</c>,
+            /// allowing additional code to be run after the base method.
             /// </summary>
             /// <param name="__instance">The specific instance of 
             /// <c>Pawn_HealthTracker</c> currently being ticked.</param>
-            /// <param name="___pawn">The pawn that this <c>Pawn_HealthTracker</c>
-            /// belongs to.</param>
+            /// <param name="___pawn">The pawn that this
+            /// <c>Pawn_HealthTracker</c> belongs to.</param>
             static void Postfix(Pawn_HealthTracker __instance, Pawn ___pawn)
             {
                 //Dead pawns are not processed beyond this point:
@@ -42,7 +42,8 @@ namespace CF
                     {
                         //Provides functionality of TraitRandomDiseasePools
                         TraitRandomDiseasePool diseasePools =
-                            trait.def.GetModExtension<TraitRandomDiseasePool>();
+                            trait.def.
+                                GetModExtension<TraitRandomDiseasePool>();
                         if (diseasePools != null)
                         {
                             foreach (
@@ -51,8 +52,8 @@ namespace CF
                             {
                                 if (pool.degree != trait.Degree)
                                     continue;
-                                //If the current trait has diseases to cause over
-                                //random intervals, try to cause them now.
+                                //If the current trait has diseases to cause
+                                //over random intervals, try to cause them now.
                                 if (Rand.MTBEventOccurs(
                                     pool.mtbDiseaseDays, 60000f, 60f))
                                 {

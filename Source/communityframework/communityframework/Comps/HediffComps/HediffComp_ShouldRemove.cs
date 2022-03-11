@@ -6,6 +6,9 @@ namespace CF
     /// A <c>HediffComp</c> that allows <c>Hediff</c>s to be removed during the
     /// <c>HealthTick</c> without causing errors.
     /// </summary>
+    /// <remarks>
+    /// Powered by <seealso cref="ShouldRemovePatch"/>.
+    /// </remarks>
     class HediffComp_ShouldRemove : HediffComp
     {
         /// <summary>
