@@ -386,7 +386,7 @@ namespace CF
         {
             if (part == null)
             {
-                Log.Error(
+                ULog.Error(
                     "ConfigurableRegenUtility: Tried to restore null part");
                 return;
             }
@@ -427,7 +427,7 @@ namespace CF
             else
             {
                 if (!alreadyWarned)
-                    Log.Warning("ConfigurableRegenUtility: " +
+                    ULog.Warning("ConfigurableRegenUtility: " +
                         "Attempting to cure Hediff during HealthTick. " +
                         "This may cause a harmless error.");
                 hediff.pawn.health.RemoveHediff(hediff);
