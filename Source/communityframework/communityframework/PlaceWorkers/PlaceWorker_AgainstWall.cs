@@ -7,7 +7,8 @@ namespace CF
 {
     /// <summary>
     /// <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed on 
-    /// a cell adjacent to but facing away from a wall. <seealso cref="CF.CompValidator"/>
+    /// a cell adjacent to but facing away from a wall.
+    /// <seealso cref="CF.CompValidator"/>
     /// <remarks>
     /// Originally by CuproPanda, for Additional Joy Objects.
     /// </remarks>
@@ -31,7 +32,7 @@ namespace CF
             if (!c.InBounds(map) || !loc.InBounds(map)) return false;
             // Only allow placing on walls, and not if another faction owns the
             // wall
-            if (!PlaceWorkerUtility.IsWall(edifice))
+            if (!edifice.IsWall())
                 // || (edifice.Faction != null
                 // || edifice.Faction != Faction.OfPlayer))    
                 return new AcceptanceReport(
@@ -65,7 +66,7 @@ namespace CF
             // Building must be a wall, and must be owned by the player's
             // faction
             if (
-                !PlaceWorkerUtility.IsWall(buil)
+                !buil.IsWall()
                 || buil.Faction != Faction.OfPlayer
             )
             {
@@ -76,9 +77,7 @@ namespace CF
 
             // An identical building with the same rotation cannot exist in the
             // same location.
-            if (PlaceWorkerUtility.ConflictingThing(
-                checkingDef, loc, rot, map
-            ))
+            if (loc.ConflictingThing(checkingDef, rot, map))
             {
                 return new AcceptanceReport(
                     "IdenticalThingExists".Translate()
