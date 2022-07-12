@@ -22,7 +22,7 @@ namespace CF
 
         public Gizmo_RangedShieldStatus()
         {   
-            base.order = -100f;
+            order = -100f;
         }
 
         public override float GetWidth(float maxWidth)
@@ -33,23 +33,21 @@ namespace CF
 
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
-            Rect overRect = new Rect(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
-            Find.WindowStack.ImmediateWindow(984688, overRect, WindowLayer.GameUI, delegate
-            {
-                Rect rect = overRect.AtZero().ContractedBy(6f);
-                Rect rect2 = rect;
-                rect2.height = overRect.height / 2f;
-                Text.Font = GameFont.Tiny;
-                Widgets.Label(rect2, shield.LabelCap);
-                Rect rect3 = rect;
-                rect3.yMin = overRect.height / 2f;
-                float fillPercent = shield.Energy / Mathf.Max(1f, shield.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true));
-                Widgets.FillableBar(rect3, fillPercent, FullShieldBarTex, EmptyShieldBarTex, false);
-                Text.Font = GameFont.Small;
-                Text.Anchor = TextAnchor.MiddleCenter;
-                Widgets.Label(rect3, (shield.Energy * 100f).ToString("F0") + " / " + (shield.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true) * 100f).ToString("F0"));
-                Text.Anchor = TextAnchor.UpperLeft;
-            }, true, false, 1f);
+            Rect outerRect = new Rect(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
+            Rect innerRect = outerRect.ContractedBy(6f);
+            Widgets.DrawWindowBackground(outerRect);
+            Rect labelRect = innerRect;
+            labelRect.height = innerRect.height / 2f;
+            Text.Font = GameFont.Tiny;
+            Widgets.Label(labelRect, shield.LabelCap);
+            Rect rect4 = innerRect;
+            rect4.yMin = innerRect.y + innerRect.height / 2f;
+            float fillPercent = shield.Energy / Mathf.Max(1f, shield.GetStatValue(StatDefOf.EnergyShieldEnergyMax));
+            Widgets.FillableBar(rect4, fillPercent, FullShieldBarTex, EmptyShieldBarTex, doBorder: false);
+            Text.Font = GameFont.Small;
+            Text.Anchor = TextAnchor.MiddleCenter;
+            Widgets.Label(rect4, $"{(shield.Energy * 100f):F0} / {(shield.GetStatValue(StatDefOf.EnergyShieldEnergyMax) * 100f):F0}");
+            Text.Anchor = TextAnchor.UpperLeft;
             return new GizmoResult(GizmoState.Clear);
         }
     }

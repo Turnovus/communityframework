@@ -79,6 +79,7 @@
     <Compile Include="Comps\HediffComps\SeverityFromPain\HediffComp_SeverityFromPain.cs" />
     <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffCompProperties_SeverityFromSkill.cs" />
     <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffComp_SeverityFromSkill.cs" />
+    <Compile Include="Utilities\CommunityBuildingUtility.cs" />
     <Compile Include="Utilities\CommunityHealthUtility.cs" />
     <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffCompProperties_HealPermanentWoundsConfigurable.cs" />
     <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffComp_HealPermanentWoundsConfigurable.cs" />
@@ -107,7 +108,6 @@
     <Compile Include="ModSettings.cs" />
     <Compile Include="PatchOperations\PatchOperationFindPackage.cs" />
     <Compile Include="PatchOperations\PatchOperationRoyaltyInstalled.cs" />
-    <Compile Include="PlaceWorkers\PlaceworkerUtility.cs" />
     <Compile Include="PlaceWorkers\PlaceWorker_AgainstWall.cs" />
     <Compile Include="PlaceWorkers\PlaceWorker_Roofed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
