@@ -12,6 +12,9 @@ namespace CF
     /// Interface to be implented by a <c>HediffComp</c>. Contains methods that
     /// are run whenever the affected <c>Pawn</c> has a hediff applied to it.
     /// </summary>
+    /// <remarks>
+    /// Powered by <seealso cref="OnHediffAddedPatch"/>
+    /// </remarks>
     public interface IHediffComp_OnHediffAdded
     {
         /// <summary>

@@ -17,7 +17,7 @@ namespace CF
             // Check if graphicPath returns an actual texture.
             if (!ContentFinder<Texture2D>.Get(Props.texPath))
             {
-                Log.Error("No Gizmo texture found");
+                ULog.Error("No Gizmo texture found");
             }
 
             return base.CompGetGizmosExtra().Append(new Command_Action

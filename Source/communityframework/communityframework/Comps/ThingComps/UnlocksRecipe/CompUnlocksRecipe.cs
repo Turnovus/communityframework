@@ -63,7 +63,7 @@ namespace CF
                     }
                     else
                     {
-                        Log.Warning($"the recipe {recipe.label} already exists for {_compAffectedByFacilities.parent.def.label}. Skipping... ");
+                        ULog.Warning($"the recipe {recipe.label} already exists for {_compAffectedByFacilities.parent.def.label}. Skipping... ");
                     }
                 }
             }
