@@ -13,6 +13,8 @@ namespace CF
     /// </summary>
     class HarmonyLoader
     {
+        private static List<string> allSaveKeysInt = null;
+
         static HarmonyLoader()
         {
             ULog.Message("Applying Harmony patches...");
@@ -44,12 +46,33 @@ namespace CF
                 foreach (MethodBase mb in harmony.GetPatchedMethods()) Log.Message("\t" + mb.DeclaringType.Name + "." + mb.Name);
             }
         }
+
+        public static bool SaveKeyExists(string key)
+        {
+            if (allSaveKeysInt == null) FindAllSaveKeys();
+            return allSaveKeysInt.Contains(key);
+        }
+
         // thanks to lbmaian
         public static void PatchAll(Harmony harmony, Type parentType)
         {
             foreach (var type in parentType.GetNestedTypes(AccessTools.all))
             {
                 new PatchClassProcessor(harmony, type).Patch();
+            }
+        }
+
+        private static void FindAllSaveKeys()
+        {
+            allSaveKeysInt = new List<string>();
+            foreach (Type type in typeof(HarmonyLoader).Assembly.GetTypes()
+                .Where(t => t.IsClass && t.IsSealed && t.IsAbstract))
+            {
+                ClassWithPatchesAttribute attr;
+                if (
+                    (attr = type.TryGetAttribute<ClassWithPatchesAttribute>())
+                        != null)
+                    allSaveKeysInt.Add(attr.SaveKey);
             }
         }
     }

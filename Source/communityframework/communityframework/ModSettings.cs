@@ -85,7 +85,8 @@ namespace CF
             List<PatchSave> ret = new List<PatchSave>();
             foreach (string key in Patches.Keys.ToList())
             {
-                ret.Add(new PatchSave(key, Patches[key].apply));
+                if (HarmonyLoader.SaveKeyExists(key))
+                    ret.Add(new PatchSave(key, Patches[key].apply));
             }
             return ret;
         }
@@ -94,7 +95,8 @@ namespace CF
         {
             foreach (PatchSave pi in list)
             {
-                Patches[pi.saveKey] = pi;
+                if (HarmonyLoader.SaveKeyExists(pi.saveKey))
+                    Patches[pi.saveKey] = pi;
             }
         }
     }
