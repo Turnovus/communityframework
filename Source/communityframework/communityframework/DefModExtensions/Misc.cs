@@ -8,6 +8,10 @@ using Verse;
 
 namespace CF
 {
+    // These extensions are just for holding data, and none of these fields are
+    // going to be assigned to in this namespace.
+#pragma warning disable CS0649
+
     /// <summary>
     /// <c>DefModExtension</c> for use with
     /// <see cref="CF.ShouldHaveNeedPatch"/>. Needs listed here will be ignored
@@ -15,10 +19,9 @@ namespace CF
     /// </summary>
     class IgnoreNeed : DefModExtension
     {
-#pragma warning disable CS0649
         public List<NeedDef> needs;
-#pragma warning restore CS0649
     }
+
     /// <summary>
     /// <c>DefModExtension</c> which flags the parent plant <c>ThingDef</c> as
     /// using negative fertility. Specifies minimum and maximum fertility
@@ -40,10 +43,18 @@ namespace CF
     /// </summary>
     class CompsToAddWhenStuff : DefModExtension
     {
-        //disable the warning that this field is never assigned to, as the game
-        //handles that
-# pragma warning disable CS0649 
         public List<CompProperties> comps;
-#pragma warning restore CS0649
+
     }
+
+    /// <summary>
+    /// An extension meant for use alongside
+    /// <see cref="RimWorld.CompFacility"/>, it is meant to be used on
+    /// buildings that link to other buildings.
+    /// </summary>
+    class BuildingFacilityExtension : DefModExtension
+    {
+        public bool facilityRequiresFuel = false;
+    }
+#pragma warning restore CS0649
 }

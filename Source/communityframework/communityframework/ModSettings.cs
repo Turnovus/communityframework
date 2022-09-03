@@ -83,7 +83,6 @@ namespace CF
         public static List<PatchSave> SerializePatches()
         {
             List<PatchSave> ret = new List<PatchSave>();
-            PatchSave patch;
             foreach (string key in Patches.Keys.ToList())
             {
                 ret.Add(new PatchSave(key, Patches[key].apply));
@@ -123,12 +122,19 @@ namespace CF
             );
             if (CFSettings.DEBUG)
             {
-                listing.CheckboxLabeled($"{CFSettings.KeyPrefix}PPM".Translate(), ref CFSettings.printPatchedMethods, 
-                                        $"{CFSettings.KeyPrefix}PPMTooltip".Translate());
-                listing.Label($"{CFSettings.KeyPrefix}ApplyAtOwnRisk".Translate());
-                listing.Label($"{CFSettings.KeyPrefix}RestartToApply".Translate());
-                listing.Label($"{CFSettings.KeyPrefix}DebugModeRequired".Translate());
-                List<CFSettings.PatchSave> patches = CFSettings.SerializePatches();
+                listing.CheckboxLabeled(
+                    $"{CFSettings.KeyPrefix}PPM".Translate(),
+                    ref CFSettings.printPatchedMethods, 
+                    $"{CFSettings.KeyPrefix}PPMTooltip".Translate());
+                listing.Label(
+                    $"{CFSettings.KeyPrefix}ApplyAtOwnRisk".Translate());
+                listing.Label(
+                    $"{CFSettings.KeyPrefix}RestartToApply".Translate());
+                listing.Label(
+                    $"{CFSettings.KeyPrefix}DebugModeRequired".Translate());
+
+                List<CFSettings.PatchSave> patches =
+                    CFSettings.SerializePatches();
                 foreach(CFSettings.PatchSave pi in patches)
                 {
                     listing.CheckboxLabeled(
