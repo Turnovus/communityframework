@@ -88,10 +88,9 @@ namespace CF
         {
             Random random = new Random(); //RNG utility
             Hediff result; //The hediff to be healed
-            //List of hediffs to be added to the regenerated part. Hediffs need
-            //to be added at the end, as hediffs can't be added to destroyed
-            //parts.
-            List<Hediff> addedHediffs = new List<Hediff>();
+            //the part and severity of the hediff we've just cured
+            BodyPartRecord curedPart;
+            float curedSeverity;
 
             //Try to find a valid hediff that meets all of the parameters, stop
             //execution if none found. The following code block is mostly one
@@ -120,6 +119,26 @@ namespace CF
             {
                 throw e;
             }
+
+            //Save relevant information about the hediff before we remove it.
+            //These fields are changed by the process of removing the hediff,
+            //so we need to store them now.
+            curedPart = result.Part;
+            curedSeverity = result.Severity;
+
+            //Cure the original target hediff.
+            if (!(result is Hediff_MissingPart))
+                //If it's a normal Hediff, do it the normal way.
+                TryCureHediffInt(result);
+            else
+            {
+                //if it's a missing part, use the method for missing parts.
+                RestorePartInt(pawn, result.Part);
+                //forcibly remove the hediff from its part so that we can apply
+                //side effects to it.
+                result.Part = null;
+            }
+
             //Iterate through each side-effect, then try to apply it to the 
             //cured hediff's body part.
             if (sideEffects != null)
@@ -136,7 +155,7 @@ namespace CF
                             pawn,
                             //Only attach hediff to the cured part if it is not
                             //a global hediff.
-                            sideEffect.isGlobalHediff ? null : result.Part);
+                            sideEffect.isGlobalHediff ? null : curedPart);
                         //Set the new hediff's severity to something between 
                         //the minimum and maximum specified severity.
                         float newHediffSeverity = ((float)random.NextDouble() *
@@ -144,35 +163,25 @@ namespace CF
                                 sideEffect.severity.min)) +
                             sideEffect.severity.min;
                         //If the new hediff's severity is meant to be 
-                        //multipliedby the old hediff's severity, do so now. If
-                        //the cured part was destroyed, the multiplier is 
+                        //multiplied by the old hediff's severity, do so now.
+                        //If the cured part was destroyed, the multiplier is 
                         //ignored, so the full effect is always applied.
                         if (sideEffect.useInjurySeverityMult &&
                             !(result is Hediff_MissingPart))
                         {
                             if (HediffIsInjury(result))
                                 newHediffSeverity *=
-                                    result.Severity /
-                                    result.Part.def.hitPoints;
+                                    curedSeverity /
+                                    curedPart.def.hitPoints;
                             else
-                                newHediffSeverity *= result.Severity;
+                                newHediffSeverity *= curedSeverity;
                         }
 
                         newHediff.Severity = newHediffSeverity;
-                        addedHediffs.Add(newHediff);
+                        pawn.health.AddHediff(newHediff);
                     }
                 }
             }
-            //Cure the original target hediff.
-            if (!(result is Hediff_MissingPart))
-                //If it's a normal Hediff, do it the normal way.
-                TryCureHediffInt(result);
-            else
-                //if it's a missing part, use the method for missing parts.
-                RestorePartInt(pawn, result.Part);
-            //Apply the side-effect hediffs to the newly cured part.
-            foreach (Hediff addedHediff in addedHediffs)
-                pawn.health.AddHediff(addedHediff);
 
             //Notify the player that an injury has been healed.
             if (!PawnUtility.ShouldSendNotificationAbout(pawn))
@@ -298,9 +307,9 @@ namespace CF
         /// <param name="hediff">
         /// The <c>Hediff</c> to check.
         /// </param>
-        /// <param name="careIfAddedAncestor">If true, missing parts will not be
-        /// counted as an injury if any ancestor has any ancestor with "added
-        /// parts", i.e. bionics.</param>
+        /// <param name="careIfAddedAncestor">If true, missing parts will not
+        /// be counted as an injury if any ancestor has any ancestor with
+        /// "added parts", i.e. bionics.</param>
         /// <returns>
         /// <c>true</c>, if the specified <c>Hediff</c> is some form of injury
         /// or missing part.
@@ -559,8 +568,9 @@ namespace CF
         /// <c>InjuryRegenListMode</c> is used to dictate whether a 
         /// <c>ThingComp</c> or <c>HediffComp</c> that uses 
         /// <c>CommunityHealthUtility</c> should automatically treat
-        /// <c>HediffDef</c>s with the <c>Hediff_Injury</c> class as whitelisted or
-        /// blacklisted, or if they should be treated normally (<c>None</c>).
+        /// <c>HediffDef</c>s with the <c>Hediff_Injury</c> class as
+        /// whitelisted or blacklisted, or if they should be treated normally
+        /// (<c>None</c>).
         /// </summary>
         public enum InjuryRegenListMode
         {
@@ -569,11 +579,13 @@ namespace CF
             /// </summary>
             None,
             /// <summary>
-            /// Injuries should never be accepted, unless explicitly whitelisted.
+            /// Injuries should never be accepted, unless explicitly
+            /// whitelisted.
             /// </summary>
             Blacklist,
             /// <summary>
-            /// Injuries should always be accepted, unless explicitly blacklisted.
+            /// Injuries should always be accepted, unless explicitly
+            /// blacklisted.
             /// </summary>
             Whitelist,
         }

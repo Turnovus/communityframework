@@ -46,6 +46,6 @@
 	<CFSettings_ApplyShouldHaveNeedPatch_Name>Ignore Need Patch</CFSettings_ApplyShouldHaveNeedPatch_Name>
 	<CFSettings_ApplyShouldHaveNeedPatch_Desc>allows modders to make pawns ignore certain needs.</CFSettings_ApplyShouldHaveNeedPatch_Desc>
 	
-	<CFSettings_ApplyShouldRemovePatch_Name>ShouldRemove Patch</CFSettings_ApplyShouldRemovePatch_Name>
-	<CFSettings_ApplyShouldRemovePatch_Desc>allows hediffs to be removed by certain effects.</CFSettings_ApplyShouldRemovePatch_Desc>
+	<CFSettings_ApplyMissingPartPatches_Name>Missing Part Patches</CFSettings_ApplyMissingPartPatches_Name>
+	<CFSettings_ApplyMissingPartPatches_Desc>allows the framework to easily fix missing parts without causing errors.</CFSettings_ApplyMissingPartPatches_Desc>
 </LanguageData>

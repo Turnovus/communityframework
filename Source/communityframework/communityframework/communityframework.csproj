@@ -89,7 +89,7 @@
     <Compile Include="Harmony patches\CompFromStuffPatch.cs" />
     <Compile Include="Harmony patches\FacilityRequireFuelPatch.cs" />
     <Compile Include="HarmonyLoader.cs" />
-    <Compile Include="Harmony patches\ShouldRemove.cs" />
+    <Compile Include="Harmony patches\MissingPartPatches.cs" />
     <Compile Include="Harmony patches\NegativeFertilityPatch.cs" />
     <Compile Include="Harmony patches\AddHediff.cs" />
     <Compile Include="Harmony patches\HealthTick.cs" />

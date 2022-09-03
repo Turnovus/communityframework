@@ -7,7 +7,7 @@ namespace CF
     /// <c>HealthTick</c> without causing errors.
     /// </summary>
     /// <remarks>
-    /// Powered by <seealso cref="ShouldRemovePatch"/>.
+    /// Powered by <seealso cref="MissingPartPatches"/>.
     /// </remarks>
     class HediffComp_ShouldRemove : HediffComp
     {
