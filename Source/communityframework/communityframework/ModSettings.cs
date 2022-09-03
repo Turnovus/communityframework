@@ -13,11 +13,13 @@ namespace CF
     public class CFSettings : ModSettings
     {
         public static readonly string KeyPrefix = "CFSettings_";
+        public static readonly string NamePostfix = "_Name";
+        public static readonly string DescPostfix = "_Desc";
         public static bool DEBUG = false; //for release set false by default
         public static bool PrintPatchedMethods => DEBUG && printPatchedMethods;
         public static bool printPatchedMethods = false;
 
-        // despite being public, please don't alter these. Access patch
+        // despite being public, please don't access these. Access patch
         // application settings with ShouldPatch.
         // They're only public so they can be used in the mod settings screen.
         public static Dictionary<string, PatchSave> Patches =
@@ -26,7 +28,7 @@ namespace CF
         public class PatchSave : IExposable
         {
             public bool apply;
-            public string saveKey, plainName, description;
+            public string saveKey;
 
             // The game requires a no-arg constructor
             public PatchSave() { }
@@ -81,6 +83,7 @@ namespace CF
         public static List<PatchSave> SerializePatches()
         {
             List<PatchSave> ret = new List<PatchSave>();
+            PatchSave patch;
             foreach (string key in Patches.Keys.ToList())
             {
                 ret.Add(new PatchSave(key, Patches[key].apply));
@@ -130,11 +133,11 @@ namespace CF
                 {
                     listing.CheckboxLabeled(
                         $"{CFSettings.KeyPrefix}ApplyPatch".Translate(
-                            pi.plainName),
+                            NameKeyOf(pi.saveKey).Translate()),
                         ref pi.apply,
                         $"{CFSettings.KeyPrefix}ApplyPatchTooltip".Translate(
-                            pi.plainName,
-                            pi.description
+                            NameKeyOf(pi.saveKey).Translate(),
+                            DescKeyOf(pi.saveKey).Translate()
                         )
                     );
                 }
@@ -148,5 +151,11 @@ namespace CF
         {
             return "CFSettings_Category".Translate();
         }
+
+        private static string NameKeyOf(string patchKey) =>
+            CFSettings.KeyPrefix + patchKey + CFSettings.NamePostfix;
+
+        private static string DescKeyOf(string patchKey) =>
+            CFSettings.KeyPrefix + patchKey + CFSettings.DescPostfix;
     }
 }

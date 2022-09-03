@@ -17,13 +17,13 @@
 	<CFSettings_ApplyOnHediffAddedPatch_Desc>allows certain hediffs to apply effects whenever another hediff is applied to the same pawn.</CFSettings_ApplyOnHediffAddedPatch_Desc>
 	
 	<CFSettings_ApplyCapacityPatch_Name>Capacity Patch</CFSettings_ApplyCapacityPatch_Name>
-	<CFSettings_ApplyCapacityPatch_Desc>counts CarryingCapacity offsets from apparel toward caravan carry weight.</CFSettings_ApplyCapacityPatch_Desc>
+	<CFSettings_ApplyCapacityPatch_Desc>allows the "caravan capacity" stat to work, which can be used to increase the maximum carry mass of a caravan.</CFSettings_ApplyCapacityPatch_Desc>
 	
 	<CFSettings_ApplyCompAffectedByFacilitiesPatch_Name>Facility Recipe Unlock</CFSettings_ApplyCompAffectedByFacilitiesPatch_Name>
 	<CFSettings_ApplyCompAffectedByFacilitiesPatch_Desc>allows facilities to unlock recipes when attached to workbenches.</CFSettings_ApplyCompAffectedByFacilitiesPatch_Desc>
 	
 	<CFSettings_ApplyCompFromStuffPatch_Name>Comp From Stuff</CFSettings_ApplyCompFromStuffPatch_Name>
-	<CFSettings_ApplyCompFromStuffPatch_Desc>allows materials to add additional properties to things made from them..</CFSettings_ApplyCompFromStuffPatch_Desc>
+	<CFSettings_ApplyCompFromStuffPatch_Desc>allows materials to add additional properties to things made from them.</CFSettings_ApplyCompFromStuffPatch_Desc>
 	
 	<CFSettings_ApplyIgnorePathCostPatch_Name>Ignore Path Cost</CFSettings_ApplyIgnorePathCostPatch_Name>
 	<CFSettings_ApplyIgnorePathCostPatch_Desc>allows modders to make pawns ignore pathing costs.</CFSettings_ApplyIgnorePathCostPatch_Desc>
