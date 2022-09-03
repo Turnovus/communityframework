@@ -12,9 +12,15 @@ namespace CF
         {
             return t.BaseMass;
         }
-        public override string BillRequirementsDescription(RecipeDef r, IngredientCount ing)
+        public override string BillRequirementsDescription(
+            RecipeDef r,
+            IngredientCount ing
+        )
         {
-            return "CF_BillRequiresMass".Translate(ing.GetBaseCount(), ing.filter.Summary);
+            return "CF_BillRequiresMass".Translate(
+                ing.GetBaseCount(),
+                ing.filter.Summary
+            );
         }
     }
 }

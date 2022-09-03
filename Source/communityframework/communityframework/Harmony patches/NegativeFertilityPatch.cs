@@ -11,10 +11,14 @@ using RimWorld;
 namespace CF
 {
     /// <summary>
-    /// Allows modders to use the <see cref="CF.UseNegativeFertility"/> <c>DefModExtension</c> to create plants which grow faster in poorer soil.
+    /// Allows modders to use the <see cref="CF.UseNegativeFertility"/>
+    /// <c>DefModExtension</c> to create plants which grow faster in poorer
+    /// soil.
     /// </summary>
     /// <remarks>
-    /// Generally mod-compatible and performant because of how it caches <c>MaxNaturalFertility</c>, but probably contributes to longer start-up times.
+    /// Generally mod-compatible and performant because of how it caches
+    /// <c>MaxNaturalFertility</c>, but probably contributes to longer start-up
+    /// times.
     /// </remarks>
     [StaticConstructorOnStartup]
     [ClassWithPatches("ApplyNegativeFertilityPatch")]
@@ -30,20 +34,31 @@ namespace CF
         /// </remarks>
         static NegativeFertilityPatch()
         {
-            HashSet<TerrainDef> allPossibleNaturalTerrains = new HashSet<TerrainDef>();
-            foreach (BiomeDef bd in DefDatabase<BiomeDef>.AllDefsListForReading)
+            HashSet<TerrainDef> allPossibleNaturalTerrains =
+                new HashSet<TerrainDef>();
+            foreach (
+                BiomeDef bd in DefDatabase<BiomeDef>.AllDefsListForReading
+            )
             {
-                foreach (TerrainThreshold tt in bd.terrainsByFertility) allPossibleNaturalTerrains.Add(tt.terrain);
+                foreach (TerrainThreshold tt in bd.terrainsByFertility)
+                    allPossibleNaturalTerrains.Add(tt.terrain);
+
                 foreach (TerrainPatchMaker tpm in bd.terrainPatchMakers)
-                    foreach (TerrainThreshold tt in tpm.thresholds) allPossibleNaturalTerrains.Add(tt.terrain);
+                    foreach (TerrainThreshold tt in tpm.thresholds)
+                        allPossibleNaturalTerrains.Add(tt.terrain);
             }
-            IEnumerable<TerrainDef> terrainsByFertility = (from td in DefDatabase<TerrainDef>.AllDefsListForReading
-                                                           where allPossibleNaturalTerrains.Contains(td)
-                                                           orderby td.fertility descending
-                                                           select td);
+            IEnumerable<TerrainDef> terrainsByFertility = 
+                from td in DefDatabase<TerrainDef>.AllDefsListForReading
+                where allPossibleNaturalTerrains.Contains(td)
+                orderby td.fertility descending
+                select td;
+
             if (terrainsByFertility.EnumerableNullOrEmpty())
             {
-                ULog.Error("Negative Fertility Patch: terrainsByFertility was empty. Setting EffectiveMaxFertility to 1.");
+                ULog.Error(
+                    "Negative Fertility Patch: terrainsByFertility was empty. "
+                    + "Setting EffectiveMaxFertility to 1."
+                );
                 MaxNaturalFertility = 1f;
             }
             else
@@ -52,18 +67,38 @@ namespace CF
             }
         }
 
-        [HarmonyPatch(typeof(Plant), nameof(Plant.GrowthRateFactor_Fertility), MethodType.Getter)]
+        [HarmonyPatch(
+            typeof(Plant),
+            nameof(Plant.GrowthRateFactor_Fertility),
+            MethodType.Getter
+        )]
         class NegativeFertilityPostfix
         {
             [HarmonyPostfix]
-            public static void GrowthRateFactor_FertilityPostfix(ref float __result, ref Plant __instance)
+            public static void GrowthRateFactor_FertilityPostfix(
+                ref float __result,
+                ref Plant __instance
+            )
             {
                 UseNegativeFertility me;
-                if ((me = __instance.def.GetModExtension<UseNegativeFertility>()) != null)
+                if (
+                    (me = 
+                        __instance.def.GetModExtension<UseNegativeFertility>())
+                        != null
+                 )
                 {
-                    __result = Mathf.Clamp((MaxNaturalFertility - __instance.Map.fertilityGrid.FertilityAt(__instance.Position)) * __instance.def.plant.fertilitySensitivity + (1f - __instance.def.plant.fertilitySensitivity),
-                               me.minFertility, 
-                               me.maxFertility);
+                    float fertility = MaxNaturalFertility;
+                    fertility -= __instance.Map.fertilityGrid.
+                        FertilityAt(__instance.Position);
+                    fertility *= __instance.def.plant.fertilitySensitivity;
+                    fertility += 1f - __instance.def.plant.
+                        fertilitySensitivity;
+
+                    __result = Mathf.Clamp(
+                        fertility,
+                        me.minFertility, 
+                        me.maxFertility
+                    );
                 }
             }
         }

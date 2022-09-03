@@ -6,7 +6,8 @@ using Verse;
 namespace CF
 {
     /// <summary>
-    /// <c>ModSettings</c> class for Community Framework. Mainly handles which Harmony patches should be applied and saves all specified settings.
+    /// <c>ModSettings</c> class for Community Framework. Mainly handles which
+    /// Harmony patches should be applied and saves all specified settings.
     /// </summary>
     /// <remarks>Static for convenience.</remarks>
     public class CFSettings : ModSettings
@@ -16,9 +17,11 @@ namespace CF
         public static bool PrintPatchedMethods => DEBUG && printPatchedMethods;
         public static bool printPatchedMethods = false;
 
-        // despite being public, please don't fuck with these. Access patch application settings with ShouldPatch.
-        // They're only public so I can use them in the mod settings screen.
-        public static Dictionary<string, PatchSave> Patches = new Dictionary<string, PatchSave>();
+        // despite being public, please don't alter these. Access patch
+        // application settings with ShouldPatch.
+        // They're only public so they can be used in the mod settings screen.
+        public static Dictionary<string, PatchSave> Patches =
+            new Dictionary<string, PatchSave>();
 
         public class PatchSave : IExposable
         {
@@ -68,7 +71,8 @@ namespace CF
             if (!DEBUG) return true;
             if (!Patches.ContainsKey(patchkey))
             {
-                ULog.Warning("ShouldPatch called for non-initialized patchkey.");
+                ULog.Warning(
+                    "ShouldPatch called for non-initialized patchkey.");
                 return true;
             }
             return Patches[patchkey].apply;
@@ -93,7 +97,8 @@ namespace CF
         }
     }
     /// <summary>
-    /// <c>Mod</c> class for Community Framework. Mainly handles the settings screen.
+    /// <c>Mod</c> class for Community Framework. Mainly handles the settings
+    /// screen.
     /// </summary>
     public class CFMod : Mod
     {
@@ -108,9 +113,11 @@ namespace CF
         {
             Listing_Standard listing = new Listing_Standard();
             listing.Begin(inRect);
-            listing.CheckboxLabeled($"{CFSettings.KeyPrefix}Debug".Translate(), 
-                                   ref CFSettings.DEBUG,
-                                   $"{CFSettings.KeyPrefix}DebugTooltip".Translate());
+            listing.CheckboxLabeled(
+                $"{CFSettings.KeyPrefix}Debug".Translate(), 
+                ref CFSettings.DEBUG,
+                $"{CFSettings.KeyPrefix}DebugTooltip".Translate()
+            );
             if (CFSettings.DEBUG)
             {
                 listing.CheckboxLabeled($"{CFSettings.KeyPrefix}PPM".Translate(), ref CFSettings.printPatchedMethods, 
@@ -121,9 +128,15 @@ namespace CF
                 List<CFSettings.PatchSave> patches = CFSettings.SerializePatches();
                 foreach(CFSettings.PatchSave pi in patches)
                 {
-                    listing.CheckboxLabeled($"{CFSettings.KeyPrefix}ApplyPatch".Translate(pi.plainName),
-                                            ref pi.apply,
-                                            $"{CFSettings.KeyPrefix}ApplyPatchTooltip".Translate(pi.plainName, pi.description));
+                    listing.CheckboxLabeled(
+                        $"{CFSettings.KeyPrefix}ApplyPatch".Translate(
+                            pi.plainName),
+                        ref pi.apply,
+                        $"{CFSettings.KeyPrefix}ApplyPatchTooltip".Translate(
+                            pi.plainName,
+                            pi.description
+                        )
+                    );
                 }
                 CFSettings.DeserializePatches(patches);
             }
