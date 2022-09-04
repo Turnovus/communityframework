@@ -20,30 +20,41 @@ namespace CF
             ULog.Message("Applying Harmony patches...");
             var harmony = new Harmony("com.communityframework.harmonypatches");
             // https://stackoverflow.com/questions/2639418/use-reflection-to-get-a-list-of-static-classes
-            foreach(Type type in typeof(HarmonyLoader).Assembly.GetTypes().Where(t => t.IsClass && t.IsSealed && t.IsAbstract))
+            foreach(
+                Type type in typeof(HarmonyLoader).Assembly.GetTypes()
+                    .Where(t => t.IsClass && t.IsSealed && t.IsAbstract)
+            )
             {
                 ClassWithPatchesAttribute attr;
-                if ((attr = type.TryGetAttribute<ClassWithPatchesAttribute>()) != null)
+                if (
+                    (attr = type.TryGetAttribute<ClassWithPatchesAttribute>())
+                        != null
+                )
                 {
                     if (!CFSettings.Patches.ContainsKey(attr.SaveKey))
                     {
-                        CFSettings.Patches[attr.SaveKey] = new CFSettings.PatchSave(attr.SaveKey, true);                        
+                        CFSettings.Patches[attr.SaveKey] =
+                            new CFSettings.PatchSave(attr.SaveKey, true);                        
                     }
                     else
                     {
-                        CFSettings.Patches[attr.SaveKey].apply = CFSettings.ShouldPatch(attr.SaveKey);
+                        CFSettings.Patches[attr.SaveKey].apply =
+                            CFSettings.ShouldPatch(attr.SaveKey);
                     }
                     if (CFSettings.ShouldPatch(attr.SaveKey))
                     {
                         PatchAll(harmony, type);
-                        ULog.DebugMessage("\t" + attr.NameKey + " enabled.", false);
+                        ULog.DebugMessage(
+                            "\t" + attr.NameKey + " enabled.", false);
                     }                    
                 }
             }
             if (CFSettings.PrintPatchedMethods)
             {
-                ULog.Message("The following methods were successfully patched:");
-                foreach (MethodBase mb in harmony.GetPatchedMethods()) Log.Message("\t" + mb.DeclaringType.Name + "." + mb.Name);
+                ULog.Message(
+                    "The following methods were successfully patched:");
+                foreach (MethodBase mb in harmony.GetPatchedMethods())
+                    ULog.Message("\t" + mb.DeclaringType.Name + "." + mb.Name);
             }
         }
 
