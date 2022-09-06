@@ -15,7 +15,7 @@ namespace CF
     /// non-invasive way.
     /// </summary>
     [StaticConstructorOnStartup]
-    public static class QualityUtility
+    public static class CommunityQualityUtility
     {
         /// <summary>
         /// <c>FieldInfo</c> used to refer to the private <c>qualityInt</c>
@@ -27,7 +27,7 @@ namespace CF
         /// No-arg constructor, run when the game starts. Initializes the value
         /// of <c>QualityUtility.QualityInt</c>.
         /// </summary>
-        static QualityUtility()
+        static CommunityQualityUtility()
         {
             QualityInt = typeof(CompQuality).GetField(
                 "qualityInt", BindingFlags.NonPublic | BindingFlags.Instance);
