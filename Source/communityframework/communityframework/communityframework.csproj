@@ -114,7 +114,7 @@
     <Compile Include="RecipeWorker\Recipe_InstallOrReplaceImplant.cs" />
     <Compile Include="Ulog.cs" />
     <Compile Include="Utilities\ClassWithPatchesAttribute.cs" />
-    <Compile Include="Utilities\QualityUtility.cs" />
+    <Compile Include="Utilities\CommunityQualityUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
