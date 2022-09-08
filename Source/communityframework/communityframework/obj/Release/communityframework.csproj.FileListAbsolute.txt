@@ -1,4 +1,0 @@
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\communityframework\Assemblies\communityframework.dll
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\communityframework\Source\communityframework\communityframework\obj\Release\communityframework.csprojAssemblyReference.cache
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\communityframework\Source\communityframework\communityframework\obj\Release\communityframework.csproj.CoreCompileInputs.cache
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\communityframework\Source\communityframework\communityframework\obj\Release\communityframework.dll

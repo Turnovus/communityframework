@@ -30,7 +30,9 @@ namespace CF
             /// A dictionary consisting of hediff-causing incidents as keys,
             /// and their randomness weight as values.
             /// </summary>
+#pragma warning disable CS0649
             public Dictionary<IncidentDef, int> diseases;
+#pragma warning restore CS0649
             /// <summary>
             /// The required trait degree for this incident pool to be used.
             /// </summary>
@@ -58,39 +60,42 @@ namespace CF
                 string blockedInfo;
                 //Make sure that the incident being caused is actually a
                 //disease.
-                if (incidentDef.Worker is IncidentWorker_Disease worker)
+                if (!(incidentDef.Worker is IncidentWorker_Disease worker))
                 {
-                    List<Pawn> pawns = worker.ApplyToPawns(
-                        Gen.YieldSingle(pawn), out blockedInfo);
-                    if (!PawnUtility.ShouldSendNotificationAbout(pawn))
-                        return;
-                    //Check if disease was actually applied to target pawn,
-                    //because the pawn may have the disease blocked by another
-                    //hediff
-                    if (pawns.Contains(pawn))
-                        //If the pawn was affected, send the normal "incident 
-                        //occured" letter.
-                        Find.LetterStack.ReceiveLetter(
-                            "LetterLabelTraitDisease".Translate(
-                                incidentDef.diseaseIncident.label),
-                            "LetterTraitDisease".Translate(
-                                pawn.LabelCap,
-                                incidentDef.diseaseIncident.label,
-                                pawn.Named("PAWN")).AdjustedFor(pawn),
-                            LetterDefOf.NegativeEvent, pawn);
-                    else if (!blockedInfo.NullOrEmpty())
-                        //If pawn was not affected, send a simple "blocked"
-                        //notice. Will only execute if there's a "disease
-                        //blocked" message to display.
-                        Messages.Message(
-                            blockedInfo, pawn, MessageTypeDefOf.NeutralEvent);
-                }
-                //Prevent non-disease events from occuring, because trying to
-                //create a raid here would likely cause a lot of painful
-                //errors.
-                else
-                    Log.Error("DefModExtension \"TraitRandomDiseasePools\" " +
+                    //Prevent non-disease events from occuring, because trying
+                    //to create a raid here would likely cause a lot of painful
+                    //errors.
+                    ULog.Error("DefModExtension \"TraitRandomDiseasePools\" " +
                         "tried to trigger non-disease incident.");
+                    return;
+                }
+                //Try to apply the incident to the affected pawn.
+                List<Pawn> pawns = worker.ApplyToPawns(
+                    Gen.YieldSingle(pawn), out blockedInfo);
+                if (!PawnUtility.ShouldSendNotificationAbout(pawn))
+                    return;
+                //Check if disease was actually applied to target pawn, because
+                //the pawn may have the disease blocked by another hediff.
+                if (pawns.Contains(pawn))
+                {
+                    //If the pawn was affected, send the normal "incident 
+                    //occured" letter.
+                    Find.LetterStack.ReceiveLetter(
+                        "LetterLabelTraitDisease".Translate(
+                            incidentDef.diseaseIncident.label),
+                        "LetterTraitDisease".Translate(
+                            pawn.LabelCap,
+                            incidentDef.diseaseIncident.label,
+                            pawn.Named("PAWN")).AdjustedFor(pawn),
+                        LetterDefOf.NegativeEvent, pawn);
+                    return;
+                }
+                if (!blockedInfo.NullOrEmpty())
+                    //If pawn was not affected, send a simple "blocked" notice.
+                    //Will only execute if there's a "disease blocked" message
+                    //to display.
+                    Messages.Message(
+                        blockedInfo, pawn, MessageTypeDefOf.NeutralEvent);
             }
         }
 
@@ -98,6 +103,8 @@ namespace CF
         /// Contains all of the <c>TraitMtbDiseasePool</c>s specified for each
         /// trait degree.
         /// </summary>
+#pragma warning disable CS0649
         public List<DiseasePool> pools;
+#pragma warning restore CS0649
     }
 }
