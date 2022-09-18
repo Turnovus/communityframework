@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comps\HediffComps\HediffComp_SeverityFromApparel.cs" />
+    <Compile Include="Comps\ThingComps\CompOnWearSound.cs" />
     <Compile Include="Comps\ThingComps\CompSelfRepair.cs" />
     <Compile Include="Comps\ThingComps\CompValidator.cs" />
     <Compile Include="Comps\ThingComps\CompWithCheapHashInterval.cs" />
