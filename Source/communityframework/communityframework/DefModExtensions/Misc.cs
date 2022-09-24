@@ -56,5 +56,30 @@ namespace CF
     {
         public bool facilityRequiresFuel = false;
     }
+
+    class UseOutputWorkers : DefModExtension
+    {
+        public IEnumerable<Type> outputWorkers;
+
+        [Unsaved(false)]
+        private IEnumerable<OutputWorker> activeWorkers = null;
+
+        public IEnumerable<OutputWorker> ActiveWorkers
+        {
+            get
+            {
+                if (activeWorkers != null)
+                    return activeWorkers;
+
+                activeWorkers = new List<OutputWorker>();
+                foreach (Type t in outputWorkers)
+                    activeWorkers.Append(
+                        (OutputWorker)Activator.CreateInstance(t)
+                    );
+
+                return activeWorkers;
+            }
+        }
+    }
 #pragma warning restore CS0649
 }
