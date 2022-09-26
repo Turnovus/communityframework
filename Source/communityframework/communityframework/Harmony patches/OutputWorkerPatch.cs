@@ -9,6 +9,12 @@ using HarmonyLib;
 
 namespace CF
 {
+    /// <summary>
+    /// Adds patches that will run before and after any recipe is complete.
+    /// Each patch will check the recipe for a <see cref="UseOutputWorkers"/>
+    /// extension, and will run the relevant method from each
+    /// <see cref="OutputWorker"/> found.
+    /// </summary>
     [ClassWithPatches("ApplyOutputWorkerPatch")]
     static class OutputWorkerPatch
     {
@@ -24,10 +30,12 @@ namespace CF
                 Precept_ThingStyle precept
             )
             {
+                // Get the extension, quit if none found
                 UseOutputWorkers ext =
                     recipeDef.GetModExtension<UseOutputWorkers>();
                 if (ext == null) return;
 
+                // Run every pre-craft method
                 foreach (OutputWorker o in ext.ActiveWorkers)
                     o.PreCraft(
                         recipeDef,
@@ -47,12 +55,17 @@ namespace CF
                 Precept_ThingStyle precept
             )
             {
+                // Stores any new products that each OutputWorker produces, so
+                // that they can be finalized later.
                 IEnumerable<Thing> newProducts;
 
+                // Get the extension, quit if none found
                 UseOutputWorkers ext =
                     recipeDef.GetModExtension<UseOutputWorkers>();
                 if (ext == null) return;
 
+                // Run each post-craft method, then finalize any Things that
+                // they produce before adding them to the list of products.
                 foreach (OutputWorker o in ext.ActiveWorkers)
                 {
                     newProducts = o.PostCraft(

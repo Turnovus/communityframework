@@ -57,13 +57,32 @@ namespace CF
         public bool facilityRequiresFuel = false;
     }
 
+    /// <summary>
+    /// An extension used by <see cref="Verse.RecipeDef"/>. It contains a list
+    /// of <see cref="OutputWorker"/>s to run when the parent recipe is
+    /// complete.
+    /// </summary>
     class UseOutputWorkers : DefModExtension
     {
+        /// <summary>
+        /// A collection of non-initiated <see cref="OutputWorker"/>s to run
+        /// when the parent recipe is completed.
+        /// </summary>
         public IEnumerable<Type> outputWorkers;
 
+        /// <summary>
+        /// Instances of the <see cref="OutputWorker"/>s used by this
+        /// extension. Stored so that their methods can be easily called when
+        /// needed.
+        /// </summary>
         [Unsaved(false)]
         private IEnumerable<OutputWorker> activeWorkers = null;
 
+        /// <summary>
+        /// Returns a list of instances of <see cref="OutputWorkers"/> used by
+        /// this extension. If the workers haven't been instanced yet, this
+        /// property will first create the necessary instances.
+        /// </summary>
         public IEnumerable<OutputWorker> ActiveWorkers
         {
             get
