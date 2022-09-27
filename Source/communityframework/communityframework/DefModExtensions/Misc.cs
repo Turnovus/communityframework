@@ -100,5 +100,7 @@ namespace CF
             }
         }
     }
+
+    class HatcheeForcedPlayerFaction : DefModExtension { }
 #pragma warning restore CS0649
 }
