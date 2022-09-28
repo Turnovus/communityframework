@@ -17,7 +17,7 @@ namespace CF
     /// <see cref="CF.ShouldHaveNeedPatch"/>. Needs listed here will be ignored
     /// by pawns with this <c>DefModExtension</c>.
     /// </summary>
-    class IgnoreNeed : DefModExtension
+    public class IgnoreNeed : DefModExtension
     {
         public List<NeedDef> needs;
     }
@@ -41,7 +41,7 @@ namespace CF
     /// by their <c>CompProperties</c>, which should be added to newly-
     /// generated items made from the specified Stuff.
     /// </summary>
-    class CompsToAddWhenStuff : DefModExtension
+    public class CompsToAddWhenStuff : DefModExtension
     {
         public List<CompProperties> comps;
 
@@ -52,7 +52,7 @@ namespace CF
     /// <see cref="RimWorld.CompFacility"/>, it is meant to be used on
     /// buildings that link to other buildings.
     /// </summary>
-    class BuildingFacilityExtension : DefModExtension
+    public class BuildingFacilityExtension : DefModExtension
     {
         public bool facilityRequiresFuel = false;
     }
@@ -101,6 +101,6 @@ namespace CF
         }
     }
 
-    class HatcheeForcedPlayerFaction : DefModExtension { }
+    public class HatcheeForcedPlayerFaction : DefModExtension { }
 #pragma warning restore CS0649
 }
