@@ -63,7 +63,7 @@ namespace CF
                 //English: "Quality Offset Chance:"
                 "CF_CraftedQualityOffset_QualityOffsetChance".Translate() +
                 //Display offset chance as percent.
-                " %" + ((int)(PercentChance * 100)).ToString() + "\n" :
+                " " + ((int)(PercentChance * 100)).ToString() + "%\n" :
                 //If chance is 100%, add nothing here.
                 (TaggedString)string.Empty) +
             //English: "Current Quality Offset:"

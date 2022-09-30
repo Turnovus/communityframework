@@ -48,4 +48,7 @@
 	
 	<CFSettings_ApplyMissingPartPatches_Name>Missing Part Patches</CFSettings_ApplyMissingPartPatches_Name>
 	<CFSettings_ApplyMissingPartPatches_Desc>allows the framework to easily fix missing parts without causing errors.</CFSettings_ApplyMissingPartPatches_Desc>
+
+	<CFSettings_ApplyOutputWorkerPatch_Name>Recipe Output Patches</CFSettings_ApplyOutputWorkerPatch_Name>
+	<CFSettings_ApplyOutputWorkerPatch_Desc>allows modders to run additional scripts whenever certain recipes are complete.</CFSettings_ApplyOutputWorkerPatch_Desc>
 </LanguageData>

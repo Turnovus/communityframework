@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comps\HediffComps\HediffComp_SeverityFromApparel.cs" />
+    <Compile Include="Comps\ThingComps\CompOnWearSound.cs" />
     <Compile Include="Comps\ThingComps\CompSelfRepair.cs" />
     <Compile Include="Comps\ThingComps\CompValidator.cs" />
     <Compile Include="Comps\ThingComps\CompWithCheapHashInterval.cs" />
@@ -80,6 +81,8 @@
     <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffCompProperties_SeverityFromSkill.cs" />
     <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffComp_SeverityFromSkill.cs" />
     <Compile Include="DefOf\CF_StatDefOf.cs" />
+    <Compile Include="Harmony patches\OutputWorkerPatch.cs" />
+    <Compile Include="OutputWorker\OutputWorker.cs" />
     <Compile Include="Utilities\CommunityBuildingUtility.cs" />
     <Compile Include="Utilities\CommunityHealthUtility.cs" />
     <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffCompProperties_HealPermanentWoundsConfigurable.cs" />
@@ -115,6 +118,7 @@
     <Compile Include="Ulog.cs" />
     <Compile Include="Utilities\ClassWithPatchesAttribute.cs" />
     <Compile Include="Utilities\CommunityQualityUtility.cs" />
+    <Compile Include="Utilities\CommunityRecipeUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
