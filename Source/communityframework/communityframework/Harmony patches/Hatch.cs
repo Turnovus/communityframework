@@ -22,7 +22,8 @@ namespace CF
             public static void Prefix(CompHatcher __instance)
             {
                 // if (__instance.hatcheeParent == null) //If no parent is found for the hatchee, set the hatchee's faction to that of the player.
-                if (__instance.parent.def.GetModExtension<HatcheeForcedPlayerFaction>() != null)
+                HatcherExtension ext = __instance.parent.def.GetModExtension<HatcherExtension>();
+                if (ext != null && ext.hatcheeForcePlayerFaction)
                 {
                     // "parent" here refers to the Thing this CompHatcher is attached to, not the parent as described above.
                     __instance.hatcheeFaction = Faction.OfPlayer;

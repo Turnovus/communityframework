@@ -101,6 +101,9 @@ namespace CF
         }
     }
 
-    public class HatcheeForcedPlayerFaction : DefModExtension { }
+    public class HatcherExtension : DefModExtension
+    {
+        public bool hatcheeForcePlayerFaction = false;
+    }
 #pragma warning restore CS0649
 }
