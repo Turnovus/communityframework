@@ -23,12 +23,20 @@ namespace CF
         /// The IBillGiver of whatever produced the recipe bill
         /// </param>
         /// <param name="precept">The style precepts of the worker</param>
+        /// <param name="style">
+        /// The style to be applied, independent of ideoligious precepts.
+        /// </param>
+        /// <param name="overrideGraphicIndex">
+        /// Index of the desired graphic override.
+        /// </param>
         public abstract void PreCraft(
             RecipeDef recipeDef,
             Pawn worker,
             IEnumerable<Thing> ingredients,
             IBillGiver billGiver,
-            Precept_ThingStyle precept
+            Precept_ThingStyle precept=null,
+            ThingStyleDef style=null,
+            int? overrideGraphicIndex=null
         );
 
         /// <summary>
@@ -52,6 +60,12 @@ namespace CF
         /// The IBillGiver of whatever produced the recipe bill
         /// </param>
         /// <param name="precept">The style precepts of the worker</param>
+        /// <param name="style">
+        /// The style to be applied, independent of ideoligious precepts.
+        /// </param>
+        /// <param name="overrideGraphicIndex">
+        /// Index of the desired graphic override.
+        /// </param>
         /// <returns>
         /// Any additional <c>Thing</c>s to be added to recipe products.
         /// </returns>
@@ -61,7 +75,9 @@ namespace CF
             Pawn worker,
             IEnumerable<Thing> ingredients,
             IBillGiver billGiver,
-            Precept_ThingStyle precept
+            Precept_ThingStyle precept=null,
+            ThingStyleDef style=null,
+            int? overrideGraphicIndex=null
         );
     }
 }
