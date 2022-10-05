@@ -25,7 +25,9 @@ namespace CF
             RecipeDef recipeDef,
             Pawn worker,
             Precept_ThingStyle
-            precept=null);
+            precept=null,
+            ThingStyleDef style=null,
+            int? overrideGraphicIndex=null);
 
         /// <summary>
         /// This delegate refers to the private method
@@ -64,10 +66,15 @@ namespace CF
             Thing product,
             RecipeDef recipeDef,
             Pawn worker,
-            Precept_ThingStyle precept = null
+            Precept_ThingStyle precept = null,
+            ThingStyleDef style=null,
+            int? overrideGraphicIndex=null
         )
             => postProcessProductDelegate.DynamicInvoke(
-                new object[] { product, recipeDef, worker, precept }
+                new object[] {
+                    product, recipeDef, worker, precept, style,
+                    overrideGraphicIndex
+                }
             ) as Thing;
     }
 }

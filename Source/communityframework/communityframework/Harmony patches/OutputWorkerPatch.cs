@@ -27,7 +27,9 @@ namespace CF
                 Pawn worker,
                 List<Thing> ingredients,
                 IBillGiver billGiver,
-                Precept_ThingStyle precept
+                Precept_ThingStyle precept,
+                ThingStyleDef style,
+                int? overrideGraphicIndex
             )
             {
                 // Get the extension, quit if none found
@@ -42,7 +44,9 @@ namespace CF
                         worker,
                         ingredients,
                         billGiver,
-                        precept
+                        precept,
+                        style,
+                        overrideGraphicIndex
                     );
             }
 
@@ -52,7 +56,9 @@ namespace CF
                 Pawn worker,
                 List<Thing> ingredients,
                 IBillGiver billGiver,
-                Precept_ThingStyle precept
+                Precept_ThingStyle precept,
+                ThingStyleDef style,
+                int? overrideGraphicIndex
             )
             {
                 // Stores any new products that each OutputWorker produces, so
@@ -74,7 +80,9 @@ namespace CF
                         worker,
                         ingredients,
                         billGiver,
-                        precept
+                        precept,
+                        style,
+                        overrideGraphicIndex
                     );
 
                     foreach (Thing t in newProducts)
@@ -83,7 +91,9 @@ namespace CF
                             t,
                             recipeDef,
                             worker,
-                            precept
+                            precept,
+                            style,
+                            overrideGraphicIndex
                         );
                         __result.AddItem(t);
                     }
