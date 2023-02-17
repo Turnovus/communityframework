@@ -35,7 +35,8 @@ namespace CF
                 // Get the extension, quit if none found
                 UseOutputWorkers ext =
                     recipeDef.GetModExtension<UseOutputWorkers>();
-                if (ext == null) return;
+                if (ext == null || ext.ActiveWorkers.EnumerableNullOrEmpty())
+                    return;
 
                 // Run every pre-craft method
                 foreach (OutputWorker o in ext.ActiveWorkers)
@@ -68,7 +69,8 @@ namespace CF
                 // Get the extension, quit if none found
                 UseOutputWorkers ext =
                     recipeDef.GetModExtension<UseOutputWorkers>();
-                if (ext == null) return;
+                if (ext == null || ext.ActiveWorkers.EnumerableNullOrEmpty())
+                    return;
 
                 // Run each post-craft method, then finalize any Things that
                 // they produce before adding them to the list of products.
@@ -84,6 +86,10 @@ namespace CF
                         style,
                         overrideGraphicIndex
                     );
+
+                    // If no new products added, move on to the next worker.
+                    if (newProducts.EnumerableNullOrEmpty())
+                        continue;
 
                     foreach (Thing t in newProducts)
                     {

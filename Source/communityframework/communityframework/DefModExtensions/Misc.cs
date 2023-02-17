@@ -91,6 +91,10 @@ namespace CF
                     return activeWorkers;
 
                 activeWorkers = new List<OutputWorker>();
+
+                if (outputWorkers.EnumerableNullOrEmpty())
+                    return activeWorkers;
+
                 foreach (Type t in outputWorkers)
                     activeWorkers.Append(
                         (OutputWorker)Activator.CreateInstance(t)

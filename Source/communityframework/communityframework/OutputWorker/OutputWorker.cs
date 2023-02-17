@@ -8,7 +8,7 @@ namespace CF
     /// Abstract base class containing methods to run upon completing certain
     /// recipes.
     /// </summary>
-   abstract class OutputWorker
+   public abstract class OutputWorker
     {
         /// <summary>
         /// Method to run when a recipe is completed, but before the products
