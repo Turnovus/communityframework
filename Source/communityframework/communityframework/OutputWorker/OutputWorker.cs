@@ -34,9 +34,9 @@ namespace CF
             Pawn worker,
             IEnumerable<Thing> ingredients,
             IBillGiver billGiver,
-            Precept_ThingStyle precept=null,
-            ThingStyleDef style=null,
-            int? overrideGraphicIndex=null
+            ref Precept_ThingStyle precept,
+            ref ThingStyleDef style,
+            ref int? overrideGraphicIndex
         );
 
         /// <summary>

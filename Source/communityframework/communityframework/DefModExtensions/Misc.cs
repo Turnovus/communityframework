@@ -79,7 +79,7 @@ namespace CF
         private IEnumerable<OutputWorker> activeWorkers = null;
 
         /// <summary>
-        /// Returns a list of instances of <see cref="OutputWorkers"/> used by
+        /// Returns a list of instances of <see cref="OutputWorker"/>s used by
         /// this extension. If the workers haven't been instanced yet, this
         /// property will first create the necessary instances.
         /// </summary>

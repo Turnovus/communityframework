@@ -27,9 +27,9 @@ namespace CF
                 Pawn worker,
                 List<Thing> ingredients,
                 IBillGiver billGiver,
-                Precept_ThingStyle precept,
-                ThingStyleDef style,
-                int? overrideGraphicIndex
+                ref Precept_ThingStyle precept,
+                ref ThingStyleDef style,
+                ref int? overrideGraphicIndex
             )
             {
                 // Get the extension, quit if none found
@@ -45,9 +45,9 @@ namespace CF
                         worker,
                         ingredients,
                         billGiver,
-                        precept,
-                        style,
-                        overrideGraphicIndex
+                        ref precept,
+                        ref style,
+                        ref overrideGraphicIndex
                     );
             }
 
