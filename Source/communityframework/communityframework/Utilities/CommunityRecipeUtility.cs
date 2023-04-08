@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reflection;
 using Verse;
 using RimWorld;
@@ -24,8 +20,7 @@ namespace CF
             Thing product,
             RecipeDef recipeDef,
             Pawn worker,
-            Precept_ThingStyle
-            precept=null,
+            Precept_ThingStyle precept=null,
             ThingStyleDef style=null,
             int? overrideGraphicIndex=null);
 
