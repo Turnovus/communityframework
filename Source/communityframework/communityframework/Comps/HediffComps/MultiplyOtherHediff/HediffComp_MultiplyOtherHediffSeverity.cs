@@ -70,7 +70,9 @@ namespace CF
         /// <c>Props.affectedHediff</c> before taking effect, so doing those
         /// comparisons externally is unnecessary.
         /// </summary>
-        /// <param name="other"></param>
+        /// <param name="other">
+        /// The <see cref="Hediff"/> to possibly adjust.
+        /// </param>
         private void TryAdjustOtherHediff(Hediff other)
         {
             if (other == parent)

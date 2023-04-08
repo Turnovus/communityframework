@@ -20,7 +20,7 @@ namespace CF
         /// An empty delegate to define the method signature used by
         /// <see cref="Verse.GenRecipe.MakeRecipeProducts"/>.
         /// </summary>
-        private delegate Thing PostProcessProductDelegate(
+        private delegate Thing PostProcessProductSignature(
             Thing product,
             RecipeDef recipeDef,
             Pawn worker,
@@ -33,7 +33,7 @@ namespace CF
         /// This delegate refers to the private method
         /// <see cref="Verse.GenRecipe.MakeRecipeProducts"/>.
         /// </summary>
-        private static Delegate postProcessProductDelegate;
+        private readonly static Delegate postProcessProductDelegate;
 
         /// <summary>
         /// Sets up delegates refering to private methods.
@@ -43,7 +43,7 @@ namespace CF
             postProcessProductDelegate = typeof(GenRecipe).GetMethod(
                 "PostProcessProduct",
                 BindingFlags.NonPublic | BindingFlags.Static
-            ).CreateDelegate(typeof(PostProcessProductDelegate));
+            ).CreateDelegate(typeof(PostProcessProductSignature));
         }
 
         /// <summary>
@@ -61,6 +61,10 @@ namespace CF
         /// <param name="recipeDef">The recipe that created the product</param>
         /// <param name="worker">The pawn doing the recipe</param>
         /// <param name="precept">The pawn's ideo style precept</param>
+        /// <param name="style">The style that will be applied to the product.</param>
+        /// <param name="overrideGraphicIndex">
+        /// Index override for the graphic.
+        /// </param>
         /// <returns>A reference to <c>product</c>.</returns>
         public static Thing PostProcessProduct(
             Thing product,
