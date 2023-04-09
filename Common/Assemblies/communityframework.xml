@@ -445,6 +445,20 @@
             multiplied by.
             </summary>
         </member>
+        <member name="F:CF.HediffCompProperties_MultiplyOtherHediff.affectsNewHediffs">
+            <summary>
+            If <c>true</c>, then the comp will affect newly-added
+            <c>Hediff</c>s. Does not affect conditions that are already
+            present.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_MultiplyOtherHediff.affectsExistingHediffs">
+            <summary>
+            If <c>true</c>, then the comp will affect <c>Hediff</c>s that were
+            already present when the parent condition was applied. Does not
+            affect other conditions that were added after the parent.
+            </summary>
+        </member>
         <member name="T:CF.HediffComp_MultiplyOtherHediffDuration">
             <summary>
             When a sibling <c>Hediff</c> is applied, this comp with multiply the
@@ -464,9 +478,40 @@
             Run when another <c>Hediff</c> is added to the parent's
             <c>Pawn</c>. Multiplies the other <c>Hediff</c>'s duration by a set
             amount, if the other <c>Hediff</c>'s <c>Def</c> is in
-            <c>Props.affectedHediffs</c>.
+            <c>Props.affectedHediffs</c>, and if <c>Props.affectsNewHediffs</c>
+            is <c>true</c>.
             </summary>
             <param name="hediff">The <c>Hediff</c> being added.</param>
+        </member>
+        <member name="M:CF.HediffComp_MultiplyOtherHediffDuration.CompPostPostAdd(System.Nullable{Verse.DamageInfo})">
+            <summary>
+            Run when the parent <see cref="T:Verse.Hediff"/> is applied to a
+            <see cref="T:Verse.Pawn"/>. If <c>Props.affectsExistingHediff</c> is
+            <c>true</c>, then this override will go through each health
+            condition already present on the target <c>Pawn</c>, and, if the
+            condition's <see cref="T:Verse.HediffDef"/> is in
+            <c>Props.affectedHediffs</c>, its duration will be multiplied by
+            <c>Props.multiplier</c>.
+            </summary>
+            <param name="dinfo">
+            The <see cref="T:Verse.DamageInfo"/> that caused the parent condition to be
+            applied. Unused here.
+            </param>
+        </member>
+        <member name="M:CF.HediffComp_MultiplyOtherHediffDuration.TryAdjustOtherHediff(Verse.Hediff)">
+            <summary>
+            Internal helper method used to adjust the duration of other
+            <see cref="T:Verse.Hediff"/>s where applicable. This method ensures that
+            the targeted health condition is not the comp's parent condition,
+            and that the condition's <see cref="T:Verse.HediffDef"/> is contained in
+            <c>Props.affectedHediff</c> before taking effect, as well as
+            ensring that it has the required
+            <see cref="T:Verse.HediffComp_Disappears"/>, so doing those comparisons
+            externally is unnecessary.
+            </summary>
+            <param name="other">
+            The <see cref="T:Verse.Hediff"/> to possibly adjust.
+            </param>
         </member>
         <member name="T:CF.HediffComp_MultiplyOtherHediffSeverity">
             <summary>
@@ -487,9 +532,38 @@
             Run when another <c>Hediff</c> is added to the parent's
             <c>Pawn</c>. Multiplies the other <c>Hediff</c>'s severity by a set
             amount, if the other <c>Hediff</c>'s <c>Def</c> is in
-            <c>Props.affectedHediffs</c>.
+            <c>Props.affectedHediffs</c>, and if <c>Props.affectsNewHediffs</c>
+            is <c>true</c>.
             </summary>
             <param name="hediff">The <c>Hediff</c> being added.</param>
+        </member>
+        <member name="M:CF.HediffComp_MultiplyOtherHediffSeverity.CompPostPostAdd(System.Nullable{Verse.DamageInfo})">
+            <summary>
+            Run when the parent <see cref="T:Verse.Hediff"/> is applied to a
+            <see cref="T:Verse.Pawn"/>. If <c>Props.affectsExistingHediff</c> is
+            <c>true</c>, then this override will go through each health
+            condition already present on the target <c>Pawn</c>, and, if the
+            condition's <see cref="T:Verse.HediffDef"/> is in
+            <c>Props.affectedHediffs</c>, its severity will be multiplied by
+            <c>Props.multiplier</c>.
+            </summary>
+            <param name="dinfo">
+            The <see cref="T:Verse.DamageInfo"/> that caused the parent condition to be
+            applied. Unused here.
+            </param>
+        </member>
+        <member name="M:CF.HediffComp_MultiplyOtherHediffSeverity.TryAdjustOtherHediff(Verse.Hediff)">
+            <summary>
+            Internal helper method used to adjust the severity of other
+            <see cref="T:Verse.Hediff"/>s where applicable. This method ensures that
+            the targeted health condition is not the comp's parent condition,
+            and that the condition's <see cref="T:Verse.HediffDef"/> is contained in
+            <c>Props.affectedHediff</c> before taking effect, so doing those
+            comparisons externally is unnecessary.
+            </summary>
+            <param name="other">
+            The <see cref="T:Verse.Hediff"/> to possibly adjust.
+            </param>
         </member>
         <member name="T:CF.HediffCompProperties_SeverityFromPain">
             <summary>
@@ -615,6 +689,12 @@
             increase or decrease the parent <c>Hediff</c>'s severity through
             smaller increments. Here, it does nothing.</param>
         </member>
+        <member name="T:CF.CF_StatDefOf">
+            <summary>
+            <see cref="T:Verse.Def"/> cache containing the framework's XML
+            <see cref="T:RimWorld.StatDef"/>s for easy reference in C# assemblies.
+            </summary>
+        </member>
         <member name="T:CF.OutputWorkerPatch">
             <summary>
             Adds patches that will run before and after any recipe is complete.
@@ -629,7 +709,7 @@
             recipes.
             </summary>
         </member>
-        <member name="M:CF.OutputWorker.PreCraft(Verse.RecipeDef,Verse.Pawn,System.Collections.Generic.IEnumerable{Verse.Thing},RimWorld.IBillGiver,RimWorld.Precept_ThingStyle,Verse.ThingStyleDef,System.Nullable{System.Int32})">
+        <member name="M:CF.OutputWorker.PreCraft(Verse.RecipeDef,Verse.Pawn,System.Collections.Generic.IEnumerable{Verse.Thing},RimWorld.IBillGiver,RimWorld.Precept_ThingStyle@,Verse.ThingStyleDef@,System.Nullable{System.Int32}@)">
             <summary>
             Method to run when a recipe is completed, but before the products
             of the recipe are created.
@@ -1394,6 +1474,11 @@
             by pawns with this <c>DefModExtension</c>.
             </summary>
         </member>
+        <member name="F:CF.IgnoreNeed.needs">
+            <summary>
+            A list of <see cref="T:RimWorld.NeedDef"/>s to be ignored by the pawn.
+            </summary>
+        </member>
         <member name="T:CF.UseNegativeFertility">
             <summary>
             <c>DefModExtension</c> which flags the parent plant <c>ThingDef</c> as
@@ -1441,7 +1526,7 @@
         </member>
         <member name="P:CF.UseOutputWorkers.ActiveWorkers">
             <summary>
-            Returns a list of instances of <see cref="!:OutputWorkers"/> used by
+            Returns a list of instances of <see cref="T:CF.OutputWorker"/>s used by
             this extension. If the workers haven't been instanced yet, this
             property will first create the necessary instances.
             </summary>
@@ -1723,7 +1808,7 @@
             doing, and completing bills and recipes.
             </summary>
         </member>
-        <member name="T:CF.CommunityRecipeUtility.PostProcessProductDelegate">
+        <member name="T:CF.CommunityRecipeUtility.PostProcessProductSignature">
             <summary>
             An empty delegate to define the method signature used by
             <see cref="M:Verse.GenRecipe.MakeRecipeProducts(Verse.RecipeDef,Verse.Pawn,System.Collections.Generic.List{Verse.Thing},Verse.Thing,RimWorld.IBillGiver,RimWorld.Precept_ThingStyle,Verse.ThingStyleDef,System.Nullable{System.Int32})"/>.
@@ -1756,6 +1841,10 @@
             <param name="recipeDef">The recipe that created the product</param>
             <param name="worker">The pawn doing the recipe</param>
             <param name="precept">The pawn's ideo style precept</param>
+            <param name="style">The style that will be applied to the product.</param>
+            <param name="overrideGraphicIndex">
+            Index override for the graphic.
+            </param>
             <returns>A reference to <c>product</c>.</returns>
         </member>
     </members>

@@ -95,5 +95,37 @@ namespace CF
             }
             return false;
         }
+
+        public static BuildableDef GetFullyConstructedDefOf(
+            BuildableDef building,
+            out EBuildStage stage
+        )
+        {
+            if (!(building is ThingDef thingDef))
+            {
+                stage = EBuildStage.Building;
+                return building;
+            }
+
+            if (thingDef.IsBlueprint)
+            {
+                stage = EBuildStage.Blueprint;
+                return thingDef.entityDefToBuild;
+            }
+            if (thingDef.IsFrame)
+            {
+                stage = EBuildStage.Frame;
+                return thingDef.entityDefToBuild;
+            }
+            stage = EBuildStage.Building;
+            return building;
+        }
+
+        public enum EBuildStage
+        {
+            Blueprint,
+            Frame,
+            Building,
+        }
     }
 }

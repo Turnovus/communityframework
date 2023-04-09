@@ -17,6 +17,9 @@ namespace CF
     /// </summary>
     public class IgnoreNeed : DefModExtension
     {
+        /// <summary>
+        /// A list of <see cref="NeedDef"/>s to be ignored by the pawn.
+        /// </summary>
         public List<NeedDef> needs;
     }
 

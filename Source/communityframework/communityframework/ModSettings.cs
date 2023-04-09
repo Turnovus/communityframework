@@ -109,7 +109,7 @@ namespace CF
         CFSettings settings;
         public CFMod(ModContentPack con) : base(con)
         {
-            this.settings = GetSettings<CFSettings>();
+            settings = GetSettings<CFSettings>();
             new HarmonyLoader();
         }
 

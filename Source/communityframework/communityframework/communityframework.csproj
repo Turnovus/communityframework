@@ -81,9 +81,12 @@
     <Compile Include="Comps\HediffComps\SeverityFromPain\HediffComp_SeverityFromPain.cs" />
     <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffCompProperties_SeverityFromSkill.cs" />
     <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffComp_SeverityFromSkill.cs" />
+    <Compile Include="DefModExtensions\BlocksPlacement.cs" />
     <Compile Include="DefOf\CF_StatDefOf.cs" />
     <Compile Include="Harmony patches\OutputWorkerPatch.cs" />
+    <Compile Include="Harmony patches\VerifyCanPlaceBlueprintOverPatch.cs" />
     <Compile Include="OutputWorker\OutputWorker.cs" />
+    <Compile Include="PlaceWorkers\PlaceWorker_NotImpassible.cs" />
     <Compile Include="Utilities\CommunityBuildingUtility.cs" />
     <Compile Include="Utilities\CommunityHealthUtility.cs" />
     <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffCompProperties_HealPermanentWoundsConfigurable.cs" />

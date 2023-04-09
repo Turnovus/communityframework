@@ -51,4 +51,7 @@
 
 	<CFSettings_ApplyOutputWorkerPatch_Name>Recipe Output Patches</CFSettings_ApplyOutputWorkerPatch_Name>
 	<CFSettings_ApplyOutputWorkerPatch_Desc>allows modders to run additional scripts whenever certain recipes are complete.</CFSettings_ApplyOutputWorkerPatch_Desc>
+
+	<CFSettings_ApplyCanPlaceBlueprintOverPatch_Name>Blueprint Overlap Patches</CFSettings_ApplyCanPlaceBlueprintOverPatch_Name>
+	<CFSettings_ApplyCanPlaceBlueprintOverPatch_Desc>allows modders to alter behaviors pertaining to placing blueprints onto existing buildings.</CFSettings_ApplyCanPlaceBlueprintOverPatch_Desc>
 </LanguageData>
