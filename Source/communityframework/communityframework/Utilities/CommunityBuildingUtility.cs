@@ -96,35 +96,72 @@ namespace CF
             return false;
         }
 
+        /// <summary>
+        /// If the given <see cref="BuildableDef"/> defines an incomplete
+        /// building (a blueprint or building frame), then this method will
+        /// give the <see cref="BuildableDef"/> of the finished building.
+        /// </summary>
+        /// <param name="building">
+        /// The <see cref="BuildableDef"/> to be evaluated.
+        /// </param>
+        /// <param name="stage">
+        /// The construction stage that this <see cref="BuildableDef"/>
+        /// defines.
+        /// </param>
+        /// <returns>
+        /// The <see cref="BuildableDef"/> of the building when it is fully
+        /// constructed. If the building is already fully constructed, then
+        /// the method will return the same reference as the <c>building</c>
+        /// parameter.
+        /// </returns>
         public static BuildableDef GetFullyConstructedDefOf(
             BuildableDef building,
-            out EBuildStage stage
+            out EBuildableDefStage stage
         )
         {
             if (!(building is ThingDef thingDef))
             {
-                stage = EBuildStage.Building;
+                stage = EBuildableDefStage.Building;
                 return building;
             }
 
             if (thingDef.IsBlueprint)
             {
-                stage = EBuildStage.Blueprint;
+                stage = EBuildableDefStage.Blueprint;
                 return thingDef.entityDefToBuild;
             }
             if (thingDef.IsFrame)
             {
-                stage = EBuildStage.Frame;
+                stage = EBuildableDefStage.Frame;
                 return thingDef.entityDefToBuild;
             }
-            stage = EBuildStage.Building;
+            stage = EBuildableDefStage.Building;
             return building;
         }
 
-        public enum EBuildStage
+        /// <summary>
+        /// An enumerator that contains all of the stages of building
+        /// construction, including finished and unfinished stages.
+        /// </summary>
+        public enum EBuildableDefStage
         {
+            /// <summary>
+            /// The building has been planned out by the player, but
+            /// construction has not yet begun, and no resources have been
+            /// delivered.
+            /// </summary>
             Blueprint,
+            /// <summary>
+            /// Colonists have begun working on this building. This represents
+            /// any time between the first resource being delivered, and all of
+            /// the required work being completed.
+            /// </summary>
             Frame,
+            /// <summary>
+            /// The building is fully completed. It requires no additional
+            /// resources or work, and is behaving exactly as is defined in its
+            /// <see cref="ThingDef"/>.
+            /// </summary>
             Building,
         }
     }

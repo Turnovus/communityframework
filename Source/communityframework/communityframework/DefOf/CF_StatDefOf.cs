@@ -10,6 +10,10 @@ namespace CF
     public static class CF_StatDefOf
     {
 #pragma warning disable CS0649
+        /// <summary>
+        /// The additional mass that this creature can carry when part of a
+        /// caravan.
+        /// </summary>
         public static StatDef CF_CaravanCapacity;
 #pragma warning restore CS0649
 

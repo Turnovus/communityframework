@@ -33,7 +33,18 @@ namespace CF
     /// </remarks>
     public class UseNegativeFertility : DefModExtension
     {
-        public float minFertility = 0.05f, maxFertility = 1.4f;
+        /// <summary>
+        /// The lowest possible perceived fertility value. This is how quickly
+        /// the plant will grow when planted on the most fertile natural soil
+        /// available.
+        /// </summary>
+        public float minFertility = 0.05f;
+        /// <summary>
+        /// The highest possible perceived fertility value. This is how quikcly
+        /// the plant will grow when planted on the least fertile natural soil
+        /// possible.
+        /// </summary>
+        public float maxFertility = 1.4f;
     }
 
     /// <summary>
@@ -44,6 +55,10 @@ namespace CF
     /// </summary>
     public class CompsToAddWhenStuff : DefModExtension
     {
+        /// <summary>
+        /// A list of <see cref="ThingComp"/>s that will be attached to
+        /// anything that uses the comp's parent as stuff.
+        /// </summary>
         public List<CompProperties> comps;
 
     }
@@ -55,6 +70,10 @@ namespace CF
     /// </summary>
     public class BuildingFacilityExtension : DefModExtension
     {
+        /// <summary>
+        /// If <c>true</c>, then the facility's link will not be active unless
+        /// its <see cref="CompRefuelable"/> has fuel.
+        /// </summary>
         public bool facilityRequiresFuel = false;
     }
 
@@ -106,8 +125,17 @@ namespace CF
         }
     }
 
+    /// <summary>
+    /// A <see cref="DefModExtension"/> that allows modders to customize the
+    /// behaviors of any <see cref="CompProperties_Hatcher"/>s attached to the
+    /// same <see cref="ThingDef"/>.
+    /// </summary>
     public class HatcherExtension : DefModExtension
     {
+        /// <summary>
+        /// If <c>true</c>, then whatever <see cref="Pawn"/> hatches out of the
+        /// hatcher will automatically be assigned to the player's faction.
+        /// </summary>
         public bool hatcheeForcePlayerFaction = false;
     }
 #pragma warning restore CS0649

@@ -40,11 +40,17 @@ namespace CF
         private int KeepDisplayingTicks = 1000;
         private float ApparelScorePerEnergyMax = 0.25f;
         private static readonly Material BubbleMat = MaterialPool.MatFrom("Other/ShieldBubble", ShaderDatabase.Transparent);
-        #endregion fields
-        #region properties
+#endregion fields
+#region properties
         private float EnergyMax => this.GetStatValue(StatDefOf.EnergyShieldEnergyMax);
         private float EnergyGainPerTick => this.GetStatValue(StatDefOf.EnergyShieldRechargeRate) / 60f;
+        /// <summary>
+        /// The amount of energy that the shiled belt currently has.
+        /// </summary>
         public float Energy => energy;
+        /// <summary>
+        /// If the shield has run out of energy, and needs time to recharge before blocking more shots.
+        /// </summary>
         public bool ShieldIsResetting => ticksToReset > 0;
         private bool ShouldDisplay
         {
@@ -65,6 +71,9 @@ namespace CF
         /// <returns>True.</returns>
         public override bool AllowVerbCast(Verb v) => true;
 
+        /// <summary>
+        /// Expose save/load data to the scribe.
+        /// </summary>
         public override void ExposeData()
         {
             base.ExposeData();
@@ -72,12 +81,23 @@ namespace CF
             Scribe_Values.Look(ref ticksToReset, nameof(ticksToReset), -1);
             Scribe_Values.Look(ref lastKeepDisplayTick, nameof(lastKeepDisplayTick));
         }
+        /// <summary>
+        /// Generates on-screen gizmos for when the pawn wearing the shield belt is selected.
+        /// </summary>
+        /// <returns>An enumerable containing the gizmos generated.</returns>
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
             foreach (Gizmo wornGizmo in base.GetWornGizmos()) yield return wornGizmo;
             if(Find.Selector.SingleSelectedThing == base.Wearer) yield return new Gizmo_RangedShieldStatus() { shield = this };
         }
+        /// <summary>
+        /// The value offset provided by this specific shield belt, based on the maximum amount of energy it can store.
+        /// </summary>
+        /// <returns><inheritdoc cref="RangedShieldBelt.GetSpecialApparelScoreOffset" path="/summary"/></returns>
         public override float GetSpecialApparelScoreOffset() => EnergyMax * ApparelScorePerEnergyMax;
+        /// <summary>
+        /// Method run each game tick. Updates the shield belt's charge status.
+        /// </summary>
         public override void Tick()
         {
             base.Tick();
@@ -94,6 +114,11 @@ namespace CF
                 energy = EnergyMax;
             }
         }
+        /// <summary>
+        /// Method run each time the pawn wearing the shield belt takes damage. Determines if the damage should be blocked, based on the current energy level of the shield belt, and the type of damage taken.
+        /// </summary>
+        /// <param name="dinfo">Information about the damage taken by the pawn.</param>
+        /// <returns><c>true</c> if the shield belt has successfully blocked the damage taken by the pawn. <c>false</c> if the belt has insufficient energy to block the damage, or if the damage was an EMP attack.</returns>
         public override bool CheckPreAbsorbDamage(DamageInfo dinfo)
         {
             if (ShieldIsResetting) return false;
@@ -111,6 +136,9 @@ namespace CF
             }
             return false;
         }
+        /// <summary>
+        /// Notify the shield belt that it should start or continue displaying the shield overlay effect.
+        /// </summary>
         public void KeepDisplaying()
         {
             lastKeepDisplayTick = Find.TickManager.TicksGame;
@@ -149,6 +177,9 @@ namespace CF
             ticksToReset = -1;
             energy = EnergyOnReset;
         }
+        /// <summary>
+        /// Draws the shield bubble over the pawn that is wearing the shield belt.
+        /// </summary>
         public override void DrawWornExtras()
         {
             if(!ShieldIsResetting && ShouldDisplay)

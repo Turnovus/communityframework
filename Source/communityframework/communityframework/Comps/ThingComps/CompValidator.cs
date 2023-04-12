@@ -80,6 +80,14 @@ namespace CF {
     /// </summary>
     public class CompProperties_Validator : CompProperties
     {
+        /// <summary>
+        /// The number of in-game ticks that pass before each time the
+        /// <c>PlaceWorker</c> validation check is run. A lower number will run
+        /// the check more frequently, but can cause slowdown if the parent
+        /// <c>ThingWithComps</c> has computationally-expensive
+        /// <c>PlaceWorkers</c>. For reference, at 1x speed, there are 60 ticks
+        /// in a single second.
+        /// </summary>
         public int tickInterval = 250;
 
         /// <value>
