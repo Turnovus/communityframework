@@ -85,44 +85,10 @@ namespace CF
     class UseOutputWorkers : DefModExtension
     {
         /// <summary>
-        /// A collection of non-initiated <see cref="OutputWorker"/>s to run
-        /// when the parent recipe is completed.
+        /// A collection of output workers, whose mthods will be run to modify
+        /// the outputs of a crafting recipe.
         /// </summary>
-        public IEnumerable<Type> outputWorkers;
-
-        /// <summary>
-        /// Instances of the <see cref="OutputWorker"/>s used by this
-        /// extension. Stored so that their methods can be easily called when
-        /// needed.
-        /// </summary>
-        [Unsaved(false)]
-        private IEnumerable<OutputWorker> activeWorkers = null;
-
-        /// <summary>
-        /// Returns a list of instances of <see cref="OutputWorker"/>s used by
-        /// this extension. If the workers haven't been instanced yet, this
-        /// property will first create the necessary instances.
-        /// </summary>
-        public IEnumerable<OutputWorker> ActiveWorkers
-        {
-            get
-            {
-                if (activeWorkers != null)
-                    return activeWorkers;
-
-                activeWorkers = new List<OutputWorker>();
-
-                if (outputWorkers.EnumerableNullOrEmpty())
-                    return activeWorkers;
-
-                foreach (Type t in outputWorkers)
-                    activeWorkers.Append(
-                        (OutputWorker)Activator.CreateInstance(t)
-                    );
-
-                return activeWorkers;
-            }
-        }
+        public List<OutputWorker> outputWorkers;
     }
 
     /// <summary>

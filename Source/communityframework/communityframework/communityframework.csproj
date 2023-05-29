@@ -86,6 +86,7 @@
     <Compile Include="Harmony patches\OutputWorkerPatch.cs" />
     <Compile Include="Harmony patches\VerifyCanPlaceBlueprintOverPatch.cs" />
     <Compile Include="OutputWorker\OutputWorker.cs" />
+    <Compile Include="OutputWorker\OutputWorker_RandomStyle.cs" />
     <Compile Include="PlaceWorkers\PlaceWorker_NotImpassible.cs" />
     <Compile Include="Utilities\CommunityBuildingUtility.cs" />
     <Compile Include="Utilities\CommunityHealthUtility.cs" />

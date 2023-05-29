@@ -1720,22 +1720,8 @@
         </member>
         <member name="F:CF.UseOutputWorkers.outputWorkers">
             <summary>
-            A collection of non-initiated <see cref="T:CF.OutputWorker"/>s to run
-            when the parent recipe is completed.
-            </summary>
-        </member>
-        <member name="F:CF.UseOutputWorkers.activeWorkers">
-            <summary>
-            Instances of the <see cref="T:CF.OutputWorker"/>s used by this
-            extension. Stored so that their methods can be easily called when
-            needed.
-            </summary>
-        </member>
-        <member name="P:CF.UseOutputWorkers.ActiveWorkers">
-            <summary>
-            Returns a list of instances of <see cref="T:CF.OutputWorker"/>s used by
-            this extension. If the workers haven't been instanced yet, this
-            property will first create the necessary instances.
+            A collection of output workers, whose mthods will be run to modify
+            the outputs of a crafting recipe.
             </summary>
         </member>
         <member name="T:CF.HatcherExtension">
