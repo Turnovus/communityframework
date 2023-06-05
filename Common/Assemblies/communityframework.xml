@@ -2327,13 +2327,13 @@
         <member name="T:CF.CommunityRecipeUtility.PostProcessProductSignature">
             <summary>
             An empty delegate to define the method signature used by
-            <see cref="M:Verse.GenRecipe.MakeRecipeProducts(Verse.RecipeDef,Verse.Pawn,System.Collections.Generic.List{Verse.Thing},Verse.Thing,RimWorld.IBillGiver,RimWorld.Precept_ThingStyle,Verse.ThingStyleDef,System.Nullable{System.Int32})"/>.
+            <c>Verse.GenRecipe.PostProcessProduct</c>.
             </summary>
         </member>
         <member name="F:CF.CommunityRecipeUtility.postProcessProductDelegate">
             <summary>
             This delegate refers to the private method
-            <see cref="M:Verse.GenRecipe.MakeRecipeProducts(Verse.RecipeDef,Verse.Pawn,System.Collections.Generic.List{Verse.Thing},Verse.Thing,RimWorld.IBillGiver,RimWorld.Precept_ThingStyle,Verse.ThingStyleDef,System.Nullable{System.Int32})"/>.
+            <c>Verse.GenRecipe.PostProcessProduct</c>.
             </summary>
         </member>
         <member name="M:CF.CommunityRecipeUtility.#cctor">

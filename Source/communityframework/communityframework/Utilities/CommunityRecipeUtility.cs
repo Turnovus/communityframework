@@ -14,7 +14,7 @@ namespace CF
     {
         /// <summary>
         /// An empty delegate to define the method signature used by
-        /// <see cref="Verse.GenRecipe.MakeRecipeProducts"/>.
+        /// <c>Verse.GenRecipe.PostProcessProduct</c>.
         /// </summary>
         private delegate Thing PostProcessProductSignature(
             Thing product,
@@ -26,7 +26,7 @@ namespace CF
 
         /// <summary>
         /// This delegate refers to the private method
-        /// <see cref="Verse.GenRecipe.MakeRecipeProducts"/>.
+        /// <c>Verse.GenRecipe.PostProcessProduct</c>.
         /// </summary>
         private readonly static Delegate postProcessProductDelegate;
 
