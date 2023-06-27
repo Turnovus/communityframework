@@ -104,5 +104,11 @@ namespace CF
         /// </summary>
         public bool hatcheeForcePlayerFaction = false;
     }
+
+    public interface IExtensionPostMake
+    {
+        void PostMake(Thing thing);
+        void PostPostMake(Thing thing);
+    }
 #pragma warning restore CS0649
 }
