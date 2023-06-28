@@ -105,9 +105,25 @@ namespace CF
         public bool hatcheeForcePlayerFaction = false;
     }
 
+    /// <summary>
+    /// A <see cref="DefModExtension"/> that contains methods which can be run whenever a
+    /// <see cref="Thing"/> using the parent <see cref="ThingDef"/> is initially created. This
+    /// applies to <c>Thing</c>s that have just been crafted/built, as well as things that have
+    /// been spawned in as loot or trade items.
+    /// </summary>
     public interface IExtensionPostMake
     {
+        /// <summary>
+        /// A method that is run after a <see cref="Thing"/> with the parent <see cref="ThingDef"/>
+        /// has its <see cref="Thing.PostMake"/> method run.
+        /// </summary>
+        /// <param name="thing">The <see cref="Thing"/> that was just made.</param>
         void PostMake(Thing thing);
+        /// <summary>
+        /// A method that is run after a <see cref="Thing"/> with the parent <see cref="ThingDef"/>
+        /// has its <see cref="Thing.PostPostMake"/> method run.
+        /// </summary>
+        /// <param name="thing">The <see cref="Thing"/> that was just made.</param>
         void PostPostMake(Thing thing);
     }
 #pragma warning restore CS0649

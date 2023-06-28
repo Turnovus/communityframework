@@ -699,6 +699,35 @@
             increase or decrease the parent <c>Hediff</c>'s severity through
             smaller increments. Here, it does nothing.</param>
         </member>
+        <member name="F:CF.BatteryExtension.neverDischarge">
+            <summary>
+            If <c>true</c>, batteries with this extension will not lose 5W of energy per day, as is
+            hardcoded in vanilla.
+            </summary>
+        </member>
+        <member name="F:CF.BatteryExtension.startCharged">
+            <summary>
+            If <c>true</c>, then the battery will start with a full charge when it is crafted,
+            built, or otherwise initially created.
+            </summary>
+        </member>
+        <member name="F:CF.BatteryExtension.neverShortCircuit">
+            <summary>
+            If <c>true</c>, batteries with this extension will not lose power during the short
+            circuit event, and will not contribute to the size of the short circuit explosion.
+            </summary>
+        </member>
+        <member name="M:CF.BatteryExtension.PostMake(Verse.Thing)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CF.BatteryExtension.PostPostMake(Verse.Thing)">
+            <summary>
+            After a <see cref="T:Verse.Thing"/> with the parent <see cref="T:Verse.ThingDef"/> is initially
+            created, this method will fully charge it if is a battery and if
+            <see cref="F:CF.BatteryExtension.startCharged"/> is <c>true</c>
+            </summary>
+            <param name="thing"></param>
+        </member>
         <member name="T:CF.DefModExtension_CanBlockPlacement">
             <summary>
             A <see cref="T:Verse.DefModExtension"/> that, when applied to a building's
@@ -1736,6 +1765,28 @@
             If <c>true</c>, then whatever <see cref="T:Verse.Pawn"/> hatches out of the
             hatcher will automatically be assigned to the player's faction.
             </summary>
+        </member>
+        <member name="T:CF.IExtensionPostMake">
+            <summary>
+            A <see cref="T:Verse.DefModExtension"/> that contains methods which can be run whenever a
+            <see cref="T:Verse.Thing"/> using the parent <see cref="T:Verse.ThingDef"/> is initially created. This
+            applies to <c>Thing</c>s that have just been crafted/built, as well as things that have
+            been spawned in as loot or trade items.
+            </summary>
+        </member>
+        <member name="M:CF.IExtensionPostMake.PostMake(Verse.Thing)">
+            <summary>
+            A method that is run after a <see cref="T:Verse.Thing"/> with the parent <see cref="T:Verse.ThingDef"/>
+            has its <see cref="M:Verse.Thing.PostMake"/> method run.
+            </summary>
+            <param name="thing">The <see cref="T:Verse.Thing"/> that was just made.</param>
+        </member>
+        <member name="M:CF.IExtensionPostMake.PostPostMake(Verse.Thing)">
+            <summary>
+            A method that is run after a <see cref="T:Verse.Thing"/> with the parent <see cref="T:Verse.ThingDef"/>
+            has its <see cref="M:Verse.Thing.PostPostMake"/> method run.
+            </summary>
+            <param name="thing">The <see cref="T:Verse.Thing"/> that was just made.</param>
         </member>
         <member name="T:CF.HediffComp_IgnorePathCost">
             <summary>

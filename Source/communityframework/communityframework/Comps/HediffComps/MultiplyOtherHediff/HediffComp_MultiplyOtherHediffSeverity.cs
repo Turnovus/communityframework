@@ -74,7 +74,7 @@ namespace CF
                 return;
             if (Props.affectedHediffs.Contains(other.def))
                 other.Severity =
-                    (int)Math.Ceiling(other.Severity * Props.multiplier);
+                    Math.Min(other.Severity * Props.multiplier, other.def.maxSeverity);
         }
     }
 }

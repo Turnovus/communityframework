@@ -84,8 +84,7 @@
     <Compile Include="DefModExtensions\PowerExtensions.cs" />
     <Compile Include="DefModExtensions\BlocksPlacement.cs" />
     <Compile Include="DefOf\CF_StatDefOf.cs" />
-    <Compile Include="Harmony patches\CompPowerBattery\AmountCanAccept_CheckExtension.cs" />
-    <Compile Include="Harmony patches\CompPowerBattery\CompTick_NeverDischarge.cs" />
+    <Compile Include="Harmony patches\BatteryChargePatches.cs" />
     <Compile Include="Harmony patches\HarmonyUtils.cs" />
     <Compile Include="Harmony patches\OutputWorkerPatch.cs" />
     <Compile Include="Harmony patches\ShortCircuitUtility\ShortCircuitPatches.cs" />

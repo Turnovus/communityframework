@@ -86,8 +86,7 @@ namespace CF
                     if (comp != null)
                     {
                         comp.ticksToDisappear =
-                            (int)Math.Ceiling(
-                                comp.ticksToDisappear * Props.multiplier);
+                            (int)Math.Ceiling(comp.ticksToDisappear * Props.multiplier);
                     }
                 }
             }
