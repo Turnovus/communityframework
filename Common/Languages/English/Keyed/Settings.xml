@@ -54,4 +54,13 @@
 
 	<CFSettings_ApplyCanPlaceBlueprintOverPatch_Name>Blueprint Overlap Patches</CFSettings_ApplyCanPlaceBlueprintOverPatch_Name>
 	<CFSettings_ApplyCanPlaceBlueprintOverPatch_Desc>allows modders to alter behaviors pertaining to placing blueprints onto existing buildings.</CFSettings_ApplyCanPlaceBlueprintOverPatch_Desc>
+
+	<CFSettings_ShortCircuitPatches_Name>Short circuit patches</CFSettings_ShortCircuitPatches_Name>
+	<CFSettings_ShortCircuitPatches_Desc>allows modders to create buildings that react differently to short circuits.</CFSettings_ShortCircuitPatches_Desc>
+
+	<CFSettings_PostMakePatch_Name>Thing post-make patches</CFSettings_PostMakePatch_Name>
+	<CFSettings_PostMakePatch_Desc>runs additional behaviors whenever a thing is created.</CFSettings_PostMakePatch_Desc>
+
+	<CFSettings_ApplyBatteryPatches_Name>Battery charge patches</CFSettings_ApplyBatteryPatches_Name>
+	<CFSettings_ApplyBatteryPatches_Desc>allows modders to further customize their modded batteries.</CFSettings_ApplyBatteryPatches_Desc>
 </LanguageData>
