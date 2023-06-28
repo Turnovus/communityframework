@@ -3,11 +3,14 @@ using HarmonyLib;
 
 namespace CF
 {
+    /// <summary>
+    /// A collection of patches that run additional methods after a thing is made.
+    /// </summary>
     [ClassWithPatches("PostMakePatch")]
     public static class Thing_PostMakePatches
     {
         [HarmonyPatch(typeof(Thing))]
-        public static class PostMakePatch
+        static class PostMakePatch
         {
             [HarmonyPatch(nameof(Thing.PostMake))]
             [HarmonyPostfix]

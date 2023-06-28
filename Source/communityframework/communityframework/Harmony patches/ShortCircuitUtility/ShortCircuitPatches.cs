@@ -9,9 +9,16 @@ using HarmonyLib;
 
 namespace CF
 {
+    /// <summary>
+    /// A collection of patches that affect the short circuit incident.
+    /// </summary>
     [ClassWithPatches("ShortCircuitPatches")]
     public static class ShortCircuitPatches
     {
+        /// <summary>
+        /// This patch modifies the behaviors of batteries with <see cref="BatteryExtension"/>
+        /// during a short circuit.
+        /// </summary>
         [HarmonyPatch(typeof(ShortCircuitUtility))]
         [HarmonyPatch("DrainBatteriesAndCauseExplosion")] // Private method named by string
         public static class ShortCircuitPatches_Batteries
@@ -21,7 +28,7 @@ namespace CF
                     BindingFlags.Public | BindingFlags.Static);
 
             [HarmonyTranspiler]
-            public static IEnumerable<CodeInstruction> CheckBatteryExtension(
+            static IEnumerable<CodeInstruction> CheckBatteryExtension(
                 IEnumerable<CodeInstruction> instructions,
                 ILGenerator generator
             )
@@ -63,6 +70,11 @@ namespace CF
                     ULog.Error("Patch " + nameof(CheckBatteryExtension) + " failed. Flag: " + flag.ToString());
             }
 
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="comp"></param>
+            /// <returns></returns>
             public static bool CanShortCircuit(CompPowerBattery comp)
             {
                 BatteryExtension extension = comp?.parent.def.GetModExtension<BatteryExtension>();
@@ -70,6 +82,10 @@ namespace CF
             }
         }
 
+        /// <summary>
+        /// This patch allows custom buildings to act as short circuit sources, like vanilla
+        /// conduits.
+        /// </summary>
         [HarmonyPatch]
         public static class ShortCircuitPatches_ConduitPatch
         {
@@ -84,13 +100,13 @@ namespace CF
                     typeof(ShortCircuitUtility),
                     inner => inner.Name.Contains("<GetShortCircuitablePowerConduits>"));
 
-            public static MethodBase TargetMethod()
+            static MethodBase TargetMethod()
             {
                 return AccessTools.FirstMethod(TargetInnerClass, method => method.Name.Contains("MoveNext"));
             }
 
             [HarmonyTranspiler]
-            public static IEnumerable<CodeInstruction> IncludeOtherShortSources(
+            static IEnumerable<CodeInstruction> IncludeOtherShortSources(
                 IEnumerable<CodeInstruction> instructions
             )
             {
@@ -121,6 +137,15 @@ namespace CF
                     ULog.Error("Patch " + nameof(ShortCircuitPatches_ConduitPatch.IncludeOtherShortSources) + " failed.");
             }
 
+            /// <summary>
+            /// Helper method for adding custom short circuit sources to the list of conduits found
+            /// inside of the incident worker for the short circuit incident.
+            /// </summary>
+            /// <param name="list">The original list of conduits.</param>
+            /// <param name="map">The map that the short circuit is occuring on.</param>
+            /// <returns>
+            /// A copy of <c>list</c> with additional short-circuitable buildings in <c>map</c>.
+            /// </returns>
             public static List<Thing> AddExtraBuildings(List<Thing> list, Map map)
             {
                 List<Thing> resultList = new List<Thing>(list);

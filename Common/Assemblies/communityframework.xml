@@ -699,6 +699,43 @@
             increase or decrease the parent <c>Hediff</c>'s severity through
             smaller increments. Here, it does nothing.</param>
         </member>
+        <member name="T:CF.DefModExtension_BatteryAmountCanAccept">
+            <summary>
+            A base class for <see cref="T:Verse.DefModExtension"/>s, used to define custom behaviors that
+            affect the maximum amount of energy that a sibling <see cref="T:RimWorld.CompPowerBattery"/> can
+            store.
+            </summary>
+        </member>
+        <member name="M:CF.DefModExtension_BatteryAmountCanAccept.AmountCanAccept(RimWorld.CompPowerBattery,System.Single)">
+            <summary>
+            Augments the amount of energy that can be stored by a <see cref="T:RimWorld.CompPowerBattery"/>
+            attached to any <see cref="T:Verse.Thing"/> with the parent <see cref="T:Verse.ThingDef"/>.
+            </summary>
+            <param name="comp">
+            The <see cref="T:RimWorld.CompPowerBattery"/> whose that
+            <see cref="P:RimWorld.CompPowerBattery.AmountCanAccept"/> is being adjusted for.
+            </param>
+            <param name="original">
+            The vanilla value of <see cref="P:RimWorld.CompPowerBattery.AmountCanAccept"/> from <c>comp</c>.
+            </param>
+            <returns>The new amount of additional energy that the battery can accept.</returns>
+        </member>
+        <member name="T:CF.NeverRecharge">
+            <summary>
+            Any <see cref="T:RimWorld.CompPowerBattery"/> will never be able to recharge if its parent has this
+            extension in its <see cref="T:Verse.ThingDef"/>.
+            </summary>
+        </member>
+        <member name="M:CF.NeverRecharge.AmountCanAccept(RimWorld.CompPowerBattery,System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CF.BatteryExtension">
+            <summary>
+            A <see cref="T:Verse.DefModExtension"/> that provides more customization options for any
+            <see cref="T:RimWorld.CompPowerBattery"/> attached to <see cref="T:Verse.Thing"/>s that use the extension's
+            parent <see cref="T:Verse.ThingDef"/>.
+            </summary>
+        </member>
         <member name="F:CF.BatteryExtension.neverDischarge">
             <summary>
             If <c>true</c>, batteries with this extension will not lose 5W of energy per day, as is
@@ -727,6 +764,18 @@
             <see cref="F:CF.BatteryExtension.startCharged"/> is <c>true</c>
             </summary>
             <param name="thing"></param>
+        </member>
+        <member name="T:CF.PowerExtension">
+            <summary>
+            A <see cref="T:Verse.DefModExtension"/> that provides more customization options for
+            <see cref="T:Verse.ThingDef"/>s that define electrical objects.
+            </summary>
+        </member>
+        <member name="F:CF.PowerExtension.shortCircuitSource">
+            <summary>
+            If <c>true</c>, this <see cref="T:Verse.Thing"/> can be a culprit of short circuits, like
+            vanilla power conduits.
+            </summary>
         </member>
         <member name="T:CF.DefModExtension_CanBlockPlacement">
             <summary>
@@ -790,12 +839,124 @@
             caravan.
             </summary>
         </member>
+        <member name="T:CF.BatteryChargePatches">
+            <summary>
+            A collection of patches that alter the behaviors of batteries, allowing for more control
+            over custom batteries.
+            </summary>
+        </member>
+        <member name="M:CF.BatteryChargePatches.CanDischarge(RimWorld.CompPowerBattery)">
+            <summary>
+            Checks if the battery is allowed to discharge by <see cref="T:CF.BatteryExtension"/>.
+            </summary>
+            <param name="battery">
+            The <see cref="T:RimWorld.CompPowerBattery"/> of the battery being checked.
+            </param>
+            <returns>
+            <c>true</c> if the battery's <see cref="T:Verse.ThingDef"/> does not have a
+            <see cref="T:CF.BatteryExtension"/>, or if its <see cref="F:CF.BatteryExtension.neverDischarge"/>
+            is <c>false</c>. <c>true</c> otherwise.
+            </returns>
+        </member>
+        <member name="T:CF.BatteryChargePatches.AmountCanAccept">
+            <summary>
+            This patch modifies the amount of additional energy that a battery can accept.
+            </summary>
+        </member>
+        <member name="M:CF.BatteryChargePatches.AmountCanAccept.CheckForBatteryExtension(RimWorld.CompPowerBattery@,System.Single@)">
+            <summary>
+            Checks the battery's <see cref="T:Verse.ThingDef"/> for any extension that derives
+            <see cref="T:CF.BatteryChargePatches.AmountCanAccept"/>, then adjusts the return value of the method
+            accordingly.
+            </summary>
+            <param name="__instance">
+            The <see cref="T:RimWorld.CompPowerBattery"/> being checked.
+            </param>
+            <param name="__result">
+            The amount of additional energy that the battery will accept.
+            </param>
+        </member>
+        <member name="T:CF.BatteryChargePatches.BatteryDischargeCheckExtension">
+            <summary>
+            This patch alters whether or not a battery self-discharges the hardcoded amount of 5W
+            per day.
+            </summary>
+        </member>
+        <member name="M:CF.BatteryChargePatches.BatteryDischargeCheckExtension.DoNotDischargeIfExtension(System.Collections.Generic.IEnumerable{HarmonyLib.CodeInstruction},System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Injects a condition into <see cref="M:RimWorld.CompPowerBattery.CompTick"/> that checks if the
+            parent's <see cref="T:Verse.ThingDef"/> contains a <see cref="T:CF.BatteryExtension"/>,
+            then checks if <see cref="F:CF.BatteryExtension.neverDischarge"/> is <c>true</c>. If the
+            battery has been configured never to discharge, then it will skip over the
+            instructions for self-discharge.
+            </summary>
+            <param name="instructions">The instructions given to the transpiler.</param>
+            <param name="generator"><see cref="T:System.Reflection.Emit.ILGenerator"/> used for creating labels</param>
+            <returns>A patched list of instructions</returns>
+        </member>
+        <member name="T:CF.BatteryChargePatches.BatteryInspectStringCheckExtension">
+            <summary>
+            This patch prevents batteries from showing the "self-discharging" line on the
+            inspection pane if the battery has been configured not to self-discharge.
+            </summary>
+        </member>
+        <member name="M:CF.BatteryChargePatches.BatteryInspectStringCheckExtension.SkipDischargeLineIfExtension(System.Collections.Generic.IEnumerable{HarmonyLib.CodeInstruction})">
+            <summary>
+            Injects a condition into <see cref="M:RimWorld.CompPowerBattery.CompInspectStringExtra"/> that
+            checks if the parent's <see cref="T:Verse.ThingDef"/> contains a
+            <see cref="T:CF.BatteryExtension"/>, then checks if
+            <see cref="F:CF.BatteryExtension.neverDischarge"/> is <c>true</c>. If the battery has
+            been configured never to discharge, then it will skip over the instructions to
+            include the string "Self-discharging: 5W".
+            </summary>
+            <param name="instructions">The instructions given to the transpiler.</param>
+        </member>
         <member name="T:CF.OutputWorkerPatch">
             <summary>
             Adds patches that will run before and after any recipe is complete.
             Each patch will check the recipe for a <see cref="T:CF.UseOutputWorkers"/>
             extension, and will run the relevant method from each
             <see cref="T:CF.OutputWorker"/> found.
+            </summary>
+        </member>
+        <member name="T:CF.ShortCircuitPatches">
+            <summary>
+            A collection of patches that affect the short circuit incident.
+            </summary>
+        </member>
+        <member name="T:CF.ShortCircuitPatches.ShortCircuitPatches_Batteries">
+            <summary>
+            This patch modifies the behaviors of batteries with <see cref="T:CF.BatteryExtension"/>
+            during a short circuit.
+            </summary>
+        </member>
+        <member name="M:CF.ShortCircuitPatches.ShortCircuitPatches_Batteries.CanShortCircuit(RimWorld.CompPowerBattery)">
+            <summary>
+            
+            </summary>
+            <param name="comp"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CF.ShortCircuitPatches.ShortCircuitPatches_ConduitPatch">
+            <summary>
+            This patch allows custom buildings to act as short circuit sources, like vanilla
+            conduits.
+            </summary>
+        </member>
+        <member name="M:CF.ShortCircuitPatches.ShortCircuitPatches_ConduitPatch.AddExtraBuildings(System.Collections.Generic.List{Verse.Thing},Verse.Map)">
+            <summary>
+            Helper method for adding custom short circuit sources to the list of conduits found
+            inside of the incident worker for the short circuit incident.
+            </summary>
+            <param name="list">The original list of conduits.</param>
+            <param name="map">The map that the short circuit is occuring on.</param>
+            <returns>
+            A copy of <c>list</c> with additional short-circuitable buildings in <c>map</c>.
+            </returns>
+        </member>
+        <member name="T:CF.Thing_PostMakePatches">
+            <summary>
+            A collection of patches that run additional methods after a thing is made.
             </summary>
         </member>
         <member name="T:CF.VerifyCanPlaceBlueprintOverPatch">
@@ -890,6 +1051,62 @@
             <returns>
             Any additional <c>Thing</c>s to be added to recipe products.
             </returns>
+        </member>
+        <member name="T:CF.OutputWorker_RandomStyle">
+            <summary>
+            A base <see cref="T:CF.OutputWorker"/> for making recipes that randomize the style of crafted
+            products.
+            </summary>
+        </member>
+        <member name="F:CF.OutputWorker_RandomStyle.ideoPreceptOverrides">
+            <summary>
+            If <c>true</c>, then any ideological styles that the crafter has will override the
+            randomly-assigned style, assuming that any such style exists for the crafted product.
+            </summary>
+        </member>
+        <member name="F:CF.OutputWorker_RandomStyle.noStyleChance">
+            <summary>
+            A percent chance that the crafted product will have its default appearence, instead of
+            being given one randomly.
+            </summary>
+        </member>
+        <member name="M:CF.OutputWorker_RandomStyle.StylesFor(Verse.RecipeDef)">
+            <summary>
+            A list of styles to be chosen from when randomly applying a style to the product of a
+            given recipe.
+            </summary>
+            <param name="recipe">
+            The recipe being performed.
+            </param>
+            <returns>
+            A list of styles that may be randomly applied to the products of <c>recipe</c>
+            </returns>
+        </member>
+        <member name="M:CF.OutputWorker_RandomStyle.PreCraft(Verse.RecipeDef,Verse.Pawn,System.Collections.Generic.IEnumerable{Verse.Thing},RimWorld.IBillGiver,RimWorld.Precept_ThingStyle@,Verse.ThingStyleDef@,System.Nullable{System.Int32}@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CF.OutputWorker_RandomStyleFromList">
+            <summary>
+            An <see cref="T:CF.OutputWorker"/> that gives a recipe's products a random style from a
+            predefined list.
+            </summary>
+        </member>
+        <member name="F:CF.OutputWorker_RandomStyleFromList.randomStyles">
+            <summary>
+            A list of styles to be chosen from randomly.
+            </summary>
+        </member>
+        <member name="M:CF.OutputWorker_RandomStyleFromList.StylesFor(Verse.RecipeDef)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CF.OutputWorker_RandomStyleFromDef">
+            <summary>
+            An <see cref="T:CF.OutputWorker"/> that gives a recipe's products a random style the product's
+            own list of randomly-selected styles.
+            </summary>
+        </member>
+        <member name="M:CF.OutputWorker_RandomStyleFromDef.StylesFor(Verse.RecipeDef)">
+            <inheritdoc/>
         </member>
         <member name="T:CF.PlaceWorker_NotImpassible">
             <summary>
@@ -2121,12 +2338,67 @@
             </remarks>
             </summary>
         </member>
+        <member name="M:CF.PlaceWorker_AgainstWall.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)">
+            <summary>
+            Ensures that the building is placed on a cell adjacent to but facing away from a wall.
+            </summary>
+            <param name="checkingDef">
+            The <see cref="T:Verse.ThingDef"/> using the <see cref="T:Verse.PlaceWorker"/>
+            </param>
+            <param name="loc">
+            The location that the building is being placed at.
+            </param>
+            <param name="rot">
+            The rotation that the building is being placed at.
+            </param>
+            <param name="map">
+            The <see cref="T:Verse.Map"/> that the building is being placed in.
+            </param>
+            <param name="thingToIgnore">Unused.</param>
+            <param name="thing">Unused.</param>
+            <returns>
+            <c>true</c> if the cell behind the building being placed contains a wall, and is within
+            the map bounds.
+            </returns>
+        </member>
         <member name="T:CF.PlaceWorker_OnWall">
             <summary>
             <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed on
             a wall but not overlapping the same <c>Thing</c> in the same rotation. 
             <seealso cref="T:CF.CompValidator"/>
             </summary> 
+        </member>
+        <member name="M:CF.PlaceWorker_OnWall.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)">
+            <summary>
+            Ensure that the building being placed is placed on a wall but not overlapping the same
+            <c>Thing</c> in the same rotation. 
+            </summary>
+            <param name="checkingDef">
+            The <see cref="T:Verse.ThingDef"/> using the <see cref="T:Verse.PlaceWorker"/>
+            </param>
+            <param name="loc">
+            The location that the building is being placed at.
+            </param>
+            <param name="rot">
+            The rotation that the building is being placed at.
+            </param>
+            <param name="map">
+            The <see cref="T:Verse.Map"/> that the building is being placed in.
+            </param>
+            <param name="thingToIgnore">Unused.</param>
+            <param name="thing">Unused.</param>
+            <returns>
+            <c>true</c> if the cell at <c>loc</c> contains a wall, and does not contain an
+            identical building at the same rotation.
+            </returns>
+        </member>
+        <member name="M:CF.PlaceWorker_OnWall.ForceAllowPlaceOver(Verse.BuildableDef)">
+            <summary>
+            Always allows buildings using this <see cref="T:Verse.PlaceWorker"/> to be placed over any
+            other building.
+            </summary>
+            <param name="other">The building being placed onto.</param>
+            <returns>Always <c>true</c></returns>
         </member>
         <member name="T:CF.PlaceWorker_Roofed">
             <summary>
@@ -2413,6 +2685,19 @@
             Index override for the graphic.
             </param>
             <returns>A reference to <c>product</c>.</returns>
+        </member>
+        <member name="T:CF.StartupUtil">
+            <summary>
+            A class that, on startup, does any def modifications and caches any values neccessary.
+            </summary>
+        </member>
+        <member name="F:CF.StartupUtil.ExtraShortCircuitSources">
+            <summary>
+            A list of buildings that have <see cref="T:CF.PowerExtension"/>, with
+            <see cref="F:CF.PowerExtension.shortCircuitSource"/> set to <c>true</c>. Cached here on
+            startup so that we don't have to go looking through the entire <see cref="T:Verse.ThingDef"/>
+            database anytime a short circuit occurs.
+            </summary>
         </member>
     </members>
 </doc>

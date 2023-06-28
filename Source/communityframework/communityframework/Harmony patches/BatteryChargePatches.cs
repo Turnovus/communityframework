@@ -6,6 +6,10 @@ using HarmonyLib;
 
 namespace CF
 {
+    /// <summary>
+    /// A collection of patches that alter the behaviors of batteries, allowing for more control
+    /// over custom batteries.
+    /// </summary>
     [ClassWithPatches("ApplyBatteryPatches")]
     public static class BatteryChargePatches
     {
@@ -13,17 +17,42 @@ namespace CF
                 typeof(BatteryChargePatches).GetMethod(nameof(BatteryChargePatches.CanDischarge),
                     BindingFlags.Public | BindingFlags.Static);
 
+        /// <summary>
+        /// Checks if the battery is allowed to discharge by <see cref="BatteryExtension"/>.
+        /// </summary>
+        /// <param name="battery">
+        /// The <see cref="CompPowerBattery"/> of the battery being checked.
+        /// </param>
+        /// <returns>
+        /// <c>true</c> if the battery's <see cref="Verse.ThingDef"/> does not have a
+        /// <see cref="BatteryExtension"/>, or if its <see cref="BatteryExtension.neverDischarge"/>
+        /// is <c>false</c>. <c>true</c> otherwise.
+        /// </returns>
         public static bool CanDischarge(CompPowerBattery battery)
         {
             BatteryExtension extension = battery.parent.def.GetModExtension<BatteryExtension>();
-            return extension == null ? true : !extension.neverDischarge;
+            return extension == null || !extension.neverDischarge;
         }
 
+        /// <summary>
+        /// This patch modifies the amount of additional energy that a battery can accept.
+        /// </summary>
         [HarmonyPatch(typeof(CompPowerBattery))]
         [HarmonyPatch(nameof(CompPowerBattery.AmountCanAccept))]
         [HarmonyPatch(MethodType.Getter)]
         public static class AmountCanAccept
         {
+            /// <summary>
+            /// Checks the battery's <see cref="Verse.ThingDef"/> for any extension that derives
+            /// <see cref="AmountCanAccept"/>, then adjusts the return value of the method
+            /// accordingly.
+            /// </summary>
+            /// <param name="__instance">
+            /// The <see cref="CompPowerBattery"/> being checked.
+            /// </param>
+            /// <param name="__result">
+            /// The amount of additional energy that the battery will accept.
+            /// </param>
             [HarmonyPostfix]
             public static void CheckForBatteryExtension(ref CompPowerBattery __instance, ref float __result)
             {
@@ -34,10 +63,24 @@ namespace CF
             }
         }
 
+        /// <summary>
+        /// This patch alters whether or not a battery self-discharges the hardcoded amount of 5W
+        /// per day.
+        /// </summary>
         [HarmonyPatch(typeof(CompPowerBattery))]
         [HarmonyPatch(nameof(CompPowerBattery.CompTick))]
         public static class BatteryDischargeCheckExtension
         {
+            /// <summary>
+            /// Injects a condition into <see cref="CompPowerBattery.CompTick"/> that checks if the
+            /// parent's <see cref="Verse.ThingDef"/> contains a <see cref="BatteryExtension"/>,
+            /// then checks if <see cref="BatteryExtension.neverDischarge"/> is <c>true</c>. If the
+            /// battery has been configured never to discharge, then it will skip over the
+            /// instructions for self-discharge.
+            /// </summary>
+            /// <param name="instructions">The instructions given to the transpiler.</param>
+            /// <param name="generator"><see cref="ILGenerator"/> used for creating labels</param>
+            /// <returns>A patched list of instructions</returns>
             [HarmonyTranspiler]
             public static IEnumerable<CodeInstruction> DoNotDischargeIfExtension(
                 IEnumerable<CodeInstruction> instructions,
@@ -84,6 +127,10 @@ namespace CF
             }
         }
 
+        /// <summary>
+        /// This patch prevents batteries from showing the "self-discharging" line on the
+        /// inspection pane if the battery has been configured not to self-discharge.
+        /// </summary>
         [HarmonyPatch(typeof(CompPowerBattery))]
         [HarmonyPatch(nameof(CompPowerBattery.CompInspectStringExtra))]
         public static class BatteryInspectStringCheckExtension
@@ -91,6 +138,15 @@ namespace CF
             private static readonly FieldInfo F_StoredEnergy = // Private field named by string
                 AccessTools.Field(typeof(CompPowerBattery), "storedEnergy");
 
+            /// <summary>
+            /// Injects a condition into <see cref="CompPowerBattery.CompInspectStringExtra"/> that
+            /// checks if the parent's <see cref="Verse.ThingDef"/> contains a
+            /// <see cref="BatteryExtension"/>, then checks if
+            /// <see cref="BatteryExtension.neverDischarge"/> is <c>true</c>. If the battery has
+            /// been configured never to discharge, then it will skip over the instructions to
+            /// include the string "Self-discharging: 5W".
+            /// </summary>
+            /// <param name="instructions">The instructions given to the transpiler.</param>
             [HarmonyTranspiler]
             public static IEnumerable<CodeInstruction> SkipDischargeLineIfExtension(
                 IEnumerable<CodeInstruction> instructions

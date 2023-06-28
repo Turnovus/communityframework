@@ -3,16 +3,43 @@ using RimWorld;
 
 namespace CF
 {
+    /// <summary>
+    /// A base class for <see cref="DefModExtension"/>s, used to define custom behaviors that
+    /// affect the maximum amount of energy that a sibling <see cref="CompPowerBattery"/> can
+    /// store.
+    /// </summary>
     public abstract class DefModExtension_BatteryAmountCanAccept : DefModExtension
     {
+        /// <summary>
+        /// Augments the amount of energy that can be stored by a <see cref="CompPowerBattery"/>
+        /// attached to any <see cref="Thing"/> with the parent <see cref="ThingDef"/>.
+        /// </summary>
+        /// <param name="comp">
+        /// The <see cref="CompPowerBattery"/> whose that
+        /// <see cref="CompPowerBattery.AmountCanAccept"/> is being adjusted for.
+        /// </param>
+        /// <param name="original">
+        /// The vanilla value of <see cref="CompPowerBattery.AmountCanAccept"/> from <c>comp</c>.
+        /// </param>
+        /// <returns>The new amount of additional energy that the battery can accept.</returns>
         public abstract float AmountCanAccept(CompPowerBattery comp, float original);
     }
 
+    /// <summary>
+    /// Any <see cref="CompPowerBattery"/> will never be able to recharge if its parent has this
+    /// extension in its <see cref="ThingDef"/>.
+    /// </summary>
     public class NeverRecharge : DefModExtension_BatteryAmountCanAccept
     {
+        /// <inheritdoc/>
         public override float AmountCanAccept(CompPowerBattery comp, float original) => 0f;
     }
 
+    /// <summary>
+    /// A <see cref="DefModExtension"/> that provides more customization options for any
+    /// <see cref="CompPowerBattery"/> attached to <see cref="Thing"/>s that use the extension's
+    /// parent <see cref="ThingDef"/>.
+    /// </summary>
     public class BatteryExtension : DefModExtension, IExtensionPostMake
     {
         /// <summary>
@@ -53,8 +80,16 @@ namespace CF
         }
     }
 
+    /// <summary>
+    /// A <see cref="DefModExtension"/> that provides more customization options for
+    /// <see cref="ThingDef"/>s that define electrical objects.
+    /// </summary>
     public class PowerExtension : DefModExtension
     {
+        /// <summary>
+        /// If <c>true</c>, this <see cref="Thing"/> can be a culprit of short circuits, like
+        /// vanilla power conduits.
+        /// </summary>
         public bool shortCircuitSource = false;
     }
 }
