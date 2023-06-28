@@ -71,5 +71,74 @@ namespace CF
                 return !extension?.neverShortCircuit ?? true;
             }
         }
+
+        [HarmonyPatch]
+        public static class ShortCircuitPatches_ConduitPatch
+        {
+            private static readonly MethodInfo M_AddExtraBuildings =
+                typeof(ShortCircuitPatches_ConduitPatch).GetMethod(
+                    nameof(ShortCircuitPatches_ConduitPatch.AddExtraBuildings), BindingFlags.Static | BindingFlags.Public);
+            private static readonly MethodInfo M_ListerThings_ThingsOfDef =
+                typeof(ListerThings).GetMethod(
+                    nameof(ListerThings.ThingsOfDef), BindingFlags.Public | BindingFlags.Instance);
+
+            private static Type TargetInnerClass => AccessTools.FirstInner(
+                    typeof(ShortCircuitUtility),
+                    inner => inner.Name.Contains("<GetShortCircuitablePowerConduits>"));
+
+            public static MethodBase TargetMethod()
+            {
+                return AccessTools.FirstMethod(TargetInnerClass, method => method.Name.Contains("MoveNext"));
+            }
+
+            [HarmonyTranspiler]
+            public static IEnumerable<CodeInstruction> IncludeOtherShortSources(
+                IEnumerable<CodeInstruction> instructions
+            )
+            {
+                FieldInfo mapField = AccessTools.Field(TargetInnerClass, "map");
+
+                bool patched = false;
+
+                foreach (CodeInstruction instruction in instructions)
+                {
+                    yield return instruction;
+
+                    if (patched || instruction.operand as MethodInfo != M_ListerThings_ThingsOfDef)
+                        continue;
+
+                    patched = true;
+
+                    // Currently on stack: a list of conduits on the map
+
+                    // Grab the map
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Ldfld, mapField);
+                    // Call the method. Pops the list of things and the map, then pushes the list
+                    // back in.
+                    yield return new CodeInstruction(OpCodes.Call, M_AddExtraBuildings);
+                }
+
+                if (!patched)
+                    ULog.Error("Patch " + nameof(ShortCircuitPatches_ConduitPatch.IncludeOtherShortSources) + " failed.");
+            }
+
+            public static List<Thing> AddExtraBuildings(List<Thing> list, Map map)
+            {
+                List<Thing> resultList = new List<Thing>(list);
+
+                if (!StartupUtil.ExtraShortCircuitSources.Any())
+                    return resultList;
+
+                foreach (ThingDef def in StartupUtil.ExtraShortCircuitSources)
+                {
+                    List<Thing> extraThings = map.listerThings.ThingsOfDef(def);
+                    if (!extraThings.NullOrEmpty())
+                        resultList.AddRange(extraThings);
+                }
+                    
+                return resultList;
+            }
+        }
     }
 }

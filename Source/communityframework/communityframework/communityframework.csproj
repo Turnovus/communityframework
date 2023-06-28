@@ -81,7 +81,7 @@
     <Compile Include="Comps\HediffComps\SeverityFromPain\HediffComp_SeverityFromPain.cs" />
     <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffCompProperties_SeverityFromSkill.cs" />
     <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffComp_SeverityFromSkill.cs" />
-    <Compile Include="DefModExtensions\BatteryExtensions.cs" />
+    <Compile Include="DefModExtensions\PowerExtensions.cs" />
     <Compile Include="DefModExtensions\BlocksPlacement.cs" />
     <Compile Include="DefOf\CF_StatDefOf.cs" />
     <Compile Include="Harmony patches\CompPowerBattery\AmountCanAccept_CheckExtension.cs" />
@@ -130,6 +130,7 @@
     <Compile Include="Utilities\ClassWithPatchesAttribute.cs" />
     <Compile Include="Utilities\CommunityQualityUtility.cs" />
     <Compile Include="Utilities\CommunityRecipeUtility.cs" />
+    <Compile Include="Utilities\StartupUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
