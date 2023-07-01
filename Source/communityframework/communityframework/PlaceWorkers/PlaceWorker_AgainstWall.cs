@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using Verse;
+﻿using Verse;
 using RimWorld;
 
 namespace CF
@@ -15,6 +13,27 @@ namespace CF
     /// </summary>
     public class PlaceWorker_AgainstWall : PlaceWorker
     {
+        /// <summary>
+        /// Ensures that the building is placed on a cell adjacent to but facing away from a wall.
+        /// </summary>
+        /// <param name="checkingDef">
+        /// The <see cref="ThingDef"/> using the <see cref="PlaceWorker"/>
+        /// </param>
+        /// <param name="loc">
+        /// The location that the building is being placed at.
+        /// </param>
+        /// <param name="rot">
+        /// The rotation that the building is being placed at.
+        /// </param>
+        /// <param name="map">
+        /// The <see cref="Map"/> that the building is being placed in.
+        /// </param>
+        /// <param name="thingToIgnore">Unused.</param>
+        /// <param name="thing">Unused.</param>
+        /// <returns>
+        /// <c>true</c> if the cell behind the building being placed contains a wall, and is within
+        /// the map bounds.
+        /// </returns>
         public override AcceptanceReport AllowsPlacing(
             BuildableDef checkingDef,
             IntVec3 loc,
@@ -49,6 +68,28 @@ namespace CF
     /// </summary> 
     public class PlaceWorker_OnWall : PlaceWorker
     {
+        /// <summary>
+        /// Ensure that the building being placed is placed on a wall but not overlapping the same
+        /// <c>Thing</c> in the same rotation. 
+        /// </summary>
+        /// <param name="checkingDef">
+        /// The <see cref="ThingDef"/> using the <see cref="PlaceWorker"/>
+        /// </param>
+        /// <param name="loc">
+        /// The location that the building is being placed at.
+        /// </param>
+        /// <param name="rot">
+        /// The rotation that the building is being placed at.
+        /// </param>
+        /// <param name="map">
+        /// The <see cref="Map"/> that the building is being placed in.
+        /// </param>
+        /// <param name="thingToIgnore">Unused.</param>
+        /// <param name="thing">Unused.</param>
+        /// <returns>
+        /// <c>true</c> if the cell at <c>loc</c> contains a wall, and does not contain an
+        /// identical building at the same rotation.
+        /// </returns>
         public override AcceptanceReport AllowsPlacing(
             BuildableDef checkingDef,
             IntVec3 loc,
@@ -86,6 +127,12 @@ namespace CF
             return true;
         }
 
+        /// <summary>
+        /// Always allows buildings using this <see cref="PlaceWorker"/> to be placed over any
+        /// other building.
+        /// </summary>
+        /// <param name="other">The building being placed onto.</param>
+        /// <returns>Always <c>true</c></returns>
         public override bool ForceAllowPlaceOver(BuildableDef other)
         {
             return true;

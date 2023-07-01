@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using RimWorld;
 using Verse;
 
@@ -19,6 +15,9 @@ namespace CF
     /// </summary>
     public class IgnoreNeed : DefModExtension
     {
+        /// <summary>
+        /// A list of <see cref="NeedDef"/>s to be ignored by the pawn.
+        /// </summary>
         public List<NeedDef> needs;
     }
 
@@ -32,7 +31,18 @@ namespace CF
     /// </remarks>
     public class UseNegativeFertility : DefModExtension
     {
-        public float minFertility = 0.05f, maxFertility = 1.4f;
+        /// <summary>
+        /// The lowest possible perceived fertility value. This is how quickly
+        /// the plant will grow when planted on the most fertile natural soil
+        /// available.
+        /// </summary>
+        public float minFertility = 0.05f;
+        /// <summary>
+        /// The highest possible perceived fertility value. This is how quikcly
+        /// the plant will grow when planted on the least fertile natural soil
+        /// possible.
+        /// </summary>
+        public float maxFertility = 1.4f;
     }
 
     /// <summary>
@@ -43,6 +53,10 @@ namespace CF
     /// </summary>
     public class CompsToAddWhenStuff : DefModExtension
     {
+        /// <summary>
+        /// A list of <see cref="ThingComp"/>s that will be attached to
+        /// anything that uses the comp's parent as stuff.
+        /// </summary>
         public List<CompProperties> comps;
 
     }
@@ -54,6 +68,10 @@ namespace CF
     /// </summary>
     public class BuildingFacilityExtension : DefModExtension
     {
+        /// <summary>
+        /// If <c>true</c>, then the facility's link will not be active unless
+        /// its <see cref="CompRefuelable"/> has fuel.
+        /// </summary>
         public bool facilityRequiresFuel = false;
     }
 
@@ -65,45 +83,46 @@ namespace CF
     class UseOutputWorkers : DefModExtension
     {
         /// <summary>
-        /// A collection of non-initiated <see cref="OutputWorker"/>s to run
-        /// when the parent recipe is completed.
+        /// A collection of output workers, whose mthods will be run to modify
+        /// the outputs of a crafting recipe.
         /// </summary>
-        public IEnumerable<Type> outputWorkers;
-
-        /// <summary>
-        /// Instances of the <see cref="OutputWorker"/>s used by this
-        /// extension. Stored so that their methods can be easily called when
-        /// needed.
-        /// </summary>
-        [Unsaved(false)]
-        private IEnumerable<OutputWorker> activeWorkers = null;
-
-        /// <summary>
-        /// Returns a list of instances of <see cref="OutputWorkers"/> used by
-        /// this extension. If the workers haven't been instanced yet, this
-        /// property will first create the necessary instances.
-        /// </summary>
-        public IEnumerable<OutputWorker> ActiveWorkers
-        {
-            get
-            {
-                if (activeWorkers != null)
-                    return activeWorkers;
-
-                activeWorkers = new List<OutputWorker>();
-                foreach (Type t in outputWorkers)
-                    activeWorkers.Append(
-                        (OutputWorker)Activator.CreateInstance(t)
-                    );
-
-                return activeWorkers;
-            }
-        }
+        public List<OutputWorker> outputWorkers;
     }
 
+    /// <summary>
+    /// A <see cref="DefModExtension"/> that allows modders to customize the
+    /// behaviors of any <see cref="CompProperties_Hatcher"/>s attached to the
+    /// same <see cref="ThingDef"/>.
+    /// </summary>
     public class HatcherExtension : DefModExtension
     {
+        /// <summary>
+        /// If <c>true</c>, then whatever <see cref="Pawn"/> hatches out of the
+        /// hatcher will automatically be assigned to the player's faction.
+        /// </summary>
         public bool hatcheeForcePlayerFaction = false;
+    }
+
+    /// <summary>
+    /// A <see cref="DefModExtension"/> that contains methods which can be run whenever a
+    /// <see cref="Thing"/> using the parent <see cref="ThingDef"/> is initially created. This
+    /// applies to <c>Thing</c>s that have just been crafted/built, as well as things that have
+    /// been spawned in as loot or trade items.
+    /// </summary>
+    public interface IExtensionPostMake
+    {
+        /// <summary>
+        /// A method that is run after a <see cref="Thing"/> with the parent <see cref="ThingDef"/>
+        /// has its <see cref="Thing.PostMake"/> method run.
+        /// </summary>
+        /// <param name="thing">The <see cref="Thing"/> that was just made.</param>
+        void PostMake(Thing thing);
+        /// <summary>
+        /// A method that is run after a <see cref="Thing"/> with the parent <see cref="ThingDef"/>
+        /// has its <see cref="Thing.PostPostMake"/> method run.
+        /// </summary>
+        /// <param name="thing">The <see cref="Thing"/> that was just made.</param>
+        void PostPostMake(Thing thing);
     }
 #pragma warning restore CS0649
 }

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Verse;
-using RimWorld;
 
 namespace CF
 {
@@ -30,5 +25,17 @@ namespace CF
         /// multiplied by.
         /// </summary>
         public float multiplier = 1.0f;
+        /// <summary>
+        /// If <c>true</c>, then the comp will affect newly-added
+        /// <c>Hediff</c>s. Does not affect conditions that are already
+        /// present.
+        /// </summary>
+        public bool affectsNewHediffs = true;
+        /// <summary>
+        /// If <c>true</c>, then the comp will affect <c>Hediff</c>s that were
+        /// already present when the parent condition was applied. Does not
+        /// affect other conditions that were added after the parent.
+        /// </summary>
+        public bool affectsExistingHediffs = false;
     }
 }

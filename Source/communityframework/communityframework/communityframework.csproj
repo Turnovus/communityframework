@@ -29,10 +29,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\Common\Assemblies\communityframework.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lib.Harmony.2.2.0\lib\net472\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
@@ -80,9 +81,18 @@
     <Compile Include="Comps\HediffComps\SeverityFromPain\HediffComp_SeverityFromPain.cs" />
     <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffCompProperties_SeverityFromSkill.cs" />
     <Compile Include="Comps\HediffComps\SeverityFromSkill\HediffComp_SeverityFromSkill.cs" />
+    <Compile Include="DefModExtensions\PowerExtensions.cs" />
+    <Compile Include="DefModExtensions\BlocksPlacement.cs" />
     <Compile Include="DefOf\CF_StatDefOf.cs" />
+    <Compile Include="Harmony patches\BatteryChargePatches.cs" />
+    <Compile Include="Harmony patches\HarmonyUtils.cs" />
     <Compile Include="Harmony patches\OutputWorkerPatch.cs" />
+    <Compile Include="Harmony patches\ShortCircuitUtility\ShortCircuitPatches.cs" />
+    <Compile Include="Harmony patches\Thing\Thing_PostMakePatches.cs" />
+    <Compile Include="Harmony patches\VerifyCanPlaceBlueprintOverPatch.cs" />
     <Compile Include="OutputWorker\OutputWorker.cs" />
+    <Compile Include="OutputWorker\OutputWorker_RandomStyle.cs" />
+    <Compile Include="PlaceWorkers\PlaceWorker_NotImpassible.cs" />
     <Compile Include="Utilities\CommunityBuildingUtility.cs" />
     <Compile Include="Utilities\CommunityHealthUtility.cs" />
     <Compile Include="Comps\HediffComps\HealPermanentWoundsConfigurable\HediffCompProperties_HealPermanentWoundsConfigurable.cs" />
@@ -119,6 +129,7 @@
     <Compile Include="Utilities\ClassWithPatchesAttribute.cs" />
     <Compile Include="Utilities\CommunityQualityUtility.cs" />
     <Compile Include="Utilities\CommunityRecipeUtility.cs" />
+    <Compile Include="Utilities\StartupUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

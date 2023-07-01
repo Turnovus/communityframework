@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reflection;
 using Verse;
 using RimWorld;
@@ -18,22 +14,21 @@ namespace CF
     {
         /// <summary>
         /// An empty delegate to define the method signature used by
-        /// <see cref="Verse.GenRecipe.MakeRecipeProducts"/>.
+        /// <c>Verse.GenRecipe.PostProcessProduct</c>.
         /// </summary>
-        private delegate Thing PostProcessProductDelegate(
+        private delegate Thing PostProcessProductSignature(
             Thing product,
             RecipeDef recipeDef,
             Pawn worker,
-            Precept_ThingStyle
-            precept=null,
+            Precept_ThingStyle precept=null,
             ThingStyleDef style=null,
             int? overrideGraphicIndex=null);
 
         /// <summary>
         /// This delegate refers to the private method
-        /// <see cref="Verse.GenRecipe.MakeRecipeProducts"/>.
+        /// <c>Verse.GenRecipe.PostProcessProduct</c>.
         /// </summary>
-        private static Delegate postProcessProductDelegate;
+        private readonly static Delegate postProcessProductDelegate;
 
         /// <summary>
         /// Sets up delegates refering to private methods.
@@ -43,7 +38,7 @@ namespace CF
             postProcessProductDelegate = typeof(GenRecipe).GetMethod(
                 "PostProcessProduct",
                 BindingFlags.NonPublic | BindingFlags.Static
-            ).CreateDelegate(typeof(PostProcessProductDelegate));
+            ).CreateDelegate(typeof(PostProcessProductSignature));
         }
 
         /// <summary>
@@ -61,6 +56,10 @@ namespace CF
         /// <param name="recipeDef">The recipe that created the product</param>
         /// <param name="worker">The pawn doing the recipe</param>
         /// <param name="precept">The pawn's ideo style precept</param>
+        /// <param name="style">The style that will be applied to the product.</param>
+        /// <param name="overrideGraphicIndex">
+        /// Index override for the graphic.
+        /// </param>
         /// <returns>A reference to <c>product</c>.</returns>
         public static Thing PostProcessProduct(
             Thing product,

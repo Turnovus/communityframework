@@ -8,7 +8,7 @@ namespace CF
     /// Abstract base class containing methods to run upon completing certain
     /// recipes.
     /// </summary>
-   abstract class OutputWorker
+   public abstract class OutputWorker
     {
         /// <summary>
         /// Method to run when a recipe is completed, but before the products
@@ -29,15 +29,17 @@ namespace CF
         /// <param name="overrideGraphicIndex">
         /// Index of the desired graphic override.
         /// </param>
-        public abstract void PreCraft(
+        public virtual void PreCraft(
             RecipeDef recipeDef,
             Pawn worker,
             IEnumerable<Thing> ingredients,
             IBillGiver billGiver,
-            Precept_ThingStyle precept=null,
-            ThingStyleDef style=null,
-            int? overrideGraphicIndex=null
-        );
+            ref Precept_ThingStyle precept,
+            ref ThingStyleDef style,
+            ref int? overrideGraphicIndex
+        )
+        {
+        }
 
         /// <summary>
         /// Method to run when a recipe is completed, after the products are
@@ -69,7 +71,7 @@ namespace CF
         /// <returns>
         /// Any additional <c>Thing</c>s to be added to recipe products.
         /// </returns>
-        public abstract IEnumerable<Thing> PostCraft(
+        public virtual IEnumerable<Thing> PostCraft(
             IEnumerable<Thing> products,
             RecipeDef recipeDef,
             Pawn worker,
@@ -78,6 +80,9 @@ namespace CF
             Precept_ThingStyle precept=null,
             ThingStyleDef style=null,
             int? overrideGraphicIndex=null
-        );
+        )
+        {
+            return new List<Thing>();
+        }
     }
 }
