@@ -24,21 +24,19 @@ namespace CF
                 ref ThingDef stuff
             )
             {
-                if (stuff != null && __result is ThingWithComps twc)
+                if (stuff == null || !(__result is ThingWithComps thingWithComps))
+                    return;
+
+                CompsToAddWhenStuff extension = stuff.GetModExtension<CompsToAddWhenStuff>();
+                if (extension == null || extension.comps == null || extension.comps.Count <= 0)
+                    return;
+
+                foreach (CompProperties properties in extension.comps)
                 {
-                    CompsToAddWhenStuff ext =
-                        stuff.GetModExtension<CompsToAddWhenStuff>();
-                    if(ext != null && ext.comps != null && ext.comps.Count > 0)
-                    {
-                        for(int i = 0; i < ext.comps.Count; i++)
-                        {
-                            ThingComp comp = (ThingComp)Activator
-                                .CreateInstance(ext.comps[i].compClass);
-                            comp.parent = twc;
-                            twc.AllComps.Add(comp);
-                            comp.Initialize(ext.comps[i]);
-                        }
-                    }
+                    ThingComp comp = (ThingComp)Activator.CreateInstance(properties.compClass);
+                    comp.parent = thingWithComps;
+                    thingWithComps.AllComps.Add(comp);
+                    comp.Initialize(properties);
                 }
             }
         }
