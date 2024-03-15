@@ -1,0 +1,2703 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>communityframework</name>
+    </assembly>
+    <members>
+        <member name="T:CF.HediffComp_SeverityFromApparel">
+            <summary>
+            Sets the parent hediff's severity based on worn apparel.
+            </summary>
+            <remarks>
+            If wornSeverity is unset, uses the hediff's initial severity.
+            If apparelDefs is unset, checks if any worn apparel have a matching
+            <see cref="T:RimWorld.CompCauseHediff_Apparel"/>.
+            </remarks>
+        </member>
+        <member name="P:CF.HediffComp_SeverityFromApparel.Props">
+            <summary>
+            Pre-cast reference to this comp's
+            <seealso cref="T:CF.HediffCompProps_SeverityFromApparel"/>.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_SeverityFromApparel.WornSeverity">
+            <summary>
+            The severity to apply to the parent <c>Hediff</c> if any of the
+            required apparel items are worn. Equal to
+            <c>Props.wornSeverity</c>, or the parent <c>Hediff</c>'s
+            <c>initialSeverity</c> if the former is <c>null</c>.
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_SeverityFromApparel.CompPostTick(System.Single@)">
+            <summary>
+            Run each time the comp is ticked. Checks the affected <c>Pawn</c>'s
+            apparel and updates the parent <c>Hediff</c>'s severity whenever
+            <c>Props.tickInterval</c> ticks have passed.
+            </summary>
+            <param name="severityAdjustment">
+            Unused in this override.
+            </param>
+        </member>
+        <member name="M:CF.HediffComp_SeverityFromApparel.IsMatching(RimWorld.Apparel)">
+            <summary>
+            Used internally to determine if a given apparel item should set the
+            parent <c>Hediff</c>'s severity to <c>WornSeverity</c>.
+            </summary>
+            <param name="apparel">
+            The <seealso cref="T:RimWorld.Apparel"/> item to check.
+            </param>
+            <returns>
+            <c>true</c> if the apparel item's <c>Def</c> is in
+            <c>Props.apparelDefs</c>, or if <c>Props.apperalDefs</c> is empty
+            and the apparel item causes the parent <c>Hediff</c> when worn.
+            </returns>
+        </member>
+        <member name="F:CF.HediffComp_SeverityFromApparel.hashOffset">
+            <summary>
+            Cached tick offset, calculated from the affected pawn's
+            <c>HashOffset</c>.
+            </summary>
+            <remarks>
+            Based on <seealso cref="T:CF.CompWithCheapHashInterval"/>
+            </remarks>
+        </member>
+        <member name="P:CF.HediffComp_SeverityFromApparel.IsCheapIntervalTick">
+            <summary>
+            Used internally to determine if the current game tick is a "cheap"
+            tick.
+            </summary>
+            <remarks>
+            Based on <seealso cref="T:CF.CompWithCheapHashInterval"/>
+            </remarks>
+        </member>
+        <member name="M:CF.HediffComp_SeverityFromApparel.CompPostMake">
+            <summary>
+            Stores the affected pawn's <c>HashOffset</c> whenever this comp is
+            initialized.
+            </summary>
+            <remarks>
+            Based on <seealso cref="T:CF.CompWithCheapHashInterval"/>
+            </remarks>
+        </member>
+        <member name="T:CF.HediffCompProps_SeverityFromApparel">
+            <summary>
+            <c>CompProperties</c> for <see cref="T:CF.HediffComp_SeverityFromApparel"/>.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProps_SeverityFromApparel.wornSeverity">
+            <summary>
+            Severity applied when an item from <c>apparelDefs</c> is actively
+            equipped. If <c>null</c>, then the parent <c>Hediff</c>'s 
+            <c>initialSeverity</c> is used.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProps_SeverityFromApparel.unwornSeverity">
+            <summary>
+            Severity applied when no items from <c>apparelDefs</c> are actively
+            equipped.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProps_SeverityFromApparel.apparelDefs">
+            <summary>
+            A list of <c>ThingDef</c>s, ideally apparel items. The parent
+            <c>Hediff</c>'s severity will be set to <c>wornSeverity</c> if the
+            affected <c>Pawn</c> is wearing any of these.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProps_SeverityFromApparel.tickInterval">
+            <summary>
+            The affected <c>Pawn</c>'s apparel will be checked at an interval
+            of this many ticks.
+            </summary>
+        </member>
+        <member name="M:CF.HediffCompProps_SeverityFromApparel.#ctor">
+            <summary>
+            No-arg constructor, automatically sets the <c>compClass</c> to
+            <seealso cref="T:CF.HediffComp_SeverityFromApparel"/>
+            </summary>
+        </member>
+        <member name="T:CF.CompOnWearSound">
+            <summary>
+            The functional component of <see cref="T:CF.CompProperties_OnWearSound"/>
+            When applied to an apparel item, it can play a sound whenever the item
+            is put on or taken off.
+            </summary>
+        </member>
+        <member name="P:CF.CompOnWearSound.Props">
+            <summary>
+            Pre-cast reference to this comp's respective <c>CompProperties</c>.
+            </summary>
+        </member>
+        <member name="M:CF.CompOnWearSound.Notify_Equipped(Verse.Pawn)">
+            <summary>
+            Runs after the parent <c>Thing</c> is put on by a <c>Pawn</c>.
+            Plays the <c>SoundDef</c> stored in <c>Props.wornSound</c>.
+            </summary>
+            <param name="pawn">The <c>Pawn</c> putting on the item.</param>
+        </member>
+        <member name="M:CF.CompOnWearSound.Notify_Unequipped(Verse.Pawn)">
+            <summary>
+            Runs after the parent <c>Thing</c> is taken off of a <c>Pawn</c>.
+            Plays the <c>SoundDef</c> stored in <c>Props.removedSound</c>.
+            </summary>
+            <param name="pawn">The <c>Pawn</c> that the item was removed from.
+            </param>
+        </member>
+        <member name="T:CF.CompProperties_OnWearSound">
+            <summary>
+            The properties that control a respective <see cref="T:CF.CompOnWearSound"/>
+            When applied to an apparel item, it can play a sound whenever the item
+            is put on or taken off.
+            </summary>
+        </member>
+        <member name="F:CF.CompProperties_OnWearSound.wornSound">
+            <summary>
+            The sound to play after the item is put on.
+            </summary>
+        </member>
+        <member name="F:CF.CompProperties_OnWearSound.removedSound">
+            <summary>
+            The sound to play after the item is taken off.
+            </summary>
+        </member>
+        <member name="M:CF.CompProperties_OnWearSound.#ctor">
+            <summary>
+            Default constructor, sets <c>compClass</c> to
+            <c>ThingComp_OnWearSound</c>.
+            </summary>
+        </member>
+        <member name="M:CF.CompProperties_OnWearSound.ConfigErrors(Verse.ThingDef)">
+            <summary>
+            Override of method used to report errors made by modders using this
+            <c>ThingComp</c>. This will inform the modder if they have applied
+            the <c>ThingComp</c> to something other than an apparel item.
+            </summary>
+            <param name="parentDef">The <c>ThingDef</c> of the item that the
+            <c>ThingComp</c> was applied to.</param>
+            <returns>A full list of config errors.</returns>
+        </member>
+        <member name="T:CF.CompSelfRepair">
+            <summary>
+            Automatically repairs a specified hitpoint-based (non-pawn) item.
+            Example implementation of <see cref="T:CF.CompWithCheapHashInterval"/>
+            and designed for use with <see cref="T:CF.CompFromStuffPatch"/>.
+            </summary>
+        </member>
+        <member name="P:CF.CompSelfRepair.Props">
+            <summary>
+            Pre-cast reference to this class's
+            <seealso cref="T:RimWorld.CompProperties_SelfhealHitpoints"/>.
+            </summary>
+        </member>
+        <member name="M:CF.CompSelfRepair.CompTick">
+            <summary>
+            This method is run whenever the <c>ThingComp</c> is ticked. If the
+            current in-game tick is a "cheap" tick, then the comp's parent
+            <c>ThingWithComps</c> will regenerate a single hitpoint.
+            </summary>
+        </member>
+        <member name="M:CF.CompSelfRepair.CompInspectStringExtra">
+            <summary>
+            This method returns text that is displayed whenever this comp's
+            parent <c>ThingWithComps</c> is selected in-game. It will display
+            the number of ticks between each hitpoint gained, but only if
+            developer mode is turned on.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CF.CompProperties_SelfRepair">
+            <summary>
+            <c>CompProperties</c> for use with <see cref="T:CF.CompSelfRepair"/>.
+            Allows specifying the tick interval in XML, and auto-assigns the
+            appropriate class.
+            </summary>
+        </member>
+        <member name="F:CF.CompProperties_SelfRepair.tickInterval">
+            <summary>
+            The number of ticks between each hitpoint repaired.
+            </summary>
+        </member>
+        <member name="M:CF.CompProperties_SelfRepair.#ctor">
+            <summary>
+            No-arg contructor. Sets <c>compClass</c> to
+            <seealso cref="T:CF.CompSelfRepair"/>
+            </summary>
+        </member>
+        <member name="M:CF.CompProperties_SelfRepair.ConfigErrors(Verse.ThingDef)">
+            <summary>
+            This method will return a list of configuration errors, notifying
+            modders that they have set up this <c>CompProperties</c>
+            incorrectly in their XML. Will print errors if the parent 
+            <c>ThingWithComps</c> uses a <c>TickerType</c> other than
+            <c>Normal</c>.
+            </summary>
+            <param name="parentDef">
+            The <c>ThingDef</c> of this comp's parent <c>ThingWithComps</c>.
+            </param>
+            <returns>
+            An <c>IEnumerable</c> of error messages.
+            </returns>
+        </member>
+        <member name="T:CF.CompValidator">
+            <summary>
+            Minifies or destroys the parent <c>Thing</c> if it wouldn't be allowed
+            to be placed at its current location. Must be used with one or more
+            <c>PlaceWorker</c>s.
+            </summary>
+        </member>
+        <member name="P:CF.CompValidator.Props">
+            <summary>
+            Pre-cast reference to this comp's <c>CompProperties_Validator</c>.
+            </summary>
+        </member>
+        <member name="M:CF.CompValidator.CompTick">
+            <summary>
+            Called every tick. Every <c>props.tickInterval</c> ticks, this
+            method will check if its parent is allowed to be where it is
+            according to its place workers, and will minify or destroy it if
+            not.
+            </summary>
+        </member>
+        <member name="M:CF.CompValidator.CompInspectStringExtra">
+            <summary>
+            This method is used to display information on the in-game status
+            panel. If the game is running in developer mode, this method will
+            give the number of place workers, and the <c>ToString</c> of the
+            first 3 place workers found.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CF.CompProperties_Validator">
+            <summary>
+            <c>CompProperties</c> for use with <see cref="T:CF.CompValidator"/>.
+            Allows specifying the tick interval in XML, auto-assigns the
+            appropriate class, and disables the comp if misconfigured.
+            </summary>
+        </member>
+        <member name="F:CF.CompProperties_Validator.tickInterval">
+            <summary>
+            The number of in-game ticks that pass before each time the
+            <c>PlaceWorker</c> validation check is run. A lower number will run
+            the check more frequently, but can cause slowdown if the parent
+            <c>ThingWithComps</c> has computationally-expensive
+            <c>PlaceWorkers</c>. For reference, at 1x speed, there are 60 ticks
+            in a single second.
+            </summary>
+        </member>
+        <member name="P:CF.CompProperties_Validator.ShouldUse">
+            <value>
+            Whether the validator should run its checks in-game. True by
+            default, unless it's misconfigured, in which case checks will not
+            run.
+            </value>
+        </member>
+        <member name="M:CF.CompProperties_Validator.#ctor">
+            <summary>
+            No-arg constructor , sets the value of <c>compClass</c> to the type
+            of <c>CompValidator</c>.
+            </summary>
+        </member>
+        <member name="M:CF.CompProperties_Validator.ConfigErrors(Verse.ThingDef)">
+            <summary>
+            Returns an <c>IEnumerable</c> of strings, each describing an error
+            that the XML modder made while setting up this comp properties. In
+            this case, it will return strings if the parent
+            <c>ThingWithComps</c> does not have any <c>PlaceWorker</c>s set, or
+            if its ticker type is not <c>Normal</c>.
+            </summary>
+            <param name="parentDef">Not used in this override.</param>
+            <returns>Strings containing any errors caused by bad XML.</returns>
+        </member>
+        <member name="T:CF.CompWithCheapHashInterval">
+            <summary>
+            A <c>ThingComp</c> which implements tick distribution to reduce lag
+            spikes and microstuttering when a large number of instances exist.
+            </summary>
+            <remarks>
+            Only really necessary for comps which are expected to be on large
+            numbers of <c>Thing</c>s, for example stuffed buildings.
+            </remarks>
+        </member>
+        <member name="M:CF.CompWithCheapHashInterval.IsCheapIntervalTick(System.Int32)">
+            <summary>
+            Method used to determine if the current in-game tick is a targeted
+            "cheap" tick.
+            </summary>
+            <param name="interval">
+            The number of ticks between each method call.
+            </param>
+            <returns>
+            <c>true</c> if the current tick is a "cheap" tick, <c>false</c> for
+            any other tick.
+            </returns>
+        </member>
+        <member name="M:CF.CompWithCheapHashInterval.PostSpawnSetup(System.Boolean)">
+            <summary>
+            Method run whenever the parent <c>ThingWithComps</c> is spawned in.
+            Sets the hash offset to match the parent's <c>thingIDNumber</c>, so
+            that seperate instances of the same parent <c>ThingWithComps</c>
+            won't all run their methods at the exact same tick.  Since 
+            <c>hashOffset</c> is cached, this allows the comp to run faster
+            than if it were to call <c>.hashOffset()</c> every tick.
+            </summary>
+            <param name="respawningAfterLoad">
+            Unused in this context.
+            </param>
+        </member>
+        <member name="T:CF.HediffCompProperties_CraftedQualityOffset">
+            <summary>
+            The properties that determine the behavior of
+            <c>HediffComp_CraftedQualityOffset</c>.
+            </summary>
+        </member>
+        <member name="T:CF.HediffCompProperties_CraftedQualityOffset.Stage">
+            <summary>
+            Represents an individual stage of the quality offset effect, with
+            the minimum quality required for it to occur.
+            </summary>        
+        </member>
+        <member name="F:CF.HediffCompProperties_CraftedQualityOffset.Stage.minSeverity">
+            <summary>
+            The minimum severity for this stage to occur.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_CraftedQualityOffset.Stage.offset">
+            <summary>
+            The quality offset applied at this stage.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_CraftedQualityOffset.stages">
+            <summary>
+            The list of <c>Stage</c>s, each stage having its own offset and
+            minimum severity.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_CraftedQualityOffset.percentChance">
+            <summary>
+            The chance, represented as a decimal percent, that the offset will
+            be applied to the crafted item.
+            </summary>
+        </member>
+        <member name="M:CF.HediffCompProperties_CraftedQualityOffset.#ctor">
+            <summary>
+            Constructor that automatically attaches the required CompClass to
+            these properties.
+            </summary>
+        </member>
+        <member name="T:CF.HediffComp_CraftedQualityOffset">
+            <summary>
+            A hediff comp that allows <c>Hediff</c>s to increase or decrease the
+            value of items crafted by the <c>Pawn</c> that the <c>Hediff</c> is
+            applied to, at random.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_CraftedQualityOffset.Props">
+            <summary>
+            Pre-cast reference to the relevant
+            <c>CompProperties_CraftedQualityOffset</c>.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_CraftedQualityOffset.QualityOffset">
+            <summary>
+            The current number of quality levels that the quality of the
+            completed item should be increased or decreased by, calculated from
+            the parent <c>Hediff</c>'s severity.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_CraftedQualityOffset.PercentChance">
+            <summary>
+            The chance, represented as a decimal percent, that the offset will
+            be applied to the crafted item.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_CraftedQualityOffset.CompTipStringExtra">
+            <summary>
+            Used to display additional information on the parent
+            <c>Hediff</c>'s in-game tooltip.
+            </summary>
+        </member>
+        <member name="T:CF.IHediffComp_OnHediffAdded">
+            <summary>
+            Interface to be implented by a <c>HediffComp</c>. Contains methods that
+            are run whenever the affected <c>Pawn</c> has a hediff applied to it.
+            </summary>
+            <remarks>
+            Powered by <seealso cref="T:CF.OnHediffAddedPatch"/>
+            </remarks>
+        </member>
+        <member name="M:CF.IHediffComp_OnHediffAdded.OnHediffAdded(Verse.Hediff@)">
+            <summary>
+            Method run whenever the affected <c>Pawn</c> has a new
+            <c>Hediff</c> applied to it.
+            </summary>
+            <param name="hediff">The <c>Hediff</c> that was just added.</param>
+        </member>
+        <member name="T:CF.HediffCompProperties_MultiplyOtherHediff">
+            <summary>
+            The <c>HediffProperties</c> used to provide instructions for
+            <c>HediffComp_MultiplyOtherHediffDuration</c>. The <c>compClass</c>
+            must be manually set to either
+            <c>HediffComp_MultiplyOtherHediffDuration</c> or
+            <c>HediffComp_MultiplyOtherHediffSeverity</c>.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_MultiplyOtherHediff.affectedHediffs">
+            <summary>
+            A list of <c>HediffDef</c>s. If a sibling <c>Hediff</c> is added
+            with one of these <c>Def</c>s, then it will have its
+            <c>HediffComp_Disappears.ticksToDisappear</c> multiplied by
+            <c>multiplier</c>.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_MultiplyOtherHediff.multiplier">
+            <summary>
+            The value that affected <c>Hediff</c>s will have their durations
+            multiplied by.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_MultiplyOtherHediff.affectsNewHediffs">
+            <summary>
+            If <c>true</c>, then the comp will affect newly-added
+            <c>Hediff</c>s. Does not affect conditions that are already
+            present.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_MultiplyOtherHediff.affectsExistingHediffs">
+            <summary>
+            If <c>true</c>, then the comp will affect <c>Hediff</c>s that were
+            already present when the parent condition was applied. Does not
+            affect other conditions that were added after the parent.
+            </summary>
+        </member>
+        <member name="T:CF.HediffComp_MultiplyOtherHediffDuration">
+            <summary>
+            When a sibling <c>Hediff</c> is applied, this comp with multiply the
+            sibling's <c>HediffComp_Disappears.ticksToDisappear</c> by a set
+            amount. Can be used to artificially increase or decrease the lengths of
+            certain <c>Hediff</c>s.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_MultiplyOtherHediffDuration.Props">
+            <summary>
+            Pre-cast reference to this comp's corresponding properties,
+            <c>HediffCompProperties_MultiplyOtherHediff</c>.
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_MultiplyOtherHediffDuration.OnHediffAdded(Verse.Hediff@)">
+            <summary>
+            Run when another <c>Hediff</c> is added to the parent's
+            <c>Pawn</c>. Multiplies the other <c>Hediff</c>'s duration by a set
+            amount, if the other <c>Hediff</c>'s <c>Def</c> is in
+            <c>Props.affectedHediffs</c>, and if <c>Props.affectsNewHediffs</c>
+            is <c>true</c>.
+            </summary>
+            <param name="hediff">The <c>Hediff</c> being added.</param>
+        </member>
+        <member name="M:CF.HediffComp_MultiplyOtherHediffDuration.CompPostPostAdd(System.Nullable{Verse.DamageInfo})">
+            <summary>
+            Run when the parent <see cref="T:Verse.Hediff"/> is applied to a
+            <see cref="T:Verse.Pawn"/>. If <c>Props.affectsExistingHediff</c> is
+            <c>true</c>, then this override will go through each health
+            condition already present on the target <c>Pawn</c>, and, if the
+            condition's <see cref="T:Verse.HediffDef"/> is in
+            <c>Props.affectedHediffs</c>, its duration will be multiplied by
+            <c>Props.multiplier</c>.
+            </summary>
+            <param name="dinfo">
+            The <see cref="T:Verse.DamageInfo"/> that caused the parent condition to be
+            applied. Unused here.
+            </param>
+        </member>
+        <member name="M:CF.HediffComp_MultiplyOtherHediffDuration.TryAdjustOtherHediff(Verse.Hediff)">
+            <summary>
+            Internal helper method used to adjust the duration of other
+            <see cref="T:Verse.Hediff"/>s where applicable. This method ensures that
+            the targeted health condition is not the comp's parent condition,
+            and that the condition's <see cref="T:Verse.HediffDef"/> is contained in
+            <c>Props.affectedHediff</c> before taking effect, as well as
+            ensring that it has the required
+            <see cref="T:Verse.HediffComp_Disappears"/>, so doing those comparisons
+            externally is unnecessary.
+            </summary>
+            <param name="other">
+            The <see cref="T:Verse.Hediff"/> to possibly adjust.
+            </param>
+        </member>
+        <member name="T:CF.HediffComp_MultiplyOtherHediffSeverity">
+            <summary>
+            When a sibling <c>Hediff</c> is applied, this comp with multiply the
+            sibling's <c>Severity</c> by a set amount. Can be used to artificially
+            increase or decrease the magnitude or duration of certain
+            <c>Hediff</c>s.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_MultiplyOtherHediffSeverity.Props">
+            <summary>
+            Pre-cast reference to this comp's corresponding properties,
+            <c>HediffCompProperties_MultiplyOtherHediff</c>.
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_MultiplyOtherHediffSeverity.OnHediffAdded(Verse.Hediff@)">
+            <summary>
+            Run when another <c>Hediff</c> is added to the parent's
+            <c>Pawn</c>. Multiplies the other <c>Hediff</c>'s severity by a set
+            amount, if the other <c>Hediff</c>'s <c>Def</c> is in
+            <c>Props.affectedHediffs</c>, and if <c>Props.affectsNewHediffs</c>
+            is <c>true</c>.
+            </summary>
+            <param name="hediff">The <c>Hediff</c> being added.</param>
+        </member>
+        <member name="M:CF.HediffComp_MultiplyOtherHediffSeverity.CompPostPostAdd(System.Nullable{Verse.DamageInfo})">
+            <summary>
+            Run when the parent <see cref="T:Verse.Hediff"/> is applied to a
+            <see cref="T:Verse.Pawn"/>. If <c>Props.affectsExistingHediff</c> is
+            <c>true</c>, then this override will go through each health
+            condition already present on the target <c>Pawn</c>, and, if the
+            condition's <see cref="T:Verse.HediffDef"/> is in
+            <c>Props.affectedHediffs</c>, its severity will be multiplied by
+            <c>Props.multiplier</c>.
+            </summary>
+            <param name="dinfo">
+            The <see cref="T:Verse.DamageInfo"/> that caused the parent condition to be
+            applied. Unused here.
+            </param>
+        </member>
+        <member name="M:CF.HediffComp_MultiplyOtherHediffSeverity.TryAdjustOtherHediff(Verse.Hediff)">
+            <summary>
+            Internal helper method used to adjust the severity of other
+            <see cref="T:Verse.Hediff"/>s where applicable. This method ensures that
+            the targeted health condition is not the comp's parent condition,
+            and that the condition's <see cref="T:Verse.HediffDef"/> is contained in
+            <c>Props.affectedHediff</c> before taking effect, so doing those
+            comparisons externally is unnecessary.
+            </summary>
+            <param name="other">
+            The <see cref="T:Verse.Hediff"/> to possibly adjust.
+            </param>
+        </member>
+        <member name="T:CF.HediffCompProperties_SeverityFromPain">
+            <summary>
+            The base <c>HediffProperties</c> used to provide instructions for
+            <c>HediffComp_PainFromSeverity</c>
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_SeverityFromPain.usePainThreshold">
+            <summary>
+            If this is set to <c>true</c>, then the <c>Pawn</c>'s current pain
+            will be divided by their maximum pain shock threshold. If
+            <c>false</c>, it will always be the exact value.
+            </summary>
+        </member>
+        <member name="M:CF.HediffCompProperties_SeverityFromPain.#ctor">
+            <summary>
+            Boilerplate constructor, sets the comp's class to
+            <c>HediffComp_SeverityFromPain</c>.
+            </summary>
+        </member>
+        <member name="T:CF.HediffComp_SeverityFromPain">
+            <summary>
+            A <c>HediffComp</c> that directly sets the parent
+            <c>Hediff.Severity</c> to match the <c>Pawn</c>'s current pain level.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_SeverityFromPain.Props">
+            <summary>
+            Pre-cast reference to this comp's corresponding properties,
+            <c>HediffCompProperties_SeverityFromPain</c>.
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_SeverityFromPain.GetPainLevelInt">
+            <summary>
+            An internal function used to calculate the intended severity
+            setting, accounting for <c>Props.usePainThreshold</c>.
+            </summary>
+            <returns>The intended severity setting.</returns>
+        </member>
+        <member name="M:CF.HediffComp_SeverityFromPain.CompPostTick(System.Single@)">
+            <summary>
+            Called per-tick, updates the parent's severity level to the
+            intended amount.
+            </summary>
+            <param name="severityAdjustment">
+            Used by <c>HediffComp</c>s to adjust the parent's severity
+            incrementally, unused in this case.
+            </param>
+        </member>
+        <member name="P:CF.HediffComp_SeverityFromPain.CompTipStringExtra">
+            <summary>
+            Used to display additional information in the parent's in-game
+            tooltip. In this case, it displays the pawn's current pain level.
+            </summary>
+        </member>
+        <member name="T:CF.HediffCompProperties_SeverityFromSkill">
+            <summary>
+            The properties that determine the behavior of
+            <c>HediffComp_SeverityFromSkill</c>.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_SeverityFromSkill.skills">
+            <summary>
+            A list of skills that will affect the severity of the parent
+            <c>Hediff</c>.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_SeverityFromSkill.targetSeverity">
+            <summary>
+            The intended maximum severity, reached when the pawn acquires level
+            20 in all relevant skills.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_SeverityFromSkill.minSkill">
+            <summary>
+            If the average of relevant skills is below this value, then the
+            parent <c>Hediff</c>'s severity will always be 0.
+            </summary>
+        </member>
+        <member name="M:CF.HediffCompProperties_SeverityFromSkill.#ctor">
+            <summary>
+            Constructor that automatically attaches the required CompClass to
+            these properties.
+            </summary>
+        </member>
+        <member name="T:CF.HediffComp_SeverityFromSkill">
+            <summary>
+            A <c>HediffComp</c> that adjusts its parent's severity by the skill
+            levels of the pawn it is applied to. Most likely incompatible with
+            any other severity-adjusting <c>HediffComp</c>s.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_SeverityFromSkill.Props">
+            <summary>
+            Pre-cast reference to the comp's properties.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_SeverityFromSkill.SkillAverage">
+            <summary>
+            The average of <c>parent.pawn</c>'s relevant skills, as defined in
+            <c>Props.skills</c>.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_SeverityFromSkill.SkillListFormattedInt">
+            <summary>
+            Returns a string containing a multi-line, bulleted list of skills
+            that affect severity.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_SeverityFromSkill.CompTipStringExtra">
+            <summary>
+            Used to display additional information on the parent
+            <c>Hediff</c>'s in-game tooltip.
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_SeverityFromSkill.CompPostTick(System.Single@)">
+            <summary>
+            This method is called every tick, and directly sets the parent
+            <c>Hediff</c>'s current severity to the appropriate value based
+            on the pawn's current set of skills.
+            </summary>
+            <param name="severityAdjustment">Normally, this would be used to
+            increase or decrease the parent <c>Hediff</c>'s severity through
+            smaller increments. Here, it does nothing.</param>
+        </member>
+        <member name="T:CF.DefModExtension_BatteryAmountCanAccept">
+            <summary>
+            A base class for <see cref="T:Verse.DefModExtension"/>s, used to define custom behaviors that
+            affect the maximum amount of energy that a sibling <see cref="T:RimWorld.CompPowerBattery"/> can
+            store.
+            </summary>
+        </member>
+        <member name="M:CF.DefModExtension_BatteryAmountCanAccept.AmountCanAccept(RimWorld.CompPowerBattery,System.Single)">
+            <summary>
+            Augments the amount of energy that can be stored by a <see cref="T:RimWorld.CompPowerBattery"/>
+            attached to any <see cref="T:Verse.Thing"/> with the parent <see cref="T:Verse.ThingDef"/>.
+            </summary>
+            <param name="comp">
+            The <see cref="T:RimWorld.CompPowerBattery"/> whose that
+            <see cref="P:RimWorld.CompPowerBattery.AmountCanAccept"/> is being adjusted for.
+            </param>
+            <param name="original">
+            The vanilla value of <see cref="P:RimWorld.CompPowerBattery.AmountCanAccept"/> from <c>comp</c>.
+            </param>
+            <returns>The new amount of additional energy that the battery can accept.</returns>
+        </member>
+        <member name="T:CF.NeverRecharge">
+            <summary>
+            Any <see cref="T:RimWorld.CompPowerBattery"/> will never be able to recharge if its parent has this
+            extension in its <see cref="T:Verse.ThingDef"/>.
+            </summary>
+        </member>
+        <member name="M:CF.NeverRecharge.AmountCanAccept(RimWorld.CompPowerBattery,System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CF.BatteryExtension">
+            <summary>
+            A <see cref="T:Verse.DefModExtension"/> that provides more customization options for any
+            <see cref="T:RimWorld.CompPowerBattery"/> attached to <see cref="T:Verse.Thing"/>s that use the extension's
+            parent <see cref="T:Verse.ThingDef"/>.
+            </summary>
+        </member>
+        <member name="F:CF.BatteryExtension.neverDischarge">
+            <summary>
+            If <c>true</c>, batteries with this extension will not lose 5W of energy per day, as is
+            hardcoded in vanilla.
+            </summary>
+        </member>
+        <member name="F:CF.BatteryExtension.startCharged">
+            <summary>
+            If <c>true</c>, then the battery will start with a full charge when it is crafted,
+            built, or otherwise initially created.
+            </summary>
+        </member>
+        <member name="F:CF.BatteryExtension.neverShortCircuit">
+            <summary>
+            If <c>true</c>, batteries with this extension will not lose power during the short
+            circuit event, and will not contribute to the size of the short circuit explosion.
+            </summary>
+        </member>
+        <member name="M:CF.BatteryExtension.PostMake(Verse.Thing)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CF.BatteryExtension.PostPostMake(Verse.Thing)">
+            <summary>
+            After a <see cref="T:Verse.Thing"/> with the parent <see cref="T:Verse.ThingDef"/> is initially
+            created, this method will fully charge it if is a battery and if
+            <see cref="F:CF.BatteryExtension.startCharged"/> is <c>true</c>
+            </summary>
+            <param name="thing"></param>
+        </member>
+        <member name="T:CF.PowerExtension">
+            <summary>
+            A <see cref="T:Verse.DefModExtension"/> that provides more customization options for
+            <see cref="T:Verse.ThingDef"/>s that define electrical objects.
+            </summary>
+        </member>
+        <member name="F:CF.PowerExtension.shortCircuitSource">
+            <summary>
+            If <c>true</c>, this <see cref="T:Verse.Thing"/> can be a culprit of short circuits, like
+            vanilla power conduits.
+            </summary>
+        </member>
+        <member name="T:CF.DefModExtension_CanBlockPlacement">
+            <summary>
+            A <see cref="T:Verse.DefModExtension"/> that, when applied to a building's
+            <see cref="T:Verse.ThingDef"/>, can allow that building to conditionally block
+            the placement of other buildings.
+            </summary>
+        </member>
+        <member name="M:CF.DefModExtension_CanBlockPlacement.BlocksPlacementOf(Verse.BuildableDef,CF.CommunityBuildingUtility.EBuildableDefStage)">
+            <summary>
+            Determines whether or not another building is blocked by the
+            presence of this building in the same tile.
+            </summary>
+            <remarks>
+            This method does know which building stage the parent building is
+            in (blueprint, frame, or finished). For the other building, it can
+            be assumed that it always a blueprint.
+            </remarks>
+            <param name="otherThing">
+            The <see cref="T:Verse.BuildableDef"/>, most likely a
+            <see cref="T:Verse.ThingDef"/>, of the building that the player is trying
+            to place over the parent building.
+            </param>
+            <param name="existingBuildingStage">
+            The building stage of the existing building, meaning the one that
+            has this extension attached to it.
+            It is not recommended to use this parameter without good reason, as
+            changing the acceptance of overlapping buildings based on building
+            phase can be very inconsistent. However, the ability exists, should
+            you need it.
+            </param>
+            <returns>
+            <c>true</c>, if the placement is blocked, and the new building is
+            not allowed to be blaced over the existing one. <c>false</c>
+            if the building is not directly blocked, and is allowed to be
+            placed as long as all other external conditions for building 
+            placement are met.
+            </returns>
+        </member>
+        <member name="T:CF.BlocksImpassibleBuildings">
+            <summary>
+            A <see cref="T:Verse.DefModExtension"/> that will prevent impassable structures
+            like walls, vents, and coolers from being manually placed on top of
+            whatever building has the extension, even if it would normally be
+            possible for such overlap to happen otherwise (i.e. with conduits and
+            floor coverings).
+            </summary>
+        </member>
+        <member name="M:CF.BlocksImpassibleBuildings.BlocksPlacementOf(Verse.BuildableDef,CF.CommunityBuildingUtility.EBuildableDefStage)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CF.CF_StatDefOf">
+            <summary>
+            <see cref="T:Verse.Def"/> cache containing the framework's XML
+            <see cref="T:RimWorld.StatDef"/>s for easy reference in C# assemblies.
+            </summary>
+        </member>
+        <member name="F:CF.CF_StatDefOf.CF_CaravanCapacity">
+            <summary>
+            The additional mass that this creature can carry when part of a
+            caravan.
+            </summary>
+        </member>
+        <member name="T:CF.BatteryChargePatches">
+            <summary>
+            A collection of patches that alter the behaviors of batteries, allowing for more control
+            over custom batteries.
+            </summary>
+        </member>
+        <member name="M:CF.BatteryChargePatches.CanDischarge(RimWorld.CompPowerBattery)">
+            <summary>
+            Checks if the battery is allowed to discharge by <see cref="T:CF.BatteryExtension"/>.
+            </summary>
+            <param name="battery">
+            The <see cref="T:RimWorld.CompPowerBattery"/> of the battery being checked.
+            </param>
+            <returns>
+            <c>true</c> if the battery's <see cref="T:Verse.ThingDef"/> does not have a
+            <see cref="T:CF.BatteryExtension"/>, or if its <see cref="F:CF.BatteryExtension.neverDischarge"/>
+            is <c>false</c>. <c>true</c> otherwise.
+            </returns>
+        </member>
+        <member name="T:CF.BatteryChargePatches.AmountCanAccept">
+            <summary>
+            This patch modifies the amount of additional energy that a battery can accept.
+            </summary>
+        </member>
+        <member name="M:CF.BatteryChargePatches.AmountCanAccept.CheckForBatteryExtension(RimWorld.CompPowerBattery@,System.Single@)">
+            <summary>
+            Checks the battery's <see cref="T:Verse.ThingDef"/> for any extension that derives
+            <see cref="T:CF.BatteryChargePatches.AmountCanAccept"/>, then adjusts the return value of the method
+            accordingly.
+            </summary>
+            <param name="__instance">
+            The <see cref="T:RimWorld.CompPowerBattery"/> being checked.
+            </param>
+            <param name="__result">
+            The amount of additional energy that the battery will accept.
+            </param>
+        </member>
+        <member name="T:CF.BatteryChargePatches.BatteryDischargeCheckExtension">
+            <summary>
+            This patch alters whether or not a battery self-discharges the hardcoded amount of 5W
+            per day.
+            </summary>
+        </member>
+        <member name="M:CF.BatteryChargePatches.BatteryDischargeCheckExtension.DoNotDischargeIfExtension(System.Collections.Generic.IEnumerable{HarmonyLib.CodeInstruction},System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Injects a condition into <see cref="M:RimWorld.CompPowerBattery.CompTick"/> that checks if the
+            parent's <see cref="T:Verse.ThingDef"/> contains a <see cref="T:CF.BatteryExtension"/>,
+            then checks if <see cref="F:CF.BatteryExtension.neverDischarge"/> is <c>true</c>. If the
+            battery has been configured never to discharge, then it will skip over the
+            instructions for self-discharge.
+            </summary>
+            <param name="instructions">The instructions given to the transpiler.</param>
+            <param name="generator"><see cref="T:System.Reflection.Emit.ILGenerator"/> used for creating labels</param>
+            <returns>A patched list of instructions</returns>
+        </member>
+        <member name="T:CF.BatteryChargePatches.BatteryInspectStringCheckExtension">
+            <summary>
+            This patch prevents batteries from showing the "self-discharging" line on the
+            inspection pane if the battery has been configured not to self-discharge.
+            </summary>
+        </member>
+        <member name="M:CF.BatteryChargePatches.BatteryInspectStringCheckExtension.SkipDischargeLineIfExtension(System.Collections.Generic.IEnumerable{HarmonyLib.CodeInstruction})">
+            <summary>
+            Injects a condition into <see cref="M:RimWorld.CompPowerBattery.CompInspectStringExtra"/> that
+            checks if the parent's <see cref="T:Verse.ThingDef"/> contains a
+            <see cref="T:CF.BatteryExtension"/>, then checks if
+            <see cref="F:CF.BatteryExtension.neverDischarge"/> is <c>true</c>. If the battery has
+            been configured never to discharge, then it will skip over the instructions to
+            include the string "Self-discharging: 5W".
+            </summary>
+            <param name="instructions">The instructions given to the transpiler.</param>
+        </member>
+        <member name="T:CF.OutputWorkerPatch">
+            <summary>
+            Adds patches that will run before and after any recipe is complete.
+            Each patch will check the recipe for a <see cref="T:CF.UseOutputWorkers"/>
+            extension, and will run the relevant method from each
+            <see cref="T:CF.OutputWorker"/> found.
+            </summary>
+        </member>
+        <member name="T:CF.ShortCircuitPatches">
+            <summary>
+            A collection of patches that affect the short circuit incident.
+            </summary>
+        </member>
+        <member name="T:CF.ShortCircuitPatches.ShortCircuitPatches_Batteries">
+            <summary>
+            This patch modifies the behaviors of batteries with <see cref="T:CF.BatteryExtension"/>
+            during a short circuit.
+            </summary>
+        </member>
+        <member name="M:CF.ShortCircuitPatches.ShortCircuitPatches_Batteries.CanShortCircuit(RimWorld.CompPowerBattery)">
+            <summary>
+            
+            </summary>
+            <param name="comp"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CF.ShortCircuitPatches.ShortCircuitPatches_ConduitPatch">
+            <summary>
+            This patch allows custom buildings to act as short circuit sources, like vanilla
+            conduits.
+            </summary>
+        </member>
+        <member name="M:CF.ShortCircuitPatches.ShortCircuitPatches_ConduitPatch.AddExtraBuildings(System.Collections.Generic.List{Verse.Thing},Verse.Map)">
+            <summary>
+            Helper method for adding custom short circuit sources to the list of conduits found
+            inside of the incident worker for the short circuit incident.
+            </summary>
+            <param name="list">The original list of conduits.</param>
+            <param name="map">The map that the short circuit is occuring on.</param>
+            <returns>
+            A copy of <c>list</c> with additional short-circuitable buildings in <c>map</c>.
+            </returns>
+        </member>
+        <member name="T:CF.Thing_PostMakePatches">
+            <summary>
+            A collection of patches that run additional methods after a thing is made.
+            </summary>
+        </member>
+        <member name="T:CF.VerifyCanPlaceBlueprintOverPatch">
+            <summary>
+            This patch modifies the player's ability to place blueprints over other
+            <see cref="T:Verse.Thing"/>s that occupy any of the same cells as the
+            blueprint.
+            </summary>
+        </member>
+        <member name="T:CF.VerifyCanPlaceBlueprintOverPatch.CanPlaceBlueprintOver">
+            <summary>
+            This patch modifies the player's ability to place blueprints over
+            other <see cref="T:Verse.Thing"/>s that occupy any of the same cells as the
+            blueprint.
+            </summary>
+        </member>
+        <member name="M:CF.VerifyCanPlaceBlueprintOverPatch.CanPlaceBlueprintOver.ApplyAdditionalConditions(System.Boolean@,Verse.BuildableDef,Verse.ThingDef)">
+            <summary>
+            After all of the vanilla checks have passed successfully, this
+            postfix checks that any additional conditions added by the
+            framework have also been met.
+            </summary>
+            <param name="__result">
+            Initially stores the result of the original method. If this
+            value is <c>true</c>, but the new conditions defined by the
+            framework are not met, then it will be changed to <c>false</c>.
+            </param>
+            <param name="newDef">
+            The <see cref="T:Verse.ThingDef"/> of the building that the player is
+            attempting to place.
+            </param>
+            <param name="oldDef">
+            The <see cref="T:Verse.ThingDef"/> that the game is checking if
+            <c>newDef</c> can be placed on top of.
+            </param>
+        </member>
+        <member name="T:CF.OutputWorker">
+            <summary>
+            Abstract base class containing methods to run upon completing certain
+            recipes.
+            </summary>
+        </member>
+        <member name="M:CF.OutputWorker.PreCraft(Verse.RecipeDef,Verse.Pawn,System.Collections.Generic.IEnumerable{Verse.Thing},RimWorld.IBillGiver,RimWorld.Precept_ThingStyle@,Verse.ThingStyleDef@,System.Nullable{System.Int32}@)">
+            <summary>
+            Method to run when a recipe is completed, but before the products
+            of the recipe are created.
+            </summary>
+            <param name="recipeDef">The def of the recipe done.</param>
+            <param name="worker">The pawn doing the recipe</param>
+            <param name="ingredients">
+            A list of things consumed by the recipe
+            </param>
+            <param name="billGiver">
+            The IBillGiver of whatever produced the recipe bill
+            </param>
+            <param name="precept">The style precepts of the worker</param>
+            <param name="style">
+            The style to be applied, independent of ideoligious precepts.
+            </param>
+            <param name="overrideGraphicIndex">
+            Index of the desired graphic override.
+            </param>
+        </member>
+        <member name="M:CF.OutputWorker.PostCraft(System.Collections.Generic.IEnumerable{Verse.Thing},Verse.RecipeDef,Verse.Pawn,System.Collections.Generic.IEnumerable{Verse.Thing},RimWorld.IBillGiver,RimWorld.Precept_ThingStyle,Verse.ThingStyleDef,System.Nullable{System.Int32})">
+            <summary>
+            Method to run when a recipe is completed, after the products are
+            created and post-processed.
+            </summary>
+            <remarks>
+            Any <c>Thing</c>s returned by this method will be post-processed
+            automatically. This means that <c>CompQuality</c>, <c>CompArt</c>,
+            ideo styles, and minification will be taken care of for you.
+            </remarks>
+            <param name="products">
+            A list of finalized things produced by the recipe.
+            </param>
+            <param name="recipeDef">The def of the recipe done.</param>
+            <param name="worker">The pawn doing the recipe</param>
+            <param name="ingredients">
+            A list of things consumed by the recipe
+            </param>
+            <param name="billGiver">
+            The IBillGiver of whatever produced the recipe bill
+            </param>
+            <param name="precept">The style precepts of the worker</param>
+            <param name="style">
+            The style to be applied, independent of ideoligious precepts.
+            </param>
+            <param name="overrideGraphicIndex">
+            Index of the desired graphic override.
+            </param>
+            <returns>
+            Any additional <c>Thing</c>s to be added to recipe products.
+            </returns>
+        </member>
+        <member name="T:CF.OutputWorker_RandomStyle">
+            <summary>
+            A base <see cref="T:CF.OutputWorker"/> for making recipes that randomize the style of crafted
+            products.
+            </summary>
+        </member>
+        <member name="F:CF.OutputWorker_RandomStyle.ideoPreceptOverrides">
+            <summary>
+            If <c>true</c>, then any ideological styles that the crafter has will override the
+            randomly-assigned style, assuming that any such style exists for the crafted product.
+            </summary>
+        </member>
+        <member name="F:CF.OutputWorker_RandomStyle.noStyleChance">
+            <summary>
+            A percent chance that the crafted product will have its default appearence, instead of
+            being given one randomly.
+            </summary>
+        </member>
+        <member name="M:CF.OutputWorker_RandomStyle.StylesFor(Verse.RecipeDef)">
+            <summary>
+            A list of styles to be chosen from when randomly applying a style to the product of a
+            given recipe.
+            </summary>
+            <param name="recipe">
+            The recipe being performed.
+            </param>
+            <returns>
+            A list of styles that may be randomly applied to the products of <c>recipe</c>
+            </returns>
+        </member>
+        <member name="M:CF.OutputWorker_RandomStyle.PreCraft(Verse.RecipeDef,Verse.Pawn,System.Collections.Generic.IEnumerable{Verse.Thing},RimWorld.IBillGiver,RimWorld.Precept_ThingStyle@,Verse.ThingStyleDef@,System.Nullable{System.Int32}@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CF.OutputWorker_RandomStyleFromList">
+            <summary>
+            An <see cref="T:CF.OutputWorker"/> that gives a recipe's products a random style from a
+            predefined list.
+            </summary>
+        </member>
+        <member name="F:CF.OutputWorker_RandomStyleFromList.randomStyles">
+            <summary>
+            A list of styles to be chosen from randomly.
+            </summary>
+        </member>
+        <member name="M:CF.OutputWorker_RandomStyleFromList.StylesFor(Verse.RecipeDef)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CF.OutputWorker_RandomStyleFromDef">
+            <summary>
+            An <see cref="T:CF.OutputWorker"/> that gives a recipe's products a random style the product's
+            own list of randomly-selected styles.
+            </summary>
+        </member>
+        <member name="M:CF.OutputWorker_RandomStyleFromDef.StylesFor(Verse.RecipeDef)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CF.PlaceWorker_NotImpassible">
+            <summary>
+            <see cref="T:Verse.PlaceWorker"/> that ensures that the parent
+            <see cref="T:Verse.Thing"/> is not places on the same cell as any other
+            <see cref="T:Verse.Thing"/> that has a <see cref="F:Verse.BuildableDef.passability"/>
+            of <see cref="F:Verse.Traversability.Impassable"/>.
+            </summary>
+        </member>
+        <member name="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)">
+            <summary>
+            Ensures that the parent <see cref="T:Verse.Thing"/> is not places on the
+            same cell as any other <see cref="T:Verse.Thing"/> that has a
+            <see cref="F:Verse.BuildableDef.passability"/>.
+            </summary>
+            <param name="checkingDef">
+            The <see cref="T:Verse.ThingDef"/> using the <see cref="T:Verse.PlaceWorker"/>
+            </param>
+            <param name="loc">
+            The location that the building is being placed at.
+            </param>
+            <param name="rot">
+            The rotation that the building is being placed at.
+            </param>
+            <param name="map">
+            The <see cref="T:Verse.Map"/> that the building is being placed in.
+            </param>
+            <param name="thingToIgnore">Unused.</param>
+            <param name="thing">Unused.</param>
+            <returns>
+            <c>false</c> if any impassible building exists in any cell occupied
+            by the blueprint being placed. <c>true</c> if no impassible
+            building exists, meaning that placement is permitted.
+            </returns>
+        </member>
+        <member name="T:CF.CommunityBuildingUtility">
+            <summary>
+            Static helper class, contains helpful methods to apply to buildings.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityBuildingUtility.minifySound">
+            <summary>
+            The vanilla <c>SoundDef</c> played when a building is
+            minified/uninstalled. Stored here as a public member for
+            consistency.
+            </summary>
+        </member>
+        <member name="M:CF.CommunityBuildingUtility.MinifyOrDestroy(Verse.Thing,Verse.DestroyMode)">
+            <summary>
+            Minifies a <c>Thing</c> on the spot if its <c>ThingDef</c> says
+            that it can be minified, and destroys it if not.
+            </summary>
+            <param name="thing">The <c>Thing</c> to minify/destroy.</param>
+            <param name="destroyMode">
+            The destroy mode to pass to <c>thing.Destroy</c>. It's not
+            recommended to set this unless you have a good reason to do so.
+            </param>
+        </member>
+        <member name="M:CF.CommunityBuildingUtility.IsWall(Verse.Building)">
+            <summary>
+            Checks whether the building is a wall, namely that it holds a roof,
+            blocks light, and covers the floor.
+            </summary>
+            <param name="building">The building to check.</param>
+            <returns>
+            Whether the building is a wall by the above criteria.
+            </returns>
+        </member>
+        <member name="M:CF.CommunityBuildingUtility.ConflictingThing(Verse.IntVec3,Verse.BuildableDef,Verse.Rot4,Verse.Map)">
+            <summary>
+            Returns whether an identical <c>Thing</c> exists in the specified
+            cell, namely that its <c>Def</c> matches and it's facing in the
+            same direction.
+            </summary>
+            <param name="buildableDef">
+            The <c>BuildableDef</c> a <c>PlaceWorker</c> is trying to place.
+            </param>
+            <param name="cell">The cell it's trying to be placed in.</param>
+            <param name="rot">
+            The rotation of the current thing which is attempting to be placed.
+            </param>
+            <param name="map">The map it's trying to be placed in.</param>
+            <returns>
+            <c>True</c>, if the same building exists in the same spot with the
+            same rotation.
+            </returns>
+        </member>
+        <member name="M:CF.CommunityBuildingUtility.GetFullyConstructedDefOf(Verse.BuildableDef,CF.CommunityBuildingUtility.EBuildableDefStage@)">
+            <summary>
+            If the given <see cref="T:Verse.BuildableDef"/> defines an incomplete
+            building (a blueprint or building frame), then this method will
+            give the <see cref="T:Verse.BuildableDef"/> of the finished building.
+            </summary>
+            <param name="building">
+            The <see cref="T:Verse.BuildableDef"/> to be evaluated.
+            </param>
+            <param name="stage">
+            The construction stage that this <see cref="T:Verse.BuildableDef"/>
+            defines.
+            </param>
+            <returns>
+            The <see cref="T:Verse.BuildableDef"/> of the building when it is fully
+            constructed. If the building is already fully constructed, then
+            the method will return the same reference as the <c>building</c>
+            parameter.
+            </returns>
+        </member>
+        <member name="T:CF.CommunityBuildingUtility.EBuildableDefStage">
+            <summary>
+            An enumerator that contains all of the stages of building
+            construction, including finished and unfinished stages.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityBuildingUtility.EBuildableDefStage.Blueprint">
+            <summary>
+            The building has been planned out by the player, but
+            construction has not yet begun, and no resources have been
+            delivered.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityBuildingUtility.EBuildableDefStage.Frame">
+            <summary>
+            Colonists have begun working on this building. This represents
+            any time between the first resource being delivered, and all of
+            the required work being completed.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityBuildingUtility.EBuildableDefStage.Building">
+            <summary>
+            The building is fully completed. It requires no additional
+            resources or work, and is behaving exactly as is defined in its
+            <see cref="T:Verse.ThingDef"/>.
+            </summary>
+        </member>
+        <member name="T:CF.CommunityHealthUtility">
+            <summary>
+            A static helper utility for handling the health of <c>Pawns</c>.
+            </summary>
+        </member>
+        <member name="T:CF.CommunityHealthUtility.RegenSideEffect">
+            <summary>
+            Represents a side-effect that can be applied upon regeneration,
+            including the <c>Hediff</c> to apply, the frequency at which it 
+            occurs, how its severity should be calculated, and whether it
+            should be applied to the target part or whole body.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityHealthUtility.RegenSideEffect.hediffDef">
+            <summary>
+            The <c>Hediff</c> that this side-effect will apply.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityHealthUtility.RegenSideEffect.percentChance">
+            <summary>
+            The chance as a decimal percent that this side-effect will be
+            applied upon successful regeneration.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityHealthUtility.RegenSideEffect.severity">
+            <summary>
+            Range for the <c>Hediff</c>'s random starting severity.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityHealthUtility.RegenSideEffect.useInjurySeverityMult">
+            /// <summary>
+            If <c>true</c>, the <c>Hediff</c>'s severity will be multiplied
+            by the cured <c>Hediff</c>'s severity. If it is an injury, it
+            will be multiplied by the <c>Hediff</c>'s severity as a percent
+            of the base health.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityHealthUtility.RegenSideEffect.isGlobalHediff">
+            <summary>
+            If <c>true</c>, the <c>Hediff</c> will be applied to the whole 
+            body, instead of the cured part.
+            </summary>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.TryHealRandomPermanentWoundFor(Verse.Pawn,Verse.HediffWithComps,System.Collections.Generic.List{Verse.HediffDef},System.Collections.Generic.List{Verse.HediffDef},System.Collections.Generic.List{CF.CommunityHealthUtility.RegenSideEffect},System.Boolean,CF.CommunityHealthUtility.InjuryRegenListMode)">
+            <summary>
+            Tries to cure chronic <c>Hediff</c>s, and applies side-effects
+            randomly if defined.
+            </summary>
+            <param name="pawn">
+            The <c>Pawn</c> that will have hediffs added/removed
+            </param>
+            <param name="cause">
+            The <c>Hediff</c> that is causing regeneration, used to notify the
+            player, and to ensure that <c>Hediffs</c> cannot cure themselves.
+            </param>
+            <param name="blacklist">
+            List of chronic <c>HediffDef</c>s to ignore. Leave null to ignore
+            none.
+            </param>
+            <param name="whitelist">
+            <c>List</c> containing the only chronic <c>HediffDefs</c>s that
+            will be healed. Leave null to accept all chronic <c>HediffDef</c>s.
+            </param>
+            <param name="sideEffects">
+            A <c>List</c> of <c>RegenSideEffect</c>s to randomly apply after
+            successful regeneration.
+            </param>
+            <param name="canHealDestroyed">
+            If <c>false</c>, injuries that are destroyed parts will be ignored.
+            </param>
+            <param name="injuryMode">
+            Dictates whether <c>Hediff</c>s that use the <c>Hediff_Injury</c>
+            class should automatically be treated as whitelisted, blacklisted,
+            or neither.
+            </param>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.GetCurableHediffs(Verse.Pawn,System.Collections.Generic.List{Verse.HediffDef},System.Collections.Generic.List{Verse.HediffDef},System.Boolean,CF.CommunityHealthUtility.InjuryRegenListMode)">
+            <summary>
+            Returns a list of all <c>Hediff</c>s applied to a <c>Pawn</c> that
+            meet a specified list of criteria.
+            </summary>
+            <param name="pawn">
+            The <c>Pawn</c> whose <c>Hediff</c>s are being checked
+            </param>
+            <param name="blacklist"></param>
+            List of chronic <c>HediffDef</c>s to ignore. Leave null to ignore
+            none.
+            <param name="whitelist">
+            List containing the only chronic <c>HediffDefs</c>s that will be
+            healed. Leave null to accept all <c>HediffDef</c>s.
+            </param>
+            <param name="canHealDestroyed">
+            If <c>false</c>, injuries that are destroyed parts will be ignored.
+            </param>
+            <param name="injuryMode">
+            Dictates whether <c>Hediff</c>s that use the <c>Hediff_Injury</c>
+            class should automatically be treated as whitelisted, blacklisted,
+            or neither.
+            </param>
+            <returns>
+            An <c>IEnumerable</c> containing all of the <c>Hediff</c>s that
+            meet the specified criteria.
+            </returns>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.GetCurablePermanentHediffs(Verse.Pawn,System.Collections.Generic.List{Verse.HediffDef},System.Collections.Generic.List{Verse.HediffDef},System.Boolean,CF.CommunityHealthUtility.InjuryRegenListMode)">
+            <summary>
+            Returns a list of permanent <c>Hediff</c>s applied to a <c>Pawn</c>
+            that meet a specified list of criteria.
+            </summary>
+            <param name="pawn">
+            The <c>Pawn</c> whose <c>Hediff</c>s are being checked
+            </param>
+            <param name="blacklist"></param>
+            List of chronic <c>HediffDef</c>s to ignore. Leave null to ignore
+            none.
+            <param name="whitelist">
+            List containing the only chronic <c>HediffDefs</c>s that will be
+            healed. Leave null to accept all <c>HediffDef</c>s.
+            </param>
+            <param name="canHealDestroyed">
+            If <c>false</c>, injuries that are destroyed parts will be ignored.
+            </param>
+            <param name="injuryMode">
+            Dictates whether <c>Hediff</c>s that use the <c>Hediff_Injury</c>
+            class should automatically be treated as whitelisted, blacklisted,
+            or neither.
+            </param>
+            <returns>
+            An <c>IEnumerable</c> containing all of the Permanent
+            <c>Hediff</c>s that meet the specified criteria.
+            </returns>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.HediffIsInjury(Verse.Hediff,System.Boolean)">
+            <summary>
+            Used to check if a <c>Hediff</c> is inherited from
+            <c>Hediff_Injury</c> or from <c>Hediff_MissingPart</c>. Useful for
+            treating injuries and missing parts equally.
+            </summary>
+            <param name="hediff">
+            The <c>Hediff</c> to check.
+            </param>
+            <param name="careIfAddedAncestor">If true, missing parts will not
+            be counted as an injury if any ancestor has any ancestor with
+            "added parts", i.e. bionics.</param>
+            <returns>
+            <c>true</c>, if the specified <c>Hediff</c> is some form of injury
+            or missing part.
+            </returns>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.RestorePartRecursiveInt(Verse.Pawn,Verse.BodyPartRecord,System.Boolean@)">
+            <summary>
+            Recursively restores each part of a given limb.
+            </summary>
+            <param name="pawn">
+            The <c>Pawn</c> who owns the part.
+            </param>
+            <param name="part">
+            The <c>BodyPartRecord</c> of the part to restore.
+            </param>
+            <param name="alreadyWarned">
+            If <c>true</c>, the player will not be warned about possible errors
+            caused by unsafely restoring parts during <c>HealthTick</c>.
+            </param>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.RestorePartRecursiveInt(Verse.Pawn,Verse.BodyPartRecord)">
+            <summary>
+            Recursively restores each part of a given limb.
+            </summary>
+            <param name="pawn">
+            The <c>Pawn</c> who owns the part.
+            </param>
+            <param name="part">
+            The <c>BodyPartRecord</c> of the part to restore.
+            </param>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.RestorePartInt(Verse.Pawn,Verse.BodyPartRecord)">
+            <summary>
+            Used to initiate a recursive restoration of a specified part. When
+            done, it marks the <c>Pawn</c>'s health records to be re-cached.
+            </summary>
+            <param name="pawn">
+            The <c>Pawn</c> who owns the part.
+            </param>
+            <param name="part">
+            The <c>BodyPartRecord</c> of the part to restore.
+            </param>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.TryCureHediffInt(Verse.Hediff,System.Boolean)">
+            <summary>
+            Used to safely cure <c>Hediff</c>s during <c>HealthTick</c> using
+            <c>HediffComp_ShouldRemove</c>, so as not to cause index array
+            exceptions due to a shrinking <c>Hediff</c> list. If the
+            <c>Hediff</c> does not have <c>HediffComp</c>s, it won't be
+            possible to cure it the safe way, so a warning will be provided to
+            the player.
+            </summary>
+            <param name="hediff">
+            The <c>Hediff</c> to be cured.
+            </param>
+            <param name="alreadyWarned">
+            If <c>true</c>, the player will not be warned about possible errors
+            caused by unsafely restoring parts during <c>HealthTick</c>.
+            </param>
+            <returns>
+            <c>true</c> if a warning was issued to the player, <c>false</c>
+            otherwise.
+            </returns>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.TryCureHediffInt(Verse.Hediff)">
+            <summary>
+            Used to safely cure <c>Hediff</c>s during <c>HealthTick</c> using
+            <c>HediffComp_ShouldRemove</c>, so as not to cause index array
+            exceptions due to a shrinking <c>Hediff</c> list. If the
+            <c>Hediff</c> does not have <c>HediffComp</c>s, it won't be
+            possible to cure it the safe way, so a warning will be provided to
+            the player.
+            </summary>
+            <param name="hediff">
+            The <c>Hediff</c> to be cured.
+            </param>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.IsHediffAllowed(Verse.Hediff,System.Collections.Generic.List{Verse.HediffDef},System.Collections.Generic.List{Verse.HediffDef},CF.CommunityHealthUtility.InjuryRegenListMode)">
+            <summary>
+            Method for determining if a given <c>Hediff</c> matches a given
+            whitelist, blacklist, or both.
+            </summary>
+            <remarks>
+            Bear in mind that, while it is
+            possible to use both types of lists, doing so will lead to
+            unexpected behavior. If an automatic injury list is used, however,
+            you can override it by adding specific injuries to the opposite
+            list.
+            </remarks>
+            <param name="hediff">
+            The <c>Hediff</c> to check against the lists.
+            </param>
+            <param name="whitelist">
+            A <c>List</c> of <c>Hediff</c>s that will only be accepted.
+            </param>
+            <param name="blacklist">
+            A <c>List</c> of <c>Hediff</c>s that will never be accepted.
+            </param>
+            <param name="mode">
+            The automatic injury listing mode, if any.
+            </param>
+            <returns>
+            <c>true</c> if the <c>Hediff</c> fits into the specified lists,
+            <c>false</c> otherwise.
+            </returns>
+        </member>
+        <member name="M:CF.CommunityHealthUtility.CalculatePawnIntendedPain(Verse.Pawn,System.Boolean,System.Boolean)">
+            <summary>
+            Calculates the amount of pain that a given <c>Pawn</c> is
+            experiencing right now, with or without health-induced multipliers.
+            </summary>
+            <param name="pawn">
+            The <c>Pawn</c> whose pain is being checked
+            </param>
+            <param name="usePainFactor">
+            If <c>true</c>, the final value will account for <c>Hediff</c>s
+            that multiply the <c>Pawn</c>'s total pain level. Set to
+            <c>false</c> for the "raw" value.
+            </param>
+            <param name="careIfMech">
+            If this value is <c>true</c>, and the given <c>Pawn</c> is not made
+            of flesh (for example, if it is a mechanoid), then this method will
+            always return 0 because robots have no feelings.
+            </param>
+            <returns
+            >A <c>float</c> representing the current amount of pain that the
+            given <c>Pawn</c> should be in. Does not include a maximum value.
+            </returns>
+        </member>
+        <member name="T:CF.CommunityHealthUtility.InjuryRegenListMode">
+            <summary>
+            <c>InjuryRegenListMode</c> is used to dictate whether a 
+            <c>ThingComp</c> or <c>HediffComp</c> that uses 
+            <c>CommunityHealthUtility</c> should automatically treat
+            <c>HediffDef</c>s with the <c>Hediff_Injury</c> class as
+            whitelisted or blacklisted, or if they should be treated normally
+            (<c>None</c>).
+            </summary>
+        </member>
+        <member name="F:CF.CommunityHealthUtility.InjuryRegenListMode.None">
+            <summary>
+            Injuries should be treated as any other <c>Hediff</c>.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityHealthUtility.InjuryRegenListMode.Blacklist">
+            <summary>
+            Injuries should never be accepted, unless explicitly
+            whitelisted.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityHealthUtility.InjuryRegenListMode.Whitelist">
+            <summary>
+            Injuries should always be accepted, unless explicitly
+            blacklisted.
+            </summary>
+        </member>
+        <member name="T:CF.HediffCompProperties_HealPermanentWoundsConfigurable">
+            <summary>
+            The base <c>HediffProperties</c> used to provide instructions for
+            <c>HediffComp_HealPermanentWoundsConfigurable</c>
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_HealPermanentWoundsConfigurable.blacklist">
+            <summary>
+            A <c>List</c> of <c>Hediff</c>s that cannot be cured. Should be
+            left blank if a whitelist is in use.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_HealPermanentWoundsConfigurable.whitelist">
+            <summary>
+            A <c>List</c> of <c>Hediff</c>s. If this list is used, then only
+            the <c>Hediff</c>s it contains will be used. Should be left blank
+            if a whitelist is in use. It is generally recommended to blacklist
+            <c>Hediff</c>s that can be caused by side-effects so that they
+            aren't automatically cured.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_HealPermanentWoundsConfigurable.regenHediffs">
+            <summary>
+            A <c>List</c> of <c>RegenSideEffect</c>s that will be applied to
+            the <c>Pawn</c> whenever a <c>Hediff</c> is removed.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_HealPermanentWoundsConfigurable.canHealDestroyed">
+            <summary>
+            If <c>true</c>, parts that are fully destroyed will still have
+            their <c>Hediff</c>s cured.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_HealPermanentWoundsConfigurable.injuryRegenListMode">
+            <summary>
+            Determines whether all <c>Hediff</c>s of the <c>Hediff_Injury</c>
+            class should automatically be treated as whitelisted or
+            blacklisted, if at all.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_HealPermanentWoundsConfigurable.regenInterval">
+            <summary>
+            Shortest and longest times between regeneration attempts. Values
+            are multiplied by <c>RegenIntervalTicks</c>. Default is based on
+            the values for Luciferium.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_HealPermanentWoundsConfigurable.regenIntervalTicks">
+            <summary>
+            Number of ticks to multiply regenInterval by. Usually a distinct
+            period of time, represented in ticks. For reference, one day is
+            60000 ticks long.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_HealPermanentWoundsConfigurable.usesBeforeExhaustion">
+            <summary>
+            The number of times that the regeneration method will be invoked
+            while the parent <c>Hediff</c> is applied. If the value us -1,
+            regeneration will be repeated indefinately.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_HealPermanentWoundsConfigurable.removeParentOnExhaustion">
+            <summary>
+            If <c>true</c>, the parent <c>Hediff</c> will be removed when
+            <c>usesBeforeExhaustion</c> reaches 0.
+            </summary>
+        </member>
+        <member name="M:CF.HediffCompProperties_HealPermanentWoundsConfigurable.#ctor">
+            <summary>
+            Boilerplate constructor, sets <c>compClass</c> to 
+            <c>HediffComp_HealPermanentWoundsConfigurable</c>
+            </summary>
+        </member>
+        <member name="T:CF.HediffComp_HealPermanentWoundsConfigurable">
+            <summary>
+            The <c>HediffComp</c> responsible for managing regeneration, based on
+            the member values defined in
+            <c>HediffCompProperties_HealPermanentWoundsConfigurable</c>
+            </summary>
+        </member>
+        <member name="F:CF.HediffComp_HealPermanentWoundsConfigurable.ticksToHeal">
+            <summary>
+            Ticks before the next regeneration attempt is executed
+            </summary>
+        </member>
+        <member name="F:CF.HediffComp_HealPermanentWoundsConfigurable.remainingUses">
+            <summary>
+            The number of additional times that TryHealPermanentWound will be
+            invoked. -1 means infinite uses.
+            </summary>
+        </member>
+        <member name="P:CF.HediffComp_HealPermanentWoundsConfigurable.Props">
+            <summary>
+            Getter used to directly access this comp's
+            <c>HediffCompProperties_HealPermanentWoundsConfigurable</c> so that
+            a cast isn't required every time it is referenced.
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_HealPermanentWoundsConfigurable.ResetTicksToHeal">
+            <summary>
+            Internal helper method, resets the cooldown interval
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_HealPermanentWoundsConfigurable.TryHealPermanentWound">
+            <summary>
+            Method run after the internal timer runs out, simply invokes
+            <c>CommunityHealthUtility.TryHealRandomPermanentWoundFor</c>
+            using values defined by
+            <c>HediffCompProperties_HealPermanentWoundsConfigurable</c>.
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_HealPermanentWoundsConfigurable.CompPostMake">
+            <summary>
+            Run when this <c>HediffComp</c> (and by extention its parent
+            <c>Hediff</c>) is created. Sets up the internal timer for the first
+            time and sets the intended number of uses.
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_HealPermanentWoundsConfigurable.CompPostTick(System.Single@)">
+            <summary>
+            Runs every tick, decreases the internal timer by 1. If the timer
+            reaches 0, <c>TryHealPermanentWound</c> is invoked, the timer is
+            reset, and the remaining uses is decreased by 1 if necessary. If
+            the number of reamining uses is 0 and
+            <c>removeParentOnExhaustion</c> is <c>true</c>, then the parent
+            <c>Hediff</c> will be removed.
+            </summary>
+            <param name="severityAdjustment">
+            Parameter from the <c>base</c> method, currently unused.
+            </param>
+        </member>
+        <member name="M:CF.HediffComp_HealPermanentWoundsConfigurable.CompExposeData">
+            <summary>
+            <c>override</c> of the saving/loading method, used to store the
+            current number of ticks remaining in the timer, and the current
+            number of uses remaining.
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_HealPermanentWoundsConfigurable.CompDebugString">
+            <summary>
+            <c>override</c> of the method used to display additional debug
+            information in the health pane.
+            </summary>
+            <returns>
+            A <c>string</c> containing the values of member variables for
+            debugging purposes.
+            </returns>
+        </member>
+        <member name="P:CF.HediffComp_HealPermanentWoundsConfigurable.CompShouldRemove">
+            <summary>
+            <c>override</c> of method used to determine if a
+            <c>HediffComp</c>'s parent should be removed when available. Parent
+            will be removed if remaining uses are exhausted and
+            <c>removeParentOnExhaustion</c> is <c>true</c>, or if the base
+            method returns <c>true</c>.
+            </summary>
+        </member>
+        <member name="M:CF.HediffComp_HealPermanentWoundsConfigurable.CompPostMerged(Verse.Hediff)">
+            <summary>
+            <c>override</c> of method called when an identical <c>Hediff</c>
+            is applied to the same part. Re-applying the regeneration
+            <c>Hediff</c> will add to the remaining number of uses, unless
+            the current number of uses in infinite.
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="T:CF.HediffComp_ShouldRemove">
+            <summary>
+            A <c>HediffComp</c> that allows <c>Hediff</c>s to be removed during the
+            <c>HealthTick</c> without causing errors.
+            </summary>
+            <remarks>
+            Powered by <seealso cref="T:CF.MissingPartPatches"/>.
+            </remarks>
+        </member>
+        <member name="M:CF.HediffComp_ShouldRemove.CompDebugString">
+            <summary>
+            Informs developers if a <c>Hediff</c> is supposed to be removed. If
+            this text is visible on an active <c>Hediff</c>, something is
+            wrong.
+            </summary>
+            <returns>
+            Updated debug string.
+            </returns>
+        </member>
+        <member name="P:CF.HediffComp_ShouldRemove.CompShouldRemove">
+            <summary>
+            This method is used to determine if a <c>HediffComp</c>'s parent 
+            <c>Hediff</c> should be removed when it is safe to do so. It is run
+            by <c>HediffWithComps.ShouldRemove</c>. Some Hediffs,
+            like <c>Hediff_MissingPart</c>, override this method and must be
+            patched.
+            </summary>
+        </member>
+        <member name="T:CF.TraitRandomDiseasePool">
+            <summary>
+            A <c>DefModExtension</c> that allows for a trait to randomly cause
+            diseases from a pre-defined list, regardless of the biome that the
+            pawn is currently situated in.
+            </summary>
+        </member>
+        <member name="T:CF.TraitRandomDiseasePool.DiseasePool">
+            <summary>
+            Internal helper class, represents the collection of 
+            hediff-causing incidents that can be applied by each degree of the
+            affected trait.
+            </summary>
+        </member>
+        <member name="F:CF.TraitRandomDiseasePool.DiseasePool.mtbDiseaseDays">
+            <summary>
+            The mean time, in days before a hediff-causing incident occurs.
+            </summary>
+        </member>
+        <member name="F:CF.TraitRandomDiseasePool.DiseasePool.diseases">
+            <summary>
+            A dictionary consisting of hediff-causing incidents as keys,
+            and their randomness weight as values.
+            </summary>
+        </member>
+        <member name="F:CF.TraitRandomDiseasePool.DiseasePool.degree">
+            <summary>
+            The required trait degree for this incident pool to be used.
+            </summary>
+        </member>
+        <member name="M:CF.TraitRandomDiseasePool.DiseasePool.CauseIncidentFromPool(Verse.Pawn)">
+            <summary>
+            Method that is called when
+            <c>Pawn_HealthTracker.HealthTick</c> decides that it is time
+            for a disease-causing incident to occur, based on
+            <c>mtbDiseaseDays</c>.
+            </summary>
+            <param name="pawn">The pawn targeted by the incident.</param>
+        </member>
+        <member name="F:CF.TraitRandomDiseasePool.pools">
+            <summary>
+            Contains all of the <c>TraitMtbDiseasePool</c>s specified for each
+            trait degree.
+            </summary>
+        </member>
+        <member name="T:CF.CompFromStuffPatch">
+            <summary>
+            Allows modder to add comps to any items created with a certain Stuff
+            using the <c>CompsToAddWhenStuff</c> <c>ModExtension</c>.
+            </summary>
+        </member>
+        <member name="T:CF.FacilityRequireFuelPatch">
+            <summary>
+            Patches <see cref="T:RimWorld.CompFacility"/> to be inactive if the
+            parent <c>Thing</c> has a <c>CompRefuelable</c> which is unfueled, but
+            only if the parent building's <c>ThingDef</c> has 
+            <see cref="T:CF.BuildingFacilityExtension"/> and <c>facilityRequiresFuel</c>
+            is <c>true</c>.
+            </summary>
+        </member>
+        <member name="T:CF.HarmonyLoader">
+            <summary>
+            Loads included Harmony patches only if they're enabled in the mod settings.
+            </summary>
+        </member>
+        <member name="T:CF.MissingPartPatches">
+            <summary>
+            Harmony patch applied to the <c>Verse.Hediff_MissingPart</c> class,
+            intended to provide functionality to <c>HediffComp_ShouldRemove</c>,
+            even though <c>Hediff_MissingComp</c> overrides the method normally
+            used to detect it.
+            </summary>
+        </member>
+        <member name="M:CF.MissingPartPatches.ShouldRemove.Postfix_ShouldRemove(System.Boolean@,Verse.Hediff_MissingPart)">
+            <summary>
+            By default, <c>Hediff_MissingPart.ShouldRemove</c> is
+            hard-coded to always return <c>false</c>. This patch causes it
+            to return <c>true</c> if its comps contains 
+            <c>HediffComp_ShouldRemove</c>. A specific reference to
+            <c>HediffComp_ShouldRemove</c> is used so that we don't break 
+            the behavior of other comps that are applied to missing parts.
+            </summary>
+            <remarks>
+            Now, since we already know that the base method returns a
+            constant value, we don't *need* to incorporate its return
+            value. However, other modders may change this method, and we 
+            need to account for that.
+            </remarks>
+            <param name="__result">
+            The original return value of
+            <c>Hediff_MissingPart.ShouldRemove</c>.
+            </param>
+            <param name="__instance">
+            The <c>Hediff_MissingPart</c> instance.
+            </param>
+        </member>
+        <member name="M:CF.MissingPartPatches.ShouldRemove.Prefix_LabelBase(Verse.Hediff_MissingPart)">
+            <summary>
+            Prevents missing parts from trying to generate a new label if
+            they're about to be removed anyways. This fixes a
+            <c>NullReferenceException</c> caused by setting the hediff's
+            part to <c>null</c>, but only if we've also added
+            <see cref="T:CF.HediffComp_ShouldRemove"/> to it.
+            </summary>
+            <param name="__instance">
+            The <c>Hediff_MissingPart</c> instance.
+            </param>
+            <returns>
+            <c>false</c> if the hediff is supposed to be removed,
+            <c>true</c> otherwise
+            </returns>
+        </member>
+        <member name="T:CF.NegativeFertilityPatch">
+            <summary>
+            Allows modders to use the <see cref="T:CF.UseNegativeFertility"/>
+            <c>DefModExtension</c> to create plants which grow faster in poorer
+            soil.
+            </summary>
+            <remarks>
+            Generally mod-compatible and performant because of how it caches
+            <c>MaxNaturalFertility</c>, but probably contributes to longer start-up
+            times.
+            </remarks>
+        </member>
+        <member name="M:CF.NegativeFertilityPatch.#cctor">
+            <summary>
+            Caches <c>MaxNaturalFertility</c> on startup by getting the most fertile natural terrain.
+            </summary>
+            <remarks>
+            Where "natural" is defined as "generated by a <c>BiomeDef</c>". 
+            </remarks>
+        </member>
+        <member name="T:CF.HealthTickPatch">
+            <summary>
+            Patches applied to <c>Pawn_HealthTracker.HealthTick</c>, allowing us to
+            read and write a pawn's health on a per-tick basis.
+            </summary>
+        </member>
+        <member name="M:CF.HealthTickPatch.HealthTick.Postfix(Verse.Pawn_HealthTracker,Verse.Pawn)">
+            <summary>
+            Postfix applied to <c>Pawn_HealthTracker.HealthTick</c>,
+            allowing additional code to be run after the base method.
+            </summary>
+            <param name="__instance">The specific instance of 
+            <c>Pawn_HealthTracker</c> currently being ticked.</param>
+            <param name="___pawn">The pawn that this
+            <c>Pawn_HealthTracker</c> belongs to.</param>
+        </member>
+        <member name="T:CF.IgnorePathCostPatch">
+            <summary>
+            This patches the method CostToMoveIntoCell from the Pawn_PathFollower class so when a hediff has the related comp, it can move unrestricted through any terrain.
+            </summary>
+        </member>
+        <member name="T:CF.ShouldHaveNeedPatch">
+            <summary>
+            This patches the method ShouldHaveNeed so it checks if a pawn has the IgnoreNeed <c>DefModExtension</c>. 
+            If this <c>DefModExtension</c> contains the need in its list, ignore it.
+            </summary>
+        </member>
+        <member name="T:CF.IgnoreNeed">
+            <summary>
+            <c>DefModExtension</c> for use with
+            <see cref="T:CF.ShouldHaveNeedPatch"/>. Needs listed here will be ignored
+            by pawns with this <c>DefModExtension</c>.
+            </summary>
+        </member>
+        <member name="F:CF.IgnoreNeed.needs">
+            <summary>
+            A list of <see cref="T:RimWorld.NeedDef"/>s to be ignored by the pawn.
+            </summary>
+        </member>
+        <member name="T:CF.UseNegativeFertility">
+            <summary>
+            <c>DefModExtension</c> which flags the parent plant <c>ThingDef</c> as
+            using negative fertility. Specifies minimum and maximum fertility
+            values within which the final fertility is clamped.
+            </summary>
+            <remarks>
+            See <see cref="T:CF.NegativeFertilityPatch"/> for implementation details.
+            </remarks>
+        </member>
+        <member name="F:CF.UseNegativeFertility.minFertility">
+            <summary>
+            The lowest possible perceived fertility value. This is how quickly
+            the plant will grow when planted on the most fertile natural soil
+            available.
+            </summary>
+        </member>
+        <member name="F:CF.UseNegativeFertility.maxFertility">
+            <summary>
+            The highest possible perceived fertility value. This is how quikcly
+            the plant will grow when planted on the least fertile natural soil
+            possible.
+            </summary>
+        </member>
+        <member name="T:CF.CompsToAddWhenStuff">
+            <summary>
+            <c>DefModExtension</c> for use with
+            <see cref="T:CF.CompFromStuffPatch"/>. Specifies the <c>ThingComps</c>,
+            by their <c>CompProperties</c>, which should be added to newly-
+            generated items made from the specified Stuff.
+            </summary>
+        </member>
+        <member name="F:CF.CompsToAddWhenStuff.comps">
+            <summary>
+            A list of <see cref="T:Verse.ThingComp"/>s that will be attached to
+            anything that uses the comp's parent as stuff.
+            </summary>
+        </member>
+        <member name="T:CF.BuildingFacilityExtension">
+            <summary>
+            An extension meant for use alongside
+            <see cref="T:RimWorld.CompFacility"/>, it is meant to be used on
+            buildings that link to other buildings.
+            </summary>
+        </member>
+        <member name="F:CF.BuildingFacilityExtension.facilityRequiresFuel">
+            <summary>
+            If <c>true</c>, then the facility's link will not be active unless
+            its <see cref="T:RimWorld.CompRefuelable"/> has fuel.
+            </summary>
+        </member>
+        <member name="T:CF.UseOutputWorkers">
+            <summary>
+            An extension used by <see cref="T:Verse.RecipeDef"/>. It contains a list
+            of <see cref="T:CF.OutputWorker"/>s to run when the parent recipe is
+            complete.
+            </summary>
+        </member>
+        <member name="F:CF.UseOutputWorkers.outputWorkers">
+            <summary>
+            A collection of output workers, whose mthods will be run to modify
+            the outputs of a crafting recipe.
+            </summary>
+        </member>
+        <member name="T:CF.HatcherExtension">
+            <summary>
+            A <see cref="T:Verse.DefModExtension"/> that allows modders to customize the
+            behaviors of any <see cref="T:RimWorld.CompProperties_Hatcher"/>s attached to the
+            same <see cref="T:Verse.ThingDef"/>.
+            </summary>
+        </member>
+        <member name="F:CF.HatcherExtension.hatcheeForcePlayerFaction">
+            <summary>
+            If <c>true</c>, then whatever <see cref="T:Verse.Pawn"/> hatches out of the
+            hatcher will automatically be assigned to the player's faction.
+            </summary>
+        </member>
+        <member name="T:CF.IExtensionPostMake">
+            <summary>
+            A <see cref="T:Verse.DefModExtension"/> that contains methods which can be run whenever a
+            <see cref="T:Verse.Thing"/> using the parent <see cref="T:Verse.ThingDef"/> is initially created. This
+            applies to <c>Thing</c>s that have just been crafted/built, as well as things that have
+            been spawned in as loot or trade items.
+            </summary>
+        </member>
+        <member name="M:CF.IExtensionPostMake.PostMake(Verse.Thing)">
+            <summary>
+            A method that is run after a <see cref="T:Verse.Thing"/> with the parent <see cref="T:Verse.ThingDef"/>
+            has its <see cref="M:Verse.Thing.PostMake"/> method run.
+            </summary>
+            <param name="thing">The <see cref="T:Verse.Thing"/> that was just made.</param>
+        </member>
+        <member name="M:CF.IExtensionPostMake.PostPostMake(Verse.Thing)">
+            <summary>
+            A method that is run after a <see cref="T:Verse.Thing"/> with the parent <see cref="T:Verse.ThingDef"/>
+            has its <see cref="M:Verse.Thing.PostPostMake"/> method run.
+            </summary>
+            <param name="thing">The <see cref="T:Verse.Thing"/> that was just made.</param>
+        </member>
+        <member name="T:CF.HediffComp_IgnorePathCost">
+            <summary>
+            A <c>HediffComp</c> used to create <c>Hediff</c>s that allow their
+            affected <c>Pawn</c> to pass over any terrain type while ignoring the
+            path cost. This <c>HediffComp</c> doesn't do much on its own, and only
+            exits to be detected by a Harmony patch.
+            </summary>
+            <remarks>
+            Powered by <seealso cref="T:CF.IgnorePathCostPatch"/>.
+            </remarks>
+        </member>
+        <member name="P:CF.HediffComp_IgnorePathCost.CompTipStringExtra">
+            <summary>
+            Additional text displayed when the parent <c>Hediff</c> is
+            mouse-highlighted in-game.
+            </summary>
+        </member>
+        <member name="T:CF.CapacityPatch">
+            <summary>
+            This patche adds function to the CF_CaravanCapacity stat, allowing
+            equipment to modify the mass that a pawn ca carry in a caravan.
+            </summary>
+        </member>
+        <member name="T:CF.HatchPatch">
+            <summary>
+            This patches the <c>Hatch</c> method so when no parent can be found (which is the case when a pawn is spawned from a crafted item), it is set so the player faction. 
+            </summary>
+        </member>
+        <member name="T:CF.CompProperties_UnlocksRecipe">
+            <summary>
+            The properties class for <see cref="T:CF.CompUnlocksRecipe"/>. Used to
+            define which recipes are unlocked, and by what facilities.
+            </summary>
+        </member>
+        <member name="T:CF.CompProperties_UnlocksRecipe.LinkableFacilities">
+            <summary>
+            Used to store a single facility that is able to unlock the listed
+            recipes, and the minimum quality of the facility required for the
+            recipe to be unlocked.
+            </summary>
+        </member>
+        <member name="F:CF.CompProperties_UnlocksRecipe.LinkableFacilities.targetFacility">
+            <summary>
+            Thing <see cref="T:Verse.ThingDef"/> of the facility that unlocks the
+            given list of recipes.
+            </summary>
+        </member>
+        <member name="F:CF.CompProperties_UnlocksRecipe.LinkableFacilities.minQuality">
+            <summary>
+            The minimum quality that <see cref="F:CF.CompProperties_UnlocksRecipe.LinkableFacilities.targetFacility"/> must be
+            for it to be able to unlock the listed recipes.
+            </summary>
+        </member>
+        <member name="F:CF.CompProperties_UnlocksRecipe.linkableFacilities">
+            <summary>
+            The list of facilities that unlock the recipes defined in
+            <see cref="F:CF.CompProperties_UnlocksRecipe.recipes"/>, and the minimum
+            quality that the facility must be to do so.
+            </summary>
+        </member>
+        <member name="F:CF.CompProperties_UnlocksRecipe.recipes">
+            <summary>
+            The recipes that will become available when one of the facility
+            requirements defined by <see cref="F:CF.CompProperties_UnlocksRecipe.linkableFacilities"/> is met.
+            </summary>
+        </member>
+        <member name="M:CF.CompProperties_UnlocksRecipe.#ctor">
+            <summary>
+            Constructor, automatically initializes <c>compClass</c> to
+            <see cref="T:CF.CompUnlocksRecipe"/>.
+            </summary>
+        </member>
+        <member name="T:CF.QualityUtilityPatch">
+            <summary>
+            Patch of <c>QualityUtility.QualityCreatedByPawn</c>. Add to this patch
+            if you want to add conditions that affect the quality of crafted items.
+            </summary>
+        </member>
+        <member name="M:CF.QualityUtilityPatch.GenerateQualityCreatedByPawn.Postfix(RimWorld.QualityCategory@,Verse.Pawn)">
+            <summary>
+            Postfix to be run after the base method.
+            </summary>
+            <param name="__result">
+            The orignal quality output by the base method.
+            </param>
+            <param name="pawn">
+            The <c>Pawn</c> crafting the item in question.
+            </param>
+        </member>
+        <member name="T:CF.Gizmo_RangedShieldStatus">
+            <summary>
+            <c>Gizmo</c> which displays the current energy state of the <see cref="T:CF.RangedShieldBelt"/>. Identical to the vanilla one, except references the aforementioned class since it's no longer a subclass.
+            </summary>
+        </member>
+        <member name="T:CF.RangedShieldBelt">
+            <summary>
+            <c>ThingClass</c> which acts like the vanilla <c>ShieldBelt</c> class but allows the user to fire ranged weapons while worn.
+            </summary>
+            <remarks>
+            Used to be a pretty simple subclass of <c>ShieldBelt</c>, but that ran into compatibility problems:
+            <list type="bullet">
+            <item>Some mods check whether ranged shots were allowed by seeing if the thingClass <c>is</c> a ShieldBelt, which returned true in this case, 
+            causing errors including them being automatically, erroneously, unequipped on ranged pawns.</item>
+            <item>A growing number of patches were necessary to prevent the vanilla game treating ranged shield belts in the same way.</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:CF.RangedShieldBelt.Energy">
+            <summary>
+            The amount of energy that the shiled belt currently has.
+            </summary>
+        </member>
+        <member name="P:CF.RangedShieldBelt.ShieldIsResetting">
+            <summary>
+            If the shield has run out of energy, and needs time to recharge before blocking more shots.
+            </summary>
+        </member>
+        <member name="M:CF.RangedShieldBelt.AllowVerbCast(Verse.Verb)">
+            <summary>
+            The only meaningful change here, allowing ranged verb casts (or, more precisely, not disallowing them as the original <c>ShieldBelt</c> does).
+            </summary>
+            <param name="v">Disregarded.</param>
+            <returns>True.</returns>
+        </member>
+        <member name="M:CF.RangedShieldBelt.ExposeData">
+            <summary>
+            Expose save/load data to the scribe.
+            </summary>
+        </member>
+        <member name="M:CF.RangedShieldBelt.GetWornGizmos">
+            <summary>
+            Generates on-screen gizmos for when the pawn wearing the shield belt is selected.
+            </summary>
+            <returns>An enumerable containing the gizmos generated.</returns>
+        </member>
+        <member name="M:CF.RangedShieldBelt.GetSpecialApparelScoreOffset">
+            <summary>
+            The value offset provided by this specific shield belt, based on the maximum amount of energy it can store.
+            </summary>
+            <returns><inheritdoc cref="M:CF.RangedShieldBelt.GetSpecialApparelScoreOffset" path="/summary"/></returns>
+        </member>
+        <member name="M:CF.RangedShieldBelt.Tick">
+            <summary>
+            Method run each game tick. Updates the shield belt's charge status.
+            </summary>
+        </member>
+        <member name="M:CF.RangedShieldBelt.CheckPreAbsorbDamage(Verse.DamageInfo)">
+            <summary>
+            Method run each time the pawn wearing the shield belt takes damage. Determines if the damage should be blocked, based on the current energy level of the shield belt, and the type of damage taken.
+            </summary>
+            <param name="dinfo">Information about the damage taken by the pawn.</param>
+            <returns><c>true</c> if the shield belt has successfully blocked the damage taken by the pawn. <c>false</c> if the belt has insufficient energy to block the damage, or if the damage was an EMP attack.</returns>
+        </member>
+        <member name="M:CF.RangedShieldBelt.KeepDisplaying">
+            <summary>
+            Notify the shield belt that it should start or continue displaying the shield overlay effect.
+            </summary>
+        </member>
+        <member name="M:CF.RangedShieldBelt.DrawWornExtras">
+            <summary>
+            Draws the shield bubble over the pawn that is wearing the shield belt.
+            </summary>
+        </member>
+        <member name="T:CF.CFSettings">
+            <summary>
+            <c>ModSettings</c> class for Community Framework. Mainly handles which
+            Harmony patches should be applied and saves all specified settings.
+            </summary>
+            <remarks>Static for convenience.</remarks>
+        </member>
+        <member name="F:CF.CFSettings.KeyPrefix">
+            <summary>
+            This is manually prefixed onto every mod settings string key
+            that is defined in the framework's language XML, to avoid the
+            possibility of a translation key collision.
+            </summary>
+        </member>
+        <member name="F:CF.CFSettings.NamePostfix">
+            <summary>
+            This is manually affixed onto every string key for a mod setting's
+            title, in the framework's language XML.
+            </summary>
+        </member>
+        <member name="F:CF.CFSettings.DescPostfix">
+            <summary>
+            This is manually affixed onto every string key for a mod setting's
+            description, in the framework's language XML.
+            </summary>
+        </member>
+        <member name="F:CF.CFSettings.DEBUG">
+            <summary>
+            If <c>true</c>, then the framework is running in debug mode, and
+            debug logging and features are currently active.
+            </summary>
+        </member>
+        <member name="P:CF.CFSettings.PrintPatchedMethods">
+            <summary>
+            If the framework should log which methods it has patched on
+            startup.
+            </summary>
+        </member>
+        <member name="F:CF.CFSettings.printPatchedMethods">
+            <summary>
+            If the framework should log which methods it has patched on
+            startup.
+            </summary>
+        </member>
+        <member name="F:CF.CFSettings.Patches">
+            <summary>
+            A list of Harmony patches to apply on startup.
+            </summary>
+            <remarks>
+            despite being public, please don't access these. Access patch
+            application settings with ShouldPatch.
+            They're only public so they can be used in the mod settings screen.
+            </remarks>
+        </member>
+        <member name="T:CF.CFSettings.PatchSave">
+            <summary>
+            Represents a single one of the framework's Harmony patches, and
+            whether or not it should be applied.
+            </summary>
+        </member>
+        <member name="F:CF.CFSettings.PatchSave.apply">
+            <summary>
+            If the patch should be applied.
+            </summary>
+        </member>
+        <member name="F:CF.CFSettings.PatchSave.saveKey">
+            <summary>
+            Identifier used to associate this patch save with the specific
+            Harmony patch that it represents.
+            </summary>
+        </member>
+        <member name="M:CF.CFSettings.PatchSave.#ctor">
+            <summary>
+            A no-arg constructor, required by the vanilla API. Does
+            nothing.
+            </summary>
+        </member>
+        <member name="M:CF.CFSettings.PatchSave.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor with parameters for initializing fields.
+            </summary>
+            <param name="s">
+            The save key, used to associate this patch save with the
+            specific Harmony patch that it represents.
+            </param>
+            <param name="a">
+            If the patch should be applied.
+            </param>
+        </member>
+        <member name="M:CF.CFSettings.PatchSave.ToString">
+            <summary>
+            Returns a string containing the <c>saveKey</c> of the patch,
+            and whether or not the patch should be applied.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CF.CFSettings.PatchSave.ExposeData">
+            <summary>
+            Saves and/or loads the fields of this <c>PatchSave</c>, so that
+            patch settings are persistent between game sessions.
+            </summary>
+        </member>
+        <member name="M:CF.CFSettings.ExposeData">
+            <summary>
+            Saves and/or loads the fields of each <see cref="T:CF.CFSettings.PatchSave"/>
+            stored, so that patch settings are persistent between game
+            sessions.
+            </summary>
+        </member>
+        <member name="M:CF.CFSettings.ShouldPatch(System.String)">
+            <summary>
+            Determines whether or not the given patch should be run for this
+            session.
+            </summary>
+            <param name="patchkey">
+            The identifier of the patch being checked.
+            </param>
+            <returns>
+            <c>true</c> if the patch should be applied, <c>false</c> if the
+            player has chosen to disable it.
+            </returns>
+        </member>
+        <member name="M:CF.CFSettings.SerializePatches">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:CF.CFSettings.DeserializePatches(System.Collections.Generic.List{CF.CFSettings.PatchSave})">
+            <summary></summary>
+            <param name="list"></param>
+        </member>
+        <member name="T:CF.CFMod">
+            <summary>
+            <c>Mod</c> class for Community Framework. Mainly handles the settings
+            screen.
+            </summary>
+        </member>
+        <member name="M:CF.CFMod.#ctor(Verse.ModContentPack)">
+            <summary>
+            Constructor for the Framework's mod data. Initializes the
+            framework's mod settings, and loads all of the patch data.
+            </summary>
+            <param name="con">Unused in this override.</param>
+        </member>
+        <member name="M:CF.CFMod.DoSettingsWindowContents(UnityEngine.Rect)">
+            <summary>
+            Draws the contents of the framework's mod settings window.
+            </summary>
+            <param name="inRect">
+            The <see cref="T:UnityEngine.Rect"/> to draw the settings window onto.
+            </param>
+        </member>
+        <member name="M:CF.CFMod.SettingsCategory">
+            <summary>
+            The name of the framework's listing in the game's list of available
+            mod settings menus.
+            </summary>
+            <returns>
+            <inheritdoc cref="M:CF.CFMod.SettingsCategory" path="/summary"/>
+            </returns>
+        </member>
+        <member name="T:CF.PlaceWorker_AgainstWall">
+            <summary>
+            <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed on 
+            a cell adjacent to but facing away from a wall.
+            <seealso cref="T:CF.CompValidator"/>
+            <remarks>
+            Originally by CuproPanda, for Additional Joy Objects.
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:CF.PlaceWorker_AgainstWall.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)">
+            <summary>
+            Ensures that the building is placed on a cell adjacent to but facing away from a wall.
+            </summary>
+            <param name="checkingDef">
+            The <see cref="T:Verse.ThingDef"/> using the <see cref="T:Verse.PlaceWorker"/>
+            </param>
+            <param name="loc">
+            The location that the building is being placed at.
+            </param>
+            <param name="rot">
+            The rotation that the building is being placed at.
+            </param>
+            <param name="map">
+            The <see cref="T:Verse.Map"/> that the building is being placed in.
+            </param>
+            <param name="thingToIgnore">Unused.</param>
+            <param name="thing">Unused.</param>
+            <returns>
+            <c>true</c> if the cell behind the building being placed contains a wall, and is within
+            the map bounds.
+            </returns>
+        </member>
+        <member name="T:CF.PlaceWorker_OnWall">
+            <summary>
+            <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed on
+            a wall but not overlapping the same <c>Thing</c> in the same rotation. 
+            <seealso cref="T:CF.CompValidator"/>
+            </summary> 
+        </member>
+        <member name="M:CF.PlaceWorker_OnWall.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)">
+            <summary>
+            Ensure that the building being placed is placed on a wall but not overlapping the same
+            <c>Thing</c> in the same rotation. 
+            </summary>
+            <param name="checkingDef">
+            The <see cref="T:Verse.ThingDef"/> using the <see cref="T:Verse.PlaceWorker"/>
+            </param>
+            <param name="loc">
+            The location that the building is being placed at.
+            </param>
+            <param name="rot">
+            The rotation that the building is being placed at.
+            </param>
+            <param name="map">
+            The <see cref="T:Verse.Map"/> that the building is being placed in.
+            </param>
+            <param name="thingToIgnore">Unused.</param>
+            <param name="thing">Unused.</param>
+            <returns>
+            <c>true</c> if the cell at <c>loc</c> contains a wall, and does not contain an
+            identical building at the same rotation.
+            </returns>
+        </member>
+        <member name="M:CF.PlaceWorker_OnWall.ForceAllowPlaceOver(Verse.BuildableDef)">
+            <summary>
+            Always allows buildings using this <see cref="T:Verse.PlaceWorker"/> to be placed over any
+            other building.
+            </summary>
+            <param name="other">The building being placed onto.</param>
+            <returns>Always <c>true</c></returns>
+        </member>
+        <member name="T:CF.PlaceWorker_Roofed">
+            <summary>
+            <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed
+            under a roof. <seealso cref="T:CF.CompValidator"/>
+            </summary>
+            <remarks>
+            Originally by CuproPanda, for Additional Joy Objects.
+            </remarks>
+        </member>
+        <member name="M:CF.PlaceWorker_Roofed.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)">
+            <summary>
+            Checks that the parent <see cref="T:Verse.Thing"/> is placed under a roof.
+            </summary>
+            <param name="checkingDef">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='checkingDef']"/>
+            </param>
+            <param name="loc">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='loc']"/>
+            </param>
+            <param name="rot">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='rot']"/>
+            </param>
+            <param name="map">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='map']"/>
+            </param>
+            <param name="thingToIgnore">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='thingToIgnore']"/>
+            </param>
+            <param name="thing">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='thing']"/>
+            </param>
+            <returns>
+            <c>false</c> if the blueprint is being placed out in the open
+            without a roof over it. <c>true</c> if every cell of the blueprint
+            being placed is roofed, meaning that placement is permitted.
+            </returns>
+        </member>
+        <member name="T:CF.PlaceWorker_RoofHanger">
+            <summary>
+            <c>PlaceWorker</c> requiring that the parent <c>Thing</c> be placed
+            under a roof and not over another <c>Thing</c> which is too tall.
+            <seealso cref="T:CF.CompValidator"/>
+            </summary>
+            <remarks>
+            Originally by CuproPanda, for Additional Joy Objects.
+            </remarks>
+        </member>
+        <member name="M:CF.PlaceWorker_RoofHanger.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)">
+            <summary>
+            Ensures that the parent <see cref="T:Verse.Thing"/> is placed under a roof,
+            and not over any other <see cref="T:Verse.Thing"/> that is too tall.
+            </summary>
+            <param name="checkingDef">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='checkingDef']"/>
+            </param>
+            <param name="loc">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='loc']"/>
+            </param>
+            <param name="rot">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='rot']"/>
+            </param>
+            <param name="map">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='map']"/>
+            </param>
+            <param name="thingToIgnore">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='thingToIgnore']"/>
+            </param>
+            <param name="thing">
+            <inheritdoc cref="M:CF.PlaceWorker_NotImpassible.AllowsPlacing(Verse.BuildableDef,Verse.IntVec3,Verse.Rot4,Verse.Map,Verse.Thing,Verse.Thing)"
+            path="/param[@name='thing']"/>
+            </param>
+            <returns>
+            <c>false</c> if the blueprint's area is not fully roofed, or if
+            there are any other <see cref="T:Verse.Thing"/>s occupying the same space
+            as the blueprint which are too tall. <c>true</c> if none of the
+            prior conditions are violated, meaning that placement is permitted.
+            </returns>
+        </member>
+        <member name="T:CF.CompAffectedByFacilitiesPatch.Notify_LinkRemoved">
+            <summary>
+            This patches the method Notify_LinkRemoved so the CompUnlocksRecipe specific code is executed after the regular Notify_LinkRemoved code is run.
+            CompUnlocksRecipe in this case checks when link is removed, if the removed facility was the only one of that type, and if so, remove the recipes from the target workbench. 
+            </summary>
+        </member>
+        <member name="T:CF.CompAffectedByFacilitiesPatch.Notify_NewLink">
+            <summary>
+            This patches the method Notify_NewLink so the CompUnlocksRecipe specific code is executed after the regular Notify_NewLink code is run.
+            CompUnlocksRecipe in this case checks when a new link is created. If this new link is one with a new unique facility, and the added recipes are also not yet added to the workbench, they will be added.
+            </summary>
+        </member>
+        <member name="T:CF.Recipe_InstallOrReplaceImplant">
+            <summary>
+            Recipe worker that can add and (optionally) remove <c>Hediff</c>s at
+            the same tame. Intended for recipes that install bionic implants.
+            </summary>
+        </member>
+        <member name="M:CF.Recipe_InstallOrReplaceImplant.ApplyOnPawn(Verse.Pawn,Verse.BodyPartRecord,Verse.Pawn,System.Collections.Generic.List{Verse.Thing},RimWorld.Bill)">
+            <summary>
+            This method is run when the recipe is performed on a pawn via
+            surgery. It functions almost identically to the base method, except
+            that it also removes the <c>Hediff</c> defined in
+            <c>RecipeDef.removesHediff</c>.
+            </summary>
+            <param name="pawn">The target of the surgery.</param>
+            <param name="part">The body part that the operation is being
+            performed on.</param>
+            <param name="billDoer">The pawn performing the operation</param>
+            <param name="ingredients">The items (in this case, usually bionic
+            implants) that are being used to perform the surgery.</param>
+            <param name="bill">The <c>def</c> of the recipe for the operation
+            </param>
+        </member>
+        <member name="T:CF.ULog">
+            <summary>
+            Utility Log. Convenient logging methods which automatically prefix
+            themselves for identifiability, plus debug-only messages.
+            </summary>
+        </member>
+        <member name="F:CF.ULog.MOD_ID">
+            <summary>
+            The name of our mod, which will be prefixed to our log messages.
+            </summary>
+        </member>
+        <member name="P:CF.ULog.Prefix">
+            <summary>
+            The prefix to start log messages with, so that end-users know which
+            messages are caused by us.
+            </summary>
+        </member>
+        <member name="M:CF.ULog.Message(System.String)">
+            <summary>
+            Calls <c>Verse.Log.Message</c>, but prefixes the name of the
+            framework for the benefit of the end-user.
+            </summary>
+            <param name="s">The message to write to the log.</param>
+        </member>
+        <member name="M:CF.ULog.Warning(System.String)">
+            <summary>
+            Calls <c>Verse.Log.Warning</c>, but prefixes the name of the
+            framework for the benefit of the end-user.
+            </summary>
+            <param name="s">The message to write to the log.</param>
+        </member>
+        <member name="M:CF.ULog.Error(System.String)">
+            <summary>
+            Calls <c>Verse.Log.Error</c>, but prefixes the name of the
+            framework for the benefit of the end-user.
+            </summary>
+            <param name="s">The message to write to the log.</param>
+        </member>
+        <member name="M:CF.ULog.DebugMessage(System.String,System.Boolean)">
+            <summary>
+            Calls <c>Verse.Log.Message</c>, but only if the framework is set to
+            run in debug mode. Useful for displaying the current state of a 
+            potentially-problematic system. Prefixes the name of the framework
+            for the benefit of the end-user, if <c>addPrefix</c> is
+            <c>true</c>.
+            </summary>
+            <param name="s">The message to write to the log.</param>
+            <param name="addPrefix">
+            If <c>true</c>, the message displayed will be prefixed with the
+            name of the framework.
+            </param>
+        </member>
+        <member name="T:CF.ClassWithPatchesAttribute">
+            <summary>
+            Used to make adding new Harmony patches internally easier. Not intended
+            for other mods' use.
+            </summary>
+        </member>
+        <member name="F:CF.ClassWithPatchesAttribute.NameKey">
+            <summary>
+            Store the name translation key, Scribe save key, and description
+            translation key, respectively, of the annotated Harmony patch.
+            </summary>
+        </member>
+        <member name="F:CF.ClassWithPatchesAttribute.SaveKey">
+            <summary>
+            Store the name translation key, Scribe save key, and description
+            translation key, respectively, of the annotated Harmony patch.
+            </summary>
+        </member>
+        <member name="F:CF.ClassWithPatchesAttribute.DescKey">
+            <summary>
+            Store the name translation key, Scribe save key, and description
+            translation key, respectively, of the annotated Harmony patch.
+            </summary>
+        </member>
+        <member name="M:CF.ClassWithPatchesAttribute.#ctor(System.String)">
+            <summary>
+            Constructor, takes a single <c>string</c> as an argument. Sets up
+            the values of <c>NameKey</c>, <c>SaveKey</c>, and <c>DescKey</c>.
+            </summary>
+            <param name="saveKey">
+            The string used to refer to the annotated patch's respective mod
+            setting during Scribe reads and writes. Also used to generate the
+            translation keys for the mod setting.
+            </param>
+        </member>
+        <member name="T:CF.CommunityQualityUtility">
+            <summary>
+            Static utility that allows mod developers to change the quality of
+            <c>Thing</c>s with the <c>CompQuality</c> <c>ThingComp</c> in a
+            non-invasive way.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityQualityUtility.QualityInt">
+            <summary>
+            <c>FieldInfo</c> used to refer to the private <c>qualityInt</c>
+            field of the <c>CompQuality</c> class.
+            </summary>
+        </member>
+        <member name="M:CF.CommunityQualityUtility.#cctor">
+            <summary>
+            No-arg constructor, run when the game starts. Initializes the value
+            of <c>QualityUtility.QualityInt</c>.
+            </summary>
+        </member>
+        <member name="M:CF.CommunityQualityUtility.SetQualitySilent(RimWorld.CompQuality,RimWorld.QualityCategory)">
+            <summary>
+            Directly sets the <c>QualityCategory</c> of a <c>CompQuality</c>
+            without re-initializing any sibling <c>CompArt</c> that may exist.
+            </summary>
+            <param name="comp">
+            The <c>CompQuality</c> to have its <c>QualityCategory</c> changed.
+            </param>
+            <param name="quality">
+            The target <c>QualityCategory</c> to set.
+            </param>
+        </member>
+        <member name="T:CF.CommunityRecipeUtility">
+            <summary>
+            Static helper utility that contains methods pertaining to starting,
+            doing, and completing bills and recipes.
+            </summary>
+        </member>
+        <member name="T:CF.CommunityRecipeUtility.PostProcessProductSignature">
+            <summary>
+            An empty delegate to define the method signature used by
+            <c>Verse.GenRecipe.PostProcessProduct</c>.
+            </summary>
+        </member>
+        <member name="F:CF.CommunityRecipeUtility.postProcessProductDelegate">
+            <summary>
+            This delegate refers to the private method
+            <c>Verse.GenRecipe.PostProcessProduct</c>.
+            </summary>
+        </member>
+        <member name="M:CF.CommunityRecipeUtility.#cctor">
+            <summary>
+            Sets up delegates refering to private methods.
+            </summary>
+        </member>
+        <member name="M:CF.CommunityRecipeUtility.PostProcessProduct(Verse.Thing,Verse.RecipeDef,Verse.Pawn,RimWorld.Precept_ThingStyle,Verse.ThingStyleDef,System.Nullable{System.Int32})">
+            <summary>
+            Calls the vanilla private method used to finalize crafted items.
+            This method will set up <c>CompQuality</c> and <c>CompArt</c>,
+            apply any ideo styles, and will minify the product if possible.
+            </summary>
+            <remarks>
+            This method doesn't do anything other than call a private method
+            from the vanilla API. Normally, we shouldn't be doing this.
+            However, this method has no reason to be private in the first
+            place; it is static and completely stateless.
+            </remarks>
+            <param name="product">The crafting product to finalize</param>
+            <param name="recipeDef">The recipe that created the product</param>
+            <param name="worker">The pawn doing the recipe</param>
+            <param name="precept">The pawn's ideo style precept</param>
+            <param name="style">The style that will be applied to the product.</param>
+            <param name="overrideGraphicIndex">
+            Index override for the graphic.
+            </param>
+            <returns>A reference to <c>product</c>.</returns>
+        </member>
+        <member name="T:CF.StartupUtil">
+            <summary>
+            A class that, on startup, does any def modifications and caches any values neccessary.
+            </summary>
+        </member>
+        <member name="F:CF.StartupUtil.ExtraShortCircuitSources">
+            <summary>
+            A list of buildings that have <see cref="T:CF.PowerExtension"/>, with
+            <see cref="F:CF.PowerExtension.shortCircuitSource"/> set to <c>true</c>. Cached here on
+            startup so that we don't have to go looking through the entire <see cref="T:Verse.ThingDef"/>
+            database anytime a short circuit occurs.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -15,8 +15,13 @@
 		<li>1.3</li>
 	</v1.3>
 	
-	<!-- Current Version 1.4 - Biotech -->
+	<!-- 1.4 - Biotech -->
 	<v1.4>
-		<li>Common</li>
+		<li>1.4</li>
 	</v1.4>
+
+	<!-- Current Version 1.5 - Anomaly -->
+	<v1.5>
+		<li>Common</li>
+	</v1.5>
 </loadFolders>
