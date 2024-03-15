@@ -159,7 +159,8 @@ namespace CF
         }
         private void Break()
         {
-            SoundDefOf.EnergyShield_Broken.PlayOneShot(new TargetInfo(Wearer.Position, Wearer.Map));
+            // TODO: Reintigrate sound support. EnergyShield_Broken was removed from SoundDefOf in 1.5.
+            //SoundDefOf.EnergyShield_Broken.PlayOneShot(new TargetInfo(Wearer.Position, Wearer.Map));
             FleckMaker.Static(Wearer.TrueCenter(), Wearer.Map, FleckDefOf.ExplosionFlash, 12f);
             for(int i = 0; i < 6; i++)
             {

@@ -19,7 +19,7 @@ namespace CF
         [HarmonyPatch(new Type[] { typeof(Pawn), typeof(IntVec3) })]
         class CostToMoveIntoCell
         {
-            static int Postfix(int __result, Pawn pawn, IntVec3 c)
+            static float Postfix(float __result, Pawn pawn, IntVec3 c)
             {
                 if (pawn.health.hediffSet.GetAllComps().Where(hediff => { return hediff is HediffComp_IgnorePathCost; }).Any())
                 {
