@@ -19,7 +19,7 @@
         </capacityFactors>
         <displayPriorityInCategory>2204</displayPriorityInCategory>
         <parts>
-            <li Class="StatPart_ApparelStatOffset">
+            <li Class="StatPart_GearStatOffset">
                 <apparelStat>CF_CaravanCapacityOffset</apparelStat>
                 <includeWeapon>false</includeWeapon>
             </li>
