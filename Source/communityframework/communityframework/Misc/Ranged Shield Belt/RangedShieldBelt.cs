@@ -40,6 +40,7 @@ namespace CF
         private int KeepDisplayingTicks = 1000;
         private float ApparelScorePerEnergyMax = 0.25f;
         private static readonly Material BubbleMat = MaterialPool.MatFrom("Other/ShieldBubble", ShaderDatabase.Transparent);
+        private static readonly SoundDef BreakSound = DefDatabase<SoundDef>.GetNamed("EnergyShield_Broken");
 #endregion fields
 #region properties
         private float EnergyMax => this.GetStatValue(StatDefOf.EnergyShieldEnergyMax);
@@ -159,8 +160,8 @@ namespace CF
         }
         private void Break()
         {
-            // TODO: Reintigrate sound support. EnergyShield_Broken was removed from SoundDefOf in 1.5.
-            //SoundDefOf.EnergyShield_Broken.PlayOneShot(new TargetInfo(Wearer.Position, Wearer.Map));
+            if (BreakSound != null)
+                BreakSound.PlayOneShot(new TargetInfo(Wearer.Position, Wearer.Map));
             FleckMaker.Static(Wearer.TrueCenter(), Wearer.Map, FleckDefOf.ExplosionFlash, 12f);
             for(int i = 0; i < 6; i++)
             {
