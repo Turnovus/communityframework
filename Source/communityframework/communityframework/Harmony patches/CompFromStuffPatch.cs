@@ -12,33 +12,24 @@ namespace CF
     static class CompFromStuffPatch
     {
         [HarmonyPatch(
-            typeof(ThingMaker),
-            nameof(ThingMaker.MakeThing),
-            new Type[] { typeof(ThingDef), typeof(ThingDef) }
+            typeof(ThingWithComps),
+            nameof(ThingWithComps.InitializeComps)
         )]
         class AddCompPostfix
         {
             [HarmonyPostfix]
-            public static void MakeThingPostfix(
-                ref Thing __result,
-                ref ThingDef stuff
-            )
+            public static void MakeThingPostfix(ref ThingWithComps __instance)
             {
-                if (stuff != null && __result is ThingWithComps twc)
+                CompsToAddWhenStuff extension = __instance.Stuff?.GetModExtension<CompsToAddWhenStuff>();
+                if (extension == null || extension.comps == null || extension.comps.Count <= 0)
+                    return;
+
+                foreach (CompProperties properties in extension.comps)
                 {
-                    CompsToAddWhenStuff ext =
-                        stuff.GetModExtension<CompsToAddWhenStuff>();
-                    if(ext != null && ext.comps != null && ext.comps.Count > 0)
-                    {
-                        for(int i = 0; i < ext.comps.Count; i++)
-                        {
-                            ThingComp comp = (ThingComp)Activator
-                                .CreateInstance(ext.comps[i].compClass);
-                            comp.parent = twc;
-                            twc.AllComps.Add(comp);
-                            comp.Initialize(ext.comps[i]);
-                        }
-                    }
+                    ThingComp comp = (ThingComp)Activator.CreateInstance(properties.compClass);
+                    comp.parent = __instance;
+                    __instance.AllComps.Add(comp);
+                    comp.Initialize(properties);
                 }
             }
         }
