@@ -41,7 +41,7 @@ namespace CF
         /// </param>
         public override void CompPostTick(ref float severityAdjustment)
         {
-            parent.Severity = GetPainLevelInt();
+            parent.Severity = Math.Max(GetPainLevelInt(), Props.minSeverity);
         }
 
         /// <summary>

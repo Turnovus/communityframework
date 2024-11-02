@@ -25,6 +25,11 @@ namespace CF
         /// parent <c>Hediff</c>'s severity will always be 0.
         /// </summary>
         public int minSkill = 0;
+        /// <summary>
+        /// The minimum severity that can be applied to the parent <c>Hediff</c>. This prevents the
+        /// hediff from being auto-culled when updated.
+        /// </summary>
+        public float minSeverity = 0.001f;
 
         /// <summary>
         /// Constructor that automatically attaches the required CompClass to
