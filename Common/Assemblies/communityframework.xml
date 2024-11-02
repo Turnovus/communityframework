@@ -588,6 +588,12 @@
             <c>false</c>, it will always be the exact value.
             </summary>
         </member>
+        <member name="F:CF.HediffCompProperties_SeverityFromPain.minSeverity">
+            <summary>
+            The minimum severity that can be applied to the parent <c>Hediff</c>. This prevents the
+            hediff from being auto-culled when updated.
+            </summary>
+        </member>
         <member name="M:CF.HediffCompProperties_SeverityFromPain.#ctor">
             <summary>
             Boilerplate constructor, sets the comp's class to
@@ -651,6 +657,12 @@
             <summary>
             If the average of relevant skills is below this value, then the
             parent <c>Hediff</c>'s severity will always be 0.
+            </summary>
+        </member>
+        <member name="F:CF.HediffCompProperties_SeverityFromSkill.minSeverity">
+            <summary>
+            The minimum severity that can be applied to the parent <c>Hediff</c>. This prevents the
+            hediff from being auto-culled when updated.
             </summary>
         </member>
         <member name="M:CF.HediffCompProperties_SeverityFromSkill.#ctor">

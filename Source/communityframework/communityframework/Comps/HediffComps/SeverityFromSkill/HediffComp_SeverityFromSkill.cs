@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Verse;
 using RimWorld;
 
@@ -82,7 +83,7 @@ namespace CF
         public override void CompPostTick(ref float severityAdjustment)
         {
             if (SkillAverage < Props.minSkill)
-                parent.Severity = 0f;
+                parent.Severity = Math.Max(0f, Props.minSeverity);
             else
                 parent.Severity = Props.targetSeverity * SkillAverage / 20f;
         }

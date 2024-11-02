@@ -14,6 +14,11 @@ namespace CF
         /// <c>false</c>, it will always be the exact value.
         /// </summary>
         public bool usePainThreshold = true;
+        /// <summary>
+        /// The minimum severity that can be applied to the parent <c>Hediff</c>. This prevents the
+        /// hediff from being auto-culled when updated.
+        /// </summary>
+        public float minSeverity = 0.001f;
 
         /// <summary>
         /// Boilerplate constructor, sets the comp's class to
