@@ -2,4 +2,6 @@ Source/communityframework/.vs/
 Source/communityframework/communityframework/obj/
 Source/communityframework/packages/
 Source/communityframework/communityframework/communityframework.csproj.user
+Source/communityframework/.idea
 *.pdb
+*.DotSettings.user
