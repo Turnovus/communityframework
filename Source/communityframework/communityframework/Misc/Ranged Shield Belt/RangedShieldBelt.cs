@@ -99,18 +99,24 @@ namespace CF
         /// <summary>
         /// Method run each game tick. Updates the shield belt's charge status.
         /// </summary>
-        public override void Tick()
+        protected override void TickInterval(int delta)
         {
-            base.Tick();
+            base.TickInterval(delta);
             if (Wearer is null)
             {
                 energy = 0f;
+                return;
             }
-            else if(ShieldIsResetting && --ticksToReset <= 0)
+
+            ticksToReset -= delta;
+            if(ShieldIsResetting && ticksToReset <= 0)
             {
                 Reset();
+                return;
             }
-            else if((energy += EnergyGainPerTick) > EnergyMax)
+
+            energy += EnergyGainPerTick * delta;
+            if(energy > EnergyMax)
             {
                 energy = EnergyMax;
             }

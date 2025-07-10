@@ -2158,7 +2158,7 @@
             </summary>
             <returns><inheritdoc cref="M:CF.RangedShieldBelt.GetSpecialApparelScoreOffset" path="/summary"/></returns>
         </member>
-        <member name="M:CF.RangedShieldBelt.Tick">
+        <member name="M:CF.RangedShieldBelt.TickInterval(System.Int32)">
             <summary>
             Method run each game tick. Updates the shield belt's charge status.
             </summary>
