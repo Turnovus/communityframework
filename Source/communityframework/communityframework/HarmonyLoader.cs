@@ -24,28 +24,13 @@ namespace CF
                     .Where(t => t.IsClass && t.IsSealed && t.IsAbstract)
             )
             {
-                ClassWithPatchesAttribute attr;
-                if (
-                    (attr = type.TryGetAttribute<ClassWithPatchesAttribute>())
-                        != null
-                )
+                try
                 {
-                    if (!CFSettings.Patches.ContainsKey(attr.SaveKey))
-                    {
-                        CFSettings.Patches[attr.SaveKey] =
-                            new CFSettings.PatchSave(attr.SaveKey, true);                        
-                    }
-                    else
-                    {
-                        CFSettings.Patches[attr.SaveKey].apply =
-                            CFSettings.ShouldPatch(attr.SaveKey);
-                    }
-                    if (CFSettings.ShouldPatch(attr.SaveKey))
-                    {
-                        PatchAll(harmony, type);
-                        ULog.DebugMessage(
-                            "\t" + attr.NameKey + " enabled.", false);
-                    }                    
+                    DoPatch(type, harmony);
+                }
+                catch (Exception exception)
+                {
+                    ReportException(exception, type);
                 }
             }
             if (CFSettings.PrintPatchedMethods)
@@ -54,6 +39,33 @@ namespace CF
                     "The following methods were successfully patched:");
                 foreach (MethodBase mb in harmony.GetPatchedMethods())
                     ULog.Message("\t" + mb.DeclaringType.Name + "." + mb.Name);
+            }
+        }
+
+        private static void DoPatch(Type patch, Harmony harmony)
+        {
+            ClassWithPatchesAttribute attr;
+            if (
+                (attr = patch.TryGetAttribute<ClassWithPatchesAttribute>())
+                != null
+            )
+            {
+                if (!CFSettings.Patches.ContainsKey(attr.SaveKey))
+                {
+                    CFSettings.Patches[attr.SaveKey] =
+                        new CFSettings.PatchSave(attr.SaveKey, true);                        
+                }
+                else
+                {
+                    CFSettings.Patches[attr.SaveKey].apply =
+                        CFSettings.ShouldPatch(attr.SaveKey);
+                }
+                if (CFSettings.ShouldPatch(attr.SaveKey))
+                {
+                    PatchAll(harmony, patch);
+                    ULog.DebugMessage(
+                        "\t" + attr.NameKey + " enabled.", false);
+                }
             }
         }
 
@@ -68,8 +80,21 @@ namespace CF
         {
             foreach (var type in parentType.GetNestedTypes(AccessTools.all))
             {
-                new PatchClassProcessor(harmony, type).Patch();
+                try
+                {
+                    new PatchClassProcessor(harmony, type).Patch();
+                }
+                catch (Exception exception)
+                {
+                    ReportException(exception, type);
+                }
             }
+        }
+
+        private static void ReportException(Exception exception, Type problemCauser)
+        {
+            ULog.Error(exception.GetType().Name + " running patch " + problemCauser +
+                       "\n" + exception.Message + "\n" + exception.StackTrace);
         }
 
         private static void FindAllSaveKeys()

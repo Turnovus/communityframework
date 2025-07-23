@@ -14,7 +14,7 @@ namespace CF
     {
         [HarmonyPatch(typeof(RimWorld.QualityUtility))]
         [HarmonyPatch("GenerateQualityCreatedByPawn")]
-        [HarmonyPatch(new Type[] { typeof(Pawn), typeof(SkillDef), })]
+        [HarmonyPatch(new Type[] { typeof(Pawn), typeof(SkillDef), typeof(bool) })]
         class GenerateQualityCreatedByPawn
         {
             /// <summary>
