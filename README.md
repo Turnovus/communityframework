@@ -1,5 +1,5 @@
 # Community Framework
-![version](https://img.shields.io/badge/RimWorld-1.5-brightgreen.svg) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ISOR3X/communityframework?label=Mod%20Version&logo=github) [![license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ISOR3X/communityframework/blob/master/LICENSE)
+![version](https://img.shields.io/badge/RimWorld-1.6-brightgreen.svg) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ISOR3X/communityframework?label=Mod%20Version&logo=github) [![license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ISOR3X/communityframework/blob/master/LICENSE)
 [![steamlink](https://raster.shields.io/steam/downloads/2585162118.png?color=blue&label=Workshop&logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=2585162118) ![GitHub release (latest by date)](https://img.shields.io/github/downloads/ISOR3X/communityframework/latest/total?label=Github&logo=github)
 
 The Community Framework is a collaborative framework, providing functionality to be used in mods for RimWorld. The aim of the Community Framework is to serve as a public repository for experienced modders to share their work, so that less-experienced modders working primarily within XML can benefit from their contributions.
