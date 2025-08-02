@@ -4,7 +4,7 @@ using Verse;
 namespace CF
 {
     [ClassWithPatches("ApplyHediffExtensionPatches")]
-    public class HediffExtensionPatches
+    static class HediffExtensionPatches
     {
         [HarmonyPatch(typeof(HediffGiver))]
         [HarmonyPatch(nameof(HediffGiver.TryApply))]
