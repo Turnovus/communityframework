@@ -87,6 +87,7 @@
     <Compile Include="DefOf\CF_StatDefOf.cs" />
     <Compile Include="Harmony patches\BatteryChargePatches.cs" />
     <Compile Include="Harmony patches\HarmonyUtils.cs" />
+    <Compile Include="Harmony patches\HediffExtensionPatches.cs" />
     <Compile Include="Harmony patches\OutputWorkerPatch.cs" />
     <Compile Include="Harmony patches\ShortCircuitUtility\ShortCircuitPatches.cs" />
     <Compile Include="Harmony patches\Thing\Thing_PostMakePatches.cs" />
