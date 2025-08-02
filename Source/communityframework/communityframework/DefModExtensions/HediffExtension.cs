@@ -21,5 +21,13 @@ namespace CF
                 ULog.Error("Error loading " + hediffDef +
                            ", hediffGiversCannotGiveByStage defined, but does not match length of hediffDef.stages.");
         }
+
+        public bool HediffGiverCanGive(HediffDef hediffToCheck, int atParentStage)
+        {
+            if (hediffGiversCannotGiveByStage.NullOrEmpty())
+                return true;
+
+            return !hediffGiversCannotGiveByStage[atParentStage].Contains(hediffToCheck);
+        }
     }
 }
