@@ -11,7 +11,15 @@ namespace CF
 
         public override void ResolveReferences(Def parentDef)
         {
+            if (!(parentDef is HediffDef hediffDef))
+            {
+                ULog.Error("CF.HediffExtension applied to invalid def " + parentDef);
+                return;
+            }
             
+            if (!hediffGiversCannotGiveByStage.NullOrEmpty() && hediffGiversCannotGiveByStage.Count != hediffDef.stages.Count)
+                ULog.Error("Error loading " + hediffDef +
+                           ", hediffGiversCannotGiveByStage defined, but does not match length of hediffDef.stages.");
         }
     }
 }
