@@ -14,8 +14,11 @@ namespace CF
     {
         private static List<string> allSaveKeysInt = null;
 
-        static HarmonyLoader()
+        public static void DoAllPatches()
         {
+            if (CFSettings.DEBUG)
+                ULog.Message("Running in debug mode!");
+            
             ULog.Message("Applying Harmony patches...");
             var harmony = new Harmony("com.communityframework.harmonypatches");
             // https://stackoverflow.com/questions/2639418/use-reflection-to-get-a-list-of-static-classes

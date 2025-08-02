@@ -198,7 +198,7 @@ namespace CF
         public CFMod(ModContentPack con) : base(con)
         {
             settings = GetSettings<CFSettings>();
-            new HarmonyLoader();
+            HarmonyLoader.DoAllPatches();
         }
 
         /// <summary>
