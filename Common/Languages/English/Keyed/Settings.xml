@@ -63,4 +63,7 @@
 
 	<CFSettings_ApplyBatteryPatches_Name>Battery charge patches</CFSettings_ApplyBatteryPatches_Name>
 	<CFSettings_ApplyBatteryPatches_Desc>allows modders to further customize their modded batteries.</CFSettings_ApplyBatteryPatches_Desc>
+
+	<CFSettings_ApplyHediffExtensionPatches_Name>HediffExtension patches</CFSettings_ApplyHediffExtensionPatches_Name>
+	<CFSettings_ApplyHediffExtensionPatches_Desc>allows modders to further customize their modded hediffs.</CFSettings_ApplyHediffExtensionPatches_Desc>
 </LanguageData>
