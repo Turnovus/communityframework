@@ -38,7 +38,7 @@ namespace CF
         /// </summary>
         public float minFertility = 0.05f;
         /// <summary>
-        /// The highest possible perceived fertility value. This is how quikcly
+        /// The highest possible perceived fertility value. This is how quickly
         /// the plant will grow when planted on the least fertile natural soil
         /// possible.
         /// </summary>
