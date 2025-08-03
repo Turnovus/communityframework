@@ -923,6 +923,13 @@
             </summary>
             <param name="instructions">The instructions given to the transpiler.</param>
         </member>
+        <member name="T:CF.HediffExtensionPatches.HediffDefDisplayStats">
+            <summary>
+            This patch stores the HediffDef for which HediffDef.SpecialDisplayStats is being invoked, so that we can
+            reference it in the HediffStage.SpecialDisplayStats patch. This cache is NOT cleared, and must be cleared
+            by the consumer for safety.
+            </summary>
+        </member>
         <member name="T:CF.OutputWorkerPatch">
             <summary>
             Adds patches that will run before and after any recipe is complete.
