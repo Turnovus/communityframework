@@ -80,9 +80,9 @@ namespace CF
                 {
                     yield return new StatDrawEntry(
                         StatCategoryDefOf.CapacityEffects,
-                        "PreventsInfection".Translate(),
+                        "CF_PreventsHediffGiver".Translate(),
                         blockedHediffs.Select(im => im.label).ToCommaList().CapitalizeFirst(),
-                        "Stat_Hediff_PreventsInfection_Desc".Translate(),
+                        "CF_PreventsHediffGiver_Desc".Translate(),
                         4050);
                 }
             }
