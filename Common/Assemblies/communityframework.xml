@@ -711,6 +711,39 @@
             increase or decrease the parent <c>Hediff</c>'s severity through
             smaller increments. Here, it does nothing.</param>
         </member>
+        <member name="T:CF.HediffExtension">
+            <summary>
+            A <see cref="T:Verse.DefModExtension"/> that extends the functionality of <see cref="T:Verse.HediffDef"/>s
+            </summary>
+        </member>
+        <member name="F:CF.HediffExtension.hediffGiversCannotGiveByStage">
+            <summary>
+            Collections of <see cref="T:Verse.HediffDef"/>s that <see cref="T:Verse.HediffGiver"/>s cannot give the parent of the
+            instance <see cref="T:Verse.Hediff"/>, grouped by stage. If defined, the length of this list should match the
+            number of <see cref="T:Verse.HediffStage"/>s defined in the parent def.
+            </summary>
+            <remarks>
+            These conditions will be included in the parent's display stats, both in the health ITab tooltip and in the
+            full stat display pane. However, this will only apply if the parent def defines exactly one
+            <see cref="T:Verse.HediffStage"/>. This is based on vanilla behavior.
+            </remarks>
+        </member>
+        <member name="M:CF.HediffExtension.ResolveReferences(Verse.Def)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CF.HediffExtension.HediffGiverCanGive(Verse.HediffDef,System.Int32)">
+            <summary>
+            Whether the <see cref="T:Verse.Hediff"/> instantiated from the parent <see cref="T:Verse.HediffDef"/> should allow a given
+            <see cref="T:Verse.HediffDef"/> to be applied via <see cref="T:Verse.HediffGiver"/>, or if the condition should be blocked.
+            </summary>
+            <param name="hediffToCheck">
+            The <see cref="T:Verse.HediffDef"/> of the condition that a <see cref="T:Verse.HediffGiver"/> is attempting to apply.
+            </param>
+            <param name="atParentStage">
+            The index of the parent <see cref="T:Verse.Hediff"/>'s current <see cref="T:Verse.HediffStage"/>.
+            </param>
+            <returns></returns>
+        </member>
         <member name="T:CF.DefModExtension_BatteryAmountCanAccept">
             <summary>
             A base class for <see cref="T:Verse.DefModExtension"/>s, used to define custom behaviors that
@@ -922,6 +955,13 @@
             include the string "Self-discharging: 5W".
             </summary>
             <param name="instructions">The instructions given to the transpiler.</param>
+        </member>
+        <member name="T:CF.HediffExtensionPatches.HediffDefDisplayStats">
+            <summary>
+            This patch stores the HediffDef for which HediffDef.SpecialDisplayStats is being invoked, so that we can
+            reference it in the HediffStage.SpecialDisplayStats patch. This cache is NOT cleared, and must be cleared
+            by the consumer for safety.
+            </summary>
         </member>
         <member name="T:CF.OutputWorkerPatch">
             <summary>
@@ -1937,7 +1977,7 @@
         </member>
         <member name="F:CF.UseNegativeFertility.maxFertility">
             <summary>
-            The highest possible perceived fertility value. This is how quikcly
+            The highest possible perceived fertility value. This is how quickly
             the plant will grow when planted on the least fertile natural soil
             possible.
             </summary>

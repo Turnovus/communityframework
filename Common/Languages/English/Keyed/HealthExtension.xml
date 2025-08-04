@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+    <CF_PreventsHediffGiver>Prevents condition</CF_PreventsHediffGiver>
+    <!-- Specifically worded to match Stat_Hediff_PreventsInfection_Desc -->
+    <CF_PreventsHediffGiver_Desc>Whether or not this will prevent health conditions.</CF_PreventsHediffGiver_Desc>
+</LanguageData>
