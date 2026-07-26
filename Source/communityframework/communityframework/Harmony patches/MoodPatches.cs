@@ -20,6 +20,19 @@ namespace CF
             
             private static readonly FieldInfo F_MentalBreaker_Pawn =
                 AccessTools.Field(typeof(MentalBreaker), "pawn");
+
+            [HarmonyPrefix]
+            [HarmonyPatch("TestMoodMentalBreak")] // Private method named by string
+            public static bool DisableBreakIfZeroFrequency(ref bool __result, Pawn ___pawn)
+            {
+                if (___pawn.GetStatValue(CF_StatDefOf.CF_RandomBreakFrequency) <= 0f)
+                {
+                    __result = false;
+                    return false;
+                }
+
+                return true;
+            }
             
             [HarmonyTranspiler]
             [HarmonyPatch("TestMoodMentalBreak")] // Private method named by string
@@ -54,6 +67,25 @@ namespace CF
             public static float AdjustBreakFrequency(float factor, Pawn pawn)
             {
                 return factor / pawn.GetStatValue(CF_StatDefOf.CF_RandomBreakFrequency);
+            }
+        }
+        
+        [HarmonyPatch(typeof(InspirationHandler))]
+        class InspirationPatch
+        {
+            [HarmonyPostfix]
+            [HarmonyPatch("StartInspirationMTBDays")] // Private property named by string
+            [HarmonyPatch(MethodType.Getter)]
+            public static void ApplyFrequencyStat(ref float __result, InspirationHandler __instance)
+            {
+                __result /= __instance.pawn.GetStatValue(CF_StatDefOf.CF_RandomInspirationFrequency);
+            }
+
+            [HarmonyPrefix]
+            [HarmonyPatch("CheckStartRandomInspiration")] // Private method named by string
+            public static bool DisableInspirationIfZeroFrequency(InspirationHandler __instance)
+            {
+                return __instance.pawn.GetStatValue(CF_StatDefOf.CF_RandomInspirationFrequency) > 0f;
             }
         }
     }

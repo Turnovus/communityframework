@@ -21,6 +21,11 @@ namespace CF
         /// This does not affect mental breaks from other sources.
         /// </summary>
         public static StatDef CF_RandomBreakFrequency;
+        
+        /// <summary>
+        /// How frequently someone will experience an inspiration due to high mood.
+        /// </summary>
+        public static StatDef CF_RandomInspirationFrequency;
 #pragma warning restore CS0649
 
         static CF_StatDefOf() =>
