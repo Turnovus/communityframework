@@ -884,6 +884,12 @@
             caravan.
             </summary>
         </member>
+        <member name="F:CF.CF_StatDefOf.CF_RandomBreakFrequency">
+            <summary>
+            How frequently someone will suffer a mental break while their mood is below their mental break threshold.
+            This does not affect mental breaks from other sources.
+            </summary>
+        </member>
         <member name="T:CF.BatteryChargePatches">
             <summary>
             A collection of patches that alter the behaviors of batteries, allowing for more control

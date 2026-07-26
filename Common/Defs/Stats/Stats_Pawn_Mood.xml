@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+    <StatDef>
+        <defName>CF_RandomBreakFrequency</defName>
+        <label>random mental break frequency</label>
+        <description>How frequently someone will suffer a mental break while their mood is below their mental break threshold. This does not affect mental breaks from other sources.</description>
+        <category>CF_PawnMood</category>
+        <defaultBaseValue>1</defaultBaseValue>
+        <minValue>0.01</minValue>
+        <hideAtValue>1</hideAtValue>
+        <toStringStyle>PercentZero</toStringStyle>
+
+        <showOnAnimals>false</showOnAnimals>
+        <showOnMechanoids>false</showOnMechanoids>
+        <showOnEntities>false</showOnEntities>
+        <showOnDrones>false</showOnDrones>
+
+        <displayPriorityInCategory>1000</displayPriorityInCategory>
+        <scenarioRandomizable>true</scenarioRandomizable>
+        <cacheable>true</cacheable>
+    </StatDef>
+</Defs>

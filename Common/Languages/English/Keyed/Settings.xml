@@ -66,4 +66,7 @@
 
 	<CFSettings_ApplyHediffExtensionPatches_Name>HediffExtension patches</CFSettings_ApplyHediffExtensionPatches_Name>
 	<CFSettings_ApplyHediffExtensionPatches_Desc>allows modders to further customize their modded hediffs.</CFSettings_ApplyHediffExtensionPatches_Desc>
+
+	<CFSettings_ApplyMoodPatch_Name>Mood patches</CFSettings_ApplyMoodPatch_Name>
+	<CFSettings_ApplyMoodPatch_Desc>adds additional stats to affect mood</CFSettings_ApplyMoodPatch_Desc>
 </LanguageData>
