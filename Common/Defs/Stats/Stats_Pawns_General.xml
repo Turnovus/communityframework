@@ -24,6 +24,8 @@
                 <includeWeapon>false</includeWeapon>
             </li>
         </parts>
+
+        <cacheable>true</cacheable>
     </StatDef>
 
 </Defs>
