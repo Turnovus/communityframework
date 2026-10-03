@@ -97,7 +97,8 @@ namespace CF
         private static void ReportException(Exception exception, Type problemCauser)
         {
             ULog.Error(exception.GetType().Name + " running patch " + problemCauser +
-                       "\n" + exception.Message + "\n" + exception.StackTrace);
+                       "\n" + exception.Message + "\n" + exception.StackTrace +
+                       "\nFull exception:\n" + exception.ToString());
         }
 
         private static void FindAllSaveKeys()

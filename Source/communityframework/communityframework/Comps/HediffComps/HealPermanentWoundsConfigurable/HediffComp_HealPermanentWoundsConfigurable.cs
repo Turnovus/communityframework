@@ -33,11 +33,7 @@ namespace CF
         /// </summary>
         private void ResetTicksToHeal()
         {
-            Random random = new Random();
-            ticksToHeal =
-                random.Next(Props.regenInterval.min,
-                    Props.regenInterval.max + 1) *
-                Props.regenIntervalTicks;
+            ticksToHeal = Props.regenInterval.RandomInRange * Props.regenIntervalTicks;
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace CF
@@ -52,7 +53,7 @@ namespace CF
         /// period of time, represented in ticks. For reference, one day is
         /// 60000 ticks long.
         /// </summary>
-        public int regenIntervalTicks = 60000;
+        public int regenIntervalTicks = GenDate.TicksPerDay;
 
         /// <summary>
         /// The number of times that the regeneration method will be invoked

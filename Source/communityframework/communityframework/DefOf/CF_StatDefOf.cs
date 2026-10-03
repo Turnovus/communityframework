@@ -15,6 +15,22 @@ namespace CF
         /// caravan.
         /// </summary>
         public static StatDef CF_CaravanCapacity;
+
+        /// <summary>
+        /// How frequently someone will suffer a mental break while their mood is below their
+        /// mental break threshold. This does not affect mental breaks from other sources.
+        /// </summary>
+        /// <remarks>
+        /// Setting this stat to 0 will disable mood-based breaks entirely. However, this fact is
+        /// currently not reflected by any other game systems, which means that pawns with low mood
+        /// will still be flagged as a "break risk."
+        /// </remarks>
+        public static StatDef CF_RandomBreakFrequency;
+        
+        /// <summary>
+        /// How frequently someone will experience an inspiration due to high mood.
+        /// </summary>
+        public static StatDef CF_RandomInspirationFrequency;
 #pragma warning restore CS0649
 
         static CF_StatDefOf() =>

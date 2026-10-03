@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+    <StatDef Abstract="True" Name="CF_BaseMoodStat">
+        <category>CF_PawnMood</category>
+        <defaultBaseValue>1</defaultBaseValue>
+        <minValue>0</minValue>
+        <hideAtValue>1</hideAtValue>
+        <toStringStyle>PercentZero</toStringStyle>
+
+        <showOnAnimals>false</showOnAnimals>
+        <showOnMechanoids>false</showOnMechanoids>
+        <showOnEntities>false</showOnEntities>
+        <showOnDrones>false</showOnDrones>
+        
+        <scenarioRandomizable>true</scenarioRandomizable>
+        <cacheable>true</cacheable>
+    </StatDef>
+
+    <!-- Note: Setting this stat to 0 will disable mood-based breaks entirely. However, this fact
+    is currently not reflected by any other game systems, which means that pawns with low mood will
+    still be flagged as a "break risk." -->
+    <StatDef ParentName="CF_BaseMoodStat">
+        <defName>CF_RandomBreakFrequency</defName>
+        <label>random mental break frequency</label>
+        <description>How frequently someone will suffer a mental break while their mood is below their mental break threshold. This does not affect mental breaks from other sources.</description>
+        <displayPriorityInCategory>1000</displayPriorityInCategory>
+    </StatDef>
+
+    <StatDef ParentName="CF_BaseMoodStat">
+        <defName>CF_RandomInspirationFrequency</defName>
+        <label>random inspiration frequency</label>
+        <description>How frequently someone will experience an inspiration due to high mood.</description>
+        <displayPriorityInCategory>900</displayPriorityInCategory>
+    </StatDef>
+</Defs>
