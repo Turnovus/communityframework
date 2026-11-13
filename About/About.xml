@@ -33,4 +33,29 @@ Submit your code, have it checked by other coders and have it added to this mod!
 		<li>Ludeon.RimWorld.Biotech</li>
 		<li>Ludeon.RimWorld.Anomaly</li>
 	</loadAfter>
+	<loadBefore>
+		<li>tsp.isengriff.storytime</li>
+		<li>tsp.isengriff.fishingexpanded.split</li>
+		<li>tsp.isengriff.bronzecoppertin.split</li>
+		<li>tsp.isengriff.storytime.runezone</li>
+		<li>fufulog.crackheadkingtrader</li>
+		<li>zal.mmlws</li>
+		<li>morph.frx.teleportermain</li>
+		<li>tsp.velcroboy333.medievalfestival.banquet</li>
+		<li>asel.monolynrace</li>
+		<li>mindi.monolynhugme</li>
+		<li>monolynalgaeball.submod</li>
+		<li>monolynwhitelanternfaithfulness.submod</li>
+		<li>monolyntangyuan.submod</li>
+		<li>zal.mmlws</li>
+		<li>fufulog.crackheadkingtrader</li>
+		<li>adamas.bees</li>
+		<li>sarg.rimbees</li>
+		<li>biomesteam.biomesbees</li>
+		<li>haplo.miscellaneous.beesnhoney</li>
+		<li>tsp.beelievers</li>
+		<li>zal.patchhoney</li>
+		<li>tsp.zal.patchhoney2</li>
+		<li>oblivion.borpa</li>
+	</loadBefore>
 </ModMetaData>

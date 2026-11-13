@@ -1,0 +1,43 @@
+TSP_CSHARP_DOCUMENTATION
+
+1. BEESMECHS.DLL
+
+Allows for Mechanoids to perform several honey-related tasks.
+
+There is one error that is constantly failing, and it pertains to this Mod: https://www.steamcommunity.com/sharedfiles/filedetails/?id=3090186019
+
+
+WVC_Golem_Crafter3886424 threw exception in WorkGiver Bees_TakeHoneyOutOfBeehive: System.NullReferenceException: Object reference not set to an instance of an object
+[Ref 91B5E145]
+  at Bees.Workgiver_TakeHoneyOutOfBeehive.HasJobOnThing (Verse.Pawn pawn, Verse.Thing t, System.Boolean forced) [0x00007] in <1c745d75019340a88ccd2cba0f144933>:0 
+  at RimWorld.JobGiver_Work+<>c__DisplayClass3_1.<TryIssueJobPackage>g__Validator|0 (Verse.Thing t) [0x00013] in <61e4173561894da49d210260257b5097>:0 
+  at Verse.GenClosest+<>c__DisplayClass2_0.<ClosestThingReachable>g__GlobalValidator|0 (Verse.Thing t) [0x00034] in <61e4173561894da49d210260257b5097>:0 
+  at Verse.GenClosest.<ClosestThing_Global>g__ValidateThing|5_1 (Verse.Thing t, System.Single distSquared, Verse.GenClosest+<>c__DisplayClass5_0& ) [0x00008] in <61e4173561894da49d210260257b5097>:0 
+  at Verse.GenClosest.<ClosestThing_Global>g__Process|5_0 (Verse.Thing t, Verse.GenClosest+<>c__DisplayClass5_0& ) [0x00047] in <61e4173561894da49d210260257b5097>:0 
+  at Verse.GenClosest.ClosestThing_Global (Verse.IntVec3 center, System.Collections.IEnumerable searchSet, System.Single maxDistance, System.Predicate`1[T] validator, System.Func`2[T,TResult] priorityGetter, System.Boolean lookInHaulSources) [0x00066] in <61e4173561894da49d210260257b5097>:0 
+  at Verse.GenClosest.ClosestThingReachable (Verse.IntVec3 root, Verse.Map map, Verse.ThingRequest thingReq, Verse.AI.PathEndMode peMode, Verse.TraverseParms traverseParams, System.Single maxDistance, System.Predicate`1[T] validator, System.Collections.Generic.IEnumerable`1[T] customGlobalSearchSet, System.Int32 searchRegionsMin, System.Int32 searchRegionsMax, System.Boolean forceAllowGlobalSearch, Verse.RegionType traversableRegionTypes, System.Boolean ignoreEntirelyForbiddenRegions, System.Boolean lookInHaulSources) [0x00147] in <61e4173561894da49d210260257b5097>:0 
+  at RimWorld.JobGiver_Work.TryIssueJobPackage (Verse.Pawn pawn, Verse.AI.JobIssueParams jobParams) [0x0069f] in <61e4173561894da49d210260257b5097>:0 
+    - TRANSPILER SmarterConstruction: List`1 SmarterConstruction.Patches.PatchMakeFinishFramesPrioritized:Transpiler(IEnumerable`1 instructions, ILGenerator generator)
+    - PREFIX Orion.Hospitality: Boolean Hospitality.Patches.JobGiver_Work_Patch+TryIssueJobPackage:Prefix(Pawn pawn)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition:Verse.Log.Error_Patch5 (string)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition:RimWorld.JobGiver_Work.TryIssueJobPackage_Patch2 (RimWorld.JobGiver_Work,Verse.Pawn,Verse.AI.JobIssueParams)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition:Glue:AbiFixup<Verse.AI.ThinkResult RimWorld.JobGiver_Work:TryIssueJobPackage(Verse.Pawn, Verse.AI.JobIssueParams),Verse.AI.ThinkResult RimWorld.JobGiver_Work.TryIssueJobPackage_Patch2(RimWorld.JobGiver_Work, Verse.Pawn, Verse.AI.JobIssueParams)> (RimWorld.JobGiver_Work,Verse.AI.ThinkResult&,Verse.Pawn,Verse.AI.JobIssueParams)
+Verse.AI.ThinkNode_Priority:TryIssueJobPackage (Verse.Pawn,Verse.AI.JobIssueParams)
+Verse.AI.ThinkNode_Conditional:TryIssueJobPackage (Verse.Pawn,Verse.AI.JobIssueParams)
+Verse.AI.ThinkNode_Priority:TryIssueJobPackage (Verse.Pawn,Verse.AI.JobIssueParams)
+Verse.AI.ThinkNode_Conditional:TryIssueJobPackage (Verse.Pawn,Verse.AI.JobIssueParams)
+Verse.AI.ThinkNode_Priority:TryIssueJobPackage (Verse.Pawn,Verse.AI.JobIssueParams)
+Verse.AI.ThinkNode_Conditional:TryIssueJobPackage (Verse.Pawn,Verse.AI.JobIssueParams)
+Verse.AI.ThinkNode_Priority:TryIssueJobPackage (Verse.Pawn,Verse.AI.JobIssueParams)
+Verse.AI.Pawn_JobTracker:DetermineNextJob (Verse.ThinkTreeDef&,bool)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition:Verse.AI.Pawn_JobTracker.TryFindAndStartJob_Patch1 (Verse.AI.Pawn_JobTracker)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition:Verse.AI.Pawn_JobTracker.EndCurrentJob_Patch5 (Verse.AI.Pawn_JobTracker,Verse.AI.JobCondition,bool,bool)
+Verse.AI.Pawn_JobTracker:JobTrackerTickInterval (int)
+Verse.Pawn:TickInterval (int)
+Verse.Thing:DoTick ()
+Verse.TickList:Tick ()
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition:Verse.TickManager.DoSingleTick_Patch7 (Verse.TickManager)
+Verse.TickManager:TickManagerUpdate ()
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition:Verse.Game.UpdatePlay_Patch2 (Verse.Game)
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition:Verse.Root_Play.Update_Patch1 (Verse.Root_Play)

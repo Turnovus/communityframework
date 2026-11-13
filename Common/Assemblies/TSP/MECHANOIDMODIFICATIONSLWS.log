@@ -1,0 +1,12 @@
+TSP_CSHARP_DOCUMENTATION
+
+This DLL file allows Mechanoid surgeries that allow Mechanoids to perform ANY Work Type, including those that they do not have in the files. Now, your Pikemen can cook!
+
+To employ it, you do this on a Hediff:
+
+<li Class="MechanoidModificationsLWS.HediffCompProperties_SkillModification">
+	<workType>Firefighter</workType>
+</li>
+
+It's that easy!
+

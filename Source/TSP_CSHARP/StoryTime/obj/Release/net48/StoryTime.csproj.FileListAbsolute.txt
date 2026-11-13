@@ -1,0 +1,9 @@
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\StoryTime\obj\Release\net48\StoryTime.csproj.AssemblyReference.cache
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\StoryTime\obj\Release\net48\StoryTime.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\StoryTime\obj\Release\net48\StoryTime.csproj.CoreCompileInputs.cache
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\StoryTime\bin\Release\net48\StoryTime.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\StoryTime\bin\Release\net48\StoryTime.pdb
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\StoryTime\obj\Release\net48\StoryTime.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\StoryTime\obj\Release\net48\StoryTime.pdb
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\StoryTime\bin\Release\net48\0Harmony.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\StoryTime\obj\Release\net48\StoryTime.csproj.Up2Date

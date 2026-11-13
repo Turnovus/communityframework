@@ -1,0 +1,45 @@
+The DLL files are given unto you as-is, and I have tested them already.
+
+The following errors are reported, and I cannot remove them because they exist in the C-Sharp themselves.
+
+1.
+
+Thing Def: CKT_GammaMax
+
+This is from the old Crack Head King Mod, as invoked in this Thought Def entry:
+
+<workerClass>CrackheadKingTrader.ThoughtWorker_GammaMax_Soothe</workerClass>
+
+It is a modified Psychic Emanator.
+
+
+
+2.
+
+Hediff Defs: GEGEMM_CleaningModule/GEGEMM_HaulingModule/GEGEMM_ConstructionModule/GEGEMM_SowingModule/GEGEMM_PlantCuttingModule/GEGEMM_MiningModule/GEGEMM_DoctorModule/GEGEMM_FirefighterModule/GEGEMM_CraftingModule/GEGEMM_SmithingModule/GEGEMM_TailoringModule/GEGEMM_CookingModule/GEGEMM_BasicModule/GEGEMM_HuntingModule/GEGEMM_ArtModule
+
+All of these are from the source material for the "MECHANOIDMODIFICATIONS_LWS.DLL ." I can give you all of these Hediffs, but I do not understand why they are hard-coded in the C-Sharp instead of the Work Type Def being a variable.
+
+Example:
+<li Class="MechanoidModificationsLWS.HediffCompProperties_SkillModification">
+	<workType>Firefighter</workType>
+</li>
+
+This can be any Work Type, but for some reason, it still looks for the Vanilla rendition's Work Types.
+
+
+
+3.
+
+Pawn Kind Defs: Jeub/Cartographer/MoonGibbon/NightFrog/ManFrog
+Thing Defs: Cartographer
+Trait Def: Buglover
+Trait Def: RareGenius
+
+These Pawn Kind Defs, Trait Defs, and Thing Defs all come from my magnum opus, the namesake Storytime Mod: https://github.com/TurtleShroom/TSP_STORYTIME_RIDES_AGAIN .
+
+Lastly, the UI/Menu/StorytineMenu thing. That tried to edit the menu to show something the original author envisioned. Please delete it.
+It causes this errorL "null texture passed to GUI.DrawTexture".
+
+
+There are other features embedded in the Storytime Mod's DLL file, but I know not what they are. You, God and Randy willing, will.

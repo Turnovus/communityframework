@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using HarmonyLib;
+using RimWorld;
+using UnityEngine;
+using Verse;
+using Verse.AI;
+
+namespace MechanoidModificationsLWS;
+
+[HarmonyPatch(typeof(FloatMenuMakerMap), "AddHumanlikeOrders")]
+internal class PatchExtraction
+{
+	private static void Postfix(Vector3 clickPos, Pawn pawn, List<FloatMenuOption> opts)
+	{
+		IntVec3 c = IntVec3.FromVector3(clickPos);
+		if (!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
+		{
+			return;
+		}
+		List<Thing> thingList = c.GetThingList(pawn.Map);
+		foreach (Thing item in thingList)
+		{
+			Corpse corpse = item as Corpse;
+			if (corpse != null && ModsConfig.BiotechActive && corpse.InnerPawn.RaceProps.IsMechanoid)
+			{
+				opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("ExtractModifications".Translate(), delegate
+				{
+					Job job = JobMaker.MakeJob(MechanoidModificationsJobDefOf.RemoveModification, corpse);
+					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+				}), pawn, new LocalTargetInfo(corpse)));
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+TSP_CSHARP_DOCUMENTATION
+
+This DLL file was originally implemented in one of the Mods I inherited, but I don't know how it works. All I can tell you is that it added several useful features for Biomes, and in V1.4, those looked like the following.
+
+<li Class="RockSettings.DefModExtension_BiomeSettings">
+	<rockCount>1~2</rockCount>
+	<allowedRockDefs Inherit="False">
+		<li>ST_MudStone</li>
+		<li MayRequire="sarg.alphabiomes">AB_Mudstone</li>
+	</allowedRockDefs>
+</li>

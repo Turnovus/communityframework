@@ -1,0 +1,14 @@
+C:\Users\Jeremy\Desktop\StoryTime\StoryTime\bin\Debug\net472\StoryTime.dll
+C:\Users\Jeremy\Desktop\StoryTime\StoryTime\bin\Debug\net472\StoryTime.pdb
+C:\Users\Jeremy\Desktop\StoryTime\StoryTime\obj\Debug\net472\StoryTime.csproj.AssemblyReference.cache
+C:\Users\Jeremy\Desktop\StoryTime\StoryTime\obj\Debug\net472\StoryTime.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jeremy\Desktop\StoryTime\StoryTime\obj\Debug\net472\StoryTime.csproj.CoreCompileInputs.cache
+C:\Users\Jeremy\Desktop\StoryTime\StoryTime\obj\Debug\net472\StoryTime.dll
+C:\Users\Jeremy\Desktop\StoryTime\StoryTime\obj\Debug\net472\StoryTime.pdb
+F:\Microsoft Visual Studio\Repos\!Test\StoryTime\StoryTime\bin\Debug\net472\StoryTime.dll
+F:\Microsoft Visual Studio\Repos\!Test\StoryTime\StoryTime\bin\Debug\net472\StoryTime.pdb
+F:\Microsoft Visual Studio\Repos\!Test\StoryTime\StoryTime\obj\Debug\net472\StoryTime.csproj.AssemblyReference.cache
+F:\Microsoft Visual Studio\Repos\!Test\StoryTime\StoryTime\obj\Debug\net472\StoryTime.GeneratedMSBuildEditorConfig.editorconfig
+F:\Microsoft Visual Studio\Repos\!Test\StoryTime\StoryTime\obj\Debug\net472\StoryTime.csproj.CoreCompileInputs.cache
+F:\Microsoft Visual Studio\Repos\!Test\StoryTime\StoryTime\obj\Debug\net472\StoryTime.dll
+F:\Microsoft Visual Studio\Repos\!Test\StoryTime\StoryTime\obj\Debug\net472\StoryTime.pdb

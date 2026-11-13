@@ -1,0 +1,410 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\deathactionworker_bloodexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\deathactionworker_bloodexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\tradingpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\tradingpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\runebiomeworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\runebiomeworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\hediffcompproperties_coconutdeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\hediffcompproperties_coconutdeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\hediffcomp_polymorph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\hediffcomp_polymorph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\hediffcomp_coconutdeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\hediffcomp_coconutdeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\gibbonousmoon_utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\gibbonousmoon_utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\gemdropperutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\gemdropperutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\gemdropper_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\gemdropper_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\gamecondition_gibbonousmoon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\gamecondition_gibbonousmoon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compwoodfrog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compwoodfrog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compuseeffect_spawnperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compuseeffect_spawnperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\comptradingpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\comptradingpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\comprippable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\comprippable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compproperties_wood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compproperties_wood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compproperties_tradingpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compproperties_tradingpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compproperties_tomato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compproperties_tomato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compproperties_spawnpawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compproperties_spawnpawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compproperties_rippable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compproperties_rippable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compproperties_gemdropper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compproperties_gemdropper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compproperties_animalproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compproperties_animalproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compgemdropper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compgemdropper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\storytime\\compdeepdrill_tryproduceportion_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:storytime\\compdeepdrill_tryproduceportion_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\storytime\\atreforged\\statpart_age_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079ABB76-7283-405C-B979-4E63CCA5DF54}|StoryTime.csproj|solutionrelative:atreforged\\statpart_age_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TradingPost.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\TradingPost.cs",
+              "RelativeDocumentMoniker": "StoryTime\\TradingPost.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\TradingPost.cs",
+              "RelativeToolTip": "StoryTime\\TradingPost.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAuwJkAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:09:57.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RuneBiomeWorker.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\RuneBiomeWorker.cs",
+              "RelativeDocumentMoniker": "StoryTime\\RuneBiomeWorker.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\RuneBiomeWorker.cs",
+              "RelativeToolTip": "StoryTime\\RuneBiomeWorker.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:40.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HediffCompProperties_CoconutDeath.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\HediffCompProperties_CoconutDeath.cs",
+              "RelativeDocumentMoniker": "StoryTime\\HediffCompProperties_CoconutDeath.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\HediffCompProperties_CoconutDeath.cs",
+              "RelativeToolTip": "StoryTime\\HediffCompProperties_CoconutDeath.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:34.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HediffComp_Polymorph.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\HediffComp_Polymorph.cs",
+              "RelativeDocumentMoniker": "StoryTime\\HediffComp_Polymorph.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\HediffComp_Polymorph.cs",
+              "RelativeToolTip": "StoryTime\\HediffComp_Polymorph.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:33.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HediffComp_CoconutDeath.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\HediffComp_CoconutDeath.cs",
+              "RelativeDocumentMoniker": "StoryTime\\HediffComp_CoconutDeath.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\HediffComp_CoconutDeath.cs",
+              "RelativeToolTip": "StoryTime\\HediffComp_CoconutDeath.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:31.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GibbonousMoon_Utility.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\GibbonousMoon_Utility.cs",
+              "RelativeDocumentMoniker": "StoryTime\\GibbonousMoon_Utility.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\GibbonousMoon_Utility.cs",
+              "RelativeToolTip": "StoryTime\\GibbonousMoon_Utility.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:31.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeathActionWorker_BloodExplosion.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\DeathActionWorker_BloodExplosion.cs",
+              "RelativeDocumentMoniker": "StoryTime\\DeathActionWorker_BloodExplosion.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\DeathActionWorker_BloodExplosion.cs",
+              "RelativeToolTip": "StoryTime\\DeathActionWorker_BloodExplosion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:26.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GemDropperUtility.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\GemDropperUtility.cs",
+              "RelativeDocumentMoniker": "StoryTime\\GemDropperUtility.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\GemDropperUtility.cs",
+              "RelativeToolTip": "StoryTime\\GemDropperUtility.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:30.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GemDropper_Patch.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\GemDropper_Patch.cs",
+              "RelativeDocumentMoniker": "StoryTime\\GemDropper_Patch.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\GemDropper_Patch.cs",
+              "RelativeToolTip": "StoryTime\\GemDropper_Patch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:29.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GameCondition_GibbonousMoon.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\GameCondition_GibbonousMoon.cs",
+              "RelativeDocumentMoniker": "StoryTime\\GameCondition_GibbonousMoon.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\GameCondition_GibbonousMoon.cs",
+              "RelativeToolTip": "StoryTime\\GameCondition_GibbonousMoon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:27.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CompWoodFrog.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompWoodFrog.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompWoodFrog.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompWoodFrog.cs",
+              "RelativeToolTip": "StoryTime\\CompWoodFrog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:25.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CompUseEffect_SpawnPerson.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompUseEffect_SpawnPerson.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompUseEffect_SpawnPerson.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompUseEffect_SpawnPerson.cs",
+              "RelativeToolTip": "StoryTime\\CompUseEffect_SpawnPerson.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:24.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CompTradingPost.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompTradingPost.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompTradingPost.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompTradingPost.cs",
+              "RelativeToolTip": "StoryTime\\CompTradingPost.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:23.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CompRippable.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompRippable.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompRippable.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompRippable.cs",
+              "RelativeToolTip": "StoryTime\\CompRippable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:22.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CompProperties_Wood.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_Wood.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompProperties_Wood.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_Wood.cs",
+              "RelativeToolTip": "StoryTime\\CompProperties_Wood.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:21.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CompProperties_TradingPost.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_TradingPost.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompProperties_TradingPost.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_TradingPost.cs",
+              "RelativeToolTip": "StoryTime\\CompProperties_TradingPost.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:20.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CompProperties_Tomato.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_Tomato.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompProperties_Tomato.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_Tomato.cs",
+              "RelativeToolTip": "StoryTime\\CompProperties_Tomato.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:19.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CompProperties_SpawnPawn.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_SpawnPawn.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompProperties_SpawnPawn.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_SpawnPawn.cs",
+              "RelativeToolTip": "StoryTime\\CompProperties_SpawnPawn.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:18.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CompProperties_Rippable.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_Rippable.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompProperties_Rippable.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_Rippable.cs",
+              "RelativeToolTip": "StoryTime\\CompProperties_Rippable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:18.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CompProperties_GemDropper.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_GemDropper.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompProperties_GemDropper.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_GemDropper.cs",
+              "RelativeToolTip": "StoryTime\\CompProperties_GemDropper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:17.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CompProperties_AnimalProduct.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_AnimalProduct.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompProperties_AnimalProduct.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompProperties_AnimalProduct.cs",
+              "RelativeToolTip": "StoryTime\\CompProperties_AnimalProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:16.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CompGemDropper.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompGemDropper.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompGemDropper.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompGemDropper.cs",
+              "RelativeToolTip": "StoryTime\\CompGemDropper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:14.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CompDeepDrill_TryProducePortion_Patch.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompDeepDrill_TryProducePortion_Patch.cs",
+              "RelativeDocumentMoniker": "StoryTime\\CompDeepDrill_TryProducePortion_Patch.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime\\CompDeepDrill_TryProducePortion_Patch.cs",
+              "RelativeToolTip": "StoryTime\\CompDeepDrill_TryProducePortion_Patch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:08:13.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "StatPart_Age_Patch.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\ATReforged\\StatPart_Age_Patch.cs",
+              "RelativeDocumentMoniker": "ATReforged\\StatPart_Age_Patch.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\ATReforged\\StatPart_Age_Patch.cs",
+              "RelativeToolTip": "ATReforged\\StatPart_Age_Patch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:07:55.546Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

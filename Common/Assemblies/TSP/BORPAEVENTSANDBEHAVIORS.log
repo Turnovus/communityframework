@@ -1,0 +1,9 @@
+TSP_CSHARP_DOCUMENTATION
+
+This DLL file mostly adds Events that spawn certain enemies, and, as such, would be needed to be adjusted with Harmony patches so that players without them wouldn't get red errors.
+
+One thing it does add, though, is this unique Worker Class as a Damage Def:
+
+<workerClass>BorpaEventsAndBehaviors.DamageWorker_ScrapingSpear</workerClass>
+
+The Scraping Spear mechanic directly attacks clothing, causing even plate armor to receive direct hits on its structural integrity. In other words, this DLL file allows you to strip Pawns naked with weaponry! How cool is that?

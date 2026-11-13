@@ -1,0 +1,7 @@
+C:\Users\Jeremy\Desktop\StoryTime\MultiHediffFood\bin\Debug\net472\MultiHediffFood.dll
+C:\Users\Jeremy\Desktop\StoryTime\MultiHediffFood\bin\Debug\net472\MultiHediffFood.pdb
+C:\Users\Jeremy\Desktop\StoryTime\MultiHediffFood\obj\Debug\net472\MultiHediffFood.csproj.AssemblyReference.cache
+C:\Users\Jeremy\Desktop\StoryTime\MultiHediffFood\obj\Debug\net472\MultiHediffFood.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jeremy\Desktop\StoryTime\MultiHediffFood\obj\Debug\net472\MultiHediffFood.csproj.CoreCompileInputs.cache
+C:\Users\Jeremy\Desktop\StoryTime\MultiHediffFood\obj\Debug\net472\MultiHediffFood.dll
+C:\Users\Jeremy\Desktop\StoryTime\MultiHediffFood\obj\Debug\net472\MultiHediffFood.pdb

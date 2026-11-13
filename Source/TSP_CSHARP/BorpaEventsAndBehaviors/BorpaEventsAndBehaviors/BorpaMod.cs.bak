@@ -1,0 +1,36 @@
+using UnityEngine;
+using Verse;
+
+namespace BorpaEventsAndBehaviors;
+
+public class BorpaMod : Mod
+{
+	private BorpaSettings settings;
+
+	public BorpaMod(ModContentPack content)
+		: base(content)
+	{
+		settings = GetSettings<BorpaSettings>();
+	}
+
+	public override void DoSettingsWindowContents(Rect inRect)
+	{
+		Listing_Standard listing_Standard = new Listing_Standard();
+		listing_Standard.Begin(inRect);
+		listing_Standard.CheckboxLabeled("Enables the John Borpa event", ref settings.JohnBorpaEventEnabled, "John Borpa Event");
+		listing_Standard.Label("Durability damage dealt (in percent) by John Borpa - " + settings.ScrapingSpearDurabilityDamage);
+		settings.ScrapingSpearDurabilityDamage = listing_Standard.Slider(settings.ScrapingSpearDurabilityDamage, 0f, 100f);
+		listing_Standard.End();
+		base.DoSettingsWindowContents(inRect);
+	}
+
+	public override string SettingsCategory()
+	{
+		return "Borpa";
+	}
+
+	public override void WriteSettings()
+	{
+		base.WriteSettings();
+	}
+}

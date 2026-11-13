@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "fK1DD7QMXvw=",
+  "success": true,
+  "projectFilePath": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\StoryTime\\StoryTime.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\conse\\.nuget\\packages\\krafs.rimworld.ref\\1.6.4498-beta\\krafs.rimworld.ref.1.6.4498-beta.nupkg.sha512",
+    "C:\\Users\\conse\\.nuget\\packages\\lib.harmony\\2.3.3\\lib.harmony.2.3.3.nupkg.sha512"
+  ],
+  "logs": []
+}

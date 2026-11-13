@@ -1,0 +1,16 @@
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\bin\Debug\net472\RockSettings.dll
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\bin\Debug\net472\RockSettings.pdb
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\obj\Debug\net472\RockSettings.csproj.AssemblyReference.cache
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\obj\Debug\net472\RockSettings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\obj\Debug\net472\RockSettings.csproj.CoreCompileInputs.cache
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\obj\Debug\net472\RockSettings.dll
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\obj\Debug\net472\RockSettings.pdb
+C:\Rimworld Modding\!Repos\!Test\StoryTime\15\RockSettings\bin\Debug\net472\RockSettings.dll
+C:\Rimworld Modding\!Repos\!Test\StoryTime\15\RockSettings\bin\Debug\net472\RockSettings.pdb
+C:\Rimworld Modding\!Repos\!Test\StoryTime\15\RockSettings\bin\Debug\net472\0Harmony.dll
+C:\Rimworld Modding\!Repos\!Test\StoryTime\15\RockSettings\obj\Debug\net472\RockSettings.csproj.AssemblyReference.cache
+C:\Rimworld Modding\!Repos\!Test\StoryTime\15\RockSettings\obj\Debug\net472\RockSettings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rimworld Modding\!Repos\!Test\StoryTime\15\RockSettings\obj\Debug\net472\RockSettings.csproj.CoreCompileInputs.cache
+C:\Rimworld Modding\!Repos\!Test\StoryTime\15\RockSettings\obj\Debug\net472\RockSett.4DB0631D.Up2Date
+C:\Rimworld Modding\!Repos\!Test\StoryTime\15\RockSettings\obj\Debug\net472\RockSettings.dll
+C:\Rimworld Modding\!Repos\!Test\StoryTime\15\RockSettings\obj\Debug\net472\RockSettings.pdb

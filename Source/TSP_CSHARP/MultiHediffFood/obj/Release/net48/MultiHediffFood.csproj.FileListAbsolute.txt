@@ -1,0 +1,9 @@
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\MultiHediffFood\bin\Release\net48\MultiHediffFood.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\MultiHediffFood\bin\Release\net48\MultiHediffFood.pdb
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\MultiHediffFood\obj\Release\net48\MultiHediffFood.csproj.AssemblyReference.cache
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\MultiHediffFood\obj\Release\net48\MultiHediffFood.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\MultiHediffFood\obj\Release\net48\MultiHediffFood.csproj.CoreCompileInputs.cache
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\MultiHediffFood\obj\Release\net48\MultiHediffFood.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\MultiHediffFood\obj\Release\net48\MultiHediffFood.pdb
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\MultiHediffFood\bin\Release\net48\0Harmony.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\MultiHediffFood\obj\Release\net48\MultiHed.4171C444.Up2Date

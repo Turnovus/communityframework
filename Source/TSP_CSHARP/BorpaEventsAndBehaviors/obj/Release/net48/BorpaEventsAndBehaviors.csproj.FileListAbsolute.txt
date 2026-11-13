@@ -1,0 +1,9 @@
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\BorpaEventsAndBehaviors\bin\Release\net48\BorpaEventsAndBehaviors.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\BorpaEventsAndBehaviors\bin\Release\net48\BorpaEventsAndBehaviors.pdb
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\BorpaEventsAndBehaviors\obj\Release\net48\BorpaEventsAndBehaviors.csproj.AssemblyReference.cache
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\BorpaEventsAndBehaviors\obj\Release\net48\BorpaEventsAndBehaviors.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\BorpaEventsAndBehaviors\obj\Release\net48\BorpaEventsAndBehaviors.csproj.CoreCompileInputs.cache
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\BorpaEventsAndBehaviors\obj\Release\net48\BorpaEventsAndBehaviors.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\BorpaEventsAndBehaviors\obj\Release\net48\BorpaEventsAndBehaviors.pdb
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\BorpaEventsAndBehaviors\bin\Release\net48\0Harmony.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\BorpaEventsAndBehaviors\obj\Release\net48\BorpaEve.769AD1B6.Up2Date

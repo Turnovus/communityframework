@@ -1,0 +1,9 @@
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\FactionSounds\bin\Release\net48\FactionSounds.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\FactionSounds\bin\Release\net48\FactionSounds.pdb
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\FactionSounds\obj\Release\net48\FactionSounds.csproj.AssemblyReference.cache
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\FactionSounds\obj\Release\net48\FactionSounds.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\FactionSounds\obj\Release\net48\FactionSounds.csproj.CoreCompileInputs.cache
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\FactionSounds\obj\Release\net48\FactionSounds.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\FactionSounds\obj\Release\net48\FactionSounds.pdb
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\FactionSounds\bin\Release\net48\0Harmony.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\FactionSounds\obj\Release\net48\FactionS.421F9A38.Up2Date

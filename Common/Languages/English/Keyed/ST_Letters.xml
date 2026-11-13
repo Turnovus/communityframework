@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<LanguageData>
+	<LetterLabelJeubSwarm>Jeub Swarm</LetterLabelJeubSwarm>
+	<JeubSwarm>A swarm of hungry Jeubs has been spotted approaching the colony! FLEE FOR YOUR LIVES!!</JeubSwarm>
+
+	<LetterLabelWanderingCartographer>The Cartographer Approaches</LetterLabelWanderingCartographer>
+	<WanderingCartographer>A cartographer has been spotted. It is said these creatures possess great speed. Is this speed that we perhaps could harness?</WanderingCartographer>
+
+	<legGrowth>Organ Growth</legGrowth>
+	<tomatoGrowth>Cyst Growth</tomatoGrowth>
+	<woodGrowth>Epidermis Growth</woodGrowth>
+	<GreenOozeDesc>Ooze Growth</GreenOozeDesc>
+
+	<BeanSpawned>BEAN MAN UPLIFTED!</BeanSpawned>
+
+	<ST_WoodFrog_CommandLabel>Command Metamorphosis</ST_WoodFrog_CommandLabel>
+	<ST_WoodFrog_CommandDesc>Command this animal to undergo metamorphosis to finally reach its final form- a tree.</ST_WoodFrog_CommandDesc>
+</LanguageData>

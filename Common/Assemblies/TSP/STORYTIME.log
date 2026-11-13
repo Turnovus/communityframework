@@ -1,0 +1,119 @@
+TSP_CSHARP_DOCUMENTATION
+
+PLEASE DO NOT CHANGE THE DEF AND COMP NAMES, THESE ARE HARD CODED.
+
+Behold! This one is the main event and has provided invaluable to me in the past few years. I have used this extensively and have encountered exactly one error in it during all this time, which will be documented later.
+
+
+PART I: ANIMAL GATHERING
+
+The STORYTIME.DLL C-Sharp code adds multiple new ways to harvest from animals, which frees up Shearing and Milking. These new ways have their own unique flavor and appearance.
+
+<li Class="StoryTime.CompProperties_Tomato">
+	<tomatoDef>Rylex_Coconut</tomatoDef> (Any Thing Def)
+	<tomatoIntervalDays>1</tomatoIntervalDays> (Any whole integer or integer with two decimals)
+	<tomatoAmount>30</tomatoAmount> (Any whole integer)
+</li>
+
+Does not accept ranges.
+
+Don't let the name fool you. It doesn't have to be tomatoes. What the flavored text actually describes is cysts and tumors growing and being harvested.
+
+
+<li Class="StoryTime.CompProperties_Rippable">
+	<legDef>ToadLegs</legDef>
+	<ripIntervalDays>1</ripIntervalDays>
+	<legAmount>2</legAmount>
+</li>
+
+Despite the name, it doesn't just require legs. Like the "tomato" one above, this is a new form of shearing animals. It states "ripping off" and implies things like regenerative tails, legs, and what-not.
+
+<li Class="StoryTime.CompProperties_Wood">
+	<woodDef>Vaccine</woodDef>
+	<woodHarvestIntervalDays>2</woodHarvestIntervalDays>
+	<woodAmount>2</woodAmount>
+</li>
+
+The same as the others.
+
+All of these go in Thing Def Comps.
+
+
+<li Class="StoryTime.HediffCompProperties_CoconutDeath">
+	<targetCoconut>Rylex_Tree_CoconutPalm</targetCoconut>
+</li>
+
+This goes in a Hediff. When a Pawn dies, it becomes the Thing Def in question.
+
+
+
+
+PART II: POLYMORPH
+
+This Hediff Comp causes a Pawn, when it dies, to change into a different Thing Def, killing the Pawn and having that thing take its place.
+
+<li Class="StoryTime.HediffCompProperties_Polymorph">
+	<targetPolymorph>ST_BananaScytheCorpse</targetPolymorph>
+	<polymorphLetterLabel>ST_LetterLabelBones2Bananas</polymorphLetterLabel>
+	<polymorphLetter>ST_LetterBones2Bananas</polymorphLetter>
+	<polymorphLetterDef>ST_BananaLetter</polymorphLetterDef>
+</li>
+
+It also allows for flavored letter alerts when it happens, which are found in "Languages\LANGUAGE\Keyed".
+
+
+
+PART III: GEMS
+
+By far one of the most useful, this one allows for, when things are mined or processed, for additional items to spawn next to them!
+
+
+First, you must add this to a Thing Def's Comps:
+
+<li Class="StoryTime.CompProperties_GemDropper">
+	<commonGemDropRate>0.016</commonGemDropRate>
+	<uncommonGemDropRate>0.008</uncommonGemDropRate>
+	<rareGemDropRate>0.004</rareGemDropRate>
+</li>
+
+These can go in any Thing Def. If you place them in a Building like the Deep Drill, it has a chance to spawn items whenever a Bill is completed. If you place it on an item like a Stone Chunk, it has a chance to spawn items whenever that Chunk is processed on a Bill.
+
+You then add these hidden Thing Categories to Thing Defs you want to spawn:
+
+1. <li>ST_GemsCut_Common</li> AND <li>ST_GemsUncut_Common</li>
+2. <li>ST_GemsUncut_Uncommon</li> AND <li>ST_GemsCut_Uncommon</li>
+3. <li>ST_GemsUncut_Rare</li> AND <li>ST_GemsCut_Rare</li>
+
+YOU HAVE TO DO BOTH, OTHERWISE IT WILL NOT SHOW UP IN EITHER. THIS IS INTENTIONAL.
+
+PLEASE DO NOT CHANGE THE DEF NAMES OR THE HIERARCHY OF THING CATEGORIES, THESE ARE HARD CODED AND WILL CRASH BOTH THE SYSTEM AND YOUR ERROR LOG IF YOU CHANGE THEM.
+
+
+
+PART IV: SPAWN PAWN
+
+<li Class="CompProperties_Usable">
+	<useJob>UseItem</useJob>
+	<useLabel>ASCEND!!</useLabel>
+	<useDuration>10</useDuration>
+</li>
+
+<li Class="StoryTime.CompProperties_SpawnPawn">
+	<compClass>StoryTime.CompUseEffect_SpawnPerson</compClass>
+	<pawnKind>PlayerBeanMan</pawnKind>
+</li>
+
+<li Class="CompProperties_UseEffect">
+	<compClass>CompUseEffect_DestroySelf</compClass>
+</li>
+
+^ That one works. Sometimes.
+
+
+
+<li Class="StoryTime.CompProperties_SpawnPawn">
+	<compClass>StoryTime.CompUseEffect_SpawnPerson</compClass>
+	<pawnKind>PlayerArk</pawnKind>
+</li>
+
+^ This one, which is added to a Thing Def from an entirely different Mod, always fails.

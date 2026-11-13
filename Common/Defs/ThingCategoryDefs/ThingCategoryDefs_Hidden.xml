@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<ThingCategoryDef>
+		<defName>ST_Gems</defName>
+		<label>gems</label>
+		<!-- <iconPath>Things/Items/Resources/Ores/Blackium/Blackium_a</iconPath> -->
+		<resourceReadoutRoot>false</resourceReadoutRoot>
+		<parent Inherit="False"></parent>
+	</ThingCategoryDef>
+
+	<!--Cut-->
+	<ThingCategoryDef>
+		<defName>ST_GemsCut</defName>
+		<label>cut gems</label>
+		<parent>ST_Gems</parent>
+		<iconPath>Things/Items/Resources/Ores/Blackium/Blackium_a</iconPath>
+		<resourceReadoutRoot>false</resourceReadoutRoot>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>ST_GemsCut_Common</defName>
+		<label>common</label>
+		<parent>ST_GemsCut</parent>
+		<!-- <iconPath>Things/Items/Resources/AlloyDust/BlackDust/BlackDust_a</iconPath> -->
+		<resourceReadoutRoot>false</resourceReadoutRoot>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>ST_GemsCut_Uncommon</defName>
+		<label>uncommon</label>
+		<parent>ST_GemsCut</parent>
+		<!-- <iconPath>Things/Items/Resources/Ores/Blackium/Blackium_a</iconPath> -->
+		<resourceReadoutRoot>false</resourceReadoutRoot>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>ST_GemsCut_Rare</defName>
+		<label>rare</label>
+		<parent>ST_GemsCut</parent>
+		<!-- <iconPath>Things/Items/Resources/Ores/Blackium/Blackium_a</iconPath> -->
+		<resourceReadoutRoot>false</resourceReadoutRoot>
+	</ThingCategoryDef>
+
+	<!--Uncut-->
+	<ThingCategoryDef>
+		<defName>ST_GemsUncut</defName>
+		<label>uncut gems</label>
+		<parent>ST_Gems</parent>
+		<!-- <iconPath>Things/Items/Resources/AlloyDust/BlackDust/BlackDust_a</iconPath> -->
+		<resourceReadoutRoot>false</resourceReadoutRoot>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>ST_GemsUncut_Common</defName>
+		<label>common</label>
+		<parent>ST_GemsUncut</parent>
+		<!-- <iconPath>Things/Items/Resources/AlloyDust/BlackDust/BlackDust_a</iconPath> -->
+		<resourceReadoutRoot>false</resourceReadoutRoot>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>ST_GemsUncut_Uncommon</defName>
+		<label>uncommon</label>
+		<parent>ST_GemsUncut</parent>
+		<!-- <iconPath>Things/Items/Resources/AlloyDust/BlackDust/BlackDust_a</iconPath> -->
+		<resourceReadoutRoot>false</resourceReadoutRoot>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>ST_GemsUncut_Rare</defName>
+		<label>rare</label>
+		<parent>ST_GemsUncut</parent>
+		<!-- <iconPath>Things/Items/Resources/AlloyDust/BlackDust/BlackDust_a</iconPath> -->
+		<resourceReadoutRoot>false</resourceReadoutRoot>
+	</ThingCategoryDef>
+</Defs>

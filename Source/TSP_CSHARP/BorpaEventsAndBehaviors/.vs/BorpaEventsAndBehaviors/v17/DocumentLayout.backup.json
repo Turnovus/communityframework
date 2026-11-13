@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{62ACEA41-4B28-4043-A03A-AC9E051BAE35}|BorpaEventsAndBehaviors.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\borpaeventsandbehaviors\\borpaeventsandbehaviors\\incidentworker_johnborpa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62ACEA41-4B28-4043-A03A-AC9E051BAE35}|BorpaEventsAndBehaviors.csproj|solutionrelative:borpaeventsandbehaviors\\incidentworker_johnborpa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62ACEA41-4B28-4043-A03A-AC9E051BAE35}|BorpaEventsAndBehaviors.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\borpaeventsandbehaviors\\borpaeventsandbehaviors\\deathactionworker_borparemoveondeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62ACEA41-4B28-4043-A03A-AC9E051BAE35}|BorpaEventsAndBehaviors.csproj|solutionrelative:borpaeventsandbehaviors\\deathactionworker_borparemoveondeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62ACEA41-4B28-4043-A03A-AC9E051BAE35}|BorpaEventsAndBehaviors.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\borpaeventsandbehaviors\\borpaeventsandbehaviors\\damageworker_scrapingspear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62ACEA41-4B28-4043-A03A-AC9E051BAE35}|BorpaEventsAndBehaviors.csproj|solutionrelative:borpaeventsandbehaviors\\damageworker_scrapingspear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62ACEA41-4B28-4043-A03A-AC9E051BAE35}|BorpaEventsAndBehaviors.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\borpaeventsandbehaviors\\borpaeventsandbehaviors\\compproperties_kachorpashedding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62ACEA41-4B28-4043-A03A-AC9E051BAE35}|BorpaEventsAndBehaviors.csproj|solutionrelative:borpaeventsandbehaviors\\compproperties_kachorpashedding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62ACEA41-4B28-4043-A03A-AC9E051BAE35}|BorpaEventsAndBehaviors.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\borpaeventsandbehaviors\\borpaeventsandbehaviors\\compkachorpashedding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62ACEA41-4B28-4043-A03A-AC9E051BAE35}|BorpaEventsAndBehaviors.csproj|solutionrelative:borpaeventsandbehaviors\\compkachorpashedding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IncidentWorker_JohnBorpa.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\BorpaEventsAndBehaviors\\IncidentWorker_JohnBorpa.cs",
+              "RelativeDocumentMoniker": "BorpaEventsAndBehaviors\\IncidentWorker_JohnBorpa.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\BorpaEventsAndBehaviors\\IncidentWorker_JohnBorpa.cs",
+              "RelativeToolTip": "BorpaEventsAndBehaviors\\IncidentWorker_JohnBorpa.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T23:59:50.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DeathActionWorker_BorpaRemoveOnDeath.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\BorpaEventsAndBehaviors\\DeathActionWorker_BorpaRemoveOnDeath.cs",
+              "RelativeDocumentMoniker": "BorpaEventsAndBehaviors\\DeathActionWorker_BorpaRemoveOnDeath.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\BorpaEventsAndBehaviors\\DeathActionWorker_BorpaRemoveOnDeath.cs",
+              "RelativeToolTip": "BorpaEventsAndBehaviors\\DeathActionWorker_BorpaRemoveOnDeath.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T23:59:48.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DamageWorker_ScrapingSpear.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\BorpaEventsAndBehaviors\\DamageWorker_ScrapingSpear.cs",
+              "RelativeDocumentMoniker": "BorpaEventsAndBehaviors\\DamageWorker_ScrapingSpear.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\BorpaEventsAndBehaviors\\DamageWorker_ScrapingSpear.cs",
+              "RelativeToolTip": "BorpaEventsAndBehaviors\\DamageWorker_ScrapingSpear.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T23:59:46.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CompProperties_KachorpaShedding.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\BorpaEventsAndBehaviors\\CompProperties_KachorpaShedding.cs",
+              "RelativeDocumentMoniker": "BorpaEventsAndBehaviors\\CompProperties_KachorpaShedding.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\BorpaEventsAndBehaviors\\CompProperties_KachorpaShedding.cs",
+              "RelativeToolTip": "BorpaEventsAndBehaviors\\CompProperties_KachorpaShedding.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T23:59:45.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CompKachorpaShedding.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\BorpaEventsAndBehaviors\\CompKachorpaShedding.cs",
+              "RelativeDocumentMoniker": "BorpaEventsAndBehaviors\\CompKachorpaShedding.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\BorpaEventsAndBehaviors\\BorpaEventsAndBehaviors\\CompKachorpaShedding.cs",
+              "RelativeToolTip": "BorpaEventsAndBehaviors\\CompKachorpaShedding.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T23:59:05.528Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

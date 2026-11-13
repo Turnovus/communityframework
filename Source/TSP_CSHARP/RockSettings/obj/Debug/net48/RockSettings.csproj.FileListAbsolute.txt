@@ -1,0 +1,7 @@
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\bin\Debug\net48\RockSettings.dll
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\bin\Debug\net48\RockSettings.pdb
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\obj\Debug\net48\RockSettings.csproj.AssemblyReference.cache
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\obj\Debug\net48\RockSettings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\obj\Debug\net48\RockSettings.csproj.CoreCompileInputs.cache
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\obj\Debug\net48\RockSettings.dll
+C:\Users\Jeremy\Desktop\StoryTime\RockSettings\obj\Debug\net48\RockSettings.pdb

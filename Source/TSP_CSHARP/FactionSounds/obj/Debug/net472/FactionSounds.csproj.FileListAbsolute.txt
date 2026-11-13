@@ -1,0 +1,7 @@
+C:\Users\Jeremy\Desktop\StoryTime\FactionSounds\bin\Debug\net472\FactionSounds.dll
+C:\Users\Jeremy\Desktop\StoryTime\FactionSounds\bin\Debug\net472\FactionSounds.pdb
+C:\Users\Jeremy\Desktop\StoryTime\FactionSounds\obj\Debug\net472\FactionSounds.csproj.AssemblyReference.cache
+C:\Users\Jeremy\Desktop\StoryTime\FactionSounds\obj\Debug\net472\FactionSounds.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jeremy\Desktop\StoryTime\FactionSounds\obj\Debug\net472\FactionSounds.csproj.CoreCompileInputs.cache
+C:\Users\Jeremy\Desktop\StoryTime\FactionSounds\obj\Debug\net472\FactionSounds.dll
+C:\Users\Jeremy\Desktop\StoryTime\FactionSounds\obj\Debug\net472\FactionSounds.pdb

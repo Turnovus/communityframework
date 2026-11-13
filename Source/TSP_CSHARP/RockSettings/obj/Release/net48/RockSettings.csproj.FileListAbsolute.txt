@@ -1,0 +1,9 @@
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\RockSettings\bin\Release\net48\RockSettings.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\RockSettings\bin\Release\net48\RockSettings.pdb
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\RockSettings\obj\Release\net48\RockSettings.csproj.AssemblyReference.cache
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\RockSettings\obj\Release\net48\RockSettings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\RockSettings\obj\Release\net48\RockSettings.csproj.CoreCompileInputs.cache
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\RockSettings\obj\Release\net48\RockSettings.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\RockSettings\obj\Release\net48\RockSettings.pdb
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\RockSettings\bin\Release\net48\0Harmony.dll
+C:\Rimworld Modding\!Repos\!Test16\StoryTime\16\RockSettings\obj\Release\net48\RockSett.4DB0631D.Up2Date

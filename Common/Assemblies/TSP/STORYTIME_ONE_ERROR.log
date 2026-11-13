@@ -1,0 +1,44 @@
+There is one error that always fires with this DLL file, and I have absolutely no idea why.
+
+When this is evoked on a Race:
+
+<deathAction>
+	<workerClass>StoryTime.DeathActionWorker_BloodExplosion</workerClass>
+</deathAction>
+
+It causes an error immediately.
+
+In addition, on start up, this error always appears:
+
+Error while instantiating a mod of type AnimalsLogic.AnimalsLogic: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.MissingMethodException: Method not found: void Verse.GenExplosion.DoExplosion(Verse.IntVec3,Verse.Map,single,Verse.DamageDef,Verse.Thing,int,single,Verse.SoundDef,Verse.ThingDef,Verse.ThingDef,Verse.Thing,Verse.ThingDef,single,int,System.Nullable`1<Verse.GasType>,bool,Verse.ThingDef,single,int,single,bool,System.Nullable`1<single>,System.Collections.Generic.List`1<Verse.Thing>,System.Nullable`1<Verse.FloatRange>,bool,single,single,bool,Verse.ThingDef,single,Verse.SimpleCurve,System.Collections.Generic.List`1<Verse.IntVec3>)
+[Ref 1B28D705]
+(wrapper managed-to-native) System.Reflection.RuntimeModule.ResolveMethodToken(intptr,int,intptr[],intptr[],System.Reflection.ResolveTokenError&)
+  at System.Reflection.RuntimeModule.ResolveMethod (System.Reflection.Module module, System.IntPtr monoModule, System.Int32 metadataToken, System.Type[] genericTypeArguments, System.Type[] genericMethodArguments) [0x0000f] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.Reflection.RuntimeModule.ResolveMethod (System.Int32 metadataToken, System.Type[] genericTypeArguments, System.Type[] genericMethodArguments) [0x00000] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at HarmonyLib.MethodBodyReader.ReadOperand (HarmonyLib.ILInstruction instruction) [0x00366] in <024a0e6ec8c2437ead047b6279389c23>:0 
+  at HarmonyLib.MethodBodyReader.GenerateInstructions () [0x00022] in <024a0e6ec8c2437ead047b6279389c23>:0 
+HarmonyLib.MethodCopier..ctor(MethodCreatorConfig config)
+  at HarmonyLib.MethodCreator.CreateReplacement () [0x003a4] in <024a0e6ec8c2437ead047b6279389c23>:0 
+  at HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) [0x0007c] in <024a0e6ec8c2437ead047b6279389c23>:0 
+  at HarmonyLib.PatchProcessor.Patch () [0x0013c] in <024a0e6ec8c2437ead047b6279389c23>:0 
+  at HarmonyLib.Harmony.Patch (System.Reflection.MethodBase original, HarmonyLib.HarmonyMethod prefix, HarmonyLib.HarmonyMethod postfix, HarmonyLib.HarmonyMethod transpiler, HarmonyLib.HarmonyMethod finalizer) [0x0002a] in <024a0e6ec8c2437ead047b6279389c23>:0 
+  at AnimalsLogic.NoBoomSlaughter.ApplyPatch (System.Type type) [0x00096] in <2315160d9a034401847629e68c41a622>:0 
+  at AnimalsLogic.NoBoomSlaughter.Patch () [0x00252] in <2315160d9a034401847629e68c41a622>:0 
+  at AnimalsLogic.AnimalsLogic..ctor (Verse.ModContentPack content) [0x000ea] in <2315160d9a034401847629e68c41a622>:0 
+    - PREFIX ilyvion.loadingprogress: Void ilyvion.LoadingProgress.StartupImpact.Patches.Mod_Constructor_Patches:Prefix(ModContentPack modContentPack, MethodBase __originalMethod, Boolean& __state)
+    - POSTFIX ilyvion.loadingprogress: Void ilyvion.LoadingProgress.StartupImpact.Patches.Mod_Constructor_Patches:Postfix(ModContentPack modContentPack, Boolean& __state)
+    - FINALIZER ilyvion.loadingprogress: Void ilyvion.LoadingProgress.StartupImpact.Patches.Mod_Constructor_Patches:Finalizer(ModContentPack modContentPack, Boolean __state)
+(wrapper managed-to-native) System.Reflection.RuntimeConstructorInfo.InternalInvoke(System.Reflection.RuntimeConstructorInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeConstructorInfo.InternalInvoke (System.Object obj, System.Object[] parameters, System.Boolean wrapExceptions) [0x00005] in <51fded79cd284d4d911c5949aff4cb21>:0 
+   --- End of inner exception stack trace ---
+[Ref 9D6B7269]
+  at System.Reflection.RuntimeConstructorInfo.InternalInvoke (System.Object obj, System.Object[] parameters, System.Boolean wrapExceptions) [0x0001a] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.Reflection.RuntimeConstructorInfo.DoInvoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00086] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.Reflection.RuntimeConstructorInfo.Invoke (System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.RuntimeType.CreateInstanceImpl (System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Threading.StackCrawlMark& stackMark) [0x0022b] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) [0x0009c] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Object[] args) [0x00000] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at WakeUp.EarlyLoadingObservation.CreateMod (System.Type type, System.Object[] arguments) [0x0006e] in <4a10655d9971424d958f0b8079516440>:0 
+  at Verse.LoadedModManager.CreateModClasses () [0x00085] in <61e4173561894da49d210260257b5097>:0 
+
+This appears to be a conflict with something, but I know not what or why.

@@ -1,0 +1,17 @@
+using Verse;
+
+namespace BorpaEventsAndBehaviors;
+
+public class BorpaSettings : ModSettings
+{
+	public bool JohnBorpaEventEnabled;
+
+	public float ScrapingSpearDurabilityDamage;
+
+	public override void ExposeData()
+	{
+		Scribe_Values.Look(ref JohnBorpaEventEnabled, "JohnBorpa", defaultValue: true, forceSave: true);
+		Scribe_Values.Look(ref ScrapingSpearDurabilityDamage, "ScrapingSpear", 25f, forceSave: true);
+		base.ExposeData();
+	}
+}

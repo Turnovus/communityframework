@@ -1,0 +1,21 @@
+TSP_CSHARP_DOCUMENTATION
+
+Most of this DLL does not actually require the Monolyn Mod, despite its name. However, there is one part you will have to remove because that DOES need Monolyns, which is this:
+
+<li Class="MonolynAlgaeBall.CompProperties_AlgaeBall">
+	<badThought>AteAlgaeBall</badThought>
+	<monolynGoodThought>AteFineMeal</monolynGoodThought>
+</li>
+
+As well as this:
+
+<li Class="MonolynAlgaeBall.CompProperties_AlgaeBall">
+	<badThought>AteAlgaeBall</badThought>
+</li>
+
+
+What can stay is the information in this:
+
+<thingClass>MonolynAlgaeBall.Building_AlgaeBallCultivator</thingClass>
+
+This adds a special graphical effect to items using it, if I am not mistaken.

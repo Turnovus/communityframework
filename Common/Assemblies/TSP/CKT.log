@@ -1,0 +1,10 @@
+TSP_CSHARP_DOCUMENTATION
+
+This DLL file adds this:
+
+<li Class="CrackheadKingTrader.CKT_IngestionOutcomeDoer_ReduceHediff">
+	<hediffDef>AlcoholHigh</hediffDef>
+	<severity>-0.2</severity>
+</li>
+
+It allows a food or drug, when ingested, to REDUCE a Hediff instead of increasing it.

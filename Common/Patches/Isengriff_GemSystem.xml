@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+  <Operation Class="PatchOperationSequence">
+    <success>Always</success>
+    <operations>
+        <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[@Name = "ChunkBase"]/stackLimit</xpath>
+            <value>
+                <stackLimit>30</stackLimit>
+            </value>
+        </li>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[@Name = "ChunkBase"]/passability</xpath>
+		<value>
+			<passability>Standable</passability>
+		</value>
+      </li>
+	  <!--
+      <li Class="PatchOperationRemove">
+        <xpath>Defs/ThingDef[@Name = "ChunkBase"]/saveCompressible</xpath>
+      </li>
+	  -->
+    </operations>
+  </Operation>
+  
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[@Name="ChunkBase"]/drawGUIOverlay</xpath>
+		<!-- If it does, do this replacement. -->
+		<match  Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[@Name="ChunkBase"]/drawGUIOverlay</xpath>
+			<success>Always</success>
+			<value>
+				<drawGUIOverlay>true</drawGUIOverlay>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch  Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[@Name="ChunkBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<drawGUIOverlay>true</drawGUIOverlay>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[@Name="ChunkBase"]/thingClass</xpath>
+		<!-- If it does, do this replacement. -->
+		<match  Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[@Name="ChunkBase"]/thingClass</xpath>
+			<success>Always</success>
+			<value>
+				<thingClass>ThingWithComps</thingClass>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch  Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[@Name="ChunkBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingClass>ThingWithComps</thingClass>
+			</value>
+		</nomatch>
+	</Operation>
+	
+  
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[@Name="ChunkRockBase"]/thingClass</xpath>
+		<!-- If it does, do this replacement. -->
+		<match  Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[@Name="ChunkRockBase"]/thingClass</xpath>
+			<success>Always</success>
+			<value>
+				<thingClass>ThingWithComps</thingClass>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch  Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[@Name="ChunkRockBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingClass>ThingWithComps</thingClass>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Aelanna's Model No-Match Detector and Insertion Code -->
+	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[@Name="ChunkRockBase"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[@Name="ChunkRockBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<comps></comps>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[@Name="ChunkRockBase"]/comps</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[@Name="ChunkRockBase"]/comps</xpath>
+			<value>
+				<li Class="StoryTime.CompProperties_GemDropper">
+					<commonGemDropRate>0.016</commonGemDropRate>
+					<uncommonGemDropRate>0.008</uncommonGemDropRate>
+					<rareGemDropRate>0.004</rareGemDropRate>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+  </Operation>
+  
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[@Name="RockBase"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[@Name="RockBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<comps></comps>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[@Name="RockBase"]/comps</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[@Name="RockBase"]/comps</xpath>
+			<value>
+				<li Class="StoryTime.CompProperties_GemDropper">
+					<commonGemDropRate>0.016</commonGemDropRate>
+					<uncommonGemDropRate>0.008</uncommonGemDropRate>
+					<rareGemDropRate>0.004</rareGemDropRate>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+  </Operation>
+  
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DeepDrill"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DeepDrill"]</xpath>
+			<success>Always</success>
+			<value>
+				<comps></comps>
+			</value>
+		</nomatch>
+	</Operation>
+  
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="DeepDrill"]/comps</xpath>
+    <value>
+		  <li Class="StoryTime.CompProperties_GemDropper">
+				<commonGemDropRate>0.035</commonGemDropRate>
+				<uncommonGemDropRate>0.02</uncommonGemDropRate>
+				<rareGemDropRate>0.009</rareGemDropRate>
+		  </li>
+    </value>
+  </Operation>
+  
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_MineShaft"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_MineShaft"]</xpath>
+			<success>Always</success>
+			<value>
+				<comps></comps>
+			</value>
+		</nomatch>
+	</Operation>
+  
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_MineShaft"]/comps</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_MineShaft"]/comps</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StoryTime.CompProperties_GemDropper">
+					<commonGemDropRate>0.05</commonGemDropRate>
+					<uncommonGemDropRate>0.009</uncommonGemDropRate>
+					<rareGemDropRate>0.003</rareGemDropRate>
+				</li>
+			</value>
+		</match>
+	</Operation>
+</Patch>

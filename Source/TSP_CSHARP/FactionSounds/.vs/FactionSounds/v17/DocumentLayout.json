@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\FactionSounds\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1CAB5D44-CF01-4A21-A43A-E3E348E993E8}|FactionSounds.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\factionsounds\\factionsounds\\factionsound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CAB5D44-CF01-4A21-A43A-E3E348E993E8}|FactionSounds.csproj|solutionrelative:factionsounds\\factionsound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CAB5D44-CF01-4A21-A43A-E3E348E993E8}|FactionSounds.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\factionsounds\\factionsounds\\factionsounds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CAB5D44-CF01-4A21-A43A-E3E348E993E8}|FactionSounds.csproj|solutionrelative:factionsounds\\factionsounds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CAB5D44-CF01-4A21-A43A-E3E348E993E8}|FactionSounds.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\factionsounds\\factionsounds\\generatepawnspatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CAB5D44-CF01-4A21-A43A-E3E348E993E8}|FactionSounds.csproj|solutionrelative:factionsounds\\generatepawnspatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GeneratePawnsPatch.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\FactionSounds\\FactionSounds\\GeneratePawnsPatch.cs",
+              "RelativeDocumentMoniker": "FactionSounds\\GeneratePawnsPatch.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\FactionSounds\\FactionSounds\\GeneratePawnsPatch.cs",
+              "RelativeToolTip": "FactionSounds\\GeneratePawnsPatch.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:00:59.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FactionSounds.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\FactionSounds\\FactionSounds\\FactionSounds.cs",
+              "RelativeDocumentMoniker": "FactionSounds\\FactionSounds.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\FactionSounds\\FactionSounds\\FactionSounds.cs",
+              "RelativeToolTip": "FactionSounds\\FactionSounds.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:00:56.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FactionSound.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\FactionSounds\\FactionSounds\\FactionSound.cs",
+              "RelativeDocumentMoniker": "FactionSounds\\FactionSound.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\FactionSounds\\FactionSounds\\FactionSound.cs",
+              "RelativeToolTip": "FactionSounds\\FactionSound.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:00:54.829Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

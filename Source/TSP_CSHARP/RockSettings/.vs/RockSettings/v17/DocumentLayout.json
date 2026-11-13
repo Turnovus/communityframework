@@ -1,0 +1,89 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\RockSettings\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C1B7E7BE-AB2D-43AB-B8FC-A8F0278CA763}|RockSettings.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\rocksettings\\rocksettings\\world_naturalrocktypesin_rocksettingsmodpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1B7E7BE-AB2D-43AB-B8FC-A8F0278CA763}|RockSettings.csproj|solutionrelative:rocksettings\\world_naturalrocktypesin_rocksettingsmodpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1B7E7BE-AB2D-43AB-B8FC-A8F0278CA763}|RockSettings.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\rocksettings\\rocksettings\\start.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1B7E7BE-AB2D-43AB-B8FC-A8F0278CA763}|RockSettings.csproj|solutionrelative:rocksettings\\start.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1B7E7BE-AB2D-43AB-B8FC-A8F0278CA763}|RockSettings.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\rocksettings\\rocksettings\\gamecomponent_rocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1B7E7BE-AB2D-43AB-B8FC-A8F0278CA763}|RockSettings.csproj|solutionrelative:rocksettings\\gamecomponent_rocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1B7E7BE-AB2D-43AB-B8FC-A8F0278CA763}|RockSettings.csproj|c:\\rimworld modding\\!repos\\!test16\\storytime\\16\\rocksettings\\rocksettings\\defmodextension_biomesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1B7E7BE-AB2D-43AB-B8FC-A8F0278CA763}|RockSettings.csproj|solutionrelative:rocksettings\\defmodextension_biomesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "World_NaturalRockTypesIn_RockSettingsModPatch.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\RockSettings\\RockSettings\\World_NaturalRockTypesIn_RockSettingsModPatch.cs",
+              "RelativeDocumentMoniker": "RockSettings\\World_NaturalRockTypesIn_RockSettingsModPatch.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\RockSettings\\RockSettings\\World_NaturalRockTypesIn_RockSettingsModPatch.cs",
+              "RelativeToolTip": "RockSettings\\World_NaturalRockTypesIn_RockSettingsModPatch.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAUwB0AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:04:23.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Start.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\RockSettings\\RockSettings\\Start.cs",
+              "RelativeDocumentMoniker": "RockSettings\\Start.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\RockSettings\\RockSettings\\Start.cs",
+              "RelativeToolTip": "RockSettings\\Start.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:04:21.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameComponent_Rocks.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\RockSettings\\RockSettings\\GameComponent_Rocks.cs",
+              "RelativeDocumentMoniker": "RockSettings\\GameComponent_Rocks.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\RockSettings\\RockSettings\\GameComponent_Rocks.cs",
+              "RelativeToolTip": "RockSettings\\GameComponent_Rocks.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:04:19.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DefModExtension_BiomeSettings.cs",
+              "DocumentMoniker": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\RockSettings\\RockSettings\\DefModExtension_BiomeSettings.cs",
+              "RelativeDocumentMoniker": "RockSettings\\DefModExtension_BiomeSettings.cs",
+              "ToolTip": "C:\\Rimworld Modding\\!Repos\\!Test16\\StoryTime\\16\\RockSettings\\RockSettings\\DefModExtension_BiomeSettings.cs",
+              "RelativeToolTip": "RockSettings\\DefModExtension_BiomeSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T00:04:18.168Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

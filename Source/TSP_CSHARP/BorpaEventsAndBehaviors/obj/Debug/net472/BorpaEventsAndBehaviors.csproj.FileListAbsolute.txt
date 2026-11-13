@@ -1,0 +1,7 @@
+C:\Users\Jeremy\Desktop\StoryTime\BorpaEventsAndBehaviors\bin\Debug\net472\BorpaEventsAndBehaviors.dll
+C:\Users\Jeremy\Desktop\StoryTime\BorpaEventsAndBehaviors\bin\Debug\net472\BorpaEventsAndBehaviors.pdb
+C:\Users\Jeremy\Desktop\StoryTime\BorpaEventsAndBehaviors\obj\Debug\net472\BorpaEventsAndBehaviors.csproj.AssemblyReference.cache
+C:\Users\Jeremy\Desktop\StoryTime\BorpaEventsAndBehaviors\obj\Debug\net472\BorpaEventsAndBehaviors.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jeremy\Desktop\StoryTime\BorpaEventsAndBehaviors\obj\Debug\net472\BorpaEventsAndBehaviors.csproj.CoreCompileInputs.cache
+C:\Users\Jeremy\Desktop\StoryTime\BorpaEventsAndBehaviors\obj\Debug\net472\BorpaEventsAndBehaviors.dll
+C:\Users\Jeremy\Desktop\StoryTime\BorpaEventsAndBehaviors\obj\Debug\net472\BorpaEventsAndBehaviors.pdb
